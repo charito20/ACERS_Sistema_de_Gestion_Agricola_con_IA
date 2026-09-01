@@ -952,5 +952,40 @@ El conjunto se levanta con \texttt{docker compose up} desde \ruta{05\_MVP/}. El 
 
 El diagrama de despliegue completo, con el dispositivo cliente, el servidor de aplicacion, el servidor de base de datos y los nodos externos del motor de recomendaciones y de AGROCALIDAD, esta en \ruta{03\_Modelado/Diagrams/DEP01\_Deployment\_Diagram.drawio}.
 
+\section{Priorizacion y trazabilidad}
+
+Los 39 requisitos funcionales cuentan con su prioridad MoSCoW asignada dentro de cada ficha de la Seccion 3. Sobre esa base, el equipo completo realizo el 1 de septiembre de 2026 una sesion de priorizacion complementaria con el modelo de Kano y el metodo WSJF, del marco agil SAFe. La clasificacion Kano de cada requisito, en basico, de desempeno, atractivo o indiferente, se definio por consenso del equipo a partir de la evidencia cualitativa recogida en las 16 entrevistas y no de una encuesta Kano formal aplicada a los participantes, ya que esa encuesta especifica no formo parte del instrumento de campo. Para el WSJF, el equipo asigno a cada requisito cuatro valores del 1 al 10, valor de negocio, urgencia, reduccion de riesgo u oportunidad, y tamano del esfuerzo, y el puntaje final se calculo como la suma de los tres primeros valores dividida entre el tamano del esfuerzo.
+
+El resultado completo, con los 39 requisitos y su ranking final, se documenta en \ruta{priorizacion\_moscow\_kano.csv}. Los diez requisitos de mayor prioridad segun este metodo son los siguientes.
+
+\begin{longtable}{L{1.4cm} L{7.2cm} L{3.2cm} L{2cm} L{1.2cm}}
+\toprule
+\textbf{Ranking} & \textbf{Requisito} & \textbf{MoSCoW} & \textbf{Kano} & \textbf{WSJF} \\
+\midrule
+\endhead
+1 & RF-26, registro manual de ingresos y egresos & Must have & Basico & 6.5 \\
+2 & RF-08, alertas automaticas de bajo stock & Must have & De desempeno & 6.3 \\
+2 & RF-13, registro de motivo de rechazo de fruta & Should have & De desempeno & 6.3 \\
+4 & RF-02, catalogo cerrado de cultivos y variedades & Should have & Basico & 6.0 \\
+4 & RF-22, consentimiento del trabajador para el tratamiento de datos & Must have regulatorio & Basico & 6.0 \\
+4 & RF-37, aviso ante plaga cuarentenaria & Must have regulatorio & Basico & 6.0 \\
+7 & RF-18, registro de riesgo laboral y equipo de proteccion & Should have & Basico & 5.6 \\
+7 & RF-24, certificado de salud del trabajador & Must have regulatorio & Basico & 5.6 \\
+7 & RF-38, bitacora de bioseguridad de ingreso y salida & Should have regulatorio & Basico & 5.6 \\
+10 & RF-30, umbral de stock minimo configurable & Should have & De desempeno & 5.3 \\
+\bottomrule
+\end{longtable}
+
+El requisito con menor prioridad resultante es el RF-32, la via de integracion futura con sensores de campo, coherente con su prioridad MoSCoW de Won't have para esta version.
+
+La matriz de trazabilidad esta cerrada en \ruta{04\_Trazabilidad/Matriz\_Trazabilidad\_v2.xlsx}, con 60 filas. Son 54 filas base, una por cada requisito funcional, no funcional o derivado del catalogo actual, y 6 filas secundarias para los seis requisitos que dan servicio a un segundo caso de uso ademas del principal. Cada fila enlaza la ley o la fuente de elicitacion, el articulo, el objetivo, el interesado, el codigo de evidencia, el requisito, el tipo, el caso de uso, la historia de usuario y su criterio de aceptacion cuando corresponde, el componente y el mockup. Todos los identificadores de caso de uso, componente y mockup coinciden con los del paquete de modelado de la Seccion 4.
+
+\section{Producto minimo viable}
+
+El producto minimo viable esta en \ruta{05\_MVP/}, con la arquitectura de contenedores Docker descrita en la Seccion 4.6. El backend en Node.js con Express y PostgreSQL implementa el esquema de base de datos derivado del modelo de dominio y los endpoints que cubren 15 de los 17 requisitos funcionales Must have de la Seccion 3, RF-01, RF-03, RF-04, RF-05, RF-06, RF-07, RF-08, RF-09, RF-11, RF-19, RF-20, RF-22, RF-26, RF-34 y RF-37. Levanta con \texttt{docker compose up} y trae una prueba de humo de extremo a extremo. Quedan como interfaz de cliente el RF-12, la notificacion push de tareas, y el RF-10, el diagnostico por imagen, ambos dependientes de servicios externos.
+
+\bibliographystyle{plain}
+\bibliography{referencias}
+\addcontentsline{toc}{section}{Referencias}
 
 \end{document}
