@@ -1,0 +1,1 @@
+﻿# figuras vectoriales del manuscrito

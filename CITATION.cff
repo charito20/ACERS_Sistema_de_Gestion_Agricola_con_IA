@@ -1,0 +1,22 @@
+﻿cff-version: 1.2.0
+message: "Cite this repository"
+title: "ACERS - Sistema de Gestion Agricola con IA para cultivos de verde y cacao"
+version: 2.0.0
+date-released: 2026-08-30
+authors:
+  - family-names: "Escudero Plaza"
+    given-names: "Maria del Rosario"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: "Arteaga Alava"
+    given-names: "Danela Dayana"
+  - family-names: "Calle Delgado"
+    given-names: "Kamila Anabella"
+  - family-names: "Sanchez Centeno"
+    given-names: "Roselyn Andreina"
+license: "MIT"
+repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
+keywords:
+  - "Requirements Engineering"
+  - "Agricultural Management"
+  - "Artificial Intelligence"
+doi: "10.5281/zenodo.TBD"
