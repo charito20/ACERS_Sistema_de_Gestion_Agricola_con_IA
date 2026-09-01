@@ -823,5 +823,134 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \item \textbf{Evidencia textual:} ``Mediante una notificacion como un mensaje de texto, algo que creo que es lo mas facil'' (EV-10).
 \end{itemize}
 
+\subsection{Historias de usuario y criterios de aceptacion}
+
+Los 17 requisitos funcionales de prioridad Must have se tradujeron a historias de usuario en formato Connextra, seguidas de un escenario de aceptacion en Gherkin construido a partir del criterio de verificacion ya definido para cada requisito. Cada historia cumple los criterios INVEST al describir una necesidad independiente, negociable en su implementacion, de valor claro para el usuario, estimable, acotada a un solo requisito y verificable mediante el escenario que la acompana.
+
+\newcommand{\hu}[3]{\par\smallskip\noindent\textbf{#1, ligada a #2.} #3\par}
+
+\hu{HU-01}{RF-01}{Como administrador, tecnico o jornalero, quiero registrar y editar una parcela con sus datos basicos, para tener siempre a la mano el nombre, el cultivo y la cantidad de plantas de cada lote sin depender de la memoria o de papeles sueltos.\\
+\textit{Dado} que estoy autenticado con permiso de edicion, \textit{cuando} registro una parcela completando los siete campos obligatorios, \textit{entonces} el sistema la muestra en el listado general en menos de dos segundos y sin campos vacios.}
+
+\hu{HU-02}{RF-03}{Como jornalero o tecnico, quiero registrar cada actividad agricola con su fecha, lote, producto y responsable, para dejar un historial confiable de lo que se hizo en cada parcela.\\
+\textit{Dado} que estoy autenticado, \textit{cuando} intento guardar una actividad sin indicar la fecha, el lote o el trabajador responsable, \textit{entonces} el sistema rechaza el registro hasta que esos tres datos queden completos.}
+
+\hu{HU-03}{RF-04}{Como jornalero, quiero registrar la cosecha en la unidad propia de cada cultivo, para no forzar el dato a una unidad que no corresponde con la forma real de trabajo en campo.\\
+\textit{Dado} que estoy registrando la cosecha de un lote de cacao, \textit{cuando} elijo la unidad de medida, \textit{entonces} el sistema solo acepta tacho o quintal, y si el lote es de platano solo acepta racimo o caja.}
+
+\hu{HU-04}{RF-05}{Como administrador, tecnico o jornalero, quiero ver el rendimiento promedio de cada lote por periodo, para comparar el desempeno de mis parcelas sin calcularlo a mano.\\
+\textit{Dado} un lote con dos o mas registros de cosecha, \textit{cuando} consulto su rendimiento, \textit{entonces} el sistema muestra un promedio igual al que resulta de dividir la suma de las cosechas entre el numero de registros.}
+
+\hu{HU-05}{RF-06}{Como tecnico o jornalero, quiero que el sistema calcule automaticamente la ganancia neta de un periodo, para conocer el resultado economico real sin hacer la resta manualmente.\\
+\textit{Dado} que existen registros de ingresos y egresos en un periodo, \textit{cuando} consulto la ganancia neta, \textit{entonces} el valor mostrado es igual a la suma de ingresos menos la suma de egresos de ese periodo.}
+
+\hu{HU-06}{RF-07}{Como administrador, tecnico o jornalero, quiero registrar la cantidad usada de un insumo, para saber en todo momento cuanto stock me queda sin contarlo manualmente.\\
+\textit{Dado} un insumo con treinta unidades disponibles, \textit{cuando} registro un uso de veintiseis unidades, \textit{entonces} el sistema muestra cuatro unidades disponibles.}
+
+\hu{HU-07}{RF-08}{Como administrador, jornalero o tecnica, quiero recibir una alerta cuando el stock de un insumo baje del umbral configurado, para comprar a tiempo antes de quedarme sin insumo para una labor programada.\\
+\textit{Dado} un insumo cuyo stock cae por debajo del umbral configurado, \textit{cuando} se registra ese descenso, \textit{entonces} el sistema envia la notificacion al responsable en menos de cinco minutos.}
+
+\hu{HU-08}{RF-09}{Como administrador, tecnico o jornalero, quiero recibir una alerta de posible plaga o enfermedad que siempre pida mi confirmacion antes de aplicarse, para mantener el control sobre las decisiones de manejo del cultivo.\\
+\textit{Dado} que el sistema genera una alerta de plaga sobre un lote, \textit{cuando} la alerta se muestra al usuario responsable, \textit{entonces} queda registrada como pendiente de confirmar o descartar y en ningun caso se aplica de forma automatica al lote.}
+
+\hu{HU-09}{RF-11}{Como administrador, tecnico o jornalero, quiero asignar tareas a un trabajador por lote y fecha y poder filtrarlas por estado, para saber en cualquier momento que falta, que esta en curso y que ya se completo.\\
+\textit{Dado} que existen tareas en distintos estados, \textit{cuando} filtro la lista por el estado pendiente, \textit{entonces} el sistema solo muestra las tareas que estan en ese estado.}
+
+\hu{HU-10}{RF-19}{Como administrador o tecnico, quiero generar reportes de produccion, costos y perdidas con graficos, para presentar la informacion de la finca de forma visual y tomar decisiones mas rapido.\\
+\textit{Dado} un rango de fechas y uno o varios lotes seleccionados, \textit{cuando} genero el reporte, \textit{entonces} los valores mostrados corresponden exactamente a la suma de los registros de ese rango.}
+
+\hu{HU-11}{RF-20}{Como tecnico, quiero que el sistema pida usuario y contrasena y respete los permisos de cada rol, para que cada persona solo pueda ver y hacer lo que corresponde a su funcion.\\
+\textit{Dado} un usuario con rol de jornalero, \textit{cuando} intenta acceder al modulo financiero, \textit{entonces} el sistema le niega el acceso.}
+
+\hu{HU-12}{RF-22}{Como administrador, quiero registrar el consentimiento de cada trabajador para el tratamiento de sus datos personales, para cumplir con la Ley Organica de Proteccion de Datos Personales antes de guardar cualquier informacion suya en el sistema.\\
+\textit{Dado} un trabajador que va a usar el sistema por primera vez, \textit{cuando} intenta iniciar sesion sin haber registrado su consentimiento, \textit{entonces} el sistema le solicita aceptarlo antes de continuar.}
+
+\hu{HU-13}{RF-23}{Como trabajador, quiero poder acceder, rectificar o eliminar mis propios datos personales dentro del sistema, para ejercer los derechos que me reconoce la Ley Organica de Proteccion de Datos Personales.\\
+\textit{Dado} que estoy autenticado en el sistema, \textit{cuando} solicito ver, corregir o eliminar mis datos personales, \textit{entonces} el sistema atiende la solicitud y deja un registro de la accion realizada.}
+
+\hu{HU-14}{RF-24}{Como administrador, quiero registrar el certificado de salud vigente del trabajador que aplica agroquimicos, para cumplir con lo exigido por la Resolucion 183 de AGROCALIDAD antes de asignarle esa labor.\\
+\textit{Dado} un trabajador sin certificado de salud vigente registrado, \textit{cuando} intento asignarle una tarea de aplicacion de agroquimicos, \textit{entonces} el sistema advierte que el certificado no esta registrado.}
+
+\hu{HU-15}{RF-26}{Como tecnico o jornalera, quiero registrar manualmente cada ingreso y egreso con su concepto, monto y fecha, para llevar un control independiente ademas del calculo automatico de ganancia.\\
+\textit{Dado} que registro un ingreso o un egreso con su concepto, monto y fecha, \textit{cuando} reviso el reporte financiero del periodo correspondiente, \textit{entonces} ese movimiento aparece reflejado en el.}
+
+\hu{HU-16}{RF-34}{Como tecnico, quiero que el catalogo de cultivos muestre un conjunto de campos distinto segun la variedad seleccionada, para registrar los datos agronomicos propios de cada variedad de cacao o de platano.\\
+\textit{Dado} que selecciono una variedad de cacao en el formulario, \textit{cuando} el formulario se despliega, \textit{entonces} muestra un conjunto de campos distinto al que se muestra al seleccionar platano.}
+
+\hu{HU-17}{RF-37}{Como jornalero, tecnico o administrador, quiero poder registrar y avisar de inmediato ante sintomas sospechosos de una plaga cuarentenaria como el Moko, para activar el protocolo de bioseguridad exigido por AGROCALIDAD sin perder tiempo.\\
+\textit{Dado} que un usuario reporta sintomas compatibles con una plaga cuarentenaria en un lote, \textit{cuando} registra el aviso, \textit{entonces} el sistema lo marca con prioridad alta y lo deja visible para el administrador de forma inmediata.}
+
+\subsection{Trazabilidad legal}
+
+La cobertura de los 26 criterios legales frente a los requisitos elicitados por entrevista y frente a los requisitos derivados directamente del texto legal se documenta fila por fila en \ruta{04\_Trazabilidad/Matriz\_Trazabilidad\_v2.xlsx}. Esa matriz es la que alimenta el diseno de la prueba de McNemar del protocolo experimental, al marcar cada uno de los 26 criterios como cubierto o no cubierto antes y despues de aplicar el metodo legal-first.
+
+\section{Modelado del sistema}
+
+El modelado completo esta en \ruta{03\_Modelado/}, con 32 diagramas en formato \texttt{.drawio} y su exportacion a imagen, mas la especificacion textual de los casos de uso y las historias de usuario. Toma como base el diagrama de contexto de la Seccion 2.2 y el modelado organizacional i estrella de la Seccion 2.4, y desarrolla a partir de los 39 requisitos funcionales y 15 no funcionales de la Seccion 3.
+
+\subsection{Actores y casos de uso}
+
+El sistema tiene tres actores humanos, administrador, tecnico y trabajador agricola, y dos actores externos, el motor de recomendaciones de inteligencia artificial y AGROCALIDAD como entidad reguladora. El diagrama general de casos de uso reune 14 casos de uso en alcance, CU-01 a CU-14, con el detalle textual de precondiciones, poscondiciones, flujo basico, flujos alternativos y reglas de negocio en \ruta{03\_Modelado/00\_Use\_Case\_Specifications.md}. CU-15, la via de integracion con sensores del RF-32, queda documentado como Won't have y no se desarrolla.
+
+\begin{longtable}{L{6cm} L{9cm}}
+\toprule
+\textbf{Caso de uso} & \textbf{Requisitos que agrupa} \\
+\midrule
+\endhead
+CU-01 Gestionar parcelas y lotes & RF-01, RF-02, RF-16, RF-29, RF-34, RF-35 \\
+CU-02 Registrar actividades agricolas & RF-03 \\
+CU-03 Registrar cosecha & RF-04, RF-13, RF-14, RF-15 \\
+CU-04 Calcular rendimiento y finanzas & RF-05, RF-06, RF-26 \\
+CU-05 Gestionar inventario de insumos & RF-07, RF-08, RF-30 \\
+CU-06 Alertas de plagas asistidas por IA & RF-09, RF-10, RF-31, RF-33 \\
+CU-07 Asignar y dar seguimiento a tareas & RF-11, RF-12, RF-27, RF-28 \\
+CU-08 Generar reportes & RF-19 \\
+CU-09 Autenticacion y control de acceso & RF-20, RF-22, RF-23 \\
+CU-10 Visitas tecnicas & RF-21 \\
+CU-11 Riesgo laboral y equipo de proteccion & RF-18, RF-24 \\
+CU-12 Canal rapido de reporte & RF-17 \\
+CU-13 Cumplimiento BPA & RF-25, RF-36, RF-38, RF-39 \\
+CU-14 Aviso de plaga cuarentenaria & RF-37, RF-38 \\
+\bottomrule
+\end{longtable}
+
+Las historias de usuario con criterios de aceptacion en Gherkin estan en \ruta{03\_Modelado/00\_User\_Stories\_Acceptance\_Criteria.md}, una por cada requisito funcional Must have que la lleva, segun la regla de la guia de modelado.
+
+\subsection{Modelo de dominio}
+
+El dominio se reparte en dos diagramas de clases. \texttt{CD01\_Refined\_Class\_Diagram} cubre el dominio operativo, con la jerarquia de usuario, parcela, cultivo, cosecha, labor, insumo, reporte y las clases de recomendacion y alerta de inteligencia artificial. \texttt{CD02\_Legal\_Compliance\_Class\_Diagram} cubre el dominio de cumplimiento legal derivado del enfoque legal-first, con las clases de consentimiento, solicitud de derechos del titular, visita tecnica, riesgo laboral, aviso fitosanitario, bitacora de bioseguridad, certificacion BPA, registro de capacitacion, lote de exportacion y transaccion financiera.
+
+\subsection{Comportamiento}
+
+El comportamiento se documenta con 7 diagramas de actividad, con calles por actor, que cubren el flujo operativo principal, la alerta de inventario, las recomendaciones de inteligencia artificial, el consentimiento y los derechos ARCO+ de la LOPDP, la visita tecnica y el cumplimiento BPA, el riesgo laboral y el aviso de plaga cuarentenaria. Los 14 diagramas de secuencia siguen la separacion en capas de frontera, control y entidad, con fragmentos de alternativa y barras de activacion. Dos diagramas de estados modelan el ciclo de vida de una tarea de labor y el de una alerta de inteligencia artificial. Este segundo diagrama fija la regla central del RF-09, ninguna alerta se aplica de forma automatica a un lote sin la confirmacion del usuario responsable, y el camino del RF-33, en el que un desacuerdo formal mantiene la alerta fuera del conjunto aplicado hasta que la revise el equipo tecnico.
+
+\subsection{Arquitectura de componentes}
+
+El diagrama de componentes divide el backend en modulos, \texttt{AuthModule} y \texttt{UserModule} para autenticacion y usuarios, \texttt{PlotCropModule} para parcelas y catalogo, \texttt{TaskModule} para tareas, \texttt{InventoryModule} para insumos, \texttt{ReportModule} para cosecha, rendimiento y reportes, \texttt{AIIntegrationModule} para la integracion con el motor de recomendaciones, y \texttt{ComplianceModule} para todo el dominio de cumplimiento LOPDP y AGROCALIDAD. El cliente es una aplicacion web que consume una API REST sobre HTTPS. Los actores externos son el motor de recomendaciones, conectado por su propia API sin capacidad de modificar datos de forma autonoma, y la pasarela de reporte a AGROCALIDAD para los avisos de las Resoluciones 183 y 0072.
+
+\subsection{Mockups}
+
+Hay 9 pantallas en \ruta{03\_Modelado/Mockups/}, MU-01 a MU-09, cada una en un archivo HTML autonomo y exportada a imagen, mas \texttt{MU-00\_Prototype.html} como prototipo navegable que las enlaza. Cubren inicio de sesion y consentimiento, listado de parcelas, registro de actividad, registro de cosecha, alerta de inventario, alerta de inteligencia artificial, tablero de tareas, panel de reportes y la pantalla de cumplimiento y visitas tecnicas.
+
+\subsection{Diagrama de despliegue}
+
+El conjunto se levanta con \texttt{docker compose up} desde \ruta{05\_MVP/}. El backend expone la logica de negocio a traves de una API REST y la base de datos PostgreSQL cuenta con un chequeo de salud antes de aceptar trafico del backend.
+
+\begin{verbatim}
+        +---------------------------------------------+
+        |               Host Docker                   |
+        |  +---------------------+  +---------------+  |
+        |  | agromoreira_backend |->| agromoreira_db|  |
+        |  | Node.js / Express   |  | PostgreSQL 16 |  |
+        |  | puerto 3000         |  | puerto 5432   |  |
+        |  +---------------------+  +---------------+  |
+        +----------^-------------------------|--------+
+                   |                         |
+             cliente web o movil     volumen persistente
+                (HTTP)               agromoreira_db_data
+\end{verbatim}
+
+El diagrama de despliegue completo, con el dispositivo cliente, el servidor de aplicacion, el servidor de base de datos y los nodos externos del motor de recomendaciones y de AGROCALIDAD, esta en \ruta{03\_Modelado/Diagrams/DEP01\_Deployment\_Diagram.drawio}.
+
 
 \end{document}
