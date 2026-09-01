@@ -646,5 +646,182 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 \item \textbf{Evidencia textual:} ``una calicata, para ver o realizar un analisis de suelo... nos va a decir si es apto o no es apto sembrar en dicho terreno'' (EV-17).
 \end{itemize}
 
+\subsection{Requisitos legales derivados}
+
+Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos. Ninguna de las 16 entrevistas menciono el proceso de certificacion BPA, el derecho de acceso o rectificacion de datos personales, el aviso fitosanitario formal ni el registro de capacitaciones, asi que siguen siendo vacios legales puros. El equipo de proteccion personal y el analisis de suelo si encontraron respaldo parcial en EV-17, ver RF-18 y RF-35, pero el certificado de salud del trabajador continua sin evidencia de entrevista.
+
+\rf{RF-22}{Registro de consentimiento del trabajador para el tratamiento de sus datos personales}
+\begin{itemize}
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C4, LOPDP Art. 8.
+\item \textbf{Prioridad MoSCoW:} Must have, regulatorio.
+\item \textbf{Evidencia legal:} Art. 8 LOPDP. El consentimiento debe ser libre, especifico, informado e inequivoco.
+\end{itemize}
+
+\rf{RF-23}{Modulo de derechos ARCO+ del trabajador}
+\begin{itemize}
+\item \textbf{Descripcion:} acceso, rectificacion y eliminacion de sus propios datos.
+\item \textbf{Actor y origen:} Jornalero o trabajador. Sin evidencia de entrevista, criterio C10, LOPDP Art. 13 a 19.
+\item \textbf{Prioridad MoSCoW:} Must have, regulatorio.
+\end{itemize}
+
+\rf{RF-24}{Registro de certificado de salud del trabajador que aplica agroquimicos}
+\begin{itemize}
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista para el certificado de salud, criterio C17, Resolucion AGROCALIDAD 183, Art. 33 y 34. El requisito de equipo de proteccion personal ya cuenta con evidencia real en RF-18.
+\item \textbf{Prioridad MoSCoW:} Must have, regulatorio.
+\end{itemize}
+
+\rf{RF-25}{Registro y seguimiento del proceso de certificacion BPA ante AGROCALIDAD}
+\begin{itemize}
+\item \textbf{Descripcion:} solicitud, inspeccion y vigencia.
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C20, Resolucion AGROCALIDAD 183, Art. 39 a 43.
+\item \textbf{Prioridad MoSCoW:} Should have, regulatorio.
+\end{itemize}
+
+\rf{RF-36}{Registro de capacitacion en manejo de plaguicidas y primeros auxilios}
+\begin{itemize}
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C23, Resolucion AGROCALIDAD 183, Art. 18(e).
+\item \textbf{Prioridad MoSCoW:} Should have, regulatorio.
+\end{itemize}
+
+\rf{RF-37}{Aviso ante sintomas sospechosos de plaga cuarentenaria}
+\begin{itemize}
+\item \textbf{Actor y origen:} Jornalero, Tecnico, Administrador. Sin evidencia de entrevista, criterio C24, Resolucion AGROCALIDAD 0072, Art. 3.6.1(a). EV-17 menciono el problema del Moko y las medidas de desinfeccion, pero ningun entrevistado describio el mecanismo formal de aviso a AGROCALIDAD.
+\item \textbf{Prioridad MoSCoW:} Must have, regulatorio.
+\end{itemize}
+
+\rf{RF-38}{Bitacora de bioseguridad de ingreso y salida del predio}
+\begin{itemize}
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista sobre el registro formal, aunque EV-17 describio la practica de desinfeccion. Criterio C25, Resolucion AGROCALIDAD 0072, Art. 3.6.1(d).
+\item \textbf{Prioridad MoSCoW:} Should have, regulatorio.
+\end{itemize}
+
+\rf{RF-39}{Registro de capacitaciones del personal sobre control fitosanitario especifico}
+\begin{itemize}
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C26, Resolucion AGROCALIDAD 0072, Art. 3.6.1(f)(g).
+\item \textbf{Prioridad MoSCoW:} Should have, regulatorio.
+\end{itemize}
+
+\subsection{Requisitos no funcionales}
+
+\rf{RNF-01}{Acceso movil prioritario}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} interaccion con el usuario.
+\item \textbf{Descripcion:} las funciones de consulta y registro mas usadas en campo, tareas, cosecha e inventario, deben estar disponibles desde un telefono movil, no solo desde escritorio.
+\item \textbf{Metrica:} el 100\% de las pantallas de RF-01, RF-03, RF-04, RF-11 y RF-19 deben renderizar correctamente en una pantalla de 360 por 800 pixeles sin desplazamiento horizontal.
+\item \textbf{Evidencia textual:} ``Desde mi telefono, mas rapido'' (EV-01).
+\end{itemize}
+
+\rf{RNF-02}{Interfaz simple y sin tecnicismos}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} interaccion con el usuario.
+\item \textbf{Descripcion:} las etiquetas de campos y menus deben usar vocabulario cotidiano del agricultor, evitando abreviaturas o nombres de columna tecnicos.
+\item \textbf{Metrica:} en una prueba de usabilidad con 5 jornaleros sin experiencia previa en el sistema, al menos el 90\% de los terminos de la interfaz deben ser comprendidos sin ayuda externa.
+\item \textbf{Evidencia textual:} ``cosas muy tecnicas, numeros de oficina, codigos raros a la vez, solo confundir. Entre mas directo y sencillo es mejor'' (EV-15).
+\end{itemize}
+
+\rf{RNF-03}{Usabilidad para usuarios con baja alfabetizacion digital}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} interaccion con el usuario.
+\item \textbf{Descripcion:} un usuario sin experiencia previa en aplicaciones moviles debe poder completar el registro de una cosecha sin asistencia despues de una capacitacion breve.
+\item \textbf{Metrica:} tiempo maximo de 5 minutos de capacitacion para que un jornalero sin experiencia previa registre una cosecha sin errores.
+\item \textbf{Evidencia textual:} ``No tengo estudios'' y uso previo de aplicaciones ``No'' (EV-02).
+\end{itemize}
+
+\rf{RNF-04}{Robustez de campo ante condiciones adversas}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} fiabilidad.
+\item \textbf{Descripcion:} el registro de actividades y cosecha debe seguir siendo posible sin conexion a internet, sincronizando los datos cuando la conexion se restablezca.
+\item \textbf{Metrica:} el sistema debe permitir guardar localmente hasta 7 dias de registros sin conexion, sin perdida de datos al reconectarse.
+\item \textbf{Evidencia textual:} ``el barro y la lluvia... Danan las hojas de papel donde nosotros anotamos y nos confundimos'' (EV-14).
+\end{itemize}
+
+\rf{RNF-05}{Explicabilidad verificable de las recomendaciones de IA}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} adecuacion funcional.
+\item \textbf{Descripcion:} toda recomendacion de IA debe mostrar la razon de la sugerencia antes de que el usuario pueda aplicarla.
+\item \textbf{Metrica:} el 100\% de las alertas de IA, RF-09 y RF-10, deben incluir un texto de justificacion de un maximo de 60 palabras, visible antes del boton de confirmacion.
+\item \textbf{Evidencia textual:} ``Que explique cual es el problema y lo que se debe hacer'' (EV-09).
+\end{itemize}
+
+\rf{RNF-06}{Transparencia del origen de los datos de la recomendacion}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} adecuacion funcional.
+\item \textbf{Descripcion:} ademas de explicar el motivo, la recomendacion debe indicar en que datos del propio lote se baso.
+\item \textbf{Metrica:} el 100\% de las recomendaciones deben listar al menos 1 dato de origen, por ejemplo el registro de fumigacion del 12 de agosto.
+\item \textbf{Evidencia textual:} ``Los datos en que se basa esta informacion'' (EV-16).
+\end{itemize}
+
+\rf{RNF-07}{Preservacion del historico de datos sin perdida}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} fiabilidad.
+\item \textbf{Descripcion:} ningun dato de cosecha, actividad o inventario registrado debe poder eliminarse de forma permanente sin confirmacion explicita y registro de auditoria.
+\item \textbf{Metrica:} el sistema debe mantener un registro de auditoria de cambios y eliminaciones por al menos 24 meses.
+\item \textbf{Evidencia textual:} ``habia desvarianza de datos, en lo que no se podia cuadrar un numero de cajas'' (EV-01).
+\end{itemize}
+
+\rf{RNF-08}{Consentimiento explicito registrado en el primer inicio de sesion}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} seguridad.
+\item \textbf{Descripcion:} todo trabajador debe aceptar un aviso de tratamiento de datos personales antes de poder usar el sistema por primera vez.
+\item \textbf{Metrica:} el 100\% de las cuentas activas deben tener un registro de aceptacion con fecha y hora.
+\item \textbf{Evidencia legal:} Art. 8 LOPDP.
+\end{itemize}
+
+\rf{RNF-09}{Seguridad de los datos personales almacenados}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} seguridad, derivado legal.
+\item \textbf{Descripcion:} los datos personales de los trabajadores deben cifrarse en reposo y en transito.
+\item \textbf{Metrica:} cifrado AES-256 en base de datos y TLS 1.2 o superior en toda comunicacion cliente y servidor.
+\item \textbf{Evidencia legal:} Art. 37 y 41 LOPDP, sin evidencia directa de entrevista, requisito regulatorio.
+\end{itemize}
+
+\rf{RNF-10}{Posibilidad de disentir de una recomendacion sin bloquear el flujo de trabajo}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} interaccion con el usuario.
+\item \textbf{Descripcion:} el usuario debe poder continuar su trabajo normalmente aunque decida no seguir una recomendacion de IA, sin que el sistema se lo impida ni lo penalice.
+\item \textbf{Metrica:} cero casos en los que el sistema bloquee una accion del usuario por no aceptar una recomendacion de IA.
+\item \textbf{Evidencia textual:} ``Lo primero que en este caso haria es comparar con mi experiencia'' (EV-16).
+\end{itemize}
+
+\rf{RNF-11}{Reduccion del esfuerzo de captura manual de datos}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} eficiencia de desempeno.
+\item \textbf{Descripcion:} las pantallas de registro frecuente, cosecha y actividad, deben minimizar el numero de campos obligatorios y usar seleccion en vez de texto libre donde sea posible.
+\item \textbf{Metrica:} registrar una cosecha completa debe tomar un maximo de 30 segundos en condiciones normales de campo.
+\item \textbf{Evidencia textual:} ``los datos de manera manual... eso si se hace un poco tedioso'' (EV-17).
+\end{itemize}
+
+\rf{RNF-12}{Conservacion minima de registros de trazabilidad}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} fiabilidad, derivado legal.
+\item \textbf{Descripcion:} los registros de actividad, cosecha y aplicacion de insumos deben conservarse un minimo de 2 anos, conforme a la normativa de trazabilidad agroindustrial.
+\item \textbf{Metrica:} ningun registro de los tipos mencionados puede eliminarse antes de cumplir 24 meses desde su creacion.
+\item \textbf{Evidencia legal:} Art. 38 de la Resolucion AGROCALIDAD 183, sin evidencia directa de entrevista, requisito regulatorio.
+\end{itemize}
+
+\rf{RNF-13}{Compatibilidad con dispositivos de gama baja}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} compatibilidad.
+\item \textbf{Descripcion:} la aplicacion movil debe funcionar en equipos Android de gama baja, dado el perfil economico de los usuarios de campo.
+\item \textbf{Metrica:} funcionamiento fluido, sin caidas, en un dispositivo con 2 GB de RAM y Android 9 o superior.
+\item \textbf{Evidencia textual:} inferido de que ningun jornalero entrevistado menciono tener un telefono de alta gama. Varios reportaron bajo uso previo de aplicaciones, EV-02 y EV-13.
+\end{itemize}
+
+\rf{RNF-14}{Extensibilidad del catalogo de cultivos y variedades}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} mantenibilidad.
+\item \textbf{Descripcion:} agregar un nuevo cultivo o variedad al catalogo, RF-02 y RF-34, no debe requerir cambios en el codigo de la aplicacion, solo configuracion.
+\item \textbf{Metrica:} un administrador debe poder agregar una variedad nueva con su conjunto de atributos en menos de 10 minutos, sin intervencion del equipo de desarrollo.
+\item \textbf{Evidencia textual:} ``seria bueno que lo inserten... Maracuya, la pimienta y el cafe'' (EV-10).
+\end{itemize}
+
+\rf{RNF-15}{Disponibilidad del servicio de notificaciones}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} fiabilidad.
+\item \textbf{Descripcion:} las notificaciones de bajo stock y asignacion de tareas deben entregarse de forma confiable incluso con conectividad intermitente.
+\item \textbf{Metrica:} el 95\% de las notificaciones deben entregarse dentro de los 5 minutos posteriores a la reconexion del dispositivo.
+\item \textbf{Evidencia textual:} ``Mediante una notificacion como un mensaje de texto, algo que creo que es lo mas facil'' (EV-10).
+\end{itemize}
+
 
 \end{document}
