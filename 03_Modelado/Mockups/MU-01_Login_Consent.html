@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MU-01 Login & Consent</title>
+<style>
+* { box-sizing: border-box; }
+html, body { margin:0; height:100%; }
+body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; background:#f2f4f6; color:#22303c; }
+.app { display:flex; min-height:100vh; width:100%; }
+.sidebar { width:230px; flex-shrink:0; background:#1c2b20; color:#eef2ee; display:flex; flex-direction:column; }
+.sidebar .brand { display:flex; align-items:center; gap:10px; padding:20px 18px; font-weight:700; font-size:16px; border-bottom:1px solid #2c3f30; }
+.sidebar .brand .logo { font-size:22px; }
+.sidebar nav { flex:1; padding:14px 10px; }
+.sidebar a { display:flex; align-items:center; gap:10px; color:#c7d3c9; text-decoration:none; font-size:13.5px; padding:10px 12px; border-radius:8px; margin-bottom:2px; cursor:pointer; }
+.sidebar a .ic { width:18px; text-align:center; }
+.sidebar a:hover { background:#26372a; color:#fff; }
+.sidebar a.active { background:#3f6b45; color:#fff; font-weight:600; }
+.sidebar .foot { padding:14px 18px; font-size:11px; color:#7d9081; border-top:1px solid #2c3f30; }
+.sidebar .foot a { color:#9fb3a5; text-decoration:none; }
+.main { flex:1; display:flex; flex-direction:column; min-width:0; }
+.topbar { height:60px; background:#fff; border-bottom:1px solid #e2e6ea; display:flex; align-items:center; justify-content:space-between; padding:0 26px; flex-shrink:0; }
+.topbar .title { font-size:17px; font-weight:700; }
+.topbar .crumbs { font-size:12px; color:#8a94a3; }
+.topbar .right { display:flex; align-items:center; gap:16px; }
+.topbar .search { background:#f2f4f6; border:1px solid #e2e6ea; border-radius:8px; padding:7px 12px; font-size:12.5px; color:#8a94a3; width:220px; }
+.topbar .avatar { width:32px; height:32px; border-radius:50%; background:#3f6b45; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
+.topbar .logout { font-size:12px; color:#8a94a3; text-decoration:none; }
+.content { flex:1; padding:26px 30px; overflow:auto; }
+.content h1 { font-size:20px; margin:0 0 4px; }
+.content .subtitle { color:#8a94a3; font-size:13px; margin-bottom:22px; }
+.grid { display:grid; gap:18px; }
+.grid.cols-2 { grid-template-columns:1fr 1fr; }
+.grid.cols-3 { grid-template-columns:repeat(3,1fr); }
+.grid.cols-4 { grid-template-columns:repeat(4,1fr); }
+.card { background:#fff; border:1px solid #e6e9ec; border-radius:10px; padding:18px; }
+.card h3 { margin:0 0 14px; font-size:14px; color:#22303c; }
+.kpi { background:#fff; border:1px solid #e6e9ec; border-radius:10px; padding:16px 18px; }
+.kpi .label { font-size:11.5px; color:#8a94a3; text-transform:uppercase; letter-spacing:.03em; font-weight:600; }
+.kpi .value { font-size:24px; font-weight:700; margin-top:4px; }
+.kpi .value.good { color:#2f5233; }
+.kpi .value.bad { color:#a13a3a; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; color:#8a94a3; font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:600; padding:9px 10px; border-bottom:1px solid #e6e9ec; }
+td { padding:11px 10px; border-bottom:1px solid #f0f2f4; }
+tr:last-child td { border-bottom:none; }
+.toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.field { margin-bottom:14px; }
+.field label { display:block; font-size:11.5px; color:#5b6472; margin-bottom:5px; font-weight:600; text-transform:uppercase; letter-spacing:.02em; }
+.field input, .field select, .field textarea { width:100%; padding:9px 11px; border:1px solid #cfd6dd; border-radius:7px; font-size:13.5px; background:#fbfcfd; }
+.btn { display:inline-block; background:#2f5233; color:#fff; border:none; padding:10px 18px; border-radius:8px; font-size:13.5px; font-weight:600; cursor:pointer; text-align:center; text-decoration:none; }
+.btn.secondary { background:#fff; color:#2f5233; border:1px solid #2f5233; }
+.btn.sm { padding:6px 12px; font-size:12px; }
+.badge { display:inline-block; font-size:11px; padding:3px 10px; border-radius:10px; font-weight:600; }
+.badge.pending { background:#fdeecb; color:#8a6116; }
+.badge.progress { background:#dbe9fd; color:#1c4f8a; }
+.badge.blocked { background:#fbdada; color:#8a1c1c; }
+.badge.done { background:#dcf3df; color:#1c6b2b; }
+.badge.low { background:#fbdada; color:#8a1c1c; }
+.muted { color:#8a94a3; font-size:12.5px; }
+.alert-box { border:1px solid #d79b00; background:#fff8e8; border-radius:10px; padding:16px 18px; margin-bottom:16px; }
+.alert-box .just { font-size:12.5px; color:#5b6472; margin:8px 0 12px; line-height:1.5; }
+.consent-box { border:1px solid #cfd6dd; border-radius:8px; padding:14px; font-size:12.5px; color:#3c4652; line-height:1.55; background:#fbfcfd; margin-bottom:16px; }
+.chart-bar { display:flex; align-items:flex-end; gap:10px; height:160px; margin-top:6px; }
+.chart-bar .bar { flex:1; background:#2f5233; border-radius:4px 4px 0 0; position:relative; }
+.chart-bar .bar.alt { background:#7fa06f; }
+.kanban { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:start; }
+.kanban .col h4 { font-size:12.5px; margin:0 0 10px; }
+.kanban .taskcard { background:#fff; border:1px solid #e6e9ec; border-radius:8px; padding:10px 12px; margin-bottom:10px; font-size:12.5px; }
+.kanban .taskcard .p { color:#8a94a3; font-size:11px; margin-top:3px; }
+/* standalone auth page (MU-01) — no app chrome, this is the pre-login screen */
+.auth-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,#16211a,#2f5233); padding:40px 20px; }
+.auth-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:980px; width:100%; }
+.auth-logo { text-align:center; color:#fff; grid-column:1/-1; margin-bottom:6px; }
+.auth-logo .emoji { font-size:34px; }
+.auth-logo .name { font-weight:700; font-size:20px; margin-top:4px; }
+.auth-logo .tag { font-size:12.5px; color:#cfe0d3; }
+</style></head>
+<body>
+<div class="auth-wrap">
+<div class="auth-grid">
+  <div class="auth-logo">
+    <div class="emoji">&#127806;</div>
+    <div class="name">AgroMoreira</div>
+    <div class="tag">AI-assisted agricultural management</div>
+  </div>
+  <div class="card">
+    <h3>Log in</h3>
+    <div class="field"><label>Username</label><input placeholder="e.g. jperez"/></div>
+    <div class="field"><label>Password</label><input type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/></div>
+    <div class="field"><label>Role</label><select><option>Administrator</option><option>Technician</option><option>Farmworker</option></select></div>
+    <a class="btn" id="loginBtn" href="MU-02_Plot_List.html">Log in (RF-20)</a>
+  </div>
+  <div class="card">
+    <h3>First login &mdash; LOPDP data notice (RF-22, Art. 8)</h3>
+    <div class="consent-box">
+      We process your name, contact details and work records to operate AgroMoreira's plot, task, harvest and compliance modules. Processing is necessary to run the service and to meet AGROCALIDAD reporting duties. Consent is free, specific, informed and unambiguous, and can be withdrawn at any time from Settings &rarr; My Data, where you may also exercise your ARCO+ rights (access, rectification, cancellation, opposition &mdash; RF-23).
+    </div>
+    <div style="display:flex;gap:10px;">
+      <a class="btn secondary" href="#">Reject</a>
+      <a class="btn" id="acceptBtn" href="MU-02_Plot_List.html">I accept (RF-22)</a>
+    </div>
+  </div>
+</div>
+</div>
+</body></html>

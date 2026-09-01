@@ -1,0 +1,31 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="Occupational Risk and PPE Activity Diagram (CU-11)" id="act-risk">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="660" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#000000;align=center;" value="Farmworker" vertex="1"><mxGeometry height="660" width="380" x="40" y="0" as="geometry"/></mxCell>
+        <mxCell id="lane2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#000000;align=center;" value="Technician" vertex="1"><mxGeometry height="660" width="380" x="460" y="0" as="geometry"/></mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="20" width="20" x="210" y="40" as="geometry"/></mxCell>
+        <mxCell id="assign" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Receive task assignment for a plot (RF-11)" vertex="1"><mxGeometry height="50" width="240" x="90" y="110" as="geometry"/></mxCell>
+        <mxCell id="check" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Check registered occupational risk for the plot (RF-18)" vertex="1"><mxGeometry height="50" width="250" x="500" y="190" as="geometry"/></mxCell>
+        <mxCell id="dec1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="Risk registered?" vertex="1"><mxGeometry height="80" width="160" x="550" y="300" as="geometry"/></mxCell>
+        <mxCell id="register" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Register risk type, severity and suggested PPE (RF-18)" vertex="1"><mxGeometry height="50" width="250" x="500" y="420" as="geometry"/></mxCell>
+        <mxCell id="warn" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Show PPE warning before confirming assignment" vertex="1"><mxGeometry height="50" width="240" x="90" y="420" as="geometry"/></mxCell>
+        <mxCell id="confirm" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Confirm assignment and start activity" vertex="1"><mxGeometry height="50" width="240" x="90" y="500" as="geometry"/></mxCell>
+        <mxCell id="certificate" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Attach worker health certificate (RF-24)" vertex="1"><mxGeometry height="50" width="250" x="500" y="500" as="geometry"/></mxCell>
+        <mxCell id="end1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="28" width="28" x="200" y="580" as="geometry"/></mxCell>
+        <mxCell id="end1_ring" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="36" width="36" x="196" y="576" as="geometry"/></mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" target="assign" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="assign" target="check" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="check" target="dec1" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="dec1" target="warn" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="yes"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="dec1" target="register" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="no"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="register" target="certificate" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="certificate" target="warn" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="warn" target="confirm" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="confirm" target="end1" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

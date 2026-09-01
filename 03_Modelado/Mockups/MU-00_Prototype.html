@@ -1,0 +1,346 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>AgroMoreira — Clickable Prototype (Web)</title>
+<style>
+* { box-sizing: border-box; }
+html, body { margin:0; height:100%; }
+body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; background:#f2f4f6; color:#22303c; }
+.app { display:flex; min-height:100vh; width:100%; }
+.sidebar { width:230px; flex-shrink:0; background:#1c2b20; color:#eef2ee; display:flex; flex-direction:column; }
+.sidebar .brand { display:flex; align-items:center; gap:10px; padding:20px 18px; font-weight:700; font-size:16px; border-bottom:1px solid #2c3f30; }
+.sidebar .brand .logo { font-size:22px; }
+.sidebar nav { flex:1; padding:14px 10px; }
+.sidebar a { display:flex; align-items:center; gap:10px; color:#c7d3c9; text-decoration:none; font-size:13.5px; padding:10px 12px; border-radius:8px; margin-bottom:2px; cursor:pointer; }
+.sidebar a .ic { width:18px; text-align:center; }
+.sidebar a:hover { background:#26372a; color:#fff; }
+.sidebar a.active { background:#3f6b45; color:#fff; font-weight:600; }
+.sidebar .foot { padding:14px 18px; font-size:11px; color:#7d9081; border-top:1px solid #2c3f30; }
+.sidebar .foot a { color:#9fb3a5; text-decoration:none; }
+.main { flex:1; display:flex; flex-direction:column; min-width:0; }
+.topbar { height:60px; background:#fff; border-bottom:1px solid #e2e6ea; display:flex; align-items:center; justify-content:space-between; padding:0 26px; flex-shrink:0; }
+.topbar .title { font-size:17px; font-weight:700; }
+.topbar .crumbs { font-size:12px; color:#8a94a3; }
+.topbar .right { display:flex; align-items:center; gap:16px; }
+.topbar .search { background:#f2f4f6; border:1px solid #e2e6ea; border-radius:8px; padding:7px 12px; font-size:12.5px; color:#8a94a3; width:220px; }
+.topbar .avatar { width:32px; height:32px; border-radius:50%; background:#3f6b45; color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; }
+.topbar .logout { font-size:12px; color:#8a94a3; text-decoration:none; }
+.content { flex:1; padding:26px 30px; overflow:auto; }
+.content h1 { font-size:20px; margin:0 0 4px; }
+.content .subtitle { color:#8a94a3; font-size:13px; margin-bottom:22px; }
+.grid { display:grid; gap:18px; }
+.grid.cols-2 { grid-template-columns:1fr 1fr; }
+.grid.cols-3 { grid-template-columns:repeat(3,1fr); }
+.grid.cols-4 { grid-template-columns:repeat(4,1fr); }
+.card { background:#fff; border:1px solid #e6e9ec; border-radius:10px; padding:18px; }
+.card h3 { margin:0 0 14px; font-size:14px; color:#22303c; }
+.kpi { background:#fff; border:1px solid #e6e9ec; border-radius:10px; padding:16px 18px; }
+.kpi .label { font-size:11.5px; color:#8a94a3; text-transform:uppercase; letter-spacing:.03em; font-weight:600; }
+.kpi .value { font-size:24px; font-weight:700; margin-top:4px; }
+.kpi .value.good { color:#2f5233; }
+.kpi .value.bad { color:#a13a3a; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; color:#8a94a3; font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:600; padding:9px 10px; border-bottom:1px solid #e6e9ec; }
+td { padding:11px 10px; border-bottom:1px solid #f0f2f4; }
+tr:last-child td { border-bottom:none; }
+.toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.field { margin-bottom:14px; }
+.field label { display:block; font-size:11.5px; color:#5b6472; margin-bottom:5px; font-weight:600; text-transform:uppercase; letter-spacing:.02em; }
+.field input, .field select, .field textarea { width:100%; padding:9px 11px; border:1px solid #cfd6dd; border-radius:7px; font-size:13.5px; background:#fbfcfd; }
+.btn { display:inline-block; background:#2f5233; color:#fff; border:none; padding:10px 18px; border-radius:8px; font-size:13.5px; font-weight:600; cursor:pointer; text-align:center; text-decoration:none; }
+.btn.secondary { background:#fff; color:#2f5233; border:1px solid #2f5233; }
+.btn.sm { padding:6px 12px; font-size:12px; }
+.badge { display:inline-block; font-size:11px; padding:3px 10px; border-radius:10px; font-weight:600; }
+.badge.pending { background:#fdeecb; color:#8a6116; }
+.badge.progress { background:#dbe9fd; color:#1c4f8a; }
+.badge.blocked { background:#fbdada; color:#8a1c1c; }
+.badge.done { background:#dcf3df; color:#1c6b2b; }
+.badge.low { background:#fbdada; color:#8a1c1c; }
+.muted { color:#8a94a3; font-size:12.5px; }
+.alert-box { border:1px solid #d79b00; background:#fff8e8; border-radius:10px; padding:16px 18px; margin-bottom:16px; }
+.alert-box .just { font-size:12.5px; color:#5b6472; margin:8px 0 12px; line-height:1.5; }
+.consent-box { border:1px solid #cfd6dd; border-radius:8px; padding:14px; font-size:12.5px; color:#3c4652; line-height:1.55; background:#fbfcfd; margin-bottom:16px; }
+.chart-bar { display:flex; align-items:flex-end; gap:10px; height:160px; margin-top:6px; }
+.chart-bar .bar { flex:1; background:#2f5233; border-radius:4px 4px 0 0; position:relative; }
+.chart-bar .bar.alt { background:#7fa06f; }
+.kanban { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; align-items:start; }
+.kanban .col h4 { font-size:12.5px; margin:0 0 10px; }
+.kanban .taskcard { background:#fff; border:1px solid #e6e9ec; border-radius:8px; padding:10px 12px; margin-bottom:10px; font-size:12.5px; }
+.kanban .taskcard .p { color:#8a94a3; font-size:11px; margin-top:3px; }
+/* standalone auth page (MU-01) — no app chrome, this is the pre-login screen */
+.auth-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(160deg,#16211a,#2f5233); padding:40px 20px; }
+.auth-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; max-width:980px; width:100%; }
+.auth-logo { text-align:center; color:#fff; grid-column:1/-1; margin-bottom:6px; }
+.auth-logo .emoji { font-size:34px; }
+.auth-logo .name { font-weight:700; font-size:20px; margin-top:4px; }
+.auth-logo .tag { font-size:12.5px; color:#cfe0d3; }
+
+#authScreen { position:fixed; inset:0; z-index:20; }
+#appShell { display:none; }
+#appShell.visible { display:flex; }
+</style></head>
+<body>
+
+<div id="authScreen">
+  <div class="auth-wrap">
+<div class="auth-grid">
+  <div class="auth-logo">
+    <div class="emoji">&#127806;</div>
+    <div class="name">AgroMoreira</div>
+    <div class="tag">AI-assisted agricultural management</div>
+  </div>
+  <div class="card">
+    <h3>Log in</h3>
+    <div class="field"><label>Username</label><input placeholder="e.g. jperez"/></div>
+    <div class="field"><label>Password</label><input type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/></div>
+    <div class="field"><label>Role</label><select><option>Administrator</option><option>Technician</option><option>Farmworker</option></select></div>
+    <a class="btn" id="loginBtn" href="#" onclick="enterApp();return false;">Log in (RF-20)</a>
+  </div>
+  <div class="card">
+    <h3>First login &mdash; LOPDP data notice (RF-22, Art. 8)</h3>
+    <div class="consent-box">
+      We process your name, contact details and work records to operate AgroMoreira's plot, task, harvest and compliance modules. Processing is necessary to run the service and to meet AGROCALIDAD reporting duties. Consent is free, specific, informed and unambiguous, and can be withdrawn at any time from Settings &rarr; My Data, where you may also exercise your ARCO+ rights (access, rectification, cancellation, opposition &mdash; RF-23).
+    </div>
+    <div style="display:flex;gap:10px;">
+      <a class="btn secondary" href="#">Reject</a>
+      <a class="btn" id="acceptBtn" href="#" onclick="enterApp();return false;">I accept (RF-22)</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="app" id="appShell">
+<div class="sidebar">
+  <div class="brand"><span class="logo">&#127806;</span> AgroMoreira</div>
+  <nav><a class="active" data-key="a2" onclick="showPanel('a2');return false;"><span class="ic">&#127807;</span>Plots / Lots</a>
+<a class="" data-key="a3" onclick="showPanel('a3');return false;"><span class="ic">&#128221;</span>Register Activity</a>
+<a class="" data-key="a4" onclick="showPanel('a4');return false;"><span class="ic">&#127811;</span>Register Harvest</a>
+<a class="" data-key="a5" onclick="showPanel('a5');return false;"><span class="ic">&#128230;</span>Inventory</a>
+<a class="" data-key="a6" onclick="showPanel('a6');return false;"><span class="ic">&#129302;</span>AI Pest Alerts</a>
+<a class="" data-key="a7" onclick="showPanel('a7');return false;"><span class="ic">&#9989;</span>Task Board</a>
+<a class="" data-key="a8" onclick="showPanel('a8');return false;"><span class="ic">&#128202;</span>Reports</a>
+<a class="" data-key="a9" onclick="showPanel('a9');return false;"><span class="ic">&#128220;</span>Compliance</a>
+</nav>
+  <div class="foot"><a href="#" onclick="showAuth();return false;">&larr; Log out</a></div>
+</div>
+  <div class="main">
+    <div class="topbar">
+      <div><div class="title" id="pageTitle">Plots / Lots</div><div class="crumbs" id="pageCrumbs">CU-01 &middot; Manage Plots / Lots</div></div>
+      <div class="right">
+        <input class="search" placeholder="Search plots, tasks, reports..." disabled/>
+        <a class="logout" href="#" onclick="showAuth();return false;">Log out</a>
+        <div class="avatar">AD</div>
+      </div>
+    </div>
+    <div class="content" id="contentArea">
+<div class="toolbar">
+  <div class="muted">4 plots registered &middot; field set adapts automatically to crop variety (RF-34)</div>
+  <a class="btn" href="#">+ New plot (RF-01)</a>
+</div>
+<div class="card">
+  <table>
+    <tr><th>Plot / Lot</th><th>Crop</th><th>Area</th><th>Status</th><th></th></tr>
+    <tr><td>Lot A-12</td><td>Cacao</td><td>2.4 ha</td>
+<td><span class="badge done">Active</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot B-04</td><td>Plantain</td><td>1.1 ha</td>
+<td><span class="badge done">Active</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot C-07 (export)</td><td>Cacao</td><td>3.0 ha</td>
+<td><span class="badge done">Active</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot D-02</td><td>Cacao</td><td>0.8 ha</td>
+<td><span class="badge pending">Fallow</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr>
+  </table>
+</div>
+<div class="muted" style="margin-top:14px;">Soil analysis and climate condition can be logged from the plot detail (RF-35, RF-16).</div>
+</div>
+  </div>
+</div>
+
+<template id="tpl-a2" data-title="Plots / Lots" data-crumbs="CU-01 &middot; Manage Plots / Lots">
+<div class="toolbar">
+  <div class="muted">4 plots registered &middot; field set adapts automatically to crop variety (RF-34)</div>
+  <a class="btn" href="#">+ New plot (RF-01)</a>
+</div>
+<div class="card">
+  <table>
+    <tr><th>Plot / Lot</th><th>Crop</th><th>Area</th><th>Status</th><th></th></tr>
+    <tr><td>Lot A-12</td><td>Cacao</td><td>2.4 ha</td>
+<td><span class="badge done">Active</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot B-04</td><td>Plantain</td><td>1.1 ha</td>
+<td><span class="badge done">Active</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot C-07 (export)</td><td>Cacao</td><td>3.0 ha</td>
+<td><span class="badge done">Active</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot D-02</td><td>Cacao</td><td>0.8 ha</td>
+<td><span class="badge pending">Fallow</span></td>
+<td><a class="btn secondary sm" href="#">Open</a></td></tr>
+  </table>
+</div>
+<div class="muted" style="margin-top:14px;">Soil analysis and climate condition can be logged from the plot detail (RF-35, RF-16).</div>
+</template>
+<template id="tpl-a3" data-title="Register Activity" data-crumbs="CU-02 &middot; Register Agricultural Activities">
+<div class="card" style="max-width:640px;">
+  <h3>Register Agricultural Activity (CU-02)</h3>
+  <div class="grid cols-2">
+    <div class="field"><label>Plot</label><select><option>Lot A-12</option><option>Lot B-04</option></select></div>
+    <div class="field"><label>Date</label><input type="date"/></div>
+  </div>
+  <div class="grid cols-2">
+    <div class="field"><label>Activity type</label><select><option>Spraying</option><option>Fertilizing</option><option>Pruning</option><option>Irrigation</option><option>Cleaning</option></select></div>
+    <div class="field"><label>Input used</label><select><option>Foliar fertilizer NPK</option><option>Fungicide X</option><option>None</option></select></div>
+  </div>
+  <div class="field"><label>Responsible worker</label><select><option>J. Perez</option><option>M. Alava</option></select></div>
+  <a class="btn" href="#">Save activity (RF-03)</a>
+  <div class="muted" style="margin-top:14px;">Using a catalog input automatically decreases inventory stock (CU-05). This history feeds AI pest alerts (CU-06).</div>
+</div>
+</template>
+<template id="tpl-a4" data-title="Register Harvest" data-crumbs="CU-03 &middot; Register Harvest">
+<div class="grid cols-2" style="max-width:900px;">
+  <div class="card">
+    <h3>Register Harvest (CU-03)</h3>
+    <div class="field"><label>Plot / Crop</label><select><option>Lot A-12 &middot; Cacao</option></select></div>
+    <div class="grid cols-2">
+      <div class="field"><label>Quantity</label><input placeholder="0.0"/></div>
+      <div class="field"><label>Unit</label><input value="quintal" disabled/></div>
+    </div>
+    <div class="grid cols-2">
+      <div class="field"><label>Rejected quantity (RF-13)</label><input placeholder="0.0"/></div>
+      <div class="field"><label>Rejection reason</label><select><option>&mdash;</option><option>Disease</option><option>Pest</option><option>Mechanical damage</option></select></div>
+    </div>
+    <a class="btn" href="#">Save harvest (RF-04)</a>
+  </div>
+  <div class="card">
+    <h3>Export traceability (RF-14)</h3>
+    <div class="muted" style="margin-bottom:12px;">Shown only when the plot is marked "for export".</div>
+    <div class="field"><label>Ribbon color</label><input placeholder="Blue"/></div>
+    <div class="field"><label>Bagging week</label><input placeholder="W34"/></div>
+    <div class="field"><label>Box quality</label><select><option>Grade A</option><option>Grade B</option></select></div>
+  </div>
+</div>
+</template>
+<template id="tpl-a5" data-title="Input Inventory" data-crumbs="CU-05 &middot; Manage Input Inventory">
+<div class="toolbar">
+  <div class="muted">Threshold-based alerting (RF-30)</div>
+  <a class="btn" href="#">+ Register / update input (RF-07)</a>
+</div>
+<div class="grid cols-2">
+  <div class="card">
+    <table><tr><th>Input</th><th>Available</th><th>Threshold</th><th>Status</th></tr><tr><td>Fungicide X</td><td>12 L</td><td>8 L min.</td>
+<td><span class="badge done">OK</span></td></tr><tr><td>Foliar fertilizer NPK</td><td>3 kg</td><td>10 kg min.</td>
+<td><span class="badge low">LOW STOCK</span></td></tr><tr><td>Pruning shears (2)</td><td>2 un.</td><td>1 un. min.</td>
+<td><span class="badge done">OK</span></td></tr></table>
+  </div>
+  <div class="alert-box">
+    <strong>&#9888; Low-stock alert (RF-08)</strong>
+    <div class="just">Foliar fertilizer NPK is below its configured minimum threshold. Notification sent to the Administrator in under 5 minutes.</div>
+    <a class="btn sm secondary" href="#">Dismiss</a>
+  </div>
+</div>
+</template>
+<template id="tpl-a6" data-title="AI Pest Alerts" data-crumbs="CU-06 &middot; AI-Assisted Pest Alerts">
+<div class="grid cols-2" style="max-width:1000px;">
+  <div class="alert-box">
+    <strong>&#129302; Possible Black Pod (Phytophthora) &mdash; Lot A-12</strong>
+    <div class="just">Justification (&le;60 words): recurring rainfall pattern + treatment gap &gt;15 days on Lot A-12, similar to 3 prior confirmed cases. Source: treatment history (RF-03) + uploaded photo.</div>
+    <div style="display:flex;gap:10px;">
+      <a class="btn" href="#">Confirm</a>
+      <a class="btn secondary" href="#">Discard</a>
+      <a class="btn secondary" href="#">Formally disagree (RF-33)</a>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Alert history</h3>
+    <table>
+      <tr><th>Plot</th><th>Suggestion</th><th>Status</th></tr>
+      <tr><td>Lot B-04</td><td>Leaf spot risk</td><td><span class="badge done">Confirmed</span></td></tr>
+      <tr><td>Lot C-07</td><td>Nutrient deficiency</td><td><span class="badge pending">Discarded</span></td></tr>
+    </table>
+    <div class="muted" style="margin-top:12px;">No suggestion is ever applied to a plot automatically (RF-09, RNF-05/RNF-06). Disagreements are queued for technical-team review.</div>
+  </div>
+</div>
+</template>
+<template id="tpl-a7" data-title="Task Board" data-crumbs="CU-07 &middot; Assign & Track Tasks">
+<div class="toolbar">
+  <div class="muted">Filter by status &middot; plot &middot; worker</div>
+  <a class="btn" href="#">+ Assign task (RF-11)</a>
+</div>
+<div class="kanban">
+<div class="col"><h4><span class="badge pending">Pending</span></h4><div class="taskcard">Prune Lot B-04<div class="p">Lot A-12 &middot; due Fri</div></div></div>
+<div class="col"><h4><span class="badge progress">In progress</span></h4><div class="taskcard">Spray Lot A-12<div class="p">Lot A-12 &middot; due Fri</div></div></div>
+<div class="col"><h4><span class="badge blocked">Blocked</span></h4><div class="taskcard">Fertilize Lot C-07 &mdash; missing input<div class="p">Lot A-12 &middot; due Fri</div></div></div>
+<div class="col"><h4><span class="badge done">Completed</span></h4><div class="taskcard">Irrigate Lot D-02<div class="p">Lot A-12 &middot; due Fri</div></div></div>
+</div>
+<div class="muted" style="margin-top:18px;">Selecting a plot with a registered occupational risk shows the PPE warning before confirming assignment (CU-11).</div>
+</template>
+<template id="tpl-a8" data-title="Production & Finance Reports" data-crumbs="CU-04, CU-08 &middot; Yield, Finance & Reports">
+<div class="grid cols-4" style="margin-bottom:18px;">
+  <div class="kpi"><div class="label">Net profit (period)</div><div class="value good">$1,240.50</div></div>
+  <div class="kpi"><div class="label">Pest-related loss</div><div class="value bad">$85.00</div></div>
+  <div class="kpi"><div class="label">Total harvested</div><div class="value">312 qq</div></div>
+  <div class="kpi"><div class="label">Active plots</div><div class="value">4</div></div>
+</div>
+<div class="grid cols-2">
+  <div class="card">
+    <h3>Yield per plot &mdash; last 7 periods</h3>
+    <div class="chart-bar"><div class="bar " style="height:40%"></div><div class="bar alt" style="height:70%"></div><div class="bar " style="height:55%"></div><div class="bar alt" style="height:90%"></div><div class="bar " style="height:65%"></div><div class="bar alt" style="height:30%"></div><div class="bar " style="height:80%"></div></div>
+  </div>
+  <div class="card">
+    <h3>Production by plot</h3>
+    <table>
+      <tr><th>Plot</th><th>Crop</th><th>Yield</th></tr>
+      <tr><td>Lot A-12</td><td>Cacao</td><td>128 qq</td></tr>
+      <tr><td>Lot B-04</td><td>Plantain</td><td>96 boxes</td></tr>
+      <tr><td>Lot C-07</td><td>Cacao</td><td>88 qq</td></tr>
+    </table>
+  </div>
+</div>
+<a class="btn" style="margin-top:18px;" href="#">Export report (RF-19)</a>
+</template>
+<template id="tpl-a9" data-title="Compliance (Technician view)" data-crumbs="CU-10, CU-11, CU-13, CU-14">
+<div class="grid cols-2">
+  <div class="card">
+    <h3>BPA Certification (RF-25)</h3>
+    <p class="muted">Expires in 22 days &mdash; renewal recommended.</p>
+    <a class="btn secondary sm" href="#">Request renewal</a>
+  </div>
+  <div class="card">
+    <h3>Occupational risk &amp; PPE (RF-18)</h3>
+    <p class="muted">Lot A-12: chemical exposure risk &mdash; suggested PPE: gloves, mask, goggles.</p>
+  </div>
+  <div class="card">
+    <h3>Technical visit &mdash; Lot A-12 (RF-21)</h3>
+    <div class="field"><label>Findings</label><textarea rows="3"></textarea></div>
+    <label style="font-size:12.5px;"><input type="checkbox"/> Follow-up required</label>
+  </div>
+  <div class="alert-box" style="margin:0;">
+    <strong>&#9888; Quarantine pest notice (CU-14, RF-37)</strong>
+    <div class="just">Suspected Moko symptoms on Lot D-02. Confirm to enable formal AGROCALIDAD submission.</div>
+    <div style="display:flex;gap:10px;">
+      <a class="btn sm" href="#">Confirm symptom</a>
+      <a class="btn sm secondary" href="#">Discard</a>
+    </div>
+  </div>
+</div>
+</template>
+
+
+<script>
+function showPanel(key) {
+  var tpl = document.getElementById('tpl-' + key);
+  document.getElementById('contentArea').innerHTML = tpl.innerHTML;
+  document.getElementById('pageTitle').textContent = tpl.getAttribute('data-title');
+  document.getElementById('pageCrumbs').innerHTML = tpl.getAttribute('data-crumbs');
+  document.querySelectorAll('.sidebar nav a').forEach(function(a){ a.classList.remove('active'); });
+  var link = document.querySelector('.sidebar nav a[data-key="' + key + '"]');
+  if (link) link.classList.add('active');
+  document.getElementById('contentArea').scrollTop = 0;
+}
+function enterApp() {
+  document.getElementById('authScreen').style.display = 'none';
+  document.getElementById('appShell').classList.add('visible');
+  showPanel('a2');
+}
+function showAuth() {
+  document.getElementById('appShell').classList.remove('visible');
+  document.getElementById('authScreen').style.display = 'block';
+}
+</script>
+</body></html>
