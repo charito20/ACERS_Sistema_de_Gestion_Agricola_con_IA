@@ -240,5 +240,411 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 
 \subsection{Requisitos funcionales con evidencia de entrevista}
 
+\rf{RF-01}{Registro de parcelas y lotes}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir registrar y editar una parcela o lote con nombre o numero, sector, ubicacion, area, tipo de cultivo, variedad, cantidad de plantas y estado, activo o inactivo.
+\item \textbf{Actor y origen:} Administrador, Tecnico, Jornalero. EV-01, EV-07, EV-09, EV-10, EV-11, EV-14, EV-15, EV-16.
+\item \textbf{Entradas:} nombre, sector, ubicacion, area, cultivo, variedad, numero de plantas.
+\item \textbf{Salidas:} ficha de parcela registrada.
+\item \textbf{Precondicion:} usuario autenticado con permiso de edicion.
+\item \textbf{Postcondicion:} parcela visible en el listado general.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} al crear una parcela con los 7 campos obligatorios, el sistema la muestra en el listado en menos de 2 segundos, sin campos vacios.
+\item \textbf{Evidencia textual:} ``Saber exactamente el lote por su nombre y numero, que cultivo tiene y cuantas plantas han sido o estan en tratamiento'' (EV-15). ``Los datos deberian ser el codigo, el tamano, el cultivo y la ubicacion'' (EV-16).
+\end{itemize}
+
+\rf{RF-02}{Catalogo cerrado de cultivos y variedades}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe ofrecer una lista predefinida y editable por el administrador de cultivos, cacao, platano, palma y ampliable, y sus variedades, sin permitir texto libre del tipo ``otros''.
+\item \textbf{Actor y origen:} Jornalero, Tecnico. EV-10, EV-11, EV-12.
+\item \textbf{Entradas:} seleccion de cultivo o variedad desde el catalogo.
+\item \textbf{Salidas:} cultivo o variedad asociado a la parcela.
+\item \textbf{Precondicion:} catalogo previamente configurado.
+\item \textbf{Postcondicion:} ningun registro de cultivo queda con valor ``otros'' sin especificar.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} intentar guardar un cultivo fuera del catalogo es rechazado por el sistema.
+\item \textbf{Evidencia textual:} ``no que este platano, cacao ahi... Simplemente que permite escribir... No deberia estar asi'' (EV-11). ``agrupadas por secciones, cacao, platano, etcetera'' (EV-12).
+\item \textbf{Nota de relacion:} este RF se amplia en RF-34, que exige que el catalogo soporte ademas un conjunto de atributos distinto por variedad, no solo por cultivo.
+\end{itemize}
+
+\rf{RF-03}{Registro de actividades agricolas}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir registrar una actividad, fumigacion, fertilizacion, poda, limpieza o riego, indicando fecha, lote, producto o insumo usado y trabajador responsable.
+\item \textbf{Actor y origen:} Jornalero, Tecnico. EV-03, EV-07, EV-08, EV-10, EV-14, EV-15, EV-16.
+\item \textbf{Entradas:} fecha, lote, tipo de actividad, producto, trabajador.
+\item \textbf{Salidas:} registro de actividad.
+\item \textbf{Precondicion:} lote existente.
+\item \textbf{Postcondicion:} actividad queda asociada al historial del lote.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} el sistema no permite guardar una actividad sin fecha, lote y trabajador.
+\item \textbf{Evidencia textual:} ``que se registre lo que es la fecha, la parcela, la actividad, producto y el trabajador'' (EV-10). ``La informacion dispensable seria la actividad, la parcela, la fecha y tambien el responsable'' (EV-16).
+\end{itemize}
+
+\rf{RF-04}{Registro de cosecha por unidad especifica del cultivo}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe registrar la cosecha usando la unidad propia de cada cultivo, racimo o caja para platano, tacho o quintal para cacao, con conversion configurable a kilogramos o libras.
+\item \textbf{Actor y origen:} Jornalero. EV-02, EV-08, EV-11, EV-12, EV-13, EV-14, EV-15.
+\item \textbf{Entradas:} lote, fecha, cultivo, cantidad, unidad.
+\item \textbf{Salidas:} registro de cosecha.
+\item \textbf{Precondicion:} lote y cultivo existentes.
+\item \textbf{Postcondicion:} cosecha sumada al acumulado del lote o periodo.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} al registrar cosecha de cacao el sistema exige unidad tacho o quintal, y de platano racimo o caja.
+\item \textbf{Evidencia textual:} ``cuando es la cosecha de platano, es por racimo. Y cuando es el cacao, por tacho'' (EV-02). ``Me gustaria el total de la produccion y tambien lo que es del peso'' (EV-08).
+\end{itemize}
+
+\rf{RF-05}{Calculo automatico de rendimiento por lote y periodo}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe calcular automaticamente el promedio de produccion por lote y periodo, semanal o mensual, y permitir comparar entre periodos.
+\item \textbf{Actor y origen:} Administrador, Jornalero, Tecnica. EV-01, EV-07, EV-11, EV-15, EV-16.
+\item \textbf{Entradas:} historico de cosechas del lote.
+\item \textbf{Salidas:} promedio y comparacion entre periodos.
+\item \textbf{Precondicion:} existen 2 o mas registros de cosecha del lote.
+\item \textbf{Postcondicion:} valor mostrado en el reporte del lote.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} el promedio calculado coincide con el calculo manual, suma dividida entre N, sobre un conjunto de prueba.
+\item \textbf{Evidencia textual:} ``sacar un promedio de cuanto rinde cada lote'' (EV-15). ``Me gustaria que generara automaticamente lo que es el rendimiento y tambien los totales'' (EV-16).
+\end{itemize}
+
+\rf{RF-06}{Calculo automatico de ganancia neta}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe calcular ingresos menos egresos, insumos y mano de obra, y mostrar la ganancia neta por periodo.
+\item \textbf{Actor y origen:} Tecnico, Jornalero. EV-10, EV-11.
+\item \textbf{Entradas:} registros de ingresos y egresos.
+\item \textbf{Salidas:} ganancia neta del periodo.
+\item \textbf{Precondicion:} existen registros de ingreso y egreso en el periodo.
+\item \textbf{Postcondicion:} valor visible en el modulo financiero.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} la ganancia es igual a la suma de ingresos menos la suma de egresos, verificado contra un caso de prueba manual.
+\item \textbf{Evidencia textual:} ``de todo lo que se gasto se ingresa tambien todo lo que se vendio y menorando todo eso, lo que quedo de ganancia'' (EV-10).
+\item \textbf{Nota de relacion:} ver tambien RF-26, que pide un modulo de registro manual de ingresos y egresos independiente de este calculo automatico.
+\end{itemize}
+
+\rf{RF-07}{Gestion de inventario de insumos}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir dar de alta insumos, registrar cantidad disponible o usada y visualizar el stock restante.
+\item \textbf{Actor y origen:} Administrador, Tecnico, Jornalero. EV-01, EV-03, EV-05, EV-06, EV-09, EV-10, EV-11, EV-12, EV-16.
+\item \textbf{Entradas:} nombre del insumo, cantidad, unidad.
+\item \textbf{Salidas:} stock disponible actualizado.
+\item \textbf{Precondicion:} ninguna.
+\item \textbf{Postcondicion:} stock reducido tras cada uso registrado.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} tras registrar el uso de 26 unidades de un stock de 30, el sistema muestra 4 disponibles.
+\item \textbf{Evidencia textual:} ``dice 4 de 30, es decir, lo que tenia era 30 y ahora le queda 4'' (EV-10). ``Sobre cada insumo, lo que es la cantidad, el nombre y ademas del stock limit'' (EV-16).
+\end{itemize}
+
+\rf{RF-08}{Alertas automaticas de bajo stock}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe enviar una alerta, notificacion, SMS o correo, cuando el stock de un insumo baje de un umbral configurable, anticipandose al calendario de fertilizacion o fumigacion.
+\item \textbf{Actor y origen:} Administrador, Jornalero, Tecnica. EV-01, EV-03, EV-08, EV-09, EV-10, EV-11, EV-16.
+\item \textbf{Entradas:} umbral configurado, stock actual.
+\item \textbf{Salidas:} notificacion al responsable.
+\item \textbf{Precondicion:} umbral definido para el insumo.
+\item \textbf{Postcondicion:} notificacion enviada y registrada.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} al bajar del umbral, la notificacion se envia en menos de 5 minutos.
+\item \textbf{Evidencia textual:} ``en siete dias esta estimado que debes abonar el cacao... Y se necesita comprar'' (EV-11). ``Me gustaria que me avisara por medio de una notificacion en el celular'' (EV-08).
+\item \textbf{Nota de relacion:} ver RF-30 para el umbral configurable como campo propio del insumo.
+\end{itemize}
+
+\rf{RF-09}{Alerta de plagas o enfermedades asistida por IA con verificacion humana obligatoria}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe generar una alerta de posible plaga o enfermedad por lote, basada en los datos ingresados, marcada explicitamente como sugerencia a confirmar en campo, nunca como diagnostico definitivo automatico.
+\item \textbf{Actor y origen:} Administrador, Tecnico, Jornalero. EV-01, EV-06, EV-07, EV-08, EV-09, EV-10, EV-15, EV-16, EV-17.
+\item \textbf{Entradas:} datos del lote, historico de tratamientos.
+\item \textbf{Salidas:} alerta con opcion de confirmar o descartar.
+\item \textbf{Precondicion:} modelo de IA entrenado disponible.
+\item \textbf{Postcondicion:} alerta queda registrada con el resultado de la verificacion humana.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} ninguna alerta se aplica automaticamente a un lote sin que el usuario responsable la confirme.
+\item \textbf{Evidencia textual:} ``yo confirmaria yendo a visualizar el terreno'' (EV-10). ``Se deberia poder revisar antes de tomar una decision o aplicacion'' (EV-07, EV-08). ``Primeramente que eso venga de una fuente confiable o de ya experiencias realizadas'' (EV-17).
+\end{itemize}
+
+\rf{RF-10}{Diagnostico de plagas por imagen}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir subir una foto de una hoja o fruto y recibir una sugerencia de plaga o enfermedad probable y tratamiento recomendado.
+\item \textbf{Actor y origen:} Jornalero. EV-15.
+\item \textbf{Entradas:} foto en JPG o PNG.
+\item \textbf{Salidas:} plaga probable y recomendacion.
+\item \textbf{Precondicion:} conexion a internet.
+\item \textbf{Postcondicion:} resultado registrado en el historial del lote.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} el sistema responde con una sugerencia en menos de 10 segundos tras subir la foto.
+\item \textbf{Evidencia textual:} ``una foto de una hoja o de un fruto enfermo que el sistema le atiene rapido y que plaga es, que remedio exacto'' (EV-15).
+\end{itemize}
+
+\rf{RF-11}{Asignacion y seguimiento de tareas}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir asignar una tarea a un trabajador por lote y fecha, con estados pendiente, en proceso, bloqueado y completado, y filtro por estado.
+\item \textbf{Actor y origen:} Administrador, Tecnico, Jornalero. EV-01, EV-09, EV-10, EV-12, EV-16.
+\item \textbf{Entradas:} lote, trabajador, fecha, tipo de tarea.
+\item \textbf{Salidas:} tarea visible con su estado.
+\item \textbf{Precondicion:} trabajador registrado.
+\item \textbf{Postcondicion:} tarea filtrable por los 4 estados.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} al filtrar por el estado pendiente, el sistema solo muestra tareas en ese estado.
+\item \textbf{Evidencia textual:} ``que tengas esa opcion de buscar en esas cuatro secciones'' (EV-12).
+\end{itemize}
+
+\rf{RF-12}{Notificacion movil de tareas asignadas}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe notificar al trabajador, por push o SMS, el lote, la fecha y la tarea asignada.
+\item \textbf{Actor y origen:} Tecnico, Jornalera. EV-07, EV-08, EV-10.
+\item \textbf{Entradas:} asignacion de tarea.
+\item \textbf{Salidas:} notificacion push o SMS.
+\item \textbf{Precondicion:} trabajador con dispositivo registrado.
+\item \textbf{Postcondicion:} notificacion entregada.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} la notificacion incluye lote, fecha y tipo de tarea en el mensaje.
+\item \textbf{Evidencia textual:} ``que la notificacion... Le avise por lote, en tal lote, fecha tal, hay un control'' (EV-10).
+\end{itemize}
+
+\rf{RF-13}{Registro de motivo de rechazo o perdida de fruta}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir registrar, por lote y fecha, la cantidad de fruta rechazada y su motivo, enfermedad, plaga o dano mecanico.
+\item \textbf{Actor y origen:} Jornalero. EV-14.
+\item \textbf{Entradas:} lote, fecha, cantidad rechazada, motivo.
+\item \textbf{Salidas:} registro de rechazo.
+\item \textbf{Precondicion:} cosecha registrada ese dia.
+\item \textbf{Postcondicion:} rechazo restado del total aprovechable.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} el total de fruta aprovechable excluye automaticamente lo marcado como rechazado.
+\item \textbf{Evidencia textual:} ``cuantos salieron rechazados, ya sea por una enfermedad, una plaga o los danos'' (EV-14).
+\end{itemize}
+
+\rf{RF-14}{Trazabilidad de lote de exportacion}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir registrar, por lote de exportacion, el estado de calidad, primera o segunda, la variedad sembrada y el ciclo de enfunde, fecha y color de cinta, para trazar el producto desde el campo hasta el empaque.
+\item \textbf{Actor y origen:} Jornalero. EV-13, EV-14.
+\item \textbf{Entradas:} color de cinta, semana de enfunde, calidad de caja.
+\item \textbf{Salidas:} ficha de trazabilidad del lote de exportacion.
+\item \textbf{Precondicion:} lote marcado como exportacion.
+\item \textbf{Postcondicion:} historial completo desde el enfunde hasta el empaque consultable.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} dado un numero de caja, el sistema recupera el lote, la fecha de enfunde y el color de cinta correspondiente.
+\item \textbf{Evidencia textual:} ``con el dato que el enfundador da, con eso se lo maneja para el dia de cosecha'' (EV-13). ``que en las pantallas de la cosecha se debe ver clarito el color de la cinta'' (EV-14).
+\end{itemize}
+
+\rf{RF-15}{Consulta de precio de mercado y estimacion de ingreso}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir consultar el precio de mercado vigente del cacao o del platano y estimar el ingreso proyectado de una cosecha.
+\item \textbf{Actor y origen:} Jornalero. EV-11.
+\item \textbf{Entradas:} cantidad cosechada, precio de mercado, manual o de fuente externa.
+\item \textbf{Salidas:} ingreso estimado.
+\item \textbf{Precondicion:} cantidad de cosecha registrada.
+\item \textbf{Postcondicion:} estimacion mostrada al usuario.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} el ingreso estimado es igual a la cantidad multiplicada por el precio ingresado, validado con un caso de prueba.
+\item \textbf{Evidencia textual:} ``que consultara el precio de la materia prima... Un calculo de cuanto mas o menos uno va a ganar'' (EV-11).
+\end{itemize}
+
+\rf{RF-16}{Registro de condicion climatica y estado del lote}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir anotar, junto a cada visita o actividad del lote, el estado climatico, lluvia o sol, y del terreno, accesibilidad.
+\item \textbf{Actor y origen:} Jornalero. EV-12, EV-15.
+\item \textbf{Entradas:} condicion climatica, observacion de acceso.
+\item \textbf{Salidas:} campo adicional en el registro de actividad o parcela.
+\item \textbf{Precondicion:} ninguna.
+\item \textbf{Postcondicion:} dato consultable en el historial del lote.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} el campo de clima aparece disponible en el formulario de registro de parcela o actividad.
+\item \textbf{Evidencia textual:} ``Puede faltar un espacio para anotar lo que es el estado del clima'' (EV-15).
+\end{itemize}
+
+\rf{RF-17}{Canal de reporte rapido por chat o voz}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe ofrecer un boton de reporte rapido, texto corto o nota de voz, para que un jornalero reporte una novedad sin llenar formularios extensos.
+\item \textbf{Actor y origen:} Jornalero. EV-15.
+\item \textbf{Entradas:} nota de voz o texto corto.
+\item \textbf{Salidas:} reporte enviado al responsable del lote.
+\item \textbf{Precondicion:} usuario autenticado.
+\item \textbf{Postcondicion:} reporte visible para el administrador o tecnico.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} el reporte se envia en un maximo de 2 toques desde la pantalla principal.
+\item \textbf{Evidencia textual:} ``un chat o un boton rapido de voz para reportar novedades'' (EV-15).
+\end{itemize}
+
+\rf{RF-18}{Registro de riesgo y seguridad laboral por lote}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir marcar un lote con una alerta de riesgo, fauna peligrosa o terreno inestable, visible antes de asignar tareas ahi, y sugerir el equipo de proteccion personal requerido.
+\item \textbf{Actor y origen:} Jornalero, Tecnico. EV-11, EV-17.
+\item \textbf{Entradas:} tipo de riesgo, lote, equipo de proteccion recomendado.
+\item \textbf{Salidas:} alerta visible al asignar tarea en ese lote.
+\item \textbf{Precondicion:} ninguna.
+\item \textbf{Postcondicion:} advertencia mostrada al asignar personal.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} al asignar una tarea en un lote marcado con riesgo, el sistema muestra la advertencia antes de confirmar.
+\item \textbf{Evidencia textual:} ``hay riesgo de que haya animales... Como serpientes'' (EV-11). ``se dice que usar, que trajes usar, incluso botas... Ya que al momento de presenciar estos peligros esten bien cuidados'' (EV-17).
+\end{itemize}
+
+\rf{RF-19}{Reportes de produccion, costos y perdidas con graficos}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe generar reportes de produccion, costos, perdidas por plaga y rendimiento por parcela o periodo, con graficos de barra y circulares codificados por color.
+\item \textbf{Actor y origen:} Administrador, Tecnico. EV-01, EV-05, EV-06, EV-07, EV-10, EV-16.
+\item \textbf{Entradas:} rango de fechas, lote o lotes.
+\item \textbf{Salidas:} reporte visual exportable.
+\item \textbf{Precondicion:} existen datos en el rango seleccionado.
+\item \textbf{Postcondicion:} reporte generado y descargable.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} el reporte generado refleja exactamente la suma de los registros del rango de fechas seleccionado.
+\item \textbf{Evidencia textual:} ``reporte por parcela, costos, perdidas por plagas o rendimiento por periodo'' (EV-01).
+\end{itemize}
+
+\rf{RF-20}{Gestion de usuarios y control de acceso}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe requerir usuario y contrasena para ingresar, con roles diferenciados, administrador, tecnico y jornalero.
+\item \textbf{Actor y origen:} Tecnico. EV-07, EV-08, EV-10.
+\item \textbf{Entradas:} usuario, contrasena.
+\item \textbf{Salidas:} sesion autenticada con permisos segun rol.
+\item \textbf{Precondicion:} usuario previamente registrado.
+\item \textbf{Postcondicion:} acceso concedido solo a las funciones de su rol.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} un usuario con rol jornalero no puede acceder al modulo financiero.
+\item \textbf{Evidencia textual:} ``han creado como un tipo formulario, donde le pide lo que es un usuario y una contrasena'' (EV-10). ``El administrador deberia tener el control total y los trabajadores solo lo necesario'' (EV-07, EV-08).
+\end{itemize}
+
+\rf{RF-21}{Registro de visitas tecnicas periodicas}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir registrar cada visita tecnica, fecha, hallazgos e informe adjunto, con recordatorio de la siguiente visita en un ciclo de 15 dias.
+\item \textbf{Actor y origen:} Tecnico. EV-10.
+\item \textbf{Entradas:} fecha de visita, informe, proxima fecha estimada.
+\item \textbf{Salidas:} historial de visitas tecnicas por lote o finca.
+\item \textbf{Precondicion:} ninguna.
+\item \textbf{Postcondicion:} recordatorio generado para la siguiente visita.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} 15 dias despues de una visita registrada, el sistema genera un recordatorio automatico.
+\item \textbf{Evidencia textual:} ``un control de la visita tecnica de 15 dias y pone el otro control que fue a realizarla despues de 15 dias'' (EV-10).
+\end{itemize}
+
+\rf{RF-26}{Registro manual de ingresos y egresos}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe ofrecer un modulo dedicado para registrar manualmente cada ingreso y egreso, concepto, monto y fecha, independiente del calculo automatico de ganancia neta del RF-06.
+\item \textbf{Actor y origen:} Tecnico, Jornalera. EV-07, EV-08.
+\item \textbf{Entradas:} concepto, monto, fecha, tipo, ingreso o egreso.
+\item \textbf{Salidas:} listado de movimientos.
+\item \textbf{Precondicion:} usuario autenticado.
+\item \textbf{Postcondicion:} movimiento reflejado en el calculo de ganancia neta.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} un ingreso o egreso registrado manualmente aparece reflejado en el reporte financiero del periodo correspondiente.
+\item \textbf{Evidencia textual:} ``Que permitiera controlar los ingresos y egresos'' (EV-07). ``Me gustaria que tuviera un registro de gastos y de ganancias tambien'' (EV-08).
+\end{itemize}
+
+\rf{RF-27}{Vista de tareas pendientes por trabajador}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe mostrar a cada trabajador una vista dedicada de sus propias tareas pendientes.
+\item \textbf{Actor y origen:} Jornalero. EV-09.
+\item \textbf{Entradas:} usuario autenticado.
+\item \textbf{Salidas:} listado de tareas pendientes propias.
+\item \textbf{Precondicion:} existen tareas asignadas al usuario.
+\item \textbf{Postcondicion:} ninguna.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} un trabajador con 3 tareas pendientes ve exactamente esas 3 al abrir la vista, sin tareas de otros lotes o trabajadores.
+\item \textbf{Evidencia textual:} ``Existe alguna funcion que considere indispensable y que todavia no hayamos completado. Ver las tareas pendientes'' (EV-09).
+\end{itemize}
+
+\rf{RF-28}{Campo de observaciones en el registro de tareas}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir adjuntar una nota u observacion libre a cada tarea registrada como completada.
+\item \textbf{Actor y origen:} Jornalero. EV-09.
+\item \textbf{Entradas:} texto libre.
+\item \textbf{Salidas:} observacion asociada a la tarea.
+\item \textbf{Precondicion:} tarea existente.
+\item \textbf{Postcondicion:} observacion visible al consultar el historial de la tarea.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} la observacion ingresada aparece al consultar el detalle de la tarea.
+\item \textbf{Evidencia textual:} ``hay alguna informacion que considere que falta. Si, las observaciones de las tareas'' (EV-09).
+\end{itemize}
+
+\rf{RF-29}{Historial completo por parcela}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe ofrecer una vista de historial por parcela que agregue actividades, tratamientos y cosechas a lo largo del tiempo, no solo el estado actual.
+\item \textbf{Actor y origen:} Tecnica. EV-16.
+\item \textbf{Entradas:} identificador de parcela.
+\item \textbf{Salidas:} linea de tiempo de eventos de la parcela.
+\item \textbf{Precondicion:} la parcela tiene al menos un evento registrado.
+\item \textbf{Postcondicion:} ninguna.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} al consultar el historial de una parcela con 5 eventos registrados en distintas fechas, los 5 aparecen ordenados cronologicamente.
+\item \textbf{Evidencia textual:} ``El historial de cada parcela'' (EV-16).
+\end{itemize}
+
+\rf{RF-30}{Umbral de stock minimo configurable por insumo}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir definir, para cada insumo, un valor numerico de stock minimo que dispare la alerta de bajo stock del RF-08.
+\item \textbf{Actor y origen:} Tecnica. EV-16.
+\item \textbf{Entradas:} cantidad minima por insumo.
+\item \textbf{Salidas:} umbral guardado en la ficha del insumo.
+\item \textbf{Precondicion:} insumo ya registrado.
+\item \textbf{Postcondicion:} el umbral queda disponible para el mecanismo de alertas.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} al bajar el stock del insumo por debajo del valor configurado, se dispara la alerta del RF-08.
+\item \textbf{Evidencia textual:} ``Sobre cada insumo, lo que es la cantidad, el nombre y ademas del stock limit'' (EV-16).
+\end{itemize}
+
+\rf{RF-31}{Deteccion de valores atipicos al ingresar datos}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe comparar cada dato numerico recien ingresado, por ejemplo la cantidad cosechada, contra el promedio historico del mismo lote y avisar si el valor se aleja de forma significativa, antes de guardarlo.
+\item \textbf{Actor y origen:} Tecnico. EV-17.
+\item \textbf{Entradas:} valor ingresado, historico del lote.
+\item \textbf{Salidas:} advertencia de valor atipico.
+\item \textbf{Precondicion:} existe historico suficiente del lote, minimo 3 registros previos.
+\item \textbf{Postcondicion:} el usuario confirma o corrige el dato antes de guardar.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} un valor que se desvia mas de 2 desviaciones estandar del promedio historico dispara la advertencia antes de guardar.
+\item \textbf{Evidencia textual:} ``que al momento de meter un dato, una variable, me indique... Que este valor de aqui estuvo mal'' (EV-17).
+\end{itemize}
+
+\rf{RF-32}{Via de integracion futura con sensores de campo}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe exponer una interfaz capaz de recibir automaticamente lecturas de sensores de clima, suelo o nutrientes, como alternativa al ingreso manual, para una fase posterior del proyecto.
+\item \textbf{Actor y origen:} Tecnico. EV-17.
+\item \textbf{Entradas:} lectura de sensor, formato a definir en fase posterior.
+\item \textbf{Salidas:} dato incorporado al historial del lote sin intervencion manual.
+\item \textbf{Precondicion:} sensor compatible configurado.
+\item \textbf{Postcondicion:} ninguna.
+\item \textbf{Prioridad MoSCoW:} Won't have en esta version, queda documentado para trabajo futuro.
+\item \textbf{Criterio de verificacion:} no aplica en esta version, queda como extension documentada.
+\item \textbf{Evidencia textual:} ``Que ya la aplicacion que estan generando tenga sensores... Que tomen esos datos automaticamente'' (EV-17).
+\end{itemize}
+
+\rf{RF-33}{Bandeja de sugerencias para disputar una recomendacion de IA}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe ofrecer un mecanismo para que el usuario registre formalmente su desacuerdo con una recomendacion de IA, distinto del simple confirmar o descartar del RF-09, y que quede disponible como registro de retroalimentacion.
+\item \textbf{Actor y origen:} Tecnico. EV-17.
+\item \textbf{Entradas:} recomendacion en cuestion, comentario del usuario.
+\item \textbf{Salidas:} registro de desacuerdo asociado a la recomendacion.
+\item \textbf{Precondicion:} existe una recomendacion de IA previa.
+\item \textbf{Postcondicion:} el desacuerdo queda visible para revision posterior del equipo tecnico.
+\item \textbf{Prioridad MoSCoW:} Should have.
+\item \textbf{Criterio de verificacion:} un desacuerdo registrado aparece en un listado consultable, con la fecha y el comentario del usuario.
+\item \textbf{Evidencia textual:} ``yo obviamente que daria mi observacion en una bandejita de sugerencias'' (EV-17).
+\end{itemize}
+
+\rf{RF-34}{Esquema de atributos configurable por variedad de cultivo}
+\begin{itemize}
+\item \textbf{Descripcion:} el catalogo de cultivos del RF-02 debe permitir definir campos y variables distintas por variedad, no solo por tipo de cultivo, dado que el platano y las distintas variedades de cacao manejan datos de manejo agronomico diferentes.
+\item \textbf{Actor y origen:} Tecnico. EV-17.
+\item \textbf{Entradas:} variedad seleccionada.
+\item \textbf{Salidas:} formulario con los campos correspondientes a esa variedad.
+\item \textbf{Precondicion:} variedad dada de alta en el catalogo con su conjunto de atributos.
+\item \textbf{Postcondicion:} ninguna.
+\item \textbf{Prioridad MoSCoW:} Must have.
+\item \textbf{Criterio de verificacion:} al seleccionar una variedad de cacao, el formulario muestra un conjunto de campos distinto al que se muestra al seleccionar platano.
+\item \textbf{Evidencia textual:} ``Existen muchas diferencias, en el platano se registra lo que es... En el cacao se registra desde su mazorca... Hay muchos tipos de cacao, el nacional, el CN51'' (EV-17).
+\end{itemize}
+
+\rf{RF-35}{Registro de analisis de suelo previo a la siembra}
+\begin{itemize}
+\item \textbf{Descripcion:} el sistema debe permitir registrar, por parcela, el resultado de un analisis de suelo previo al establecimiento de un cultivo, indicando tipo de suelo y aptitud.
+\item \textbf{Actor y origen:} Tecnico. EV-17.
+\item \textbf{Entradas:} tipo de suelo, resultado de aptitud, fecha del analisis.
+\item \textbf{Salidas:} ficha de analisis de suelo asociada a la parcela.
+\item \textbf{Precondicion:} parcela registrada.
+\item \textbf{Postcondicion:} dato consultable antes de aprobar la siembra.
+\item \textbf{Prioridad MoSCoW:} Could have.
+\item \textbf{Criterio de verificacion:} una parcela con analisis de suelo registrado muestra el resultado de aptitud al consultar su ficha.
+\item \textbf{Evidencia textual:} ``una calicata, para ver o realizar un analisis de suelo... nos va a decir si es apto o no es apto sembrar en dicho terreno'' (EV-17).
+\end{itemize}
+
 
 \end{document}
