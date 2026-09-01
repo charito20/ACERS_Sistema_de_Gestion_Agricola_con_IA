@@ -1,0 +1,244 @@
+% ERS_SRS_2B_v2.0.tex
+% Especificacion de Requisitos de Software, AgroMoreira (SGA).
+% Estandar base: ISO/IEC/IEEE 29148:2018 y ISO/IEC 25010:2023.
+% Enfoque metodologico: legal-first (Amaral et al., 2021).
+% Compilar: pdflatex -> bibtex -> pdflatex -> pdflatex
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\setlist{nosep,leftmargin=1.4em}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\newcommand{\ruta}[1]{\texttt{#1}}
+\newcommand{\rf}[2]{\subsection*{#1. #2}\addcontentsline{toc}{subsection}{#1. #2}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small ERS/SRS AgroMoreira}
+\fancyhead[R]{\small Version 2.0}
+\fancyfoot[C]{\small Pagina \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\LARGE\bfseries Especificacion de Requisitos de Software\par}
+\vspace{0.4cm}
+{\large (ERS / SRS)\par}
+\vspace{1.2cm}
+{\Large\bfseries AgroMoreira\par}
+{\large Sistema de Gestion Agricola con Inteligencia Artificial\par}
+\vspace{2cm}
+\begin{tabular}{rl}
+\textbf{Version:} & 2.0 \\[2pt]
+\textbf{Estandar base:} & ISO/IEC/IEEE 29148:2018 y ISO/IEC 25010:2023 \\[2pt]
+\textbf{PFC:} & \#11, Categoria C, riesgo minimo operativo \\[2pt]
+\textbf{Paralelo:} & 4to Software A \\[2pt]
+\textbf{Fecha:} & 1 de septiembre de 2026 \\
+\end{tabular}
+\vspace{1.6cm}
+
+\begin{tabular}{rl}
+\textbf{Equipo:} & Jeanpierre Robinson Espinoza, lider \\
+ & Danela Dayana Arteaga Alava, secretaria \\
+ & Kamila Annabella Calle Delgado, documentadora \\
+ & Maria del Rosario Escudero Plaza, modeladora \\
+ & Roselyn Andreina Sanchez Centeno, verificadora \\[6pt]
+\textbf{Docente supervisor:} & Ing. Gleiston Ciceron Guerrero Ulloa, PhD \\
+\end{tabular}
+\vfill
+{\small Universidad Tecnica Estatal de Quevedo \textperiodcentered{} Facultad de Ciencias de la Computacion \textperiodcentered{} Ingenieria de Requerimientos (ISR-401)}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section*{Historial de versiones}
+\addcontentsline{toc}{section}{Historial de versiones}
+
+\begin{longtable}{L{1.2cm} L{2.4cm} L{9.5cm} L{2.6cm}}
+\toprule
+\textbf{Version} & \textbf{Fecha} & \textbf{Cambios} & \textbf{Autor} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Version} & \textbf{Fecha} & \textbf{Cambios} & \textbf{Autor} \\
+\midrule
+\endhead
+1.0 & 30 de agosto de 2026 & Esqueleto inicial del documento, sin trabajo de campo todavia. & Equipo AgroMoreira \\
+\addlinespace
+1.1 & 31 de agosto de 2026 & Correccion del equipo y del enfoque metodologico a partir del expediente etico real. & Equipo AgroMoreira \\
+\addlinespace
+1.2 & 1 de septiembre de 2026 & Correccion del liderazgo del equipo. & Equipo AgroMoreira \\
+\addlinespace
+1.3 & 1 de septiembre de 2026 & Definicion del enfoque legal-first como enfoque oficial del proyecto. & Equipo AgroMoreira \\
+\addlinespace
+2.0 & 1 de septiembre de 2026 & Cierre de la Seccion 3 con los 39 requisitos funcionales y los 15 no funcionales obtenidos en las 16 entrevistas y las 9 sesiones de validacion, y de las historias de usuario con criterios de aceptacion para los 17 requisitos Must have. Cierre del modelado del sistema en la Seccion 4. Matriz de trazabilidad cerrada en 60 filas y Seccion 6 con el producto minimo viable funcional. & Equipo AgroMoreira \\
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\section{Introduccion}
+
+\subsection{Proposito}
+
+Este documento especifica los requisitos funcionales y no funcionales del Sistema de Gestion Agricola con Inteligencia Artificial para Agricola Moreira, finca de policultivo dedicada al cacao y al platano verde. El componente empirico del proyecto sigue el enfoque legal-first de Amaral, Abualhaija, Sabetzadeh y Briand \cite{amaral2021}. A partir de un modelo conceptual de cumplimiento legal organizado en tres bloques normativos, la Ley Organica de Proteccion de Datos Personales del Ecuador, la Resolucion 183 de AGROCALIDAD sobre buenas practicas y trazabilidad del cacao, y la Resolucion 0072 sobre bioseguridad y manejo fitosanitario, se definieron 26 criterios de cumplimiento documentados en \ruta{Modelo\_Legal\_LOPDP.md}. El trabajo de campo permitio evaluar cuales de esos criterios quedaban cubiertos por los requisitos obtenidos mediante entrevistas convencionales y cuales solo se cubren cuando se derivan requisitos directamente del texto legal.
+
+\subsection{Alcance}
+
+El sistema cubre la centralizacion del registro de parcelas, cultivos y variedades, el registro de actividades agricolas y cosechas, la gestion del inventario de insumos, la asignacion y el seguimiento de tareas, la generacion de reportes de produccion y costos, y un modulo de alertas de plagas asistido por inteligencia artificial que siempre requiere confirmacion humana antes de aplicarse a un lote. Tambien cubre los requisitos de cumplimiento legal derivados del modelo de proteccion de datos y de la normativa agroindustrial ecuatoriana. El alcance definitivo se fijo tras las 16 entrevistas y las 9 sesiones de validacion descritas en la Seccion 3, y ya fue confirmado con el administrador Raul Moreira Alay.
+
+\subsection{Glosario de terminos}
+
+\begin{longtable}{L{3.2cm} L{12cm}}
+\toprule
+\textbf{Termino} & \textbf{Definicion} \\
+\midrule
+\endhead
+RF & Requisito funcional. \\
+\addlinespace
+RNF & Requisito no funcional. \\
+\addlinespace
+RD & Requisito derivado directamente del texto legal, sin evidencia de entrevista. \\
+\addlinespace
+Sugerencia explicable & Recomendacion generada por el componente de inteligencia artificial, acompanada de una justificacion comprensible para el usuario y de los datos en los que se basa, sin que el sistema ejecute la accion de forma autonoma. \\
+\addlinespace
+AGROCALIDAD & Agencia de Regulacion y Control Fito y Zoosanitario del Ecuador. \\
+\addlinespace
+LOPDP & Ley Organica de Proteccion de Datos Personales del Ecuador. \\
+\addlinespace
+Perfil tecnico & Usuario con familiaridad previa en el manejo de sistemas informaticos, como el personal de administracion o los tecnicos agronomos. \\
+\addlinespace
+Perfil no tecnico & Usuario sin familiaridad previa en sistemas informaticos, como buena parte del personal de campo. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Referencias}
+
+Las fuentes citadas en este documento estan en \ruta{referencias.bib}, con verificacion cruzada de autor, titulo, publicacion, ano y DOI. Esta bibliografia no sustituye a la del protocolo de investigacion.
+
+\subsection{Vision general del documento}
+
+La Seccion 2 describe el producto y sus interesados. La Seccion 3 presenta los 39 requisitos funcionales, los 15 requisitos no funcionales y las historias de usuario con sus criterios de aceptacion, todos obtenidos del trabajo de campo real. La Seccion 4 recoge el modelado del sistema, con los casos de uso, los diagramas de clases, de comportamiento y de componentes, y los mockups. Las Secciones 5 y 6 describen la priorizacion, la trazabilidad cerrada y el producto minimo viable.
+
+\section{Descripcion general}
+
+\subsection{Perspectiva del producto}
+
+AgroMoreira es un sistema nuevo e independiente, desarrollado especificamente para Agricola Moreira. No reemplaza un sistema legado formal, ya que la finca lleva sus registros actuales en papel y en hojas de calculo, segun se confirmo durante las entrevistas.
+
+\subsection{Diagrama de contexto}
+
+\begin{verbatim}
+                +---------------------------------------+
+ Propietario /  |                                       |   Tecnicos de
+ Administrador -+                                       +-- AGROCALIDAD
+ de la finca    |                                       |   (externo)
+                |                                       |
+ Ingeniero      |         SISTEMA AGROMOREIRA           |   Centro de acopio /
+ agronomo    ---+   (gestion agricola + sugerencias     +-- Asociacion de
+ residente      |    de IA explicables)                 |   productores (externo)
+                |                                       |
+ Capataces   ---+                                       |
+ Personal de    |                                       |
+ campo       ---+                                       |
+ Personal de    |                                       |
+ acopio      ---+                                       |
+                +---------------------------------------+
+\end{verbatim}
+
+La version trazada de este diagrama es \ruta{03\_Modelado/Diagrams/CTX01\_Context\_Diagram.drawio}, y la matriz de poder e interes es \ruta{CTX02\_Power\_Interest\_Matrix.drawio}.
+
+\subsection{Mapa de interesados, matriz de poder e interes}
+
+\begin{longtable}{L{3.4cm} L{1.4cm} L{1.4cm} L{2.6cm} L{5.4cm}}
+\toprule
+\textbf{Interesado} & \textbf{Poder} & \textbf{Interes} & \textbf{Cuadrante} & \textbf{Rol en el proyecto} \\
+\midrule
+\endhead
+Propietario o administrador de la finca & Alto & Alto & Gestionar de cerca & Decide la adopcion del sistema y firmo el aval institucional. \\
+\addlinespace
+Ingeniero agronomo residente & Medio & Alto & Mantener informado e involucrar & Informante clave tecnico y usuario del modulo de IA. \\
+\addlinespace
+Capataces & Medio & Medio & Mantener satisfecho & Coordina al personal de campo y usa el sistema como usuario intermedio. \\
+\addlinespace
+Personal de campo & Bajo & Alto & Mantener informado & Usuario final principal de las sugerencias explicables. \\
+\addlinespace
+Personal de acopio & Bajo & Medio & Monitorear & Usuario del modulo de trazabilidad y cosecha. \\
+\addlinespace
+Tecnicos de AGROCALIDAD, externo & Medio & Bajo & Monitorear & Informante externo sobre requisitos normativos. \\
+\addlinespace
+Centro de acopio o asociacion, externo & Bajo & Bajo & Monitorear & Informante externo sobre trazabilidad posterior a la cosecha. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Modelado organizacional i estrella}
+
+El propietario o administrador depende del personal de campo para la ejecucion correcta de las labores culturales. El personal de campo depende del sistema AgroMoreira para recibir sugerencias comprensibles y accionables sobre el manejo del cultivo. El propio sistema depende del ingeniero agronomo para validar la calidad de esas sugerencias de inteligencia artificial. El propietario o administrador depende tambien del sistema para la trazabilidad y los reportes que debe presentar ante AGROCALIDAD. El personal de acopio depende del sistema para registrar la cosecha y la calidad posterior a esta.
+
+Los diagramas de dependencia estrategica y de razon estrategica estan en \ruta{03\_Modelado/Diagrams/ISTAR01\_Strategic\_Dependency\_SD.drawio} y \ruta{ISTAR02\_Strategic\_Rationale\_SR.drawio}.
+
+\subsection{Entorno operativo}
+
+El personal de campo trabaja principalmente con telefonos Android de gama baja y con poca experiencia previa en aplicaciones moviles, segun se confirmo en las entrevistas a los jornaleros. La conectividad dentro de las parcelas es intermitente, lo que llevo a definir el requisito no funcional de robustez de campo de la Seccion 3.3. El personal tecnico y administrativo cuenta con acceso a computadores para las tareas de configuracion, reporte y analisis.
+
+\subsection{Restricciones de diseno}
+
+El sistema debe operar con conectividad intermitente o nula en el campo, tal como confirmo el personal de campo entrevistado. Las sugerencias de inteligencia artificial deben ser explicables y en ningun caso pueden ejecutar acciones de forma autonoma sobre un lote sin confirmacion humana. El sistema debe cumplir con la Ley Organica de Proteccion de Datos Personales del Ecuador \cite{lopdp2021}, segun se detalla a continuacion.
+
+\subsection{Mapeo a la Ley Organica de Proteccion de Datos Personales del Ecuador}
+
+Fuente legal verificada, Registro Oficial, Quinto Suplemento N.\textsuperscript{o} 459, del 26 de mayo de 2021.
+
+\begin{longtable}{L{2.4cm} L{4cm} L{9cm}}
+\toprule
+\textbf{Articulo} & \textbf{Tema} & \textbf{Relevancia para AgroMoreira} \\
+\midrule
+\endhead
+Art. 7 y 8 & Tratamiento legitimo y consentimiento & El consentimiento debe ser libre, especifico, informado e inequivoco, y revocable en cualquier momento. Es la base del proceso de entrevistas y del formulario de consentimiento informado. \\
+\addlinespace
+Art. 10, literal e & Pertinencia y minimizacion de datos & El sistema y el estudio solo recolectan los datos estrictamente necesarios para la gestion agricola. \\
+\addlinespace
+Art. 10, literal g & Confidencialidad & El tratamiento no puede comunicarse para un fin distinto al recogido. Respalda el compromiso de confidencialidad firmado por el equipo. \\
+\addlinespace
+Art. 10, literal j & Seguridad de datos personales & Respalda el cifrado AES-256 de la zona restringida de evidencias. \\
+\addlinespace
+Art. 13 a 19 & Derechos de acceso, rectificacion, eliminacion, oposicion y portabilidad & El sistema en su version productiva debe soportar estos cinco derechos, recogidos en el RF-23. \\
+\addlinespace
+Art. 20 & Derecho a no ser objeto de una decision basada unica o parcialmente en valoraciones automatizadas & Es el articulo mas relevante para AgroMoreira. El titular puede exigir una explicacion motivada sobre cualquier sugerencia del sistema, conocer los datos usados e impugnarla. Da base legal directa a los requisitos de explicabilidad del RF-09 y de la Seccion 3.3. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Supuestos y dependencias}
+
+Se confirmo que Agricola Moreira cuenta con dispositivos moviles y computadores disponibles para el personal tecnico y administrativo. La colaboracion del personal de campo, inicialmente asumida como voluntaria, quedo confirmada con la realizacion de las 16 entrevistas y las 9 sesiones de validacion descritas en la Seccion 3.
+
+\section{Requisitos especificos}
+
+Esta seccion reune los 39 requisitos funcionales y los 15 requisitos no funcionales del sistema, obtenidos de las 16 entrevistas semiestructuradas y de las 9 sesiones de validacion con walkthrough, 4 con perfiles tecnicos y 5 con perfiles no tecnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos.
+
+Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-01, administrador. EV-02 a ENTR-02, jornalero. EV-03 a ENTR-03, jornalera. EV-04 a ENTR-04, trabajador. EV-05 y EV-06 a ENTR-05 y ENTR-06, tecnicos. EV-07 a ENTR-07, tecnico, en sesion de walkthrough. EV-08 a ENTR-08, jornalera, en sesion de walkthrough. EV-09 a ENTR-09, jornalero. EV-10 a ENTR-10, tecnico, en sesion de walkthrough. EV-11 y EV-12 a ENTR-11 y ENTR-12, jornaleros, en sesion de walkthrough. EV-13 y EV-14 a ENTR-13 y ENTR-14, jornaleros. EV-15 a ENTR-15, jornalero, en sesion de walkthrough. EV-16 a ENTR-16, tecnica, en sesion de walkthrough. EV-17 a ENTR-17, tecnico. Las 16 personas entrevistadas son distintas entre si, aunque algunas comparten nombre de pila.
+
+\subsection{Requisitos funcionales con evidencia de entrevista}
+
+
+\end{document}
