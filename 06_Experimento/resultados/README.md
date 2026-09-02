@@ -1,40 +1,28 @@
-# Resultados - Enfoque 1 (Calidad de RF humanos vs. LLM)
+﻿# Resultados - Enfoque 2 legal-first (Cobertura 26 criterios)
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
-Integrante responsable: Escudero Plaza Maria del Rosario
-Estado: estructura preparada; los datos se incorporan tras ejecutar el
-experimento (Semana 12) y la segunda ronda de campo.
+Proyecto: ACERS - Agricola Moreira
+Integrante: Escudero Plaza Maria del Rosario
+Estado: estructura actualizada a 2B; datos reales en 01_ERS/Modelo_Legal_LOPDP.md y 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx
 
-## Estructura de la carpeta
+## Estructura 2B (real repo)
 
-| Archivo | Descripcion | Estado |
+| Archivo | Descripcion | Fuente real |
 |---|---|---|
-| `datos_crudos.csv` | Datos crudos de la evaluacion a ciegas (plantilla) | Vacio (plantilla) |
-| `datos_procesados.csv` | Puntuaciones procesadas por RF y dimension (entrada de `scripts_analisis/analisis_ef1.py`) | Vacio (plantilla) |
-| `tabla_hipotesis.csv` | Tabla de resultados de hipotesis (generada por el script) | Generado por script |
-| `conjunto_a_llm.csv` | Conjunto A: RF producidos por el LLM | Vacio (pendiente ejecucion) |
-| `conjunto_b_ers.csv` | Conjunto B: RF humanos tomados del ERS (RF-01 a RF-16 segun matriz de trazabilidad) | Vacio (pendiente consolidacion ERS) |
-| `figuras/` | Figuras en PNG y en formato vectorial (generadas por el script) | Generado por script |
+| cobertura_legal.csv | Tabla pareada C1-C26: criterio,bloque,cubierto_convencional(0/1),cubierto_legalfirst(0/1) | Derivada de Matriz_Trazabilidad_v2.xlsx |
+| descriptivos_bloque.csv | Proporcion por bloque LOPDP/BPA/Bioseguridad | Generado por analisis_legalfirst.py |
+| tabla_mcnemar.csv | Resultado McNemar + IC95% bootstrap | Generado por script |
+| conjunto_a_llm.csv | DEPRECADO Enfoque 1 | Conservar vacio |
+| conjunto_b_ers.csv | DEPRECADO Enfoque 1 | Conservar vacio |
+| figuras/curva y barras | Barras por bloque y tabla 2x2 | Generadas por script |
 
-## Columnas de `datos_procesados.csv`
+## Columnas cobertura_legal.csv (nueva)
 
-```
-conjunto;id_rf;evaluador;completitud;ausencia_ambiguedad;verificabilidad;correccion_fuente;consistencia_interna
-```
+criterio;bloque;articulo;cubierto_convencional;cubierto_legalfirst;requisitos_cubre
+C1;LOPDP;Art.4,12(8);0;1;RF-22
+...
 
-- `conjunto`: A (LLM) o B (humano).
-- `id_rf`: identificador del requisito dentro de su conjunto.
-- `evaluador`: codigo del evaluador experto (E1, E2, ...).
-- cinco columnas restantes: puntuacion 1-5 por dimension (rubrica).
+## Reproducibilidad 2B
 
-## Reproducibilidad
+python 06_Experimento/scripts_analisis/analisis_legalfirst.py --matriz 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx --out 06_Experimento/resultados/
 
-Todas las tablas y figuras del manuscrito se producen con:
-
-```
-python 06_Experimento/scripts_analisis/analisis_ef1.py \
-  --csv 06_Experimento/resultados/datos_procesados.csv \
-  --out 06_Experimento/resultados/
-```
-
-Ninguna tabla ni figura del manuscrito se produce manualmente.
+Ninguna tabla manual. Todo via script McNemar.
