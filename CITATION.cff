@@ -44,9 +44,3 @@ authors:
     email: "gguerrero@uteq.edu.ec"
     orcid: "https://orcid.org/0000-0001-5990-2357"
 license: "MIT"
-repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
-keywords:
-  - "Requirements Engineering"
-  - "Agricultural Management"
-  - "Artificial Intelligence"
-doi: "10.5281/zenodo.TBD"
