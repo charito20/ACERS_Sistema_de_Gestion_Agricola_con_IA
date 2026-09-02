@@ -1,1 +1,0 @@
-﻿Transcripciones anonimizadas YYYY-MM-DD_Tipo_ENTR-XX_Transcripcion.md

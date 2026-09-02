@@ -1,3 +1,0 @@
-﻿# ACERS - Sistema de Gestion Agricola con IA para cultivos de verde y cacao
-Proyecto PFC ISR-401 Ingenieria de Requerimientos - UTEQ
-Grupo ACERS - Entrega 4 (2B) Defensa Final
