@@ -1,0 +1,144 @@
+% protocolo.tex
+% Protocolo experimental de AgroMoreira (SGA).
+% Enfoque 2, legal-first (Amaral et al., 2021).
+% Compilar: pdflatex protocolo.tex (dos veces para la tabla de contenido)
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlist{nosep,leftmargin=1.6em}
+
+\title{Protocolo experimental de AgroMoreira\\[4pt]
+\large Enfoque legal-first. Cobertura de requisitos legales de proteccion de datos y de trazabilidad agroindustrial}
+\author{Equipo AgroMoreira, Universidad Tecnica Estatal de Quevedo}
+\date{1 de septiembre de 2026}
+
+\begin{document}
+\maketitle
+
+Este protocolo corresponde al enfoque oficial del proyecto, el enfoque legal-first de Amaral, Abualhaija, Sabetzadeh y Briand (2021), asignado al equipo por la tabla de asignacion de la guia oficial de la Entrega 4. El modelo legal completo, con sus 26 criterios de cumplimiento en tres bloques normativos, y los 39 requisitos funcionales que resultaron del trabajo de campo, estan cerrados en \texttt{01\_ERS/Modelo\_Legal\_LOPDP.md} y en \texttt{01\_ERS/ERS\_SRS\_2B\_v2.0}.
+
+Este documento se registra en osf.io antes de ejecutar formalmente el analisis estadistico sobre la matriz de cobertura legal. El trabajo de campo de elicitacion, entrevistas, encuesta y sesiones de validacion, ya se realizo y se documenta como insumo de la variable de cobertura convencional, sin que eso invalide el registro previo del plan de analisis.
+
+\tableofcontents
+
+\section{Datos de identificacion}
+
+\begin{itemize}
+\item \textbf{Titulo del proyecto:} Sistema de Gestion Agricola con Inteligencia Artificial para Cultivos de Verde y Cacao.
+\item \textbf{PFC:} numero 11, Categoria C, riesgo minimo operativo.
+\item \textbf{Docente responsable:} Ing. Gleiston Ciceron Guerrero Ulloa, PhD.
+\item \textbf{Paralelo:} 4to Software A.
+\end{itemize}
+
+\section{Pregunta de investigacion, formato PICOC}
+
+\begin{longtable}{L{2.6cm} L{12.4cm}}
+\toprule
+\textbf{Elemento} & \textbf{Contenido} \\
+\midrule
+\endhead
+Poblacion & Los 26 criterios de cumplimiento legal, C1 a C26, definidos en \texttt{01\_ERS/Modelo\_Legal\_LOPDP.md}, agrupados en 3 bloques normativos, la Ley Organica de Proteccion de Datos Personales del Ecuador, las buenas practicas y la trazabilidad del cacao segun la Resolucion 183 de AGROCALIDAD, y la bioseguridad y el manejo fitosanitario segun la Resolucion 0072 de AGROCALIDAD. \\
+\addlinespace
+Intervencion & Aplicacion del metodo legal-first de Amaral et al. (2021), lectura sistematica del texto legal y derivacion directa de requisitos a partir de los criterios de cumplimiento, frente a la elicitacion por metodos convencionales, entrevistas y observacion. \\
+\addlinespace
+Comparacion & Cobertura de los 26 criterios legales por el conjunto de requisitos elicitado por metodos convencionales, frente a la cobertura del mismo conjunto de 26 criterios tras anadir los 8 requisitos derivados del metodo legal-first, RF-22, RF-23, RF-24, RF-25, RF-36, RF-37, RF-38 y RF-39, de \texttt{01\_ERS/ERS\_SRS\_2B\_v2.0}. \\
+\addlinespace
+Resultado & Proporcion de criterios cubiertos, variable binaria por criterio, cubierto o no cubierto, antes y despues de aplicar el metodo legal-first. \\
+\addlinespace
+Contexto & Finca real de policultivo de platano verde y cacao, Agricola Moreira, Ecuador. \\
+\bottomrule
+\end{longtable}
+
+\textbf{Pregunta de investigacion oficial}, asignada por la guia de la Entrega 4 al equipo ACERS (SGA). \textit{Que requisitos legales de la Ley Organica de Proteccion de Datos y de trazabilidad agroindustrial no quedan cubiertos por los requisitos funcionales elicitados con metodos convencionales, y como el enfoque legal-first de Amaral et al. extiende esa cobertura.}
+
+\textbf{Palabras clave oficiales:} Legal requirements, Traceability, Cacao industry, Data protection law, Requirements coverage.
+
+\section{Hipotesis}
+
+\begin{itemize}
+\item \textbf{H0.} La proporcion de criterios legales cubiertos, de los 26 criterios C1 a C26, no difiere entre el conjunto de requisitos elicitado por metodos convencionales y el conjunto ampliado tras aplicar el metodo legal-first.
+\item \textbf{H1.} La proporcion de criterios legales cubiertos si difiere, siendo mayor tras aplicar el metodo legal-first.
+\end{itemize}
+
+\section{Variables}
+
+\begin{longtable}{L{2.6cm} L{12.4cm}}
+\toprule
+\textbf{Tipo} & \textbf{Variable} \\
+\midrule
+\endhead
+Independiente & Momento de evaluacion de la cobertura, antes o despues de aplicar el metodo legal-first. \\
+\addlinespace
+Dependiente & Cobertura del criterio legal, binaria, cubierto igual a 1 y no cubierto igual a 0, para cada uno de los 26 criterios C1 a C26. \\
+\addlinespace
+De control & El conjunto de 26 criterios es fijo y el mismo en ambos momentos, comparacion pareada. El bloque normativo del criterio, LOPDP, BPA cacao o bioseguridad fitosanitaria, se registra para el analisis descriptivo y no se manipula. \\
+\bottomrule
+\end{longtable}
+
+\section{Diseno experimental}
+
+Comparacion de proporciones pareadas sobre las mismas 26 unidades, los criterios legales, evaluadas dos veces. Primero la cobertura por el conjunto de requisitos elicitado con metodos convencionales, entrevistas y sesiones de validacion, unicamente. Despues la cobertura por el mismo conjunto mas los 8 requisitos derivados del metodo legal-first. Al ser datos binarios pareados sobre las mismas unidades, el analisis estadistico corresponde a una prueba de McNemar, y no a una prueba t o de Wilcoxon, que hubiera correspondido a una comparacion de calificaciones entre dos fuentes de requisitos evaluadas por expertos, ni a un coeficiente kappa de Cohen o de Fleiss, que mide el acuerdo entre evaluadores y no aplica aqui porque no hay evaluadores compitiendo por un mismo juicio sino un cambio de estado antes y despues sobre el mismo criterio.
+
+Como amenaza a la validez y para reforzar el hallazgo, se reporta ademas, de forma descriptiva, la proporcion de criterios cubiertos por cada fuente de evidencia, entrevistas frente a derivacion legal directa, y por bloque normativo.
+
+\section{Participantes y reclutamiento}
+
+Esta seccion documenta el trabajo con informantes humanos que sustenta la elicitacion convencional, el insumo de la variable de cobertura antes de aplicar el metodo legal-first.
+
+\begin{itemize}
+\item \textbf{Criterios de inclusion:} personas mayores de edad, con vinculo con Agricola Moreira, administrador, tecnicos o jornaleros, o participante externo autorizado.
+\item \textbf{Criterios de exclusion:} personas menores de edad, personas sin vinculo verificable.
+\item \textbf{Meta de entrevistas:} al menos 16 entrevistas distintas, 24 recomendadas. Estado actual, 16 entrevistas completas con 16 personas confirmadas como distintas entre si, mas 9 sesiones de validacion con walkthrough, 4 con perfiles tecnicos y 5 con perfiles no tecnicos.
+\item \textbf{Cuestionario:} al menos 60 respuestas en el perfil dominante. En proceso de cierre.
+\item \textbf{Revisores legales,} para verificar la asignacion de cubierto o no cubierto de cada criterio y la correspondencia entre requisito, criterio y articulo. Se recomiendan al menos 2 personas con formacion en Ingenieria de Requerimientos o en derecho, independientes entre si.
+\end{itemize}
+
+\section{Instrumentos}
+
+\begin{itemize}
+\item Guion de entrevista semiestructurada, documentado en \texttt{A02\_Instrumentos\_Recoleccion} dentro de \texttt{08\_Etica/}.
+\item Cuestionario de encuesta digital, aplicado mediante Google Forms.
+\item Modelo legal de cumplimiento, en \texttt{01\_ERS/Modelo\_Legal\_LOPDP.md}, con 3 bloques normativos y 26 criterios de cumplimiento, C1 a C26, cada uno con su articulo legal verificado.
+\item Matriz de trazabilidad, criterio legal, requisito que lo cubre y evidencia, entrevista o derivacion legal, documentada en \texttt{04\_Trazabilidad/Matriz\_Trazabilidad\_v2.xlsx}.
+\item Regla de decision para la asignacion de cubierto o no cubierto por criterio. Un criterio se marca como cubierto si existe al menos un requisito verificable, con criterio de aceptacion medible, que lo satisface.
+\end{itemize}
+
+\section{Plan de analisis estadistico}
+
+Este plan se registra antes de aplicar formalmente el metodo legal-first sobre la matriz de trazabilidad. Cualquier desviacion respecto de lo aqui registrado se documenta en \texttt{osf\_deviations.pdf}.
+
+\begin{enumerate}
+\item Tabla de cobertura pareada. Para cada uno de los 26 criterios, C1 a C26, se registra \texttt{cubierto\_convencional}, con valores 0 o 1, y \texttt{cubierto\_legalfirst}, con valores 0 o 1.
+\item Estadisticos descriptivos. Proporcion de cobertura antes y despues, de forma global y desglosada por bloque normativo, LOPDP, BPA cacao o bioseguridad fitosanitaria, y por fuente de evidencia, entrevista o derivacion legal directa.
+\item Comparacion de proporciones pareadas. Prueba de McNemar, con la funcion \texttt{mcnemar.test} en R, sobre la tabla dos por dos de concordancia y discordancia entre \texttt{cubierto\_convencional} y \texttt{cubierto\_legalfirst}.
+\item Intervalo de confianza. Intervalo del 95 por ciento de la diferencia de proporciones de cobertura, calculado por bootstrap con 10 mil replicas.
+\item Nivel de significancia. Alfa igual a 0,05.
+\end{enumerate}
+
+\section{Consideraciones eticas}
+
+Riesgo minimo, categoria C. Consentimiento informado firmado por cada participante, en su version vigente que autoriza tambien el deposito de datos anonimizados en Zenodo bajo licencia CC BY 4.0. Confidencialidad de la informacion estrategica de la finca, rendimientos y precios, segun los compromisos CC2 y CC3 de \texttt{08\_Etica/}. Atencion particular a jornaleros con posible vinculo laboral informal, segun se documenta en el paquete etico del proyecto.
+
+\section{Registro en OSF}
+
+El registro formal en osf.io se realiza antes de ejecutar el analisis estadistico definitivo sobre la matriz de cobertura legal. Al registrar el estudio, el equipo declara como desviacion respecto del ideal metodologico que parte del trabajo de campo de elicitacion, entrevistas, encuesta y sesiones de validacion, ya estaba en curso antes de formalizar este registro, y que el enfoque metodologico paso por dos correcciones previas antes de fijarse en el enfoque legal-first descrito arriba. Ambas desviaciones se documentan en \texttt{osf\_deviations.pdf} con la plantilla que sigue.
+
+\subsection*{Plantilla de \texttt{osf\_deviations.pdf}}
+
+\textbf{Desviacion 1.} El trabajo de campo de elicitacion, entrevistas semiestructuradas, cuestionario y sesiones de validacion con walkthrough, comenzo antes del registro formal de este protocolo en OSF, como parte del trabajo exploratorio de entregas anteriores del curso. Momento de deteccion, al formalizar el registro OSF para la Entrega 4. Mitigacion, el plan de analisis aqui registrado se aplica de forma identica a todos los datos recolectados, sin que ninguna decision de analisis se haya tomado a partir de haber visto resultados preliminares de cobertura legal.
+
+\textbf{Desviacion 2.} El protocolo experimental asumio inicialmente un enfoque de explicabilidad y despues un enfoque de comparacion entre requisitos elicitados por humanos y por un modelo de lenguaje, antes de fijar el enfoque legal-first como definitivo. Momento de deteccion, al contrastar el protocolo del equipo contra la tabla de asignacion de equipos por proyecto de la guia oficial de la Entrega 4, que asigna al equipo el enfoque legal-first con una pregunta de investigacion y palabras clave oficiales especificas. Justificacion del cambio, la guia oficial de la Entrega 4 es el documento de mayor autoridad para efectos de calificacion y su asignacion explicita prevalece sobre el protocolo del equipo. Mitigacion, ningun dato de campo se descarta, las mismas entrevistas, encuesta y sesiones de validacion ya recolectadas se reutilizan como insumo de la variable de cobertura convencional, y el cambio afecta unicamente el diseno de analisis, de una comparacion de calificaciones a una comparacion de proporciones pareadas por McNemar, sin que se haya tomado ninguna decision de analisis a partir de resultados ya vistos.
+
+\end{document}
