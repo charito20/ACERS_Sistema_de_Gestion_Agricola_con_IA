@@ -1,73 +1,44 @@
-# Registro previo en el OSF (preregistro)
+﻿# Registro previo en el OSF (preregistro) - Enfoque 2 legal-first
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
 Integrante responsable: Escudero Plaza Maria del Rosario
 Plataforma: https://osf.io
-Estado: texto listo para pegar en el formulario de preregistro; el registro
-debe completarse en la semana 11, con fecha anterior a la ejecucion del
-experimento. El comprobante (URL persistente + time stamp) se guardara como
-`06_Experimento/osf_registration.pdf`.
+Estado: texto listo para pegar en OSF Preregistration; registro ANTES del analisis McNemar. Comprobante -> 06_Experimento/osf_registration.pdf
+Desviaciones -> 06_Experimento/osf_deviations.pdf
 
-## Paso a paso
+## Contenido del registro (actualizado repo 2B)
 
-1. Crear una cuenta en https://osf.io (o iniciar sesion).
-2. Crear un proyecto nuevo llamado "AgriMoreira - Enfoque 1 - RF humanos vs LLM".
-3. En el proyecto, ir a **Registrations > New Registration** y elegir la
-   plantilla de preregistro **"OSF Preregistration"**.
-4. Completar los campos con el texto de la seccion "Contenido del registro".
-5. Enviar el registro. El sistema asigna una URL persistente
-   (`https://osf.io/xxxxxxxx`) y registra la fecha/hora.
-6. Descargar el comprobante y guardarlo como `06_Experimento/osf_registration.pdf`.
+### Titulo
+Cobertura de requisitos legales de proteccion de datos y trazabilidad agroindustrial en un sistema agricola con IA: extension legal-first (Amaral et al. 2021) sobre 26 criterios (C1-C26)
 
-## Contenido del registro
-
-### Titulo del estudio
-Comparacion de la calidad de requisitos funcionales elicitados por analistas
-humanos frente a los generados por un modelo de lenguaje (LLM) en un sistema
-agricola con IA (Enfoque 1).
-
-### Autores
-Escudero Plaza Maria del Rosario (UTEQ), en representacion del equipo
-AgriMoreira del Proyecto de Fin de Curso - Ingenieria de Requerimientos.
+### Pregunta oficial Guia 2B
+Que requisitos legales de la Ley Organica de Proteccion de Datos y de trazabilidad agroindustrial no quedan cubiertos por los RF elicitados con metodos convencionales, y como el enfoque legal-first de Amaral et al. extiende esa cobertura.
 
 ### Hipotesis
-- H0: No existe diferencia estadisticamente significativa entre la puntuacion
-  media de calidad de los RF humanos (Conjunto B) y la de los RF generados por
-  LLM (Conjunto A) en cada dimension de calidad.
-- H1: Existe una diferencia estadisticamente significativa entre ambas
-  puntuaciones medias en la dimension.
-
-Nivel de significancia: alpha = 0.05. Potencia: 1 - beta = 0.80.
+- H0: La proporcion de criterios cubiertos (C1-C26) no difiere antes vs despues de aplicar legal-first.
+- H1: La proporcion difiere, mayor despues de legal-first. Alfa 0.05. Prueba McNemar pareada.
 
 ### Variables
-- Independiente: origen del conjunto de requisitos (A = LLM, B = equipo humano).
-- Dependientes: puntuacion de calidad por dimension (1-5): completitud,
-  ausencia de ambiguedad, verificabilidad, correccion respecto de la fuente,
-  consistencia interna; y acuerdo inter-evaluador (kappa de Cohen y de Fleiss).
-- De control: material fuente unico (transcripcion anonimizada EV-01),
-  rubrica identica, evaluadores ciegos, parametros del LLM fijos.
+- Independiente: momento evaluacion (antes convencional vs despues legal-first)
+- Dependiente: cobertura binaria por criterio (0=no cubierto, 1=cubierto) para C1-C26
+- Control: mismo set 26 criterios, comparacion pareada
 
 ### Diseno
-Cuasi-experimento apareado. Conjunto A: RF producidos por el LLM (gpt-4o-2024-08-06,
-temperatura 0.0, top-p 1.0, semilla 42) a partir del material fuente unico.
-Conjunto B: RF humanos del ERS (RF-01 a RF-16 segun la matriz de trazabilidad).
-Evaluacion a ciegas por un minimo de 3 evaluadores expertos independientes.
+Comparacion de proporciones pareadas sobre 26 criterios. Fuente: 01_ERS/Modelo_Legal_LOPDP.md (3 bloques: LOPDP C1-C13, BPA cacao C14-C20 Res.183, Bioseguridad C21-C26 Res.0072) vs 01_ERS/ERS_SRS_2B_v2.0 (39 RF +15 RNF) y 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx
 
 ### Plan de analisis
-1. Normalidad: Shapiro-Wilk sobre las diferencias apareadas.
-2. Comparacion: t pareada (normales) o Wilcoxon (no normales).
-3. Tamano del efecto: d de Cohen o delta de Cliff.
-4. Correccion por comparaciones multiples (Bonferroni).
-5. Acuerdo inter-evaluador: kappa de Cohen por pares y kappa de Fleiss.
-6. Potencia estadistica previa (alpha 0.05, 1-beta 0.80).
+1. Tabla pareada C1-C26: cubierto_convencional (0/1) y cubierto_legalfirst (0/1)
+2. Descriptivos: proporcion global y por bloque (LOPDP, BPA, Bioseguridad)
+3. McNemar mcnemar.test en R sobre tabla 2x2
+4. IC 95% diferencia proporciones por bootstrap 10k replicas
+5. Alfa 0.05
 
-### Materiales (archivos del repositorio)
-- `06_Experimento/protocolo.tex` - protocolo experimental completo.
-- `06_Experimento/instrumentos/` - guion v2.0, cuestionario v2.0, rubrica.
-- `06_Experimento/prompts_llm/experimento_enf1_prompt.md` - consigna y parametros.
-- `06_Experimento/scripts_analisis/analisis_ef1.py` - scripts de analisis.
-- `02_Evidencias/Transcripciones/` - transcripciones anonimizadas (material fuente).
+### Materiales
+- 01_ERS/Modelo_Legal_LOPDP.md (26 criterios verificados)
+- 01_ERS/ERS_SRS_2B_v2.0.pdf
+- 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx
+- 06_Experimento/protocolo.tex (legal-first v2B)
+- 06_Experimento/scripts_analisis/analisis_legalfirst.py
 
-### Declaracion de datos y licencia
-Los datos anonimizados se depositaran en Zenodo con licencia CC BY 4.0 siguiendo
-los principios FAIR.
+### Datos y licencia
+Dataset anonimizado en Zenodo CC BY 4.0, FAIR. Zona [R] cifrada AES-256.
