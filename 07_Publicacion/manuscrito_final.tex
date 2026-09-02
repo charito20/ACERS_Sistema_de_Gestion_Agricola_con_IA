@@ -1,0 +1,159 @@
+% manuscrito_final.tex -- AgroMoreira (SGA)
+% Revista objetivo: Requirements Engineering (Springer Nature), plantilla sn-jnl.cls.
+% Enfoque 2, legal-first (Amaral et al., 2021).
+% Las secciones de Resultados, Discusion y Conclusiones se redactan a partir de
+% las salidas de 06_Experimento/scripts_analisis/ sobre la matriz de cobertura
+% de los 26 criterios legales. No se escriben antes de tener esos datos.
+
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\title[Cobertura de requisitos legales mediante un enfoque legal-first]{Cobertura de requisitos legales de protecci\'on de datos y de trazabilidad agroindustrial mediante un enfoque legal-first: un estudio de caso en un sistema de gesti\'on agr\'icola ecuatoriano}
+
+\author*[1]{\fnm{Jeanpierre Robinson} \sur{Espinoza}}\email{jrobinsone@uteq.edu.ec}
+\author[1]{\fnm{Danela Dayana} \sur{Arteaga \'Alava}}\email{darteagaa@uteq.edu.ec}
+\author[1]{\fnm{Kamila Annabella} \sur{Calle Delgado}}\email{kcalled@uteq.edu.ec}
+\author[1]{\fnm{Mar\'ia del Rosario} \sur{Escudero Plaza}}\email{mescuderop@uteq.edu.ec}
+\author[1]{\fnm{Roselyn Andreina} \sur{S\'anchez Centeno}}\email{rsanchezc4@uteq.edu.ec}
+\author[1]{\fnm{Gleiston Cicer\'on} \sur{Guerrero Ulloa}}\email{gguerrero@uteq.edu.ec}
+
+\affil*[1]{\orgdiv{Facultad de Ciencias de la Computaci\'on}, \orgname{Universidad T\'ecnica Estatal de Quevedo}, \city{Quevedo}, \country{Ecuador}}
+
+\abstract{Los requisitos legales de protecci\'on de datos y de trazabilidad agroindustrial suelen quedar insuficientemente cubiertos cuando la elicitaci\'on se apoya solo en m\'etodos convencionales, entrevistas y observaci\'on, en especial en dominios agroindustriales de pa\'ises en desarrollo donde ese marco legal es reciente. Este estudio investiga qu\'e requisitos legales de la Ley Org\'anica de Protecci\'on de Datos Personales del Ecuador y de la normativa de trazabilidad agroindustrial no quedan cubiertos por los requisitos funcionales elicitados con m\'etodos convencionales, y c\'omo el enfoque legal-first de Amaral et al., que deriva requisitos de forma sistem\'atica a partir de un modelo conceptual del texto legal, extiende esa cobertura. Mediante un estudio de caso en Agr\'icola Moreira, una finca ecuatoriana de policultivo de pl\'atano verde y cacao, se construy\'o un modelo conceptual de cumplimiento legal con 26 criterios verificables en tres bloques normativos, la Ley Org\'anica de Protecci\'on de Datos Personales, la Resoluci\'on 183 de AGROCALIDAD sobre buenas pr\'acticas y trazabilidad del cacao y la Resoluci\'on 0072 sobre bioseguridad y manejo fitosanitario. Se evalu\'o su cobertura por los 39 requisitos funcionales y 15 no funcionales elicitados mediante 16 entrevistas y 9 sesiones de validaci\'on, y se aplic\'o el m\'etodo legal-first para derivar ocho requisitos adicionales directamente del texto legal. Los resultados y las conclusiones se incorporan al cerrar el an\'alisis estad\'istico registrado.}
+
+\keywords{Legal requirements, Traceability, Cacao industry, Data protection law, Requirements coverage}
+
+\maketitle
+
+\section{Introducci\'on}\label{sec:introduccion}
+
+Agr\'icola Moreira, una finca ecuatoriana dedicada al cultivo simult\'aneo de cacao (\textit{Theobroma cacao}) y pl\'atano verde (\textit{Musa} spp.), gestiona hoy sus parcelas, labores, cosechas e insumos mediante bit\'acoras f\'isicas y hojas de c\'alculo, lo que dificulta el control de producci\'on, la detecci\'on temprana de enfermedades como la moniliasis y la sigatoka, y el cumplimiento de obligaciones legales recientes, la Ley Org\'anica de Protecci\'on de Datos Personales del Ecuador \cite{lopdp2021}, su Reglamento General \cite{rlopdp2023} y los requisitos de trazabilidad agroindustrial de AGROCALIDAD \cite{agrocalidad183}. El proyecto especifica los requisitos de un Sistema de Gesti\'on Agr\'icola con Inteligencia Artificial que centraliza ese registro e incorpora alertas con confirmaci\'on humana obligatoria. La elicitaci\'on convencional tiende a capturar necesidades funcionales expl\'icitas del negocio, pero puede dejar sin cubrir obligaciones legales que ning\'un informante menciona de forma espont\'anea, una brecha cr\'itica en un dominio agroindustrial de un pa\'is en desarrollo, donde el marco de protecci\'on de datos es reciente y la trazabilidad regulatoria apenas se est\'a formalizando.
+
+Amaral et al. \cite{amaral2021} proponen un modelo conceptual para verificar el cumplimiento de requisitos de procesamiento de datos frente al RGPD europeo, y muestran que un enfoque legal-first, derivar requisitos de forma sistem\'atica a partir del texto legal, extiende la cobertura respecto de la elicitaci\'on convencional. Ese trabajo se valida sobre el RGPD y en contextos europeos, sin extenderse a marcos legales latinoamericanos ni a dominios agroindustriales. Torre et al. \cite{torre2021} y Negri-Ribalta et al. \cite{negriribalta2024} confirman que la investigaci\'on de cumplimiento en Ingenier\'ia de Requerimientos se concentra en el RGPD y carece de evidencia primaria de casos reales fuera de Europa. La trazabilidad del cacao, por su parte, se ha abordado como problema t\'ecnico de registro \cite{arsyad2018,marchese2022}, sin an\'alisis de la cobertura de requisitos legales. Ning\'un estudio localizado mide de forma emp\'irica la cobertura de requisitos legales de protecci\'on de datos y de trazabilidad agroindustrial en un caso latinoamericano, ni compara esa cobertura antes y despu\'es de aplicar un m\'etodo legal-first.
+
+Este trabajo aporta un modelo conceptual verificable de cumplimiento legal para un sistema agroindustrial ecuatoriano, con 26 criterios en tres bloques normativos, una medici\'on emp\'irica de la cobertura de esos criterios antes y despu\'es de aplicar el enfoque legal-first de Amaral et al., y evidencia de un caso agroindustrial latinoamericano de policultivo, subrepresentado en la literatura de Ingenier\'ia de Requerimientos sobre cumplimiento legal. La lista definitiva de contribuciones se enuncia sobre la evidencia de la secci\'on de resultados.
+
+La pregunta de investigaci\'on que gu\'ia el estudio es la siguiente. \textit{\'Que requisitos legales de la Ley Org\'anica de Protecci\'on de Datos y de trazabilidad agroindustrial no quedan cubiertos por los requisitos funcionales elicitados con m\'etodos convencionales, y c\'omo el enfoque legal-first de Amaral et al. extiende esa cobertura.}
+
+\section{Trabajo relacionado}\label{sec:trabajo-relacionado}
+
+La revisi\'on sigue el esquema abreviado de Kitchenham y Charters \cite{kitchenham2007}. Se ejecutaron tres cadenas de b\'usqueda en Scopus, IEEE Xplore y Google Scholar. La primera combina los t\'erminos de cumplimiento legal, \texttt{legal}, \texttt{regulatory}, \texttt{compliance}, \texttt{GDPR}, \texttt{data protection} y \texttt{privacy}, con los de Ingenier\'ia de Requerimientos. La segunda combina \texttt{traceability} y \texttt{supply chain} con \texttt{agri-food}, \texttt{agriculture}, \texttt{cocoa} y \texttt{cacao} y con \texttt{information system}, \texttt{requirements} y \texttt{blockchain}. La tercera combina \texttt{large language model}, \texttt{LLM} y \texttt{generative AI} con Ingenier\'ia de Requerimientos y con \texttt{quality}, \texttt{evaluation} y \texttt{coverage}. Se incluyeron estudios revisados por pares, con datos emp\'iricos o con un artefacto de modelo, m\'etodo o prototipo evaluado, publicados en conferencias o revistas de Ingenier\'ia de Requerimientos, sistemas de informaci\'on o trazabilidad agroalimentaria. Se excluyeron editoriales, res\'umenes de una p\'agina y textos sin evaluaci\'on ni datos. De la b\'usqueda se retuvieron quince estudios para el cuadro comparativo por su cercan\'ia directa a la pregunta de investigaci\'on. El n\'umero de registros recuperados por cada cadena y el n\'umero de estudios revisados a texto completo se reportan aqu\'i con la fecha de corte de la b\'usqueda sistem\'atica.
+
+El Cuadro~\ref{tab:relacionado} organiza los quince estudios en tres bloques. El primero re\'une el enfoque legal-first y el cumplimiento normativo en Ingenier\'ia de Requerimientos, que es la base metodol\'ogica directa. El segundo re\'une la trazabilidad agroalimentaria y de cacao, que es el dominio del caso. El tercero re\'une la IA generativa y la calidad en la elicitaci\'on, que da contexto a la evoluci\'on del enfoque descrita en la Secci\'on~\ref{sec:metodologia}.
+
+\begin{table}[htbp]
+\caption{Cuadro comparativo del trabajo relacionado}\label{tab:relacionado}
+\begin{tabular}{@{}p{2.2cm}p{1.9cm}p{2.6cm}p{2.6cm}p{3.4cm}@{}}
+\toprule
+Referencia & Tipo de estudio & Poblaci\'on e intervenci\'on & Resultados principales & Diferencia con nuestro trabajo \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Bloque A. Enfoque legal-first y cumplimiento normativo}} \\
+\addlinespace
+Breaux y Ant\'on \cite{breaux2008}, 2008 & M\'etodo con estudio de caso & Texto de la HIPAA Privacy Rule; extracci\'on manual y sistem\'atica de derechos y obligaciones de acceso a partir del articulado & Cobertura a nivel de enunciado de todo el documento regulatorio, con reglas para resolver referencias cruzadas y ambig\"uedad & Marco legal estadounidense de salud, no la protecci\'on de datos ecuatoriana ni la trazabilidad agroindustrial \\
+\addlinespace
+Massey et al. \cite{massey2010}, 2010 & M\'etodo con estudio de caso, sistema iTrust & Requisitos de seguridad y privacidad de un sistema de historia cl\'inica frente a HIPAA y HITECH; evaluaci\'on de conformidad legal de una especificaci\'on ya redactada & Cataloga los retos pr\'acticos de especificar para cumplimiento y clasifica los requisitos seg\'un su alineaci\'on con la ley & Eval\'ua una especificaci\'on existente, no compara la cobertura antes y despu\'es de un m\'etodo legal-first, y no toca el dominio agr\'icola \\
+\addlinespace
+Deng et al. \cite{deng2011}, 2011 & Marco metodol\'ogico con caso ilustrativo & Requisitos de privacidad de sistemas intensivos en software; aplicaci\'on de LINDDUN, un an\'alisis de amenazas de privacidad por categor\'ias & Deriva requisitos de privacidad y orienta la selecci\'on de tecnolog\'ias de protecci\'on a partir de las amenazas identificadas & Trabaja sobre amenazas de privacidad por dise\~no, no sobre la cobertura de obligaciones de un marco legal nacional concreto \\
+\addlinespace
+Amaral et al. \cite{amaral2021}, 2021 & Modelo conceptual con evaluaci\'on & Obligaciones de procesamiento de datos del RGPD; conceptualizaci\'on basada en modelos para verificar el cumplimiento de una especificaci\'on & Modelo de cumplimiento con reglas verificables, base del enfoque legal-first que adopta este estudio & Validado sobre el RGPD y en contexto europeo, sin extensi\'on a un marco legal latinoamericano ni a la trazabilidad agroindustrial \\
+\addlinespace
+Torre et al. \cite{torre2021}, 2021 & Modelo conceptual con aplicaci\'on y reporte de experiencia & Articulado del RGPD; construcci\'on de un modelo UML con restricciones OCL y su aplicaci\'on a casos reales & Modelo del RGPD con trazabilidad al articulado, 35 reglas de cumplimiento y 20 puntos de variaci\'on & Modelo gen\'erico del RGPD, no instanciado para la LOPDP del Ecuador ni combinado con normativa agr\'icola \\
+\addlinespace
+Negri-Ribalta et al. \cite{negriribalta2024}, 2024 & Mapeo sistem\'atico de 90 art\'iculos entre 2016 y 2022 & Literatura que aborda el RGPD desde la Ingenier\'ia de Requerimientos; clasificaci\'on y s\'intesis de m\'etodos, t\'ecnicas y vac\'ios & Muestra que la mayor\'ia de propuestas son parciales y que falta evidencia emp\'irica de casos reales & Estudio secundario centrado en el RGPD, sin evidencia primaria de un caso agroindustrial ni de otro marco legal nacional \\
+\addlinespace
+\multicolumn{5}{@{}l}{\textit{Bloque B. Trazabilidad agroalimentaria y de cacao}} \\
+\addlinespace
+Arsyad et al. \cite{arsyad2018}, 2018 & Dise\~no de artefacto con prototipo & Cadena de suministro de cacao y su documentaci\'on de respaldo; blockchain de dos factores que enlaza la documentaci\'on legal con el registro de trazabilidad mediante marca de agua digital & Un mecanismo que permite comprobar la integridad conjunta de la documentaci\'on y del rastro de trazabilidad & Se centra en la integridad criptogr\'afica del registro, no en la elicitaci\'on ni en la cobertura de requisitos legales \\
+\addlinespace
+Marchese y Tomarchio \cite{marchese2022}, 2022 & Dise\~no de artefacto con prototipo & Cadena de suministro agroalimentaria gen\'erica; sistema de trazabilidad sobre blockchain con contratos inteligentes para registrar los eventos de la cadena & Un prototipo que gestiona y consulta los eventos de trazabilidad de forma descentralizada & Propuesta t\'ecnica de trazabilidad, sin an\'alisis de requisitos legales ni trabajo de campo con productores \\
+\addlinespace
+\multicolumn{5}{@{}l}{\textit{Bloque C. IA generativa y calidad en la elicitaci\'on}} \\
+\addlinespace
+Krishna et al. \cite{krishna2024}, 2024 & Estudio comparativo & Ingenieros de nivel inicial y modelos GPT-4 y CodeLlama; redacci\'on de una especificaci\'on de requisitos completa por cada fuente & Calidad comparable a la de un ingeniero junior y mucho menos tiempo con el modelo & Sin evaluaci\'on a ciegas por expertos independientes, caso universitario y no agroindustrial \\
+\addlinespace
+Cheng et al. \cite{cheng2026}, 2026 & Revisi\'on sistem\'atica & Literatura sobre IA generativa en Ingenier\'ia de Requerimientos; s\'intesis del estado del campo & La fase de gesti\'on de requisitos recibe atenci\'on insuficiente en la literatura & Estudio secundario, no evidencia emp\'irica primaria ni de dominio agr\'icola \\
+\addlinespace
+Arora et al. \cite{arora2024}, 2024 & Art\'iculo de posici\'on & Pr\'actica profesional de Ingenier\'ia de Requerimientos; discusi\'on estructurada del rol de los modelos de lenguaje & Un mapa de oportunidades y riesgos del uso de modelos de lenguaje en RE & No mide de forma emp\'irica la calidad ni la cobertura de los requisitos \\
+\addlinespace
+Vogelsang y Fischbach \cite{vogelsang2024}, 2024 & Gu\'ia sistem\'atica & Tareas de procesamiento de lenguaje natural dentro de RE; formulaci\'on de directrices de uso & Un procedimiento recomendado para aplicar modelos de lenguaje a esas tareas & De alcance general, sin foco en la cobertura de requisitos legales \\
+\addlinespace
+Vogelsang y Borg \cite{vogelsang2019}, 2019 & Estudio cualitativo con 4 entrevistas & Cient\'ificos de datos que construyen sistemas de aprendizaje autom\'atico; entrevistas semiestructuradas sobre sus necesidades de requisitos & La explicabilidad aparece como un nuevo requisito de calidad en sistemas de IA & Perspectiva de quienes construyen el sistema, no del cumplimiento normativo \\
+\addlinespace
+Ferrari et al. \cite{ferrari2016}, 2016 & Estudio experimental & Analistas de requisitos en entrevistas de elicitaci\'on; an\'alisis de transcripciones & La ambig\"uedad y el conocimiento t\'acito persisten aun con analistas expertos & Explica por qu\'e la elicitaci\'on convencional deja vac\'ios, sin proponer un m\'etodo legal-first \\
+\addlinespace
+Chazette y Schneider \cite{chazette2020}, 2020 & Estudio conceptual & Explicabilidad como requisito no funcional; definici\'on del concepto y cat\'alogo de recomendaciones & Un marco para tratar la explicabilidad como requisito no funcional & Se enfoca en la explicabilidad, no en la cobertura de requisitos legales \\
+\botrule
+\end{tabular}
+\end{table}
+
+El enfoque legal-first est\'a validado sobre el RGPD europeo y en contextos de salud o software gen\'erico \cite{breaux2008,massey2010,amaral2021,torre2021,negriribalta2024}, y la trazabilidad de cacao se ha abordado como problema t\'ecnico de registro \cite{arsyad2018,marchese2022}. Ning\'un estudio localizado mide la cobertura de requisitos legales de protecci\'on de datos y de trazabilidad agroindustrial en un caso agroindustrial latinoamericano de policultivo de cacao y pl\'atano verde, ni compara esa cobertura antes y despu\'es de aplicar un enfoque legal-first sobre un marco legal ecuatoriano. Este estudio ocupa ese espacio.
+
+\section{Metodolog\'ia}\label{sec:metodologia}
+
+Esta secci\'on resume el protocolo experimental registrado del estudio.
+
+\subsection{Dise\~no del estudio}
+
+El estudio combina un dise\~no cualitativo, con entrevistas y observaci\'on, y una comparaci\'on de proporciones pareadas sobre 26 unidades. Se construy\'o un modelo conceptual de cumplimiento legal con 26 criterios de cumplimiento, C1 a C26, en tres bloques normativos, la Ley Org\'anica de Protecci\'on de Datos Personales del Ecuador, la Resoluci\'on 183 de AGROCALIDAD sobre buenas pr\'acticas y trazabilidad del cacao, y la Resoluci\'on 0072 sobre bioseguridad y manejo fitosanitario. Cada criterio queda enlazado a su art\'iculo legal verificado.
+
+Para cada criterio se eval\'ua la cobertura, como variable binaria de cubierto o no cubierto, en dos momentos. Primero por el conjunto de requisitos funcionales y no funcionales elicitado mediante m\'etodos convencionales. Despu\'es tras aplicar el m\'etodo legal-first de Amaral et al. \cite{amaral2021}, que deriva requisitos adicionales directamente del texto legal, en este caso ocho requisitos, RF-22, RF-23, RF-24, RF-25, RF-36, RF-37, RF-38 y RF-39 de la especificaci\'on de requisitos del sistema.
+
+\subsection{Participantes y reclutamiento}
+
+La recolecci\'on de datos de campo combina 16 entrevistas semiestructuradas con personas distintas y 9 sesiones de validaci\'on con walkthrough, 4 con perfiles t\'ecnicos y 5 con perfiles no t\'ecnicos, y un cuestionario dirigido a al menos 60 respuestas por perfil dominante. El consentimiento informado se obtuvo conforme a la Ley Org\'anica de Protecci\'on de Datos Personales del Ecuador \cite{lopdp2021}. La regla de decisi\'on para marcar un criterio como cubierto se document\'o por escrito antes de evaluar, y la asignaci\'on se contrasta con al menos un segundo revisor independiente.
+
+\subsection{Modelo de cumplimiento legal y m\'etodo legal-first}
+
+El modelo conceptual sigue la l\'ogica de Amaral et al. \cite{amaral2021}. A partir del articulado de cada norma se identifican obligaciones verificables y se expresan como criterios de cumplimiento con un enunciado medible. Un criterio se marca como cubierto solo si existe al menos un requisito funcional o no funcional, con criterio de aceptaci\'on medible, que lo satisface. Los criterios que quedan sin ning\'un requisito que los cubra son los vac\'ios legales que responden a la pregunta de investigaci\'on, y los requisitos derivados del texto legal para cerrarlos son la extensi\'on de cobertura que aporta el m\'etodo legal-first.
+
+\subsection{Plan de an\'alisis}
+
+El plan de an\'alisis se registra en OSF \cite{nosek2018} antes de evaluar formalmente la cobertura. Incluye la tabla de cobertura pareada de cubierto o no cubierto para los 26 criterios en los dos momentos, estad\'isticos descriptivos de cobertura globales y desglosados por bloque normativo y por fuente de evidencia, la comparaci\'on de proporciones pareadas mediante prueba de McNemar, por tratarse de datos binarios pareados sobre las mismas 26 unidades, y el intervalo de confianza del 95 por ciento de la diferencia de proporciones por bootstrap con 10\,000 r\'eplicas. El nivel de significancia es 0{,}05. Se documentan dos desviaciones respecto del ideal metodol\'ogico. La primera, que parte del trabajo de campo de elicitaci\'on comenz\'o antes del registro formal en OSF, como trabajo exploratorio de entregas anteriores del curso. La segunda, que el enfoque metodol\'ogico pas\'o por dos formulaciones previas antes de fijarse en el dise\~no legal-first, por asignaci\'on expl\'icita de la gu\'ia oficial de la entrega. Ninguna decisi\'on de an\'alisis se tom\'o a partir de resultados preliminares.
+
+\section{Resultados}\label{sec:resultados}
+
+El an\'alisis de cobertura se ejecuta con los scripts de \texttt{06\_Experimento/scripts\_analisis/} sobre la matriz de los 26 criterios legales. Los resultados se organizan en dos partes, la cobertura global antes y despu\'es del m\'etodo legal-first, con la prueba de McNemar y el intervalo de confianza de la diferencia de proporciones por bootstrap, y el desglose descriptivo de la cobertura por bloque normativo y por fuente de evidencia.
+
+\section{Discusi\'on}\label{sec:discusion}
+
+Esta secci\'on interpreta los resultados en tres apartados, las implicaciones para la investigaci\'on, las implicaciones para la pr\'actica de la Ingenier\'ia de Requerimientos en dominios agroindustriales regulados, y los hallazgos contraintuitivos. La interpretaci\'on se mantiene dentro del alcance del estudio de caso \'unico y del marco legal ecuatoriano.
+
+\section{Amenazas a la validez}\label{sec:amenazas}
+
+\paragraph{Validez interna.} La asignaci\'on de cubierto o no cubierto de cada criterio legal es en parte subjetiva, ya que quien eval\'ua podr\'ia inclinarse a marcar m\'as criterios como cubiertos tras aplicar el m\'etodo legal-first. Para mitigarlo, la regla de decisi\'on se documenta por escrito antes de evaluar, un criterio se marca cubierto solo si existe al menos un requisito verificable y medible que lo satisface, y la asignaci\'on se contrasta con al menos un segundo revisor independiente. Adem\'as, el modelo de 26 criterios podr\'ia no capturar la totalidad de las obligaciones legales relevantes, por lo que cada criterio queda enlazado a su art\'iculo legal verificado y el modelo puede auditarse desde fuera.
+
+\paragraph{Validez externa.} El estudio es un caso \'unico, por lo que los hallazgos pueden no generalizar a otras fincas o dominios. Esto se mitiga con documentaci\'on exhaustiva del contexto, siguiendo a Runeson y H\"ost \cite{runeson2009}. El modelo de cumplimiento cubre un marco legal espec\'ifico, y los resultados pueden no generalizar a otras jurisdicciones o cultivos. El alcance legal se declara de forma expl\'icita y se discute como limitaci\'on, con la misma l\'ogica de Amaral et al. \cite{amaral2021} aplicada originalmente al RGPD europeo.
+
+\paragraph{Validez de constructo.} Los 26 criterios son un constructo definido por el equipo a partir de la lectura del texto legal y podr\'ian no capturar todos los aspectos de un cumplimiento verificable. Cada criterio se deriva de un art\'iculo legal expl\'icito y se documenta en la matriz de trazabilidad.
+
+\paragraph{Validez de conclusi\'on.} El n\'umero de unidades comparadas, 26 criterios, es peque\~no y limita la potencia de la prueba de McNemar. Se reporta el intervalo de confianza del 95 por ciento de la diferencia de proporciones por bootstrap adem\'as del valor $p$, y se complementa con el an\'alisis descriptivo por bloque normativo y por fuente de evidencia.
+
+\section{Conclusiones y trabajo futuro}\label{sec:conclusiones}
+
+Esta secci\'on responde a la pregunta de investigaci\'on con la evidencia de la secci\'on de resultados, consolida las contribuciones y enuncia al menos tres l\'ineas de trabajo futuro que otros equipos puedan retomar a partir del paquete de replicaci\'on depositado.
+
+\backmatter
+
+\section*{Disponibilidad de datos y materiales}
+
+El paquete de replicaci\'on, con las transcripciones anonimizadas, las respuestas del cuestionario sin columnas identificativas, el corpus de requisitos, la matriz de trazabilidad y los scripts de an\'alisis, se deposita en Zenodo con licencia CC BY 4.0 para los datos y la documentaci\'on y licencia MIT para el c\'odigo. El protocolo y sus desviaciones quedan registrados en OSF y el repositorio se archiva en Software Heritage. El DOI de Zenodo, la URL del registro OSF y el identificador de Software Heritage se incorporan a esta secci\'on en el momento del dep\'osito. El material identificable, consentimientos originales, audios y videos, permanece cifrado y bajo custodia del docente responsable, y no forma parte del dep\'osito abierto.
+
+\section*{Uso de tecnolog\'ias asistidas por IA}
+
+Se utiliz\'o un modelo de lenguaje para apoyar la organizaci\'on documental del proyecto y generar borradores de secciones no dependientes de datos emp\'iricos, como la estructura del manuscrito y el trabajo relacionado a partir de referencias verificadas por el equipo, y para pulir redacci\'on ya escrita por el equipo. El modelo no gener\'o resultados, cifras ni conclusiones del estudio.
+
+\section*{Agradecimientos}
+
+Los autores agradecen al personal de Agr\'icola Moreira que colabor\'o de forma voluntaria con las entrevistas y las sesiones de validaci\'on de este estudio.
+
+\bibliography{referencias}
+
+\end{document}
