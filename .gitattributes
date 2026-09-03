@@ -1,0 +1,5 @@
+# Forzar LF en archivos verificables por sha256sum para que sha256sum -c no falle
+# por conversión CRLF (core.autocrlf). Estos archivos deben permanecer con saltos
+# de línea Unix (LF) en el working tree en cualquier plataforma.
+07_Datos/checksums_datos.sha256 -text
+*.sha256 -text
