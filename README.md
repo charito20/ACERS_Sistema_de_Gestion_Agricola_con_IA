@@ -22,7 +22,7 @@ Este proyecto fue desarrollado como parte del **Proyecto Integrador de la asigna
 
 # Resumen del dominio
 
-Agrícola Moreira administra lotes destinados a la producción de **cacao** y **plátano verde** en la provincia de **Manabí, Ecuador**.
+Agrícola Moreira administra lotes destinados a la producción de **cacao** y **plátano verde**, ubicados en el cantón **El Carmen, provincia de Manabí, Ecuador**. El equipo de desarrollo, con sede en la Universidad Técnica Estatal de Quevedo (Los Ríos), trabaja de forma remota con la finca.
 
 **AgriMoreira** centraliza la información de los cultivos mediante una plataforma que permite:
 
