@@ -22,7 +22,7 @@ Este proyecto fue desarrollado como parte del **Proyecto Integrador de la asigna
 
 # Resumen del dominio
 
-Agrícola Moreira administra lotes destinados a la producción de **cacao** y **plátano verde** en la provincia de **Manabí, Ecuador**.
+Agrícola Moreira administra lotes destinados a la producción de **cacao** y **plátano verde**, ubicados en el cantón **El Carmen, provincia de Manabí, Ecuador**. El equipo de desarrollo, con sede en la Universidad Técnica Estatal de Quevedo (Los Ríos), trabaja de forma remota con la finca.
 
 **AgriMoreira** centraliza la información de los cultivos mediante una plataforma que permite:
 
@@ -95,12 +95,49 @@ Diríjase a la carpeta: 05_MVP/ y siga las instrucciones descritas en el archivo
 
 ## Reproducir el análisis experimental
 
-1. Ubíquese en la carpeta `06_Experimento/`.
-2. Instale las dependencias indicadas en `06_Experimento/scripts_analisis/` (Python o R, según corresponda).
-3. Los datos crudos recolectados están en `06_Experimento/resultados/`.
-4. Ejecute los scripts de `06_Experimento/scripts_analisis/` en orden — reproducen exactamente las tablas y figuras reportadas en el manuscrito a partir de los datos crudos.
-5. El protocolo completo (preguntas de investigación, proposiciones del estudio, plan de análisis) está en `06_Experimento/protocolo.pdf`, registrado previamente en OSF: https://osf.io/7cvhy
+El paquete de datos reproducible y verificado está en `07_Datos/` (ver `07_Datos/README_datos.md` para el detalle completo). Orden única de ejecución:
 
+```bash
+pip install -r 07_Datos/scripts/requirements.txt
+python 07_Datos/scripts/run_all.py
+```
+
+Esto reproduce exactamente las tablas (`07_Datos/resultados/tabla_mcnemar.csv`, `descriptivos_bloque.csv`) y la figura (`curva_o_barras.png`) a partir de los datos crudos en `07_Datos/datos_crudos/`, sin intervención manual. La integridad de todos los archivos del paquete se verifica con:
+
+```bash
+cd 07_Datos && sha256sum -c checksums_datos.sha256
+```
+
+El protocolo completo (preguntas de investigación, proposiciones del estudio, plan de análisis) está en `06_Experimento/protocolo.pdf`, registrado previamente en OSF: https://osf.io/7cvhy
+
+## Compilar los documentos LaTeX
+
+Requiere una distribución LaTeX con `pdflatex` y `bibtex` (por ejemplo TeX Live o MiKTeX).
+
+**ERS/SRS** (`01_ERS/ERS_SRS_2B_v2.0.tex`, usa `referencias.bib` de la misma carpeta):
+```bash
+cd 01_ERS
+pdflatex ERS_SRS_2B_v2.0.tex
+bibtex ERS_SRS_2B_v2.0
+pdflatex ERS_SRS_2B_v2.0.tex
+pdflatex ERS_SRS_2B_v2.0.tex
+```
+
+**Protocolo experimental** (`06_Experimento/protocolo.tex`):
+```bash
+cd 06_Experimento
+pdflatex protocolo.tex
+pdflatex protocolo.tex
+```
+
+**Manuscrito final** (`07_Publicacion/manuscrito_final.tex`, plantilla Springer Nature `sn-jnl.cls`, estilo `sn-mathphys-num.bst`, requiere `referencias.bib` en la misma carpeta):
+```bash
+cd 07_Publicacion
+pdflatex manuscrito_final.tex
+bibtex manuscrito_final
+pdflatex manuscrito_final.tex
+pdflatex manuscrito_final.tex
+```
 ---
 
 # Estructura del repositorio
