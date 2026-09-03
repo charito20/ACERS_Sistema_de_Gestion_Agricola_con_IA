@@ -38,6 +38,33 @@ legales.
 registrado previamente; las formulaciones previas se descartaron y no se combinaron
 con el análisis final.
 
+## Desviación 3 — Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video
+
+**Descripción:** Las dos primeras entrevistas de la primera ronda de campo
+(`ENTR-01`, 2026-06-20, y `ENTR-02`, 2026-06-21) se registraron únicamente en
+audio, sin video. Como consecuencia, el total de video queda en 15 archivos con
+231,4 minutos acumulados, por debajo del mínimo terminal de 16 archivos con 240
+minutos que establece la guía (Sección 5, tabla de evidencia mínima). El total de
+audio sí alcanza el mínimo: 16 archivos.
+
+**Razón:** En esas dos primeras sesiones de elicitación, realizadas al inicio del
+proyecto (Entrega 1A), el equipo no contaba todavía con el protocolo de captura en
+video definido; solo se grabó audio con el consentimiento correspondiente. El
+protocolo de registro en video simultáneo se formalizó a partir de la tercera
+sesión de campo (`ENTR-03` en adelante), y desde entonces se mantuvo sin
+excepciones.
+
+**Momento en que se detectó:** Durante la verificación técnica de las fichas de
+evidencia (`fichas_tecnicas.csv`) con `ffprobe`, en la preparación de la Entrega 4
+(2B), al generar el inventario real de audios y videos de las 17 entrevistas.
+
+**Mitigación aplicada:** Se verificó primero que los videos de `ENTR-01` y
+`ENTR-02` no existieran en ninguna otra ubicación del equipo antes de dar la
+ausencia por definitiva. Ambas entrevistas cuentan con audio completo, consentimiento
+firmado y transcripción, por lo que la evidencia cualitativa de esas dos sesiones
+no se pierde, solo el registro audiovisual en video. No se sustituyó la ausencia
+con ningún archivo generado artificialmente.
+
 ---
 
 *Estas desviaciones se reutilizan de la sección de metodología del manuscrito y
