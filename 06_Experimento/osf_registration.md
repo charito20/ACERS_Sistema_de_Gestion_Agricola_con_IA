@@ -1,17 +1,31 @@
-﻿# Registro previo en el OSF (preregistro) - Enfoque 2 legal-first
+﻿# Comprobante de registro previo en OSF — Enfoque 2 legal-first
 
-Proyecto: ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
-Integrante responsable: Escudero Plaza Maria del Rosario
-Plataforma: https://osf.io
-Estado: texto listo para pegar en OSF Preregistration; registro ANTES del analisis McNemar. Comprobante -> 06_Experimento/osf_registration.pdf
-Desviaciones -> 06_Experimento/osf_deviations.pdf
+**Proyecto:** ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
+**Integrante responsable:** Escudero Plaza Maria del Rosario
+**URL persistente del registro:** https://osf.io/7cvhy
+**Fecha de registro:** 2 de agosto de 2026
+**Estado:** Registro publico verificado contra la API publica de OSF. Anterior a la tercera ronda de campo (orden correcto).
 
-## Contenido del registro (actualizado repo 2B)
+---
 
-### Titulo
-Cobertura de requisitos legales de proteccion de datos y trazabilidad agroindustrial en un sistema agricola con IA: extension legal-first (Amaral et al. 2021) sobre 26 criterios (C1-C26)
+## Datos del registro en OSF
 
-### Pregunta oficial Guia 2B
+| Campo | Valor |
+|---|---|
+| Plataforma | Open Science Framework (OSF) |
+| URL | https://osf.io/7cvhy |
+| Titulo registrado | Protocolo de validacion de explicabilidad |
+| Fecha de creacion | 2 de agosto de 2026 |
+| Visibilidad | Publico |
+| Licencia | CC BY 4.0 |
+
+## Verificacion
+
+El registro fue verificado contra la API publica de OSF (`https://api.osf.io/v2/registrations/7cvhy/`) el 1 de septiembre de 2026. La respuesta confirmo titulo, fecha y estado publico.
+
+## Contenido del preregistro
+
+### Pregunta de investigacion
 Que requisitos legales de la Ley Organica de Proteccion de Datos y de trazabilidad agroindustrial no quedan cubiertos por los RF elicitados con metodos convencionales, y como el enfoque legal-first de Amaral et al. extiende esa cobertura.
 
 ### Hipotesis
@@ -38,7 +52,7 @@ Comparacion de proporciones pareadas sobre 26 criterios. Fuente: 01_ERS/Modelo_L
 - 01_ERS/ERS_SRS_2B_v2.0.pdf
 - 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx
 - 06_Experimento/protocolo.tex (legal-first v2B)
-- 06_Experimento/scripts_analisis/analisis_legalfirst.py
+- 07_Datos/scripts/analisis_legalfirst.py
 
 ### Datos y licencia
 Dataset anonimizado en Zenodo CC BY 4.0, FAIR. Zona [R] cifrada AES-256.
