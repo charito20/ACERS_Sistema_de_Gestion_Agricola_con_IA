@@ -6,6 +6,7 @@ version: 1.0.0
 date-released: 2026-08-30
 repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
 license: "MIT AND CC-BY-4.0"
+doi: "10.5281/zenodo.XXXXXXX"  # pendiente de asignacion tras deposito en Zenodo
 keywords:
   - Ingeniería de Requerimientos
   - Estudio empírico
@@ -43,4 +44,3 @@ authors:
     affiliation: "Universidad Técnica Estatal de Quevedo"
     email: "gguerrero@uteq.edu.ec"
     orcid: "https://orcid.org/0000-0001-5990-2357"
-license: "MIT"

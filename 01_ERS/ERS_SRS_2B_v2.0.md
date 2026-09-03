@@ -6,7 +6,7 @@
 **PFC:** #11, Categoría C, riesgo mínimo operativo. Paralelo 4to Software A
 **Fecha:** 1 de septiembre de 2026
 
-**Equipo:** Jeanpierre Robinson Espinoza, líder. Danela Dayana Arteaga Álava, secretaria. Kamila Annabella Calle Delgado, documentadora. María del Rosario Escudero Plaza, modeladora. Roselyn Andreina Sánchez Centeno, verificadora.
+**Equipo:** Jeanpierre Robinson Espinoza, líder. Danela Dayana Arteaga Álava, diseño y modelado UML. Kamila Annabella Calle Delgado, analista de requerimientos. María del Rosario Escudero Plaza, investigación experimental y análisis estadístico. Roselyn Andreina Sánchez Centeno, gestión del repositorio.
 **Docente supervisor:** Ing. Gleiston Cicerón Guerrero Ulloa, PhD
 
 ### Historial de versiones
@@ -600,6 +600,64 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Descripción:** las notificaciones de bajo stock y asignación de tareas deben entregarse de forma confiable incluso con conectividad intermitente.
 - **Métrica:** 95% de las notificaciones deben entregarse dentro de los 5 minutos posteriores a la reconexión del dispositivo.
 - **Evidencia textual:** *"Mediante una notificación como un mensaje de texto, algo que creo que es lo más fácil que hoy en día cualquier persona le llegue al celular"* (EV-10).
+
+### 3.3.1 Requisitos no funcionales del componente de inteligencia artificial
+
+Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas/enfermedades y diagnóstico por imagen). Las seis RNF siguientes gobiernan ese componente de forma transversal, siguiendo el formato identificador/métrica/unidad/umbral/método de verificación/responsable/frecuencia acordado en el reparto de roles del equipo del 2026-09-02.
+
+#### RNF-16. Desempeño de detección/predicción del modelo de IA (Fiabilidad del componente de IA)
+- **Descripción:** el modelo que sustenta RF-09 y RF-10 debe alcanzar un nivel mínimo de acierto en la detección de plagas/enfermedades antes de habilitarse en producción.
+- **Métrica:** exactitud (accuracy) y sensibilidad (recall) del modelo sobre el conjunto de validación.
+- **Unidad:** porcentaje (%).
+- **Umbral:** ≥80% de exactitud y ≥75% de sensibilidad en el conjunto de validación, antes de habilitar el modelo en campo.
+- **Método de verificación:** evaluación del modelo sobre un conjunto de prueba etiquetado, ejecutada por script versionado, con matriz de confusión documentada en el repositorio.
+- **Responsable:** equipo técnico (especificación: Danela Arteaga; análisis estadístico: María Escudero).
+- **Frecuencia:** antes de cada despliegue de una versión nueva del modelo, y revisión trimestral en producción.
+
+#### RNF-17. Explicabilidad de las recomendaciones de IA (Transparencia)
+- **Descripción:** toda alerta o recomendación generada por el componente de IA (RF-09, RF-10) debe mostrar al usuario al menos un factor que motivó la sugerencia, no solo el resultado, para que el usuario decida con criterio si confirmarla (RF-09) o disputarla (RF-33).
+- **Métrica:** proporción de alertas emitidas que muestran al menos un factor explicativo (por ejemplo, "temperatura y humedad elevadas en los últimos 5 días").
+- **Unidad:** porcentaje (%) de alertas con explicación.
+- **Umbral:** 100% de las alertas deben mostrar al menos un factor explicativo.
+- **Método de verificación:** revisión de una muestra de alertas generadas en pruebas de aceptación, confirmando la presencia del campo de explicación.
+- **Responsable:** Danela Arteaga (especificación); equipo técnico (implementación).
+- **Frecuencia:** en cada entrega que modifique el motor de alertas.
+
+#### RNF-18. Equidad de desempeño entre cultivos (Equidad)
+- **Descripción:** el componente de IA no debe generar sistemáticamente peor desempeño (más falsos negativos) para un cultivo respecto del otro, dado que cacao y plátano están igualmente en alcance del estudio de caso.
+- **Métrica:** diferencia en la tasa de falsos negativos entre cacao y plátano.
+- **Unidad:** puntos porcentuales de diferencia.
+- **Umbral:** diferencia ≤10 puntos porcentuales en la tasa de falsos negativos entre ambos cultivos.
+- **Método de verificación:** evaluación separada del modelo por subconjunto (cacao, plátano) sobre el conjunto de validación, con reporte comparativo versionado.
+- **Responsable:** equipo técnico; revisión independiente por María Escudero (análisis estadístico).
+- **Frecuencia:** en cada reentrenamiento del modelo.
+
+#### RNF-19. Supervisión humana obligatoria antes de cualquier acción automática (Supervisión humana)
+- **Descripción:** formaliza como requisito transversal lo que RF-09 ya exige en su flujo: ninguna alerta o recomendación de IA puede ejecutar una acción sobre los datos del sistema sin confirmación explícita de una persona.
+- **Métrica:** número de acciones aplicadas automáticamente sobre datos del sistema sin confirmación humana.
+- **Unidad:** conteo de incidentes.
+- **Umbral:** 0 acciones automáticas sin confirmación humana.
+- **Método de verificación:** revisión de logs de auditoría y prueba funcional dirigida a intentar forzar una aplicación automática.
+- **Responsable:** equipo técnico; verificación independiente por Kamila Calle (gatekeeper P11).
+- **Frecuencia:** en cada entrega, como parte de las pruebas de aceptación.
+
+#### RNF-20. Monitoreo continuo del desempeño del modelo en producción (Monitoreo)
+- **Descripción:** el sistema debe registrar, para cada alerta de IA, si el usuario la confirmó, la descartó (RF-09) o la disputó (RF-33), para poder calcular el desempeño real del modelo en campo y no solo en el conjunto de prueba.
+- **Métrica:** proporción de alertas emitidas con retroalimentación registrada (confirmada, descartada o disputada).
+- **Unidad:** porcentaje (%).
+- **Umbral:** ≥90% de las alertas deben tener retroalimentación registrada dentro de los 7 días de emitidas.
+- **Método de verificación:** consulta sobre el registro de alertas y su estado, generada por script versionado.
+- **Responsable:** Roselyn Sánchez (infraestructura de datos); Danela Arteaga (especificación).
+- **Frecuencia:** reporte mensual mientras el sistema esté en operación.
+
+#### RNF-21. Clasificación de riesgo de las recomendaciones de IA (Gestión de riesgo)
+- **Descripción:** cada tipo de alerta o recomendación del componente de IA debe clasificarse por nivel de riesgo (bajo, medio, alto) según el impacto potencial de seguirla sin verificación —por ejemplo, aplicar un agroquímico implica mayor riesgo que una sugerencia de riego— y ese nivel debe ser visible al usuario junto a la alerta.
+- **Métrica:** proporción de tipos de alerta definidos en RF-09/RF-10 con nivel de riesgo asignado y visible en la interfaz.
+- **Unidad:** porcentaje (%) de tipos de alerta clasificados.
+- **Umbral:** 100% de los tipos de alerta deben tener un nivel de riesgo asignado antes de habilitarse.
+- **Método de verificación:** revisión de la tabla de configuración de tipos de alerta, confirmando el campo de nivel de riesgo.
+- **Responsable:** Danela Arteaga (especificación); equipo técnico (implementación).
+- **Frecuencia:** al definir cada nuevo tipo de alerta.
 
 ### 3.4 Historias de usuario y criterios de aceptación
 
