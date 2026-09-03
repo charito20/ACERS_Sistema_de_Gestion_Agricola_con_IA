@@ -1,0 +1,75 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="General Use Case Diagram" id="uc01">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="1680" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;verticalAlign=top;align=center;fontStyle=1;fontSize=13;" value="AgroMoreira System" vertex="1"><mxGeometry height="1600" width="460" x="460" y="20" as="geometry"/></mxCell>
+        <mxCell id="cu01" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-01
+Manage Plots / Lots" vertex="1"><mxGeometry height="70" width="260" x="540" y="60" as="geometry"/></mxCell>
+        <mxCell id="cu02" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-02
+Register Agricultural Activities" vertex="1"><mxGeometry height="70" width="260" x="540" y="170" as="geometry"/></mxCell>
+        <mxCell id="cu03" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-03
+Register Harvest" vertex="1"><mxGeometry height="70" width="260" x="540" y="280" as="geometry"/></mxCell>
+        <mxCell id="cu04" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-04
+Calculate Yield &amp; Finance" vertex="1"><mxGeometry height="70" width="260" x="540" y="390" as="geometry"/></mxCell>
+        <mxCell id="cu05" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-05
+Manage Input Inventory" vertex="1"><mxGeometry height="70" width="260" x="540" y="500" as="geometry"/></mxCell>
+        <mxCell id="cu06" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-06
+AI Pest Alerts" vertex="1"><mxGeometry height="70" width="260" x="540" y="610" as="geometry"/></mxCell>
+        <mxCell id="cu07" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-07
+Assign &amp; Track Tasks" vertex="1"><mxGeometry height="70" width="260" x="540" y="720" as="geometry"/></mxCell>
+        <mxCell id="cu08" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-08
+Generate Reports" vertex="1"><mxGeometry height="70" width="260" x="540" y="830" as="geometry"/></mxCell>
+        <mxCell id="cu09" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-09
+Authentication &amp; Access Control" vertex="1"><mxGeometry height="70" width="260" x="540" y="940" as="geometry"/></mxCell>
+        <mxCell id="cu10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-10
+Technical Visits" vertex="1"><mxGeometry height="70" width="260" x="540" y="1050" as="geometry"/></mxCell>
+        <mxCell id="cu11" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-11
+Occupational Risk &amp; PPE" vertex="1"><mxGeometry height="70" width="260" x="540" y="1160" as="geometry"/></mxCell>
+        <mxCell id="cu12" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-12
+Quick Report Channel" vertex="1"><mxGeometry height="70" width="260" x="540" y="1270" as="geometry"/></mxCell>
+        <mxCell id="cu13" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-13
+BPA Compliance" vertex="1"><mxGeometry height="70" width="260" x="540" y="1380" as="geometry"/></mxCell>
+        <mxCell id="cu14" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="CU-14
+Quarantine Pest Notice" vertex="1"><mxGeometry height="70" width="260" x="540" y="1490" as="geometry"/></mxCell>
+        <mxCell id="admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Administrator" vertex="1"><mxGeometry height="50" width="30" x="40" y="255" as="geometry"/></mxCell>
+        <mxCell id="tech" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Technician" vertex="1"><mxGeometry height="50" width="30" x="40" y="785" as="geometry"/></mxCell>
+        <mxCell id="worker" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Farmworker" vertex="1"><mxGeometry height="50" width="30" x="40" y="1315" as="geometry"/></mxCell>
+        <mxCell id="ai" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="AI System" vertex="1"><mxGeometry height="50" width="30" x="1150" y="585" as="geometry"/></mxCell>
+        <mxCell id="agro" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="AGROCALIDAD" vertex="1"><mxGeometry height="50" width="30" x="1150" y="1465" as="geometry"/></mxCell>
+        <mxCell id="a101" edge="1" parent="1" source="admin" target="cu01" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="95.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a102" edge="1" parent="1" source="admin" target="cu04" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="425.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a103" edge="1" parent="1" source="admin" target="cu07" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="755.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a104" edge="1" parent="1" source="admin" target="cu08" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="865.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a105" edge="1" parent="1" source="admin" target="cu09" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="975.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a106" edge="1" parent="1" source="admin" target="cu13" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="1415.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a107" edge="1" parent="1" source="admin" target="cu14" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="330" y="280"/><mxPoint x="330" y="1525.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a108" edge="1" parent="1" source="tech" target="cu01" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="95.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a109" edge="1" parent="1" source="tech" target="cu02" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="205.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a110" edge="1" parent="1" source="tech" target="cu05" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="535.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a111" edge="1" parent="1" source="tech" target="cu06" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="645.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a112" edge="1" parent="1" source="tech" target="cu09" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="975.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a113" edge="1" parent="1" source="tech" target="cu10" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="1085.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a114" edge="1" parent="1" source="tech" target="cu11" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="1195.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a115" edge="1" parent="1" source="tech" target="cu13" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="1415.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a116" edge="1" parent="1" source="tech" target="cu14" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="810"/><mxPoint x="370" y="1525.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a117" edge="1" parent="1" source="worker" target="cu01" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="95.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a118" edge="1" parent="1" source="worker" target="cu02" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="205.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a119" edge="1" parent="1" source="worker" target="cu03" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="315.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a120" edge="1" parent="1" source="worker" target="cu05" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="535.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a121" edge="1" parent="1" source="worker" target="cu06" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="645.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a122" edge="1" parent="1" source="worker" target="cu07" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="755.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a123" edge="1" parent="1" source="worker" target="cu09" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="975.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a124" edge="1" parent="1" source="worker" target="cu11" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="1195.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a125" edge="1" parent="1" source="worker" target="cu12" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="1305.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a126" edge="1" parent="1" source="worker" target="cu14" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="1340"/><mxPoint x="410" y="1525.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="a127" edge="1" parent="1" source="ai" target="cu06" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a128" edge="1" parent="1" source="agro" target="cu14" style="html=1;endArrow=none;fontSize=9;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="inc129" edge="1" parent="1" source="cu06" target="cu07" style="html=1;endArrow=open;dashed=1;fontSize=9;fontStyle=2;" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="830" y="645.0"/><mxPoint x="830" y="755.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="ext130" edge="1" parent="1" source="cu14" target="cu02" style="html=1;endArrow=open;dashed=1;fontSize=9;fontStyle=2;" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="850" y="1525.0"/><mxPoint x="850" y="205.0"/></Array></mxGeometry></mxCell>
+        <mxCell id="inc2131" edge="1" parent="1" source="cu09" target="cu01" style="html=1;endArrow=open;dashed=1;fontSize=9;fontStyle=2;" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt; (auth required)"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="870" y="975.0"/><mxPoint x="870" y="95.0"/></Array></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

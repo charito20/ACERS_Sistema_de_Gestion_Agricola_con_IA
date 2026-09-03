@@ -1,0 +1,40 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="LOPDP Consent and ARCO+ Rights Activity Diagram (CU-09)" id="act-consent">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lane1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#000000;align=center;" value="User (any role)" vertex="1"><mxGeometry height="980" width="380" x="40" y="0" as="geometry"/></mxCell>
+        <mxCell id="lane2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontStyle=1;fontSize=13;fillColor=none;strokeColor=#000000;align=center;" value="System" vertex="1"><mxGeometry height="980" width="380" x="460" y="0" as="geometry"/></mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="20" width="20" x="210" y="40" as="geometry"/></mxCell>
+        <mxCell id="login" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Log in for the first time (RF-20)" vertex="1"><mxGeometry height="50" width="240" x="90" y="110" as="geometry"/></mxCell>
+        <mxCell id="notice" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Display LOPDP data-processing notice, Art. 8 (RF-22)" vertex="1"><mxGeometry height="50" width="250" x="500" y="190" as="geometry"/></mxCell>
+        <mxCell id="dec1" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=10;" value="Consent granted?" vertex="1"><mxGeometry height="80" width="150" x="140" y="300" as="geometry"/></mxCell>
+        <mxCell id="register" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Register consent: free, specific, informed, unambiguous (RF-22)" vertex="1"><mxGeometry height="50" width="250" x="500" y="420" as="geometry"/></mxCell>
+        <mxCell id="grant" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Grant role-based access (RF-20)" vertex="1"><mxGeometry height="50" width="250" x="500" y="500" as="geometry"/></mxCell>
+        <mxCell id="deny" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Deny access, end session" vertex="1"><mxGeometry height="50" width="240" x="90" y="430" as="geometry"/></mxCell>
+        <mxCell id="end1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="28" width="28" x="200" y="610" as="geometry"/></mxCell>
+        <mxCell id="end1_ring" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="36" width="36" x="196" y="606" as="geometry"/></mxCell>
+        <mxCell id="end2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="28" width="28" x="590" y="610" as="geometry"/></mxCell>
+        <mxCell id="end2_ring" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="36" width="36" x="586" y="606" as="geometry"/></mxCell>
+        <mxCell id="arco" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Request ARCO+ rights: access, rectify, cancel, oppose (RF-23)" vertex="1"><mxGeometry height="50" width="240" x="90" y="680" as="geometry"/></mxCell>
+        <mxCell id="process" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Register and process data-subject request within legal term" vertex="1"><mxGeometry height="50" width="250" x="500" y="760" as="geometry"/></mxCell>
+        <mxCell id="notify" parent="1" style="rounded=1;arcSize=30;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="Notify resolution to worker" vertex="1"><mxGeometry height="50" width="240" x="90" y="840" as="geometry"/></mxCell>
+        <mxCell id="end3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="28" width="28" x="200" y="920" as="geometry"/></mxCell>
+        <mxCell id="end3_ring" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="36" width="36" x="196" y="916" as="geometry"/></mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" target="login" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="login" target="notice" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="notice" target="dec1" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="dec1" target="register" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="yes"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="dec1" target="deny" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="no"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="register" target="grant" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="grant" target="end2" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="deny" target="end1" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="grant" target="arco" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="later, at any time"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="arco" target="process" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="process" target="notify" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="notify" target="end3" style="html=1;endArrow=block;endFill=1;fontSize=10;"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
