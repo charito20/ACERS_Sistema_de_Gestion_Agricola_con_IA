@@ -1,0 +1,1 @@
+# Generar con: find 07_Datos -type f -not -name 'checksums_datos.sha256' -exec sha256sum {} \; > 07_Datos/checksums_datos.sha256

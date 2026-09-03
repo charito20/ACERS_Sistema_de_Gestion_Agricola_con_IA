@@ -1,0 +1,2 @@
+id_sesion,fecha,hora_inicio,hora_fin,modalidad,participantes_nombre,participantes_usuario_git,ruta_artefacto,decisiones_tomadas,commits_ids
+# TODO: una fila por sesion de trabajo. Debe existir al menos una fila por cada dia con commits.

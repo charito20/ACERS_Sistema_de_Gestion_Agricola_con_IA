@@ -1,0 +1,2 @@
+archivo,columna,tipo,unidad,rango_admisible,codificacion_perdidos,procedencia
+# TODO: completar una fila por columna de cada archivo depositado en datos_crudos/ y datos_procesados/

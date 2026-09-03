@@ -1,0 +1,9 @@
+Licencia de los datos — Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Este conjunto de datos (07_Datos/) se distribuye bajo licencia CC BY 4.0.
+https://creativecommons.org/licenses/by/4.0/
+
+Esta licencia es independiente de la licencia del código fuente del repositorio
+(ver LICENSE en la raíz). Ningún dato personal identificable forma parte de este
+paquete: los datos personales originales permanecen exclusivamente en la zona
+restringida cifrada (02_Evidencias/00_Restringido/), fuera de esta licencia abierta.
