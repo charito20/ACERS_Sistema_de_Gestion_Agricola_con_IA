@@ -80,18 +80,18 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 ## Clonar el repositorio
 
 ```bash
-git clone https://github.com/Roselyn15/Proyecto-IR---AgroMoreira---Sistema-de-Gesti-n-Agr-cola-con-IA-para-cultivos-de-verde-y-cacao-.git
+git clone https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA.git
 ```
 
 ## Ingresar al proyecto
 
 ```bash
-cd Proyecto-IR---AgroMoreira---Sistema-de-Gesti-n-Agr-cola-con-IA-para-cultivos-de-verde-y-cacao-
+cd ACERS_Sistema_de_Gestion_Agricola_con_IA
 ```
 
 ## Ejecutar el MVP
 
-Diríjase a la carpeta: 05.MVP/ y siga las instrucciones descritas en el archivo `README.md` correspondiente para ejecutar la aplicación. El MVP no requiere instalación: se abre directamente en cualquier navegador.
+Diríjase a la carpeta: 05_MVP/ y siga las instrucciones descritas en el archivo `README.md` correspondiente para ejecutar la aplicación. El MVP no requiere instalación: se abre directamente en cualquier navegador.
 
 ## Reproducir el análisis experimental
 

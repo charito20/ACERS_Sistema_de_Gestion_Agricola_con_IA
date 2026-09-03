@@ -1,0 +1,2 @@
+archivo,fecha_captura_exif,dispositivo,hash_sha256
+# TODO: generar con un script que lea los metadatos EXIF reales de cada fotografia depositada.
