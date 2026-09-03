@@ -54,7 +54,7 @@ consolidación del PFC (Entrega 4 / 2B).
 | Integrante | Nombre | Firma | Fecha |
 |---|---|---|---|
 | Jeanpierre Robinson Espinoza | Jeanpierre Robinson Espinoza | Jeanpierre Robinson Espinoza | 2026-09-03 |
-| Kamila Annabella Calle Delgado |  | | |
+| Kamila Annabella Calle Delgado | Kamila Annabella Calle Delgado | Kamila Calle | 2026-09-03 |
 | Danela Dayana Arteaga Álava | Danela Dayana Arteaga Alava| Danela Arteaga | 2026-09-03 |
 | María del Rosario Escudero Plaza | María del Rosario Escudero Plaza | María Escudero | 2026-09-03 |
 | Roselyn Andreina Sánchez Centeno | Roselyn Andreina Sánchez Centeno  | Roselyn Sánchez | 2026-09-03|
