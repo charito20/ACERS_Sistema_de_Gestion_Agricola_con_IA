@@ -1,95 +1,68 @@
-# README_dataset.md - Conjunto de datos AgriMoreira (Enfoque 1)
+# Replication package for "Cobertura de requisitos legales de protección de datos y de trazabilidad agroindustrial mediante un enfoque legal-first: un estudio de caso en un sistema de gestión agrícola ecuatoriano"
 
-Paquete de datos para deposito en Zenodo (https://zenodo.org) al momento del
-envio del manuscrito, siguiendo los principios FAIR [1].
-Licencia: Creative Commons Atribucion 4.0 Internacional (CC BY 4.0).
+Conjunto de datos y materiales de replicación del estudio empírico sobre la cobertura de requisitos legales de protección de datos y de trazabilidad agroindustrial en AgroMoreira, un sistema de gestión agrícola con inteligencia artificial para el cultivo de cacao y plátano verde en Ecuador. El estudio aplica el enfoque legal-first de Amaral et al. (2021) para comparar la cobertura de 26 criterios legales, en tres bloques normativos, antes y después de derivar requisitos directamente del texto legal.
 
-## Cita del dataset (instrucciones)
+El DOI de Zenodo, la referencia del manuscrito asociado y la URL del registro OSF del protocolo se incorporan a este encabezado en el momento del depósito. La licencia es CC BY 4.0 para los datos y la documentación y MIT para el código, según el archivo `LICENSE` del repositorio.
 
-Formato recomendado para citar el dataset (completar el DOI asignado por Zenodo):
+## Autoría
 
-> Escudero Plaza, M. R. (2026). AgriMoreira - Calidad de requisitos funcionales
-> humanos frente a LLM: conjunto de datos anonimizado [Data set]. Zenodo.
-> https://doi.org/10.5281/zenodo.XXXXXXX
+| Nombre | ORCID |
+|---|---|
+| Jeanpierre Robinson Espinoza | 0009-0005-3302-1822 |
+| Kamila Annabella Calle Delgado | 0009-0002-8249-9601 |
+| Danela Dayana Arteaga Álava | 0009-0006-0318-1531 |
+| María del Rosario Escudero Plaza | 0009-0007-3212-9924 |
+| Roselyn Andreina Sánchez Centeno | 0009-0008-7204-8448 |
+| Gleiston Cicerón Guerrero Ulloa (docente supervisor) | 0000-0001-5990-2357 |
 
-El DOI se asigna automaticamente al publicar en Zenodo. Al citar, indicar la
-version del dataset (v1.0.0) y la fecha de publicacion. Para el software de
-analisis, seguir los principios de citacion de software [2].
+## Contenido del depósito
+
+El depósito reúne el paquete de análisis reproducible de `07_Datos/` del repositorio junto con la evidencia de campo anonimizada.
+
+| Elemento | Origen en el repositorio | Descripción |
+|---|---|---|
+| `07_Datos/` | carpeta completa | Datos crudos, scripts de análisis en Python, resultados y diccionario de datos |
+| `07_Datos/datos_crudos/cobertura_legal.csv` | | Matriz de cobertura de los 26 criterios legales, antes y después del enfoque legal-first |
+| `07_Datos/datos_crudos/Matriz_Trazabilidad_v2.xlsx` | copia de `04_Trazabilidad/` | Matriz de trazabilidad de la ley al requisito, al caso de uso, al componente y al mockup |
+| `07_Datos/scripts/` | | `analisis_legalfirst.py` y el orquestador `run_all.py` |
+| `07_Datos/resultados/` | | Tabla de McNemar, descriptivos por bloque y figura de cobertura, todo producido por los scripts |
+| transcripciones anonimizadas | `02_Evidencias/Transcripciones/` | 17 entrevistas en Markdown, con código de participante en lugar de nombres |
+| respuestas del cuestionario | `02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv` | Respuestas sin columnas de nombre, correo, teléfono ni IP |
+| corpus de requisitos | `01_ERS/ERS_SRS_2B_v2.0` y `01_ERS/priorizacion_moscow_kano.csv` | Los 39 requisitos funcionales y 15 no funcionales con su prioridad y su evidencia |
+| manuscrito | `07_Publicacion/manuscrito_final.pdf` | Versión compilada del manuscrito asociado |
+| `ANONYMIZATION.md` | esta carpeta | Cómo se trató cada tipo de dato antes de publicarlo |
+| `ETHICS.md` | esta carpeta | Resumen del proceso de consentimiento y del marco legal del estudio |
+
+## Cómo reproducir el análisis
+
+Desde la raíz del repositorio, con Python 3.10 o superior:
+
+```
+pip install -r 07_Datos/scripts/requirements.txt
+python 07_Datos/scripts/run_all.py
+```
+
+El script lee `07_Datos/datos_crudos/cobertura_legal.csv`, ejecuta la prueba de McNemar pareada sobre los 26 criterios y escribe en `07_Datos/resultados/` la tabla de McNemar, los descriptivos por bloque normativo y la figura de cobertura, que son las que aparecen en el manuscrito. Las dependencias son pandas, numpy, scipy, statsmodels, matplotlib y seaborn, con las versiones fijadas en `requirements.txt`.
 
 ## Diccionario de datos
 
-### 1. Transcripciones anonimizadas de entrevistas (`transcripciones/`)
-Archivos TXT (y JSON estructurado) con codigo de participante e identificador
-de evidencia (EV-XX). Sin nombres propios, sin cargos que identifiquen de forma
-univoca.
+El archivo `07_Datos/diccionario_datos.csv` define cada columna. Para `cobertura_legal.csv`, separado por punto y coma, las columnas son:
 
-| Campo | Tipo | Descripcion |
+| Columna | Tipo | Valores |
 |---|---|---|
-| codigo_participante | string | Codigo anonimizado (Entr-01, Entr-03, ...) |
-| rol | string | Rol en la finca (administrador, jornalero, ...) |
-| fecha | date (ISO 8601) | Fecha de la entrevista |
-| id_evidencia | string | Identificador de evidencia (EV-XX) |
-| texto | string | Contenido de la transcripcion anonimizada |
+| `criterio` | texto | C1 a C26 |
+| `bloque` | categórico | LOPDP, BPA, Bioseguridad |
+| `articulo` | texto | referencia al articulado de la LOPDP, la Resolución 183 o la Resolución 0072 |
+| `cubierto_convencional` | binario | 0 o 1 |
+| `cubierto_legalfirst` | binario | 0 o 1 |
+| `requisitos_cubre` | texto | identificadores de requisito, o un guion si el criterio no queda cubierto |
 
-### 2. Respuestas del cuestionario (`cuestionario/`)
-Archivo CSV: `2026_07_25_respuestas_2A.csv` (datos crudos anonimizados).
+## Cómo citar este conjunto de datos
 
-| Campo | Tipo | Descripcion |
-|---|---|---|
-| rol | string | Rol dentro de la actividad agricola |
-| rango_edad | string | Rango de edad |
-| anos_experiencia | string | Anos de experiencia |
-| control_cultivos | string | Como lleva el control de cultivos y cosechas |
-| control_inventario | string | Como controla el inventario de insumos |
-| organizacion_likert | entero (1-5) | Que tan organizado considera su registro |
-| dificultades | string | Principales dificultades |
-| informacion_frecuente | string | Informacion que necesita registrar con mayor frecuencia |
-| control_gastos | string | Necesita control de gastos e ingresos (Si/No) |
+La cita se genera a partir del `CITATION.cff` del repositorio una vez asignado el DOI de Zenodo, con el formato siguiente:
 
-### 3. Corpus etiquetado de RF/RNF (`requisitos/`)
-Archivos JSON con los requisitos funcionales (RF) y no funcionales (RNF)
-etiquetados del sistema AgriMoreira, segun la matriz de trazabilidad.
+> Calle Delgado, K. A., Arteaga Álava, D. D., Escudero Plaza, M. del R., Sánchez Centeno, R. A., Espinoza, J. R., y Guerrero Ulloa, G. C. (2026). Replication package for "Cobertura de requisitos legales de protección de datos y de trazabilidad agroindustrial mediante un enfoque legal-first" [conjunto de datos]. Zenodo.
 
-| Campo | Tipo | Descripcion |
-|---|---|---|
-| id_rf | string | Identificador (RF-01, ..., RNF-xx) |
-| nombre | string | Nombre del requisito |
-| descripcion | string | Descripcion |
-| actor | string | Actor(es) |
-| prioridad | string | Prioridad MoSCoW |
-| id_evidencia | string | Evidencia que respalda (EV-XX) |
-| tipo | string | RF o RNF |
+## Principios seguidos
 
-### 4. Matriz de trazabilidad (`trazabilidad/`)
-Archivo CSV con la matriz completa (TR-01 a TR-42): ley, articulo, objetivo,
-stakeholder, ID-EV, ID-RF/RNF/RD, tipo, ID-CU, ID-HU, ID-CA, componente y
-mockup.
-
-### 5. Consignas y respuestas de los LLM (`prompts_llm/`)
-Enfoque 1: archivo Markdown con el prompt exacto, modelo, temperatura, top-p,
-semilla, fecha y hora de la consulta, y el Conjunto A de RF producidos por el
-LLM en CSV.
-
-### 6. Scripts de analisis (`scripts_analisis/`)
-Scripts en Python que reproducen las tablas y figuras del manuscrito a partir
-de los datos crudos. Ver `requirements.txt`.
-
-### 7. Protocolo experimental (`protocolo/`)
-Protocolo completo (PICOC, hipotesis, variables, diseno, instrumentos, plan de
-analisis) y comprobante de registro OSF.
-
-## Datos restringidos (NO se publican)
-
-- Consentimientos originales, videos, audios y documentos originales de la
-  organizacion: permanecen en la zona restringida.
-- Tabla de correspondencia entre codigos de participante y personas reales:
-  bajo custodia del docente responsable.
-- Retencion: los datos crudos restringidos se conservan 24 meses y luego se
-  eliminan de forma segura con acta firmada.
-
-## Referencias
-
-[1] Wilkinson, M. D., et al. (2016). The FAIR Guiding Principles for scientific
-    data management and stewardship. Scientific Data, 3, 160018.
-[2] Smith, A. M., et al. (2016). Software citation principles. PeerJ Computer
-    Science, 2, e86.
+Este paquete sigue los principios FAIR, localizable, accesible, interoperable y reutilizable, de Wilkinson et al. (2016), y los principios de citación de software de Smith et al. (2016). El resultado de la autoevaluación FAIR está en `07_Datos/fair_assessment.md`.
