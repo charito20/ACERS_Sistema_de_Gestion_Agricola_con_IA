@@ -823,6 +823,82 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \item \textbf{Evidencia textual:} ``Mediante una notificacion como un mensaje de texto, algo que creo que es lo mas facil'' (EV-10).
 \end{itemize}
 
+\subsubsection{Requisitos no funcionales del componente de inteligencia artificial}
+
+Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas/enfermedades y diagnostico por imagen). Las seis RNF siguientes lo gobiernan de forma transversal, con el formato identificador, metrica, unidad, umbral, metodo de verificacion, responsable y frecuencia acordado en el reparto de roles del equipo del 2026-09-02.
+
+\rf{RNF-16}{Desempeno de deteccion/prediccion del modelo de IA}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} fiabilidad del componente de IA.
+\item \textbf{Descripcion:} el modelo que sustenta RF-09 y RF-10 debe alcanzar un nivel minimo de acierto en la deteccion de plagas/enfermedades antes de habilitarse en produccion.
+\item \textbf{Metrica:} exactitud (accuracy) y sensibilidad (recall) del modelo sobre el conjunto de validacion.
+\item \textbf{Unidad:} porcentaje (\%).
+\item \textbf{Umbral:} $\geq$80\% de exactitud y $\geq$75\% de sensibilidad en el conjunto de validacion, antes de habilitar el modelo en campo.
+\item \textbf{Metodo de verificacion:} evaluacion del modelo sobre un conjunto de prueba etiquetado, ejecutada por script versionado, con matriz de confusion documentada en el repositorio.
+\item \textbf{Responsable:} equipo tecnico (especificacion: Danela Arteaga; analisis estadistico: Maria Escudero).
+\item \textbf{Frecuencia:} antes de cada despliegue de una version nueva del modelo, y revision trimestral en produccion.
+\end{itemize}
+
+\rf{RNF-17}{Explicabilidad de las recomendaciones de IA}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} transparencia.
+\item \textbf{Descripcion:} toda alerta o recomendacion generada por el componente de IA (RF-09, RF-10) debe mostrar al usuario al menos un factor que motivo la sugerencia, no solo el resultado, para que decida con criterio si confirmarla (RF-09) o disputarla (RF-33).
+\item \textbf{Metrica:} proporcion de alertas emitidas que muestran al menos un factor explicativo.
+\item \textbf{Unidad:} porcentaje (\%) de alertas con explicacion.
+\item \textbf{Umbral:} 100\% de las alertas deben mostrar al menos un factor explicativo.
+\item \textbf{Metodo de verificacion:} revision de una muestra de alertas generadas en pruebas de aceptacion, confirmando la presencia del campo de explicacion.
+\item \textbf{Responsable:} Danela Arteaga (especificacion); equipo tecnico (implementacion).
+\item \textbf{Frecuencia:} en cada entrega que modifique el motor de alertas.
+\end{itemize}
+
+\rf{RNF-18}{Equidad de desempeno entre cultivos}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} equidad.
+\item \textbf{Descripcion:} el componente de IA no debe generar sistematicamente peor desempeno (mas falsos negativos) para un cultivo respecto del otro, dado que cacao y platano estan igualmente en alcance del estudio de caso.
+\item \textbf{Metrica:} diferencia en la tasa de falsos negativos entre cacao y platano.
+\item \textbf{Unidad:} puntos porcentuales de diferencia.
+\item \textbf{Umbral:} diferencia $\leq$10 puntos porcentuales en la tasa de falsos negativos entre ambos cultivos.
+\item \textbf{Metodo de verificacion:} evaluacion separada del modelo por subconjunto (cacao, platano) sobre el conjunto de validacion, con reporte comparativo versionado.
+\item \textbf{Responsable:} equipo tecnico; revision independiente por Maria Escudero (analisis estadistico).
+\item \textbf{Frecuencia:} en cada reentrenamiento del modelo.
+\end{itemize}
+
+\rf{RNF-19}{Supervision humana obligatoria antes de cualquier accion automatica}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} supervision humana.
+\item \textbf{Descripcion:} formaliza como requisito transversal lo que RF-09 ya exige en su flujo: ninguna alerta o recomendacion de IA puede ejecutar una accion sobre los datos del sistema sin confirmacion explicita de una persona.
+\item \textbf{Metrica:} numero de acciones aplicadas automaticamente sobre datos del sistema sin confirmacion humana.
+\item \textbf{Unidad:} conteo de incidentes.
+\item \textbf{Umbral:} 0 acciones automaticas sin confirmacion humana.
+\item \textbf{Metodo de verificacion:} revision de logs de auditoria y prueba funcional dirigida a intentar forzar una aplicacion automatica.
+\item \textbf{Responsable:} equipo tecnico; verificacion independiente por Kamila Calle (gatekeeper P11).
+\item \textbf{Frecuencia:} en cada entrega, como parte de las pruebas de aceptacion.
+\end{itemize}
+
+\rf{RNF-20}{Monitoreo continuo del desempeno del modelo en produccion}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} monitoreo.
+\item \textbf{Descripcion:} el sistema debe registrar, para cada alerta de IA, si el usuario la confirmo, la descarto (RF-09) o la disputo (RF-33), para poder calcular el desempeno real del modelo en campo y no solo en el conjunto de prueba.
+\item \textbf{Metrica:} proporcion de alertas emitidas con retroalimentacion registrada (confirmada, descartada o disputada).
+\item \textbf{Unidad:} porcentaje (\%).
+\item \textbf{Umbral:} $\geq$90\% de las alertas deben tener retroalimentacion registrada dentro de los 7 dias de emitidas.
+\item \textbf{Metodo de verificacion:} consulta sobre el registro de alertas y su estado, generada por script versionado.
+\item \textbf{Responsable:} Roselyn Sanchez (infraestructura de datos); Danela Arteaga (especificacion).
+\item \textbf{Frecuencia:} reporte mensual mientras el sistema este en operacion.
+\end{itemize}
+
+\rf{RNF-21}{Clasificacion de riesgo de las recomendaciones de IA}
+\begin{itemize}
+\item \textbf{Categoria ISO/IEC 25010:} gestion de riesgo.
+\item \textbf{Descripcion:} cada tipo de alerta o recomendacion del componente de IA debe clasificarse por nivel de riesgo (bajo, medio, alto) segun el impacto potencial de seguirla sin verificacion, y ese nivel debe ser visible al usuario junto a la alerta.
+\item \textbf{Metrica:} proporcion de tipos de alerta definidos en RF-09/RF-10 con nivel de riesgo asignado y visible en la interfaz.
+\item \textbf{Unidad:} porcentaje (\%) de tipos de alerta clasificados.
+\item \textbf{Umbral:} 100\% de los tipos de alerta deben tener un nivel de riesgo asignado antes de habilitarse.
+\item \textbf{Metodo de verificacion:} revision de la tabla de configuracion de tipos de alerta, confirmando el campo de nivel de riesgo.
+\item \textbf{Responsable:} Danela Arteaga (especificacion); equipo tecnico (implementacion).
+\item \textbf{Frecuencia:} al definir cada nuevo tipo de alerta.
+\end{itemize}
+
 \subsection{Historias de usuario y criterios de aceptacion}
 
 Los 17 requisitos funcionales de prioridad Must have se tradujeron a historias de usuario en formato Connextra, seguidas de un escenario de aceptacion en Gherkin construido a partir del criterio de verificacion ya definido para cada requisito. Cada historia cumple los criterios INVEST al describir una necesidad independiente, negociable en su implementacion, de valor claro para el usuario, estimable, acotada a un solo requisito y verificable mediante el escenario que la acompana.
