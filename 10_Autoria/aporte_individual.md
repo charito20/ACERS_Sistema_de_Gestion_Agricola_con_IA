@@ -43,4 +43,4 @@ consolidación del PFC (Entrega 4 / 2B).
 | Kamila Annabella Calle Delgado | | | |
 | Danela Dayana Arteaga Álava | | | |
 | María del Rosario Escudero Plaza | | | |
-| Roselyn Andreina Sánchez Centeno | | | |
+| Roselyn Andreina Sánchez Centeno | Roselyn Andreina Sánchez Centeno | Roselyn Andreina Sánchez Centeno | 2026-09-03 |
