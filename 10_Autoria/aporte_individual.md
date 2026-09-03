@@ -49,12 +49,12 @@ consolidación del PFC (Entrega 4 / 2B).
 
 ## Firmas
 
-> Rellenar con nombre, firma y fecha de cada integrante.
+> Cada integrante completa su fila con su firma y la fecha real en que la registra.
 
 | Integrante | Nombre | Firma | Fecha |
 |---|---|---|---|
-| Jeanpierre Robinson Espinoza | | | |
-| Kamila Annabella Calle Delgado | | | |
+| Jeanpierre Robinson Espinoza | Jeanpierre Robinson Espinoza | Jeanpierre Robinson Espinoza | 2026-09-03 |
+| Kamila Annabella Calle Delgado |  | | |
 | Danela Dayana Arteaga Álava | | | |
-| María del Rosario Escudero Plaza | | | |
-| Roselyn Andreina Sánchez Centeno | | | |
+| María del Rosario Escudero Plaza |  | | |
+| Roselyn Andreina Sánchez Centeno |  | | |
