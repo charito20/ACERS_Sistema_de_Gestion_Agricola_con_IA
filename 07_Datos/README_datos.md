@@ -1,36 +1,48 @@
-# 07_Datos — Paquete de datos ACERS
+# README_datos — Paquete de datos (07_Datos)
 
-## Qué contiene
-Paquete de datos crudos y procesados del componente empírico del proyecto ACERS
-(enfoque legal-first: cobertura de obligaciones legales de la Ley Orgánica de
-Protección de Datos y de trazabilidad agroindustrial por los RF elicitados).
+Este paquete contiene los datos crudos, el código de análisis y los resultados
+del componente empírico del proyecto ACERS (Sistema de Gestión Agrícola con IA).
 
-- `datos_crudos/`: exportación exacta de los instrumentos (matriz de correspondencia
-  legal-requisito sin editar, hojas de evaluación independiente, respuestas de
-  cuestionario), tal como salieron del instrumento, sin ninguna edición manual.
-- `datos_procesados/`: resultado de ejecutar `scripts/run_all.py` sobre `datos_crudos/`.
-  Nunca se edita a mano.
-- `scripts/`: orquestador único (`run_all.py`) que lee `datos_crudos/`, produce
-  `datos_procesados/` y genera todas las tablas y figuras citadas en el ERS y el manuscrito.
-- `resultados/`: tablas y figuras generadas exclusivamente por los scripts.
-- `diccionario_datos.csv`: descripción columna por columna de cada archivo de datos.
-- `checksums_datos.sha256`: hash de cada archivo depositado.
-- `desviaciones.md`: registro de toda diferencia respecto del protocolo pre-registrado.
-- `registro_deposito.md`: identificador persistente del depósito (Zenodo/OSF) y su fecha.
+## Reproducción
 
-## Cómo se reproduce
+> Un tercero clona el repositorio en una máquina limpia, ejecuta la orden única
+> declarada aquí y obtiene, sin intervención manual, exactamente las mismas tablas
+> y figuras que aparecen en los documentos. Si eso no ocurre, el paquete de datos
+> no está terminado.
+
+Desde la raíz del repositorio:
+
+```bash
+pip install -r 07_Datos/scripts/requirements.txt
+python 07_Datos/scripts/run_all.py
 ```
-cd 07_Datos
-pip install -r scripts/requirements.txt
-python scripts/run_all.py
-```
-Esta orden única debe reproducir, sin intervención manual, exactamente las mismas
-tablas y figuras que aparecen en el ERS y en cualquier reporte del equipo. Si no lo
-hace, el paquete de datos no está terminado (criterio de piso P6).
 
-## Estado (actualizar según se vaya llenando)
-- [ ] datos_crudos/ contiene la exportación real de cada instrumento
-- [ ] datos_procesados/ se genera únicamente por script
-- [ ] scripts/run_all.py ejecuta sin error desde un clon limpio
-- [ ] diccionario_datos.csv completo
-- [ ] checksums_datos.sha256 verificado con `sha256sum -c`
+La única orden de ejecución es `python 07_Datos/scripts/run_all.py`.
+
+## Estructura
+
+| Carpeta/archivo | Descripción |
+|---|---|
+| `datos_crudos/` | Datos sin procesar: cobertura legal por criterio y matriz de trazabilidad. |
+| `datos_procesados/` | Datos transformados/limpiados durante el análisis (resultados intermedios). |
+| `scripts/` | Código reproducible: `analisis_legalfirst.py` + orquestador `run_all.py`. |
+| `resultados/` | Tablas y figuras generadas por los scripts (nunca a mano). |
+| `diccionario_datos.csv` | Definición de cada columna de los datos. |
+| `LICENSE-DATA.txt` | Licencia del conjunto de datos (CC BY 4.0). |
+| `checksums_datos.sha256` | Hashes SHA-256 del contenido definitivo del paquete. |
+| `desviaciones.md` | Desviaciones del protocolo respecto del registro OSF. |
+| `registro_deposito.md` | Identificador persistente del depósito y su fecha. |
+
+## Fuente de los datos
+
+- `datos_crudos/cobertura_legal.csv`: matriz de cobertura de los 26 criterios
+  (LOPDP, BPA y Bioseguridad) evaluados con enfoque convencional y con enfoque
+  *legal-first*, derivada de `01_ERS/Modelo_Legal_LOPDP.md`.
+- `datos_crudos/Matriz_Trazabilidad_v2.xlsx`: matriz de trazabilidad Ley→Mockup
+  del proyecto (ver `04_Trazabilidad/`).
+
+## Salidas generadas
+
+- `resultados/tabla_mcnemar.csv`: prueba de McNemar (estadístico, valor p, b, c).
+- `resultados/descriptivos_bloque.csv`: cobertura por bloque normativo.
+- `resultados/curva_o_barras.png`: figura de cobertura antes/después por bloque.

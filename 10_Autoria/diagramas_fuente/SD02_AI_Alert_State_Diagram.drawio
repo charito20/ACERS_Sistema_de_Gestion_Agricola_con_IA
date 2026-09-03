@@ -1,0 +1,28 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="AI Alert State Diagram" id="state-alert">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s0" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="20" width="20" x="320" y="30" as="geometry"/></mxCell>
+        <mxCell id="generated" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=12;fontStyle=1;" value="Generated (RF-09: AI suggestion + justification + source)" vertex="1"><mxGeometry height="60" width="280" x="200" y="100" as="geometry"/></mxCell>
+        <mxCell id="confirmed" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=12;fontStyle=1;" value="Confirmed" vertex="1"><mxGeometry height="60" width="200" x="60" y="260" as="geometry"/></mxCell>
+        <mxCell id="discarded" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=12;fontStyle=1;" value="Discarded" vertex="1"><mxGeometry height="60" width="200" x="320" y="260" as="geometry"/></mxCell>
+        <mxCell id="disagreement" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=12;fontStyle=1;" value="DisagreementRegistered (RF-33: queued for technical review)" vertex="1"><mxGeometry height="60" width="280" x="580" y="260" as="geometry"/></mxCell>
+        <mxCell id="reviewed" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=12;fontStyle=1;" value="ReviewedByTechnicalTeam" vertex="1"><mxGeometry height="60" width="280" x="580" y="380" as="geometry"/></mxCell>
+        <mxCell id="sf1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="28" width="28" x="150" y="420" as="geometry"/></mxCell>
+        <mxCell id="sf1_ring" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="36" width="36" x="146" y="416" as="geometry"/></mxCell>
+        <mxCell id="sf2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="28" width="28" x="400" y="420" as="geometry"/></mxCell>
+        <mxCell id="sf2_ring" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;" value="" vertex="1"><mxGeometry height="36" width="36" x="396" y="416" as="geometry"/></mxCell>
+        <mxCell id="n101" edge="1" parent="1" source="s0" target="generated" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;" value="generate()"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n102" edge="1" parent="1" source="generated" target="confirmed" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;" value="confirm() [RF-09]"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n103" edge="1" parent="1" source="generated" target="discarded" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;" value="discard() [RF-09]"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n104" edge="1" parent="1" source="generated" target="disagreement" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;" value="registerDisagreement() [RF-33]"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n105" edge="1" parent="1" source="disagreement" target="reviewed" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;" value="teamReview()"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n106" edge="1" parent="1" source="confirmed" target="sf1" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="n107" edge="1" parent="1" source="discarded" target="sf2" style="html=1;endArrow=block;endFill=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="note1" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=9;align=left;spacingLeft=6;size=14;" value="Note: no alert is ever auto-applied to a plot without explicit user confirmation (RF-09, linked to RNF-05/RNF-06). Disagreement keeps the alert out of the applied set until reviewed by the technical team." vertex="1"><mxGeometry height="90" width="300" x="580" y="460" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

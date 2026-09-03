@@ -1,0 +1,13 @@
+﻿codigo,categoria,definicion,entrevistas
+RCD,Registro de cultivos,Registro y gestión de parcelas/lotes y su información (código, tamaño, ubicación, tipo de cultivo),"ENTR-01,03,06,07,08,09,10,12,15,16"
+RCO,Registro de cosecha,Registro de cosecha y producción por parcela y periodo,"ENTR-01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17"
+PLA,Plagas y enfermedades,Monitoreo y control de plagas y enfermedades (moniliasis, sigatoka, moco, picudo negro),"ENTR-01,02,03,04,05,06,10,11,12,13,15,16,17"
+INV,Inventario de insumos,Gestión de inventario de fertilizantes, fungicidas, herbicidas y herramientas,"ENTR-01,03,05,06,07,08,09,11,16"
+TAR,Tareas laborales,Asignación, planificación y control de tareas del personal,"ENTR-01,02,07,08,09,10,12,13,16"
+PER,Seguimiento de producción,Seguimiento de producción, rendimiento y variabilidad por periodo,"ENTR-03,05,10,11,12,13,15,17"
+COS,Costos e ingresos,Control de costos, gastos, ventas e ingresos de la finca,"ENTR-01,04,07,08,10,11"
+ALA,Alertas automáticas,Alertas y notificaciones automáticas (agotamiento de insumos, plagas, tareas),"ENTR-01,03,05,06,07,08,09,10,11,14,15,16,17"
+AIa,Recomendaciones IA,Recomendaciones automáticas basadas en IA para manejo de cultivos,"ENTR-01,03,05,06,07,09,10,11,12,15,16,17"
+SAT,Registro de actividades,Registro de actividades (fumigación, fertilización, limpieza, riego),"ENTR-03,05,06,07,08,09,12,14,15,16"
+DPL,Pérdida de datos,Prevención de pérdida de datos por registro manual,"ENTR-01,03,04,11,14,15"
+RPT,Reportes,Generación de reportes (por parcela, costos, pérdidas, rendimiento),"ENTR-01,03,05,06,07,08,09,10,16"

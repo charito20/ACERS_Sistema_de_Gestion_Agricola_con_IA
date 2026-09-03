@@ -1,0 +1,21 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="Context Diagram" id="ctx01">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="760" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontStyle=1;fontSize=13;align=center;" value="AgroMoreira System&lt;br&gt;&lt;i&gt;AI-assisted agricultural management&lt;/i&gt;" vertex="1"><mxGeometry height="120" width="260" x="370" y="300" as="geometry"/></mxCell>
+        <mxCell id="admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Administrator" vertex="1"><mxGeometry height="50" width="30" x="100" y="60" as="geometry"/></mxCell>
+        <mxCell id="tech" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Technician" vertex="1"><mxGeometry height="50" width="30" x="850" y="60" as="geometry"/></mxCell>
+        <mxCell id="worker" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Farmworker" vertex="1"><mxGeometry height="50" width="30" x="100" y="620" as="geometry"/></mxCell>
+        <mxCell id="ai" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="AI Recommendation Engine" vertex="1"><mxGeometry height="70" width="160" x="780" y="620" as="geometry"/></mxCell>
+        <mxCell id="agrocalidad" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontSize=11;" value="AGROCALIDAD (regulator)" vertex="1"><mxGeometry height="70" width="160" x="850" y="340" as="geometry"/></mxCell>
+        <mxCell id="e101" edge="1" parent="1" source="admin" target="sys" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="manages plots, tasks, reports"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e102" edge="1" parent="1" source="tech" target="sys" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="configures thresholds, compliance"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e103" edge="1" parent="1" source="worker" target="sys" style="html=1;endArrow=block;endFill=1;fontSize=10;" value="registers activity, harvest, risk"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e104" edge="1" parent="1" source="sys" target="ai" style="html=1;endArrow=block;endFill=1;dashed=1;fontSize=10;" value="requests / receives recommendations"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e105" edge="1" parent="1" source="sys" target="agrocalidad" style="html=1;endArrow=block;endFill=1;dashed=1;fontSize=10;" value="sends phytosanitary / BPA notices"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
