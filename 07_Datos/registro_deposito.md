@@ -5,33 +5,42 @@ ciencia abierta exigidos por la guía de la Entrega 4 (2B).
 
 ## Depósito en Zenodo (DOI)
 
-- **Estado:** Pendiente de depósito
+- **Estado:** PENDIENTE — requiere acción manual antes del examen final
 - **Plataforma:** https://zenodo.org
-- **Título propuesto:** Replication package for el manuscrito del proyecto ACERS (SGA)
+- **Título propuesto:** Replication package for legal-first requirements coverage study (ACERS SGA)
 - **Licencia:** CC BY 4.0 (datos y documentación) · MIT (código)
 - **DOI:** _por asignar al momento del depósito_
 - **Fecha de depósito:** _por completar_
 
-El DOI asignado se copiará a `CITATION.cff` y al `README` del repositorio en cuanto
-se obtenga.
+**Acción requerida:** Subir `07_Datos/` completo a Zenodo, asignar DOI, copiar a `CITATION.cff` y al README.
 
 ## Registro OSF (protocolo y desviaciones)
 
 - **Plataforma:** https://osf.io
-- **Registro previo:** realizado (comprobante en `06_Experimento/osf_registration.pdf`)
-- **Desviaciones:** documentadas en `07_Datos/desviaciones.md` (ver sección
-  "Deviations from pre-registration" del OSF)
-- **Comprobante de desviaciones:** `06_Experimento/osf_deviations.pdf`
+- **URL:** https://osf.io/7cvhy
+- **Registro previo:** ✅ COMPLETADO — comprobante en `06_Experimento/osf_registration.md`
+- **Fecha de registro:** 2 de agosto de 2026 (anterior a tercera ronda de campo)
+- **Desviaciones:** documentadas en `07_Datos/desviaciones.md`
 
 ## Archivado en Software Heritage (SWHID)
 
 - **Plataforma:** https://archive.softwareheritage.org
-- **Estado:** pendiente de archivado (botón *Save code now*)
+- **Estado:** PENDIENTE — requiere hacer clic en "Save code now" en la URL del repositorio
 - **SWHID:** _por asignar_
 - **Fecha de archivado:** _por completar_
+
+**Acción requerida:** Ir a https://archive.softwareheritage.org/save/, pegar la URL del repositorio, guardar, copiar el SWHID.
+
+## Evaluación FAIR (F-UJI)
+
+- **Estado:** PENDIENTE — ejecutar después del depósito en Zenodo
+- **Herramienta:** https://www.fairdatainitiative.org/f-uji-test/
+- **Template:** `07_Datos/fair_assessment.md`
+- **PDF:** _pendiente de generar_
+
+**Acción requerida:** Ejecutar F-UJI con la URL de Zenodo, generar `fair_assessment.pdf`.
 
 ---
 
 *Actualizar este archivo con los identificadores persistentes (DOI y SWHID) y sus
-fechas en cuanto estén disponibles, siguiendo la sección 7 de la guía de la
-Entrega 4 (2B).*
+fechas en cuanto estén disponibles.*
