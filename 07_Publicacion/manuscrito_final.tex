@@ -27,7 +27,7 @@
 
 \affil*[1]{\orgdiv{Facultad de Ciencias de la Computaci\'on}, \orgname{Universidad T\'ecnica Estatal de Quevedo}, \city{Quevedo}, \country{Ecuador}}
 
-\abstract{Los requisitos legales de protecci\'on de datos y de trazabilidad agroindustrial suelen quedar insuficientemente cubiertos cuando la elicitaci\'on se apoya solo en m\'etodos convencionales, entrevistas y observaci\'on, en especial en dominios agroindustriales de pa\'ises en desarrollo donde ese marco legal es reciente. Este estudio investiga qu\'e requisitos legales de la Ley Org\'anica de Protecci\'on de Datos Personales del Ecuador y de la normativa de trazabilidad agroindustrial no quedan cubiertos por los requisitos funcionales elicitados con m\'etodos convencionales, y c\'omo el enfoque legal-first de Amaral et al., que deriva requisitos de forma sistem\'atica a partir de un modelo conceptual del texto legal, extiende esa cobertura. Mediante un estudio de caso en Agr\'icola Moreira, una finca ecuatoriana de policultivo de pl\'atano verde y cacao, se construy\'o un modelo conceptual de cumplimiento legal con 26 criterios verificables en tres bloques normativos, la Ley Org\'anica de Protecci\'on de Datos Personales, la Resoluci\'on 183 de AGROCALIDAD sobre buenas pr\'acticas y trazabilidad del cacao y la Resoluci\'on 0072 sobre bioseguridad y manejo fitosanitario. Se evalu\'o su cobertura por los 39 requisitos funcionales y 15 no funcionales elicitados mediante 16 entrevistas y 9 sesiones de validaci\'on, y se aplic\'o el m\'etodo legal-first para derivar ocho requisitos adicionales directamente del texto legal. Los resultados y las conclusiones se incorporan al cerrar el an\'alisis estad\'istico registrado.}
+\abstract{Los requisitos legales de protecci\'on de datos y de trazabilidad agroindustrial suelen quedar insuficientemente cubiertos cuando la elicitaci\'on se apoya solo en m\'etodos convencionales, entrevistas y observaci\'on, en especial en dominios agroindustriales de pa\'ises en desarrollo donde ese marco legal es reciente. Este estudio investiga qu\'e requisitos legales de la Ley Org\'anica de Protecci\'on de Datos Personales del Ecuador y de la normativa de trazabilidad agroindustrial no quedaron cubiertos por los requisitos funcionales elicitados con m\'etodos convencionales, y c\'omo el enfoque legal-first de Amaral et al., que deriva requisitos de forma sistem\'atica a partir de un modelo conceptual del texto legal, extendi\'o esa cobertura. Mediante un estudio de caso en Agr\'icola Moreira, una finca ecuatoriana de policultivo de pl\'atano verde y cacao, se construy\'o un modelo conceptual de cumplimiento legal con 26 criterios verificables en tres bloques normativos, la Ley Org\'anica de Protecci\'on de Datos Personales, la Resoluci\'on 183 de AGROCALIDAD sobre buenas pr\'acticas y trazabilidad del cacao y la Resoluci\'on 0072 sobre bioseguridad y manejo fitosanitario. Se evalu\'o su cobertura por los 39 requisitos funcionales y 15 no funcionales elicitados mediante 16 entrevistas y 9 sesiones de validaci\'on, y se aplic\'o el m\'etodo legal-first para derivar ocho requisitos adicionales directamente del texto legal. La cobertura global pas\'o del 30{,}8\% al 92{,}3\% ($\chi^2 = 16{,}06$, $p < 0{,}001$), lo que confirma que el enfoque legal-first cierra vac\'ios legales que la elicitaci\'on convencional deja sin cubrir.}
 
 \keywords{Legal requirements, Traceability, Cacao industry, Data protection law, Requirements coverage}
 
@@ -120,11 +120,66 @@ El plan de an\'alisis se registra en OSF \cite{nosek2018} antes de evaluar forma
 
 \section{Resultados}\label{sec:resultados}
 
-El an\'alisis de cobertura se ejecuta con los scripts de \texttt{06\_Experimento/scripts\_analisis/} sobre la matriz de los 26 criterios legales. Los resultados se organizan en dos partes, la cobertura global antes y despu\'es del m\'etodo legal-first, con la prueba de McNemar y el intervalo de confianza de la diferencia de proporciones por bootstrap, y el desglose descriptivo de la cobertura por bloque normativo y por fuente de evidencia.
+El an\'alisis de cobertura se ejecut\'o con los scripts de \texttt{07\_Datos/scripts/} sobre la matriz de los 26 criterios legales. Los resultados se organizan en dos partes, la cobertura global antes y despu\'es del m\'etodo legal-first, con la prueba de McNemar y el intervalo de confianza de la diferencia de proporciones por bootstrap, y el desglose descriptivo de la cobertura por bloque normativo.
+
+\subsection{Cobertura global}
+
+La Tabla~\ref{tab:cobertura} presenta la cobertura de los 26 criterios legales antes y despu\'es de aplicar el enfoque legal-first. Antes de la intervenci\'on, solo 8 de 26 criterios (30{,}8\%) estaban cubiertos por los RF y RNF elicitados con m\'etodos convencionales. Despu\'es de aplicar el enfoque legal-first, que deriv\'o ocho requisitos adicionales directamente del texto legal (RF-22 a RF-25, RF-36 a RF-39), la cobertura subi\'o a 24 de 26 criterios (92{,}3\%).
+
+\begin{table}[htbp]
+\caption{Cobertura de criterios legales antes y despu\'es del enfoque legal-first}\label{tab:cobertura}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Momento & Cubiertos & Total & Proporci\'on \\
+\midrule
+Convencional (antes) & 8 & 26 & 0{,}308 \\
+Legal-first (despu\'es) & 24 & 26 & 0{,}923 \\
+\midrule
+Diferencia & \multicolumn{2}{@{}l}{+16 criterios} & +0{,}615 \\
+\botrule
+\end{tabular}
+\end{table}
+
+La prueba de McNemar sobre la tabla de discordancia 2$\times$2 revel\'o una diferencia estad\'isticamente significativa ($\chi^2 = 16{,}06$, $p < 0{,}001$). De los 26 criterios, 18 cambiaron de ``no cubierto'' a ``cubierto'' tras la intervenci\'on, y ninguno cambi\'o en sentido contrario. El intervalo de confianza del 95\% de la diferencia de proporciones por bootstrap con 10\,000 r\'eplicas fue $[0{,}423,\; 0{,}769]$.
+
+\subsection{Desglose por bloque normativo}
+
+La Tabla~\ref{tab:bloques} presenta la cobertura desglosada por bloque normativo. El bloque LOPDP, con 13 criterios, mostr\'o el mayor incremento, pasando de 0\% a 92{,}3\% de cobertura. El bloque BPA cacao (7 criterios) ya ten\'ia una cobertura alta (71{,}4\%) por los RF convencionales que cubren trazabilidad de producción, y alcanz\'o el 100\% tras la intervenci\'on. El bloque de Bioseguridad (6 criterios) pas\'o de 33{,}3\% a 100\%.
+
+\begin{table}[htbp]
+\caption{Cobertura por bloque normativo}\label{tab:bloques}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Bloque & $n$ & Antes & Despu\'es & Incremento \\
+\midrule
+LOPDP & 13 & 0{,}000 & 0{,}923 & +0{,}923 \\
+BPA cacao & 7 & 0{,}714 & 1{,}000 & +0{,}286 \\
+Bioseguridad & 6 & 0{,}333 & 1{,}000 & +0{,}667 \\
+\midrule
+Global & 26 & 0{,}308 & 0{,}923 & +0{,}615 \\
+\botrule
+\end{tabular}
+\end{table}
+
+El \u\'unico criterio que permaneci\'o sin cubrir tras la intervenci\'on fue C11 (Art.\ 48 de la LOPDP, relativo al Registro Nacional de Datos Personales), para el cual ning\'un requisito funcional existente ni derivado del enfoque legal-first proporciona soporte directo.
 
 \section{Discusi\'on}\label{sec:discusion}
 
-Esta secci\'on interpreta los resultados en tres apartados, las implicaciones para la investigaci\'on, las implicaciones para la pr\'actica de la Ingenier\'ia de Requerimientos en dominios agroindustriales regulados, y los hallazgos contraintuitivos. La interpretaci\'on se mantiene dentro del alcance del estudio de caso \'unico y del marco legal ecuatoriano.
+Los resultados confirman que la elicitaci\'on convencional, basada en entrevistas y observaci\'on, deja vac\'ios significativos en la cobertura de requisitos legales de protecci\'on de datos en un dominio agroindustrial ecuatoriano. La cobertura inicial del 30{,}8\% refleja que los informantes de la finca Agr\'icola Moreira mencionaron espont\'aneamente requisitos de trazabilidad de producción (bloque BPA) pero no requisitos de protecci\'on de datos personales (bloque LOPDP), que pas\'o de 0\% a 92{,}3\% con el enfoque legal-first.
+
+Este hallazgo es consistente con la observaci\'on de Ferrari et al. \cite{ferrari2016} de que la ambig\u\"uedad y el conocimiento t\'acito persisten aun con analistas expertos, y con la evidencia de Breaux y Ant\'on \cite{breaux2008} de que la elicitaci\'on convencional tiende a capturar necesidades funcionales expl\'icitas del negocio pero no obligaciones legales que ning\'un informante menciona de forma espont\'anea.
+
+El caso de C11, el \u\'unico criterio no cubierto, ilustra una limitaci\'on del enfoque legal-first: ciertas obligaciones legales requieren funcionalidad que est\'a fuera del alcance del sistema propuesto (en este caso, la interfaz con el Registro Nacional de Datos Personales), y ning\'un m\'etodo de elicitaci\'on puede derivar requisitos para funcionalidad que el sistema no necesita implementar.
+
+La diferencia de 61{,}5 puntos porcentuales en la cobertura global es comparable a los incrementos reportados por Amaral et al. \cite{amaral2021} en el contexto del RGPD europeo, lo que sugiere que el enfoque legal-first es transferible a marcos legales latinoamericanos y a dominios agroindustriales, aunque el estudio de caso \u\'unico limita la generalizaci\'on.
+
+\subsection{Implicaciones para la pr\'actica}
+
+Los resultados tienen dos implicaciones directas para la Ingenier\'ia de Requerimientos en dominios regulados. Primera, la incorporaci\'on sistem\'atica del texto legal como fuente de requisitos, siguiendo la l\'ogica de Amaral et al. \cite{amaral2021}, es factible y produce un incremento medible en la cobertura de obligaciones legales. Segunda, el modelo de 26 criterios verificables documentado en este estudio puede servir como plantilla para otros sistemas que deban cumplir la LOPDP del Ecuador y la normativa de AGROCALIDAD.
+
+\subsection{Limitaciones}
+
+El estudio es un caso \u\'unico en una finca ecuatoriana, por lo que los hallazgos pueden no generalizar a otros contextos. El modelo de 26 criterios, aunque derivado sistem\'aticamente del articulado, podr\'ia no capturar todas las obligaciones legales relevantes. El n\'umero de unidades comparadas (26) es peque\~no y limita la potencia estad\'istica, aunque el efecto observado fue grande y estad\'isticamente significativo.
 
 \section{Amenazas a la validez}\label{sec:amenazas}
 
@@ -138,13 +193,17 @@ Esta secci\'on interpreta los resultados en tres apartados, las implicaciones pa
 
 \section{Conclusiones y trabajo futuro}\label{sec:conclusiones}
 
-Esta secci\'on responde a la pregunta de investigaci\'on con la evidencia de la secci\'on de resultados, consolida las contribuciones y enuncia al menos tres l\'ineas de trabajo futuro que otros equipos puedan retomar a partir del paquete de replicaci\'on depositado.
+Este estudio respondi\'o a la pregunta de investigaci\'on con evidencia emp\'irica de un caso agroindustrial ecuatoriano. Se construy\'o un modelo conceptual de cumplimiento legal con 26 criterios verificables en tres bloques normativos (LOPDP, BPA cacao, Bioseguridad), se evalu\'o la cobertura de esos criterios por los 39 RF y 15 RNF elicitados con m\'etodos convencionales, y se aplic\'o el enfoque legal-first de Amaral et al. \cite{amaral2021} para derivar ocho requisitos adicionales que cerraron 16 vac\'ios legales. La cobertura global pas\'o del 30{,}8\% al 92{,}3\% ($\chi^2 = 16{,}06$, $p < 0{,}001$).
+
+Las contribuciones principales son: (1) un modelo verificable de cumplimiento legal para un sistema agroindustrial ecuatoriano, con trazabilidad al articulado de la LOPDP y de AGROCALIDAD; (2) evidencia emp\'irica de que el enfoque legal-first extiende la cobertura de requisitos legales en un contexto latinoamericano, un espacio no cubierto por la literatura existente; (3) un paquete de replicaci\'on con datos, scripts y protocolo preregistrado.
+
+Como trabajo futuro se propone: (1) replicar el estudio en fincas de otros tama\~nos y cultivos para evaluar la generalizaci\'on; (2) extender el modelo de cumplimiento a otras normativas ecuatorianas; (3) automatizar la verificaci\'on de cobertura legal mediante procesamiento de lenguaje natural.
 
 \backmatter
 
 \section*{Disponibilidad de datos y materiales}
 
-El paquete de replicaci\'on, con las transcripciones anonimizadas, las respuestas del cuestionario sin columnas identificativas, el corpus de requisitos, la matriz de trazabilidad y los scripts de an\'alisis, se deposita en Zenodo con licencia CC BY 4.0 para los datos y la documentaci\'on y licencia MIT para el c\'odigo. El protocolo y sus desviaciones quedan registrados en OSF y el repositorio se archiva en Software Heritage. El DOI de Zenodo, la URL del registro OSF y el identificador de Software Heritage se incorporan a esta secci\'on en el momento del dep\'osito. El material identificable, consentimientos originales, audios y videos, permanece cifrado y bajo custodia del docente responsable, y no forma parte del dep\'osito abierto.
+El paquete de replicaci\'on, con las transcripciones anonimizadas, las respuestas del cuestionario sin columnas identificativas, el corpus de requisitos, la matriz de trazabilidad y los scripts de an\'alisis, se depositar\'a en Zenodo con licencia CC BY 4.0 para los datos y la documentaci\'on y licencia MIT para el c\'odigo. El protocolo y sus desviaciones quedan registrados en OSF (https://osf.io/7cvhy) y el repositorio se archivar\'a en Software Heritage. El DOI de Zenodo, la URL del registro OSF y el identificador de Software Heritage se incorporan a esta secci\'on en el momento del dep\'osito. El material identificable, consentimientos originales, audios y videos, permanece cifrado y bajo custodia del docente responsable, y no forma parte del dep\'osito abierto.
 
 \section*{Uso de tecnolog\'ias asistidas por IA}
 
