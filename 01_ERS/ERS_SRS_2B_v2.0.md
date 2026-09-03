@@ -6,7 +6,7 @@
 **PFC:** #11, Categoría C, riesgo mínimo operativo. Paralelo 4to Software A
 **Fecha:** 1 de septiembre de 2026
 
-**Equipo:** Jeanpierre Robinson Espinoza, líder. Danela Dayana Arteaga Álava, secretaria. Kamila Annabella Calle Delgado, documentadora. María del Rosario Escudero Plaza, modeladora. Roselyn Andreina Sánchez Centeno, verificadora.
+**Equipo:** Jeanpierre Robinson Espinoza, líder. Danela Dayana Arteaga Álava, diseño y modelado UML. Kamila Annabella Calle Delgado, analista de requerimientos. María del Rosario Escudero Plaza, investigación experimental y análisis estadístico. Roselyn Andreina Sánchez Centeno, gestión del repositorio.
 **Docente supervisor:** Ing. Gleiston Cicerón Guerrero Ulloa, PhD
 
 ### Historial de versiones
