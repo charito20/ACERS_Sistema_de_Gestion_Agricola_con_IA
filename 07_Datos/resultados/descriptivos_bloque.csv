@@ -1,0 +1,4 @@
+bloque;cubierto_convencional_mean;cubierto_convencional_count;cubierto_convencional_sum;cubierto_legalfirst_mean;cubierto_legalfirst_count;cubierto_legalfirst_sum;cobertura_convencional_pct;cobertura_legalfirst_pct
+BPA;0.7142857142857143;7;5;1.0;7;7;71.42857142857143;100.0
+Bioseguridad;0.3333333333333333;6;2;1.0;6;6;33.33333333333333;100.0
+LOPDP;0.0;13;0;0.9230769230769231;13;12;0.0;92.3076923076923
