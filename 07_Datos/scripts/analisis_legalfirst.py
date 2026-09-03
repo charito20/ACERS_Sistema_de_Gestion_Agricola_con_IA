@@ -42,7 +42,7 @@ def bootstrap_diff(df, n=10000):
     diffs = []
     idx = df.index.to_numpy()
     for _ in range(n):
-        s = df.sample(n=len(df), replace=True, random_state=42)
+        s = df.sample(n=len(df), replace=True, random_state=rng)
         diffs.append(s.cubierto_legalfirst.mean() - s.cubierto_convencional.mean())
     return np.percentile(diffs, [2.5, 97.5])
 
