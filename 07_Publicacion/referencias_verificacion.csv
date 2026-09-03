@@ -1,0 +1,23 @@
+clave;citada_en_manuscrito;tipo;titulo;doi_o_fuente;doi_resuelve;fecha_comprobacion;observacion
+amaral2021;si;inproceedings;A Model-based Conceptualization of Requirements for Compliance Checking of Data Processing against GDPR;10.1109/REW53955.2021.00009;si;2026-09-03;referencia central del enfoque legal-first
+breaux2008;si;article;Analyzing regulatory rules for privacy and security requirements;10.1109/TSE.2007.70746;si;2026-09-03;
+massey2010;si;article;Evaluating existing security and privacy requirements for legal compliance;10.1007/s00766-009-0089-5;si;2026-09-03;
+deng2011;si;article;A privacy threat analysis framework;10.1007/s00766-010-0115-7;si;2026-09-03;
+torre2021;si;article;Modeling data protection and privacy: application and experience with GDPR;10.1007/s10270-021-00935-5;si;2026-09-03;
+negriribalta2024;si;article;Understanding the GDPR from a requirements engineering perspective;10.1007/s00766-024-00423-4;si;2026-09-03;
+arsyad2018;si;inproceedings;Two-factor blockchain for traceability cacao supply chain;10.1007/978-3-319-98557-2_30;si;2026-09-03;actas INCoS 2018 publicadas 2019
+marchese2022;si;article;A blockchain-based system for agri-food supply chain traceability management;10.1007/s42979-022-01148-3;si;2026-09-03;
+krishna2024;si;inproceedings;Using LLMs in Software Requirements Specifications: An Empirical Evaluation;10.1109/RE59067.2024.00056;si;2026-09-03;paginas 475-483 anadidas tras la comprobacion
+arora2024;si;incollection;Advancing Requirements Engineering Through Generative AI: Assessing the Role of LLMs;10.1007/978-3-031-55642-5_6;si;2026-09-03;corregida: era un supuesto articulo en Communications of the ACM que no se pudo verificar; la publicacion real es el capitulo de libro de Springer
+cheng2026;si;article;Generative AI for Requirements Engineering: A Systematic Literature Review;10.1002/spe.70029;si;2026-09-03;Software Practice and Experience vol 56(2) pp 141-170; se corrigio el apellido de un autor de Nishioka a Yoshioka
+vogelsang2024;si;techreport;Using large language models for NLP tasks in requirements engineering: A systematic guideline;10.48550/arXiv.2402.13823;si;2026-09-03;preprint arXiv con DOI de DataCite
+vogelsang2019;si;inproceedings;Requirements Engineering for Machine Learning: Perspectives from Data Scientists;10.1109/REW.2019.00050;si;2026-09-03;
+chazette2020;si;article;Explainability as a non-functional requirement: challenges and recommendations;10.1007/s00766-020-00333-1;si;2026-09-03;
+ferrari2016;si;article;Ambiguity and tacit knowledge in requirements elicitation interviews;10.1007/s00766-016-0249-3;si;2026-09-03;
+runeson2009;si;article;Guidelines for conducting and reporting case study research in software engineering;10.1007/s10664-008-9102-8;si;2026-09-03;en linea 2008, impreso vol 14(2) 2009
+nosek2018;si;article;The preregistration revolution;10.1073/pnas.1708274114;si;2026-09-03;PNAS vol 115(11)
+kitchenham2007;si;techreport;Guidelines for performing systematic literature reviews in software engineering;Informe tecnico EBSE 2007-001, Keele University y Durham University;no aplica;2026-09-03;informe tecnico sin DOI, fuente institucional verificada
+lopdp2021;si;misc;Ley Organica de Proteccion de Datos Personales;Registro Oficial, Quinto Suplemento N.o 459, 26-05-2021;no aplica;2026-09-03;fuente legal ecuatoriana sin DOI, URL oficial en referencias.bib
+rlopdp2023;si;misc;Reglamento General a la Ley Organica de Proteccion de Datos Personales;Decreto Ejecutivo N.o 904, Registro Oficial, Tercer Suplemento N.o 435, 13-11-2023;no aplica;2026-09-03;fuente legal ecuatoriana sin DOI, URL oficial anadida
+agrocalidad183;si;misc;Guia de Buenas Practicas Agricolas para Cacao (Resolucion Tecnica N.o 183);AGROCALIDAD, URL oficial;no aplica;2026-09-03;fuente normativa sectorial sin DOI
+agrocalidad0072;no;misc;Plan de Accion para el control de Ralstonia solanacearum Raza 2 (Resolucion N.o 0072);AGROCALIDAD, URL oficial;no aplica;2026-09-03;citada en el ERS y el protocolo, no en el manuscrito

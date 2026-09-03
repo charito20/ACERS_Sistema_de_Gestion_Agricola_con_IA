@@ -3,10 +3,19 @@
 % (que ya citan la fuente completa), 2 fueron verificadas por búsqueda directa
 % para el dominio agrícola específico de este proyecto (no estaban en las guías
 % genéricas, que cubren 11 dominios distintos).
-% Cero referencias inventadas. Al 01-sep-2026 el archivo tiene 47 entradas:
+% Cero referencias inventadas. Al 03-sep-2026 el archivo tiene 47 entradas:
 % 8 agregadas para la tabla comparativa del trabajo relacionado y 3 fuentes
 % legales del marco normativo (Reglamento LOPDP, Resoluciones AGROCALIDAD 183
 % y 0072), todas verificadas contra la fuente oficial.
+%
+% Verificacion de DOI (03-sep-2026): cada entrada citada en el manuscrito se
+% comprobo contra Crossref y la pagina del editor. El detalle esta en
+% referencias_verificacion.csv. La entrada arora2024 se corrigio de un supuesto
+% articulo en Communications of the ACM al capitulo de libro real
+% (Springer, doi 10.1007/978-3-031-55642-5_6). Las fuentes legales ecuatorianas
+% (lopdp2021, rlopdp2023, agrocalidad183, agrocalidad0072) no tienen DOI y se
+% citan con la referencia del Registro Oficial y la URL oficial, conforme lo
+% admite la seccion 5.10 de la guia de la Entrega 4 (2B).
 
 % ===================== ESTÁNDARES =====================
 
@@ -45,31 +54,35 @@
 % ===================== IA GENERATIVA EN RE =====================
 
 @article{cheng2026,
-  author = {Cheng, H. and Husen, J. H. and Lu, Y. and Racharak, T. and Nishioka, N. and Ubayashi, N. and Washizaki, H.},
+  author = {Cheng, H. and Husen, J. H. and Lu, Y. and Racharak, T. and Yoshioka, N. and Ubayashi, N. and Washizaki, H.},
   title = {Generative {AI} for requirements engineering: A systematic literature review},
   journal = {Software: Practice and Experience},
   volume = {56},
   number = {2},
   pages = {141--170},
-  year = {2026}
+  year = {2026},
+  doi = {10.1002/spe.70029}
 }
 
-@article{arora2024,
+@incollection{arora2024,
   author = {Arora, C. and Grundy, J. and Abdelrazek, M.},
-  title = {Advancing requirements engineering through generative {AI}: Assessing the role of {LLM}s},
-  journal = {Communications of the ACM},
-  volume = {67},
-  number = {6},
-  pages = {84--91},
-  year = {2024}
+  title = {Advancing Requirements Engineering Through Generative {AI}: Assessing the Role of {LLM}s},
+  booktitle = {Generative {AI} for Effective Software Development},
+  publisher = {Springer},
+  address = {Cham},
+  pages = {129--148},
+  year = {2024},
+  doi = {10.1007/978-3-031-55642-5_6}
 }
 
 @inproceedings{krishna2024,
   author = {Krishna, M. and Gaur, B. and Verma, A. and Jalote, P.},
   title = {Using {LLM}s in Software Requirements Specifications: An Empirical Evaluation},
-  booktitle = {Proceedings of the IEEE International Requirements Engineering Conference (RE 2024)},
+  booktitle = {2024 IEEE 32nd International Requirements Engineering Conference (RE)},
   address = {Reykjavik, Iceland},
-  year = {2024}
+  pages = {475--483},
+  year = {2024},
+  doi = {10.1109/RE59067.2024.00056}
 }
 
 @techreport{vogelsang2024,
@@ -77,7 +90,8 @@
   title = {Using large language models for natural language processing tasks in requirements engineering: A systematic guideline},
   institution = {arXiv},
   number = {2402.13823},
-  year = {2024}
+  year = {2024},
+  doi = {10.48550/arXiv.2402.13823}
 }
 
 % ===================== EXPLICABILIDAD =====================
@@ -89,7 +103,8 @@
   volume = {25},
   number = {4},
   pages = {493--514},
-  year = {2020}
+  year = {2020},
+  doi = {10.1007/s00766-020-00333-1}
 }
 
 @inproceedings{chazette2021,
@@ -135,7 +150,8 @@
   booktitle = {2019 IEEE 27th International Requirements Engineering Conference Workshops (REW)},
   pages = {245--251},
   organization = {IEEE},
-  year = {2019}
+  year = {2019},
+  doi = {10.1109/REW.2019.00050}
 }
 
 @article{miller2019,
@@ -157,7 +173,8 @@
   volume = {14},
   number = {2},
   pages = {131--164},
-  year = {2009}
+  year = {2009},
+  doi = {10.1007/s10664-008-9102-8}
 }
 
 @incollection{jedlitschka2008,
@@ -186,7 +203,8 @@
   volume = {115},
   number = {11},
   pages = {2600--2606},
-  year = {2018}
+  year = {2018},
+  doi = {10.1073/pnas.1708274114}
 }
 
 @article{molleri2020,
@@ -276,7 +294,8 @@
   volume = {21},
   number = {3},
   pages = {333--355},
-  year = {2016}
+  year = {2016},
+  doi = {10.1007/s00766-016-0249-3}
 }
 
 @article{fischbach2023,
@@ -359,8 +378,9 @@
 @misc{rlopdp2023,
   author = {{Presidencia de la Rep{\'u}blica del Ecuador}},
   title = {Reglamento General a la Ley Org{\'a}nica de Protecci{\'o}n de Datos Personales},
-  howpublished = {Decreto Ejecutivo N.\textdegree{} 904, Registro Oficial, Tercer Suplemento N.\textdegree{} 435},
-  year = {2023}
+  howpublished = {Decreto Ejecutivo N.\textdegree{} 904, Registro Oficial, Tercer Suplemento N.\textdegree{} 435, 13 de noviembre de 2023},
+  year = {2023},
+  url = {https://www.cosede.gob.ec/wp-content/uploads/2023/12/REGLAMENTO-GENERAL-A-LA-LEY-ORGANICA-DE-PROTECCION-DE-DATOS-PERSONALES_compressed-1.pdf}
 }
 
 @misc{agrocalidad183,
