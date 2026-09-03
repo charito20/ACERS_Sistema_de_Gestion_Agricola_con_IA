@@ -55,6 +55,6 @@ consolidación del PFC (Entrega 4 / 2B).
 |---|---|---|---|
 | Jeanpierre Robinson Espinoza | Jeanpierre Robinson Espinoza | Jeanpierre Robinson Espinoza | 2026-09-03 |
 | Kamila Annabella Calle Delgado |  | | |
-| Danela Dayana Arteaga Álava | | | |
+| Danela Dayana Arteaga Álava | Danela Dayana Arteaga Alava| Danela Arteaga | 2026-09-03 |
 | María del Rosario Escudero Plaza |  | | |
 | Roselyn Andreina Sánchez Centeno | Roselyn Andreina Sánchez Centeno  | Roselyn Sánchez | 2026-09-03|
