@@ -41,7 +41,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 
 | Integrante | Rol | Correo institucional |
 |------------|-----|----------------------|
-| Robinson Espinoza Jeanpierre | Analista Líder / Ingeniería de Requerimientos | jrobisone@uteq.edu.ec |
+| Robinson Espinoza Jeanpierre | Analista Líder / Ingeniería de Requerimientos | jrobinsone@uteq.edu.ec |
 | Calle Delgado Kamila Anabella | Analista de Requerimientos | kcalled@uteq.edu.ec |
 | Arteaga Álava Danela Dayana | Diseño y Modelado UML | darteagaa@uteq.edu.ec |
 | Escudero Plaza María del Rosario | Investigación Experimental y Análisis Estadístico | mescuderop@uteq.edu.ec |
