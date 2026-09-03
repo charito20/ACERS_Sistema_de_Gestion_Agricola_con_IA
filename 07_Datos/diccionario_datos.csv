@@ -1,0 +1,17 @@
+# 07_Datos — Diccionario de datos
+#
+# Definición de cada columna de los archivos de datos crudos y procesados.
+# Columnas: nombre_columna, tipo, unidad, rango_admisible,
+#           codificacion_valores_perdidos, procedencia
+
+# --- datos_crudos/cobertura_legal.csv ---
+criterio;texto;sin_unidad;criterios C1-C26;n/a;cobertura_legal.csv (06_Experimento)
+bloque;categorico;sin_unidad;{LOPDP,BPA,Bioseguridad};n/a;cobertura_legal.csv
+articulo;texto;sin_unidad;referencias normativas (LOPDP/Res183/Res0072);n/a;cobertura_legal.csv
+cubierto_convencional;binario;sin_unidad;{0,1};n/a;cobertura_legal.csv
+cubierto_legalfirst;binario;sin_unidad;{0,1};n/a;cobertura_legal.csv
+requisitos_cubre;texto;sin_unidad;identificadores RF/RNF o "-";n/a;cobertura_legal.csv
+
+# --- datos_crudos/Matriz_Trazabilidad_v2.xlsx ---
+# (fuente binaria; referencia en README_datos.md. Las columnas exactas dependen
+#  de la hoja del acopio; ver matriz de trazabilidad en 04_Trazabilidad/)

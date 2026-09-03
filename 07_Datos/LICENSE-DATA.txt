@@ -1,0 +1,26 @@
+CREATIVE COMMONS ATTRIBUTION 4.0 INTERNATIONAL (CC BY 4.0)
+
+Este conjunto de datos (07_Datos/) se publica bajo la licencia
+Creative Commons Attribution 4.0 International.
+
+Usted es libre de:
+  - Compartir: copiar y redistribuir el material en cualquier medio o formato.
+  - Adaptar: remezclar, transformar y construir a partir del material para
+    cualquier propósito, incluso comercial.
+
+Bajo las siguientes condiciones:
+  - Atribución: debe dar crédito de manera adecuada, proporcionar un enlace a
+    la licencia e indicar si se realizaron cambios. Puede hacerlo en cualquier
+    forma razonable, pero no de forma que sugiera que tiene el apoyo del
+    licenciante o lo recibe por el uso que hace.
+
+Sin restricciones adicionales: no puede aplicar términos legales o medidas
+tecnológicas que legalmente restrinjan a otras personas a hacer cualquier uso
+permitido por la licencia.
+
+Texto completo de la licencia:
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+NOTA: esta licencia cubre SOLO los datos de 07_Datos/. El contenido de
+02_Evidencias/00_Restringido/ NO se licencia, NO se redistribuye y NO forma
+parte del depósito abierto.
