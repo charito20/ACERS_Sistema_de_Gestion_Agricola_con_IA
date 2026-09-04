@@ -32,7 +32,7 @@ def mcnemar_test(df):
     b = ((df.cubierto_convencional == 0) & (df.cubierto_legalfirst == 1)).sum()
     c = ((df.cubierto_convencional == 1) & (df.cubierto_legalfirst == 0)).sum()
     d = ((df.cubierto_convencional == 1) & (df.cubierto_legalfirst == 1)).sum()
-    table = [[a, b], [c, d]]
+    table = [[int(a), int(b)], [int(c), int(d)]]
     res = mcnemar(table, exact=False, correction=True)
     return {"tabla": table, "stat": res.statistic, "p": res.pvalue, "b": int(b), "c": int(c)}
 
@@ -60,6 +60,19 @@ def cobertura_long_csv(df, path):
     largo["metodo"] = largo["metodo"].str.replace("cubierto_", "", regex=False)
     largo.to_csv(path, index=False, sep=";")
     return largo
+
+
+def ic_bootstrap_csv(df, ci, path, n=10000):
+    diff = df.cubierto_legalfirst.mean() - df.cubierto_convencional.mean()
+    pd.DataFrame([{
+        "estimador": "diferencia_cobertura",
+        "valor": float(diff),
+        "ic_inf": float(ci[0]),
+        "ic_sup": float(ci[1]),
+        "n_replicas": int(n),
+        "seed": 42,
+        "metodo": "percentil bootstrap",
+    }]).to_csv(path, index=False, sep=";")
 
 
 def tabla_mcnemar_csv(r, path):
@@ -123,6 +136,7 @@ def main():
     # Persistir salidas
     tabla_mcnemar_csv(r, os.path.join(args.out_dir, "tabla_mcnemar.csv"))
     descriptivos_bloque_csv(df, os.path.join(args.out_dir, "descriptivos_bloque.csv"))
+    ic_bootstrap_csv(df, ci, os.path.join(args.out_dir, "ic_bootstrap.csv"))
     figura_curva(df, os.path.join(args.out_dir, "curva_o_barras.png"))
 
     # Reporte en consola (para inspección)
