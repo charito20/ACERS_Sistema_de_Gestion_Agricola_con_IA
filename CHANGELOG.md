@@ -16,6 +16,7 @@ Etiqueta de línea base: `v2.0-final` (commit `abc1234`)
 - Informe de control de similitud y revisión cruzada entre equipos con carta de respuesta fila por fila (`07_Publicacion/revision_cruzada/`).
 - Presentación de defensa individual y banco de preguntas con respuestas ancladas a artefactos (`09_Defensa/`).
 - Etiqueta de línea base final anotada, alcanzable desde la rama por defecto y publicada en el repositorio remoto.
+- Depósito del paquete de replicación en Zenodo con DOI persistente `10.5281/zenodo.22307881`, registro previo del protocolo en OSF (`https://osf.io/7cvhy`), citado en `CITATION.cff` y en el README, conforme a la compuerta I5 de la guía.
 
 ### Cambiado
 - <!-- ej. "Requisitos no funcionales ajustados tras la auditoría de calidad de la especificación" -->
@@ -24,9 +25,6 @@ Etiqueta de línea base: `v2.0-final` (commit `abc1234`)
 - Cita cruzada corregida en la sección 6 (`sec6`) del informe final.
 - <!-- ej. "Huérfanos y cadenas rotas de la matriz de trazabilidad cerrados tras la auditoría del repositorio" -->
 - <!-- ej. "Referencias con campos incompletos o identificadores que no resolvían, verificadas una a una" -->
-
-### Pendiente
-- Depósito del paquete de datos abiertos y de replicación con identificador persistente (Zenodo/OSF), citado en la sección de disponibilidad de datos del informe conforme a la compuerta I5 de la guía.
 
 ## [Entrega 3 - 2A] - 2026-07-29
 ### Añadido
