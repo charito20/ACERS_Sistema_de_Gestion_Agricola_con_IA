@@ -60,21 +60,20 @@ La evaluación de si cada criterio legal está cubierto por un requisito funcion
 
 Las entrevistas y sesiones de validación fueron conducidas por los siguientes miembros del equipo:
 
-**Entrevistas (17 totales):**
+**Entrevistas (17 totales, incluye las sesiones que también sirvieron como walkthrough):**
 - María Escudero: 6 entrevistas
 - Jeanpierre Robinson: 8 entrevistas
 - Roselyn Sánchez: 2 entrevistas
 - Sin atribuir en este documento: 1 entrevista (el conteo de 17 se verificó contra 17 audios y 17 consentimientos firmados; el desglose por integrante de esta última entrevista queda pendiente de confirmar)
 
-**Walkthroughs / sesiones de validación (9 totales):**
-- María Escudero: 4 walkthroughs
-- Robinson Espinoza: 5 walkthroughs
+**Walkthroughs / sesiones de validación (subconjunto de las 17 entrevistas, no sesiones aparte):**
+María Escudero confirmó (2026-09-04) que los walkthroughs se hicieron a partir de las entrevistas mismas, no como grabaciones separadas. El ERS/SRS (`01_ERS/ERS_SRS_2B_v2.0.md`, correspondencia EV↔ENTR) identifica 7 de los 17 códigos ENTR como sesiones de walkthrough: ENTR-07, ENTR-08, ENTR-10, ENTR-11, ENTR-12, ENTR-15 y ENTR-16. El desglose por integrante que aparecía antes en este documento (María 4, Robinson 5, total 9) contaba walkthroughs como categoría separada y no coincide con esos 7 códigos del ERS — queda pendiente reconciliar cuál de las dos cifras (7 o 9) es la correcta antes del cierre.
 
-**Total: 17 entrevistas + 9 walkthroughs = 26 sesiones de campo**
+**Total: 17 entrevistas** (los walkthroughs son un subconjunto de esas 17, no sesiones adicionales).
 
 **Justificación del número de participantes de campo:** El criterio de saturación se alcanzó cuando dos sesiones consecutivas no aportaron requisitos nuevos. La curva de saturación (`02_Evidencias/Codificacion_Tematica/curva_saturacion.csv`) muestra estabilización a partir de la sesión 14, lo que confirma que 17 entrevistas fueron suficientes para el dominio estudiado.
 
-> **Nota de reconciliación (2026-09-04):** este documento y `06_Experimento/protocolo.tex` corrigieron el conteo de 16 a 17 entrevistas tras verificar que hay 17 audios y 17 consentimientos firmados. Sigue pendiente confirmar con el equipo si los 9 walkthroughs son sesiones separadas de las 17 entrevistas (como se trata en este documento) o si son un subconjunto de ellas, como sugiere el manuscrito final y el ERS/SRS (que asignan 7 de los 17 códigos ENTR también como walkthrough). Mientras no se confirme, ambas cifras (25 aquí, 17 en el manuscrito) deben tratarse como no reconciliadas.
+> **Nota de reconciliación (2026-09-04):** este documento y `06_Experimento/protocolo.tex` corrigieron el conteo de 16 a 17 entrevistas, y corrigieron la relación entre walkthroughs y entrevistas de "sesiones separadas" (17+9=26) a "subconjunto" (9 o 7 de las 17), confirmado directamente por María Escudero. Sigue abierta una pregunta de evidencia, no de conteo: la guía pide actas/videos de las sesiones de walkthrough, y como estas se hicieron dentro de las entrevistas mismas (no como grabaciones aparte), el equipo todavía no ha decidido cómo cubrir ese requisito — si basta con señalar el tramo correspondiente dentro del video/transcripción de la entrevista, o si hace falta redactar una acta de síntesis por cada una de esas sesiones.
 
 ## 5. Referencias
 

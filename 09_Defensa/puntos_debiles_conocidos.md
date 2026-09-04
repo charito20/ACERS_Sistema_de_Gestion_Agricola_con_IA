@@ -20,15 +20,17 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`, sección "Verificación de consentimiento para el depósito en Zenodo".
 
-## 3. El número de entrevistas no es consistente entre documentos (parcialmente resuelto, 2026-09-04)
+## 3. El número de entrevistas no es consistente entre documentos (resuelto en conteo, 2026-09-04)
 
-**El problema original:** el manuscrito y el ERS/SRS hablan de 17 entrevistas + 9 sesiones de validación con walkthrough, y el ERS/SRS asigna 7 de esos 17 códigos ENTR como sesiones de walkthrough (es decir, los walkthroughs son un subconjunto de las 17). Pero `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` hablaban de 16 entrevistas + 9 walkthroughs = 25 sesiones, tratándolos como categorías separadas y no solapadas.
+**El problema original:** el manuscrito y el ERS/SRS hablan de 17 entrevistas, con 7 de esos 17 códigos ENTR también como sesiones de walkthrough (es decir, los walkthroughs son un subconjunto de las 17). Pero `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` hablaban de 16 entrevistas + 9 walkthroughs = 25 sesiones, tratándolos como categorías separadas y no solapadas.
 
-**Lo que se corrigió:** María Escudero confirmó que el conteo real es 17 entrevistas (17 audios y 17 consentimientos firmados: 16 del paquete que envió Robinson más 1 adicional de firma digital). `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` se corrigieron de 16 a 17 entrevistas.
+**Lo que se corrigió:** María Escudero confirmó dos cosas por escrito (2026-09-04): (1) el conteo real es 17 entrevistas, verificado contra 17 audios y 17 consentimientos firmados; (2) los walkthroughs **se hicieron a partir de las entrevistas mismas, no como sesiones ni grabaciones separadas** — confirmando la relación de subconjunto que ya usaban el manuscrito y el ERS/SRS. `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` se corrigieron en ambos puntos: 16→17 entrevistas, y de "17+9=26 sesiones separadas" a "9 (o 7, ver abajo) de las 17 también fueron walkthrough".
 
-**Lo que sigue pendiente:** si los 9 walkthroughs son un subconjunto de esas 17 entrevistas (como sugiere el manuscrito/ERS) o sesiones separadas además de ellas (como sigue tratándolo `justificacion_muestra.md`, dando 26 sesiones de campo en total tras la corrección). El desglose por integrante de la entrevista número 17 tampoco está confirmado todavía.
+**Lo que sigue pendiente (dos cosas distintas):**
+1. **Discrepancia numérica menor:** el ERS/SRS identifica 7 códigos ENTR como walkthrough (ENTR-07, 08, 10, 11, 12, 15, 16); el desglose por integrante que traía `justificacion_muestra.md` sumaba 9. Falta reconciliar cuál cifra es la correcta.
+2. **Pregunta de evidencia (nueva, planteada por María el 2026-09-04):** la guía pide actas y videos de las sesiones de walkthrough. Como estas no fueron grabaciones aparte sino parte de la entrevista misma, el equipo todavía no decide cómo cubrir ese requisito de evidencia — si basta con señalar el tramo correspondiente dentro de cada entrevista, o si hace falta redactar una acta de síntesis por cada una de esas sesiones.
 
-**La respuesta preparada:** si el docente pregunta, la respuesta honesta es que el conteo de entrevistas (17) ya está verificado y corregido en todos los documentos, pero la relación exacta entre walkthroughs y entrevistas — si se solapan o no — sigue en proceso de confirmación con quienes coordinaron el trabajo de campo. No inventar una respuesta improvisada sobre ese solapamiento; es preferible reconocer que ese punto específico sigue en verificación.
+**La respuesta preparada:** si el docente pregunta, la respuesta es que el conteo de entrevistas (17) y la relación walkthrough/entrevista (subconjunto, no sesiones aparte) ya están verificados y corregidos en todos los documentos. Quedan dos detalles menores sin cerrar: la cifra exacta de walkthroughs (7 vs 9) y cómo documentar la evidencia (actas/videos) de esas sesiones dado que no fueron grabaciones independientes.
 
 **Artefactos:** `06_Experimento/protocolo.tex` (línea ~103), `06_Experimento/justificacion_muestra.md` (sección "Evaluación de la evidencia de campo"), `07_Publicacion/manuscrito_final.tex`, `01_ERS/ERS_SRS_2B_v2.0.md` (correspondencia EV↔ENTR).
 
