@@ -91,8 +91,7 @@ def plot_kappa_binario(matriz, n, kappa_a, kappa_lf, out):
         (axes[0], "Convencional", matriz["conv"]),
         (axes[1], "Legal-first", matriz["lf"]),
     ]:
-        tp, fp, fn, tn = vals
-        data = np.array([[tp, fp], [fn, tn]])
+        data = np.array(vals)
         im = ax.imshow(data, cmap="Blues")
         ax.set_xticks([0, 1])
         ax.set_yticks([0, 1])

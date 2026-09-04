@@ -1,0 +1,21 @@
+Kappa de Cohen — Cobertura legal binaria (26 criterios C1-C26)
+============================================================
+
+Criterios evaluados: 26
+Codificador A: (original de cobertura_legal.csv)
+Codificador B: (segunda codificación independiente)
+
+--- Convencional (antes del enfoque legal-first) ---
+  Kappa:    1.000
+  IC95%:    [1.000, 1.000]
+  Po:       26/26 = 100.0%
+  Interpretación: acuerdo casi perfecto
+
+--- Legal-first (después del enfoque) ---
+  Kappa:    1.000
+  IC95%:    [1.000, 1.000]
+  Po:       26/26 = 100.0%
+  Interpretación: acuerdo casi perfecto
+
+Kappa promedio (macro): 1.000
+Coincidencia total (ambas columnas): 26/26 = 100.0%
