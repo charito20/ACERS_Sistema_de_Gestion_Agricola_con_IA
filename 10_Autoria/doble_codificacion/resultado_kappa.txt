@@ -1,0 +1,9 @@
+Coefficiente de acuerdo inter-codificador (kappa de Cohen)
+Entrevistas codificadas dos veces (n): 6
+Total de codigos distintos: 7
+Proporcion de acuerdo observado (Po): 0.1667
+Acuerdo esperado (Pe): 0.0556
+Kappa de Cohen: 0.118
+Error estandar: 0.6740
+IC95%: [-1.000, 1.000]
+Interpretacion (Landis & Koch 1977): acuerdo leve
