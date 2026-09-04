@@ -1,23 +1,23 @@
 # Evaluación FAIR: Paquete de datos ACERS
 
-**Herramienta:** F-UJI (https://www.fairdatainitiative.org/f-uji-test/)
+**Herramienta:** F-UJI (https://www.f-uji.net/), metric v0.8
 **Evaluador:** Equipo ACERS
-**Ejecución:** con la URL del depósito Zenodo, como paso de comprobación final antes del corte. Objetivo institucional: puntaje agregado de al menos 60 %.
+**Fecha de ejecución:** 2026-09-04, sobre el DOI del depósito en Zenodo. Puntaje agregado obtenido: 92.3 % (objetivo institucional: al menos 60 %).
 
 ## Identificadores persistentes
 
 | Elemento | Identificador | Estado |
 |---|---|---|
 | Repositorio GitHub | https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA | Activo |
-| DOI Zenodo | Se asigna al publicar el depósito | Por depositar |
+| DOI Zenodo | 10.5281/zenodo.22307881 | Publicado |
 | OSF | https://osf.io/7cvhy | Activo, público |
-| SWHID | Se obtiene con "Save code now" tras el commit de cierre | Por archivar |
+| SWHID | `swh:1:snp:465aaeba1b5d8a07e1c7bca122fc8277812e825a` | Archivado (2026-09-04) |
 
 ## Principios FAIR
 
 ### F1: Se asigna un identificador global persistente y único
 
-- **Repositorio:** DOI de Zenodo, asignado al depositar.
+- **Repositorio:** DOI de Zenodo `10.5281/zenodo.22307881`.
 - **Datos:** DOI de Zenodo bajo CC BY 4.0.
 - **OSF:** https://osf.io/7cvhy (registrado 2026-08-02).
 
@@ -29,12 +29,12 @@
 
 ### F3: Los metadatos incluyen el identificador del recurso
 
-- `CITATION.cff` enlaza el repositorio GitHub.
-- El DOI de Zenodo se incorpora a `CITATION.cff` y al README en cuanto se asigna.
+- `CITATION.cff` enlaza el repositorio GitHub y el DOI de Zenodo.
+- El DOI de Zenodo está incorporado a `CITATION.cff` y al README.
 
 ### F4: El recurso se registra o busca en un repositorio de acceso abierto
 
-- **Zenodo:** indexa y hace buscable el paquete de datos al depositarse.
+- **Zenodo:** indexa y hace buscable el paquete de datos.
 - **Software Heritage:** archiva el código y lo hace buscable por SWHID.
 
 ### R1.1: Los metadatos están bajo una licencia de acceso abierto
@@ -54,7 +54,7 @@
 ### A1.1: El recurso se puede recuperar por su identificador
 
 - GitHub: accesible vía HTTPS.
-- Zenodo: accesible vía DOI en cuanto se publica el depósito.
+- Zenodo: accesible vía DOI `10.5281/zenodo.22307881`.
 
 ### A1.2: El protocolo está claro y abierto
 
@@ -80,12 +80,12 @@
 
 ## Resultado de la verificación automática
 
-| Métrica F-UJI | Puntaje | Fecha de ejecución |
-|---|---|---|
-| Localizable (F) | | |
-| Accesible (A) | | |
-| Interoperable (I) | | |
-| Reutilizable (R) | | |
-| Agregado | | |
+| Métrica F-UJI | Puntaje | Nivel | Fecha de ejecución |
+|---|---|---|---|
+| Localizable (F) | 7 de 7 | avanzado | 2026-09-04 |
+| Accesible (A) | 7 de 7 | avanzado | 2026-09-04 |
+| Interoperable (I) | 4 de 6 | moderado | 2026-09-04 |
+| Reutilizable (R) | 6 de 6 | moderado | 2026-09-04 |
+| Agregado | 24 de 26 (92.3 %) | avanzado | 2026-09-04 |
 
-La tabla anterior se completa ejecutando F-UJI sobre la URL del depósito en Zenodo, como paso de comprobación final antes del corte. Este documento corresponde al `fair_assessment.pdf` de la raíz del repositorio, exigido por la guía de la Entrega 4.
+Evaluación ejecutada sobre `10.5281/zenodo.22307881` con F-UJI versión 4.0.0, especificación de métrica v0.8 (https://doi.org/10.5281/zenodo.15045911). El puntaje agregado supera el objetivo institucional de 60 %. Este documento corresponde al `fair_assessment.pdf` de la raíz del repositorio, exigido por la guía de la Entrega 4.

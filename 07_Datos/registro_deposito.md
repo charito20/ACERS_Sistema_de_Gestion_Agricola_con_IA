@@ -24,16 +24,19 @@ ciencia abierta exigidos por la guía de la Entrega 4 (2B).
 ## Archivado en Software Heritage (SWHID)
 
 - **Plataforma:** https://archive.softwareheritage.org
-- **SWHID:** pendiente. Se obtiene con "Save code now" sobre la URL del repositorio y se copia a `CITATION.cff` y al README.
-- **Acción:** ir a https://archive.softwareheritage.org/save/, pegar `https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA`, guardar, copiar el SWHID resultante (empieza con `swh:1:dir:`) aquí y en `CITATION.cff`.
+- **SWHID:** `swh:1:snp:465aaeba1b5d8a07e1c7bca122fc8277812e825a` (asignado y copiado a `CITATION.cff`).
+- **Fecha de archivado:** 2026-09-04.
+- **Estado:** completado.
 
 ## Evaluación FAIR (F-UJI)
 
-- **Herramienta:** https://www.fairdatainitiative.org/f-uji-test/
+- **Herramienta:** https://www.f-uji.net/
 - **Documento:** `07_Datos/fair_assessment.md`, publicado en la raíz del repositorio como `fair_assessment.pdf`.
-- **Acción:** ejecutar F-UJI con la URL de Zenodo y completar la tabla de puntajes en `fair_assessment.md`.
+- **Resultado reportado:** 92.3 % agregado (F: 7/7, A: 7/7, I: 4/6, R: 6/6), ejecutado sobre el DOI de Zenodo el 2026-09-04.
+- **Estado:** completado, pendiente de una segunda persona que reproduzca la corrida de F-UJI de forma independiente para confirmar el puntaje antes de la defensa (no verificado de forma cruzada todavía).
 
 ---
 
-*DOI obtenido y verificado (2026-09-04). Pendiente: SWHID (Software Heritage) y
-la evaluación F-UJI; actualizar este archivo en cuanto estén disponibles.*
+*DOI, SWHID y evaluación F-UJI obtenidos (2026-09-04). El puntaje de F-UJI está
+reportado por un solo integrante del equipo y aún no se ha reproducido de forma
+independiente — recomendable confirmarlo antes de la defensa.*
