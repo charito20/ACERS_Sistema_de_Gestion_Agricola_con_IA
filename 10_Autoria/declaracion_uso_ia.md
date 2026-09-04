@@ -20,7 +20,7 @@ en `07_Datos/scripts/`.
 |---|---|---|---|---|
 | Portada e historial | LLM (redacción) (*) | Redacción de metadatos y resumen | María Escudero (*) | Lectura y contraste con el contenido |
 | Introducción (1) | — | Sin uso de IA | Equipo | Redacción propia sobre evidencia del dominio |
-| Glosario y siglas | LLM (redacción) (*) | Pulido de definiciones | Kamila Calle (*) | Contraste con normas ISO citadas |
+| Glosario y siglas | Claude Sonnet 5 (redacción, interfaz de chat, sin control de temperatura) | Pulido de definiciones | Kamila Calle | Contraste con normas ISO citadas |
 | Contexto y stakeholders | — | Sin uso de IA | Equipo | Basado en entrevistas (entries) |
 | Requisitos funcionales (RF) | — | Sin uso de IA | Equipo | Derivados de entrevistas y matriz de trazabilidad |
 | Requisitos no funcionales (RNF) | — | Sin uso de IA | Equipo | Basados en calidad (ISO 25010) |
