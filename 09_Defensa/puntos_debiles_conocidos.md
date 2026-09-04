@@ -1,0 +1,47 @@
+# Puntos débiles conocidos — respuestas preparadas
+
+Estos son los puntos que el propio equipo detectó durante la auditoría interna previa al cierre. No están aquí para esconderlos — están para que, si el docente pregunta por cualquiera de ellos, el equipo responda con seguridad y con la evidencia exacta, en vez de improvisar o sorprenderse. Un proyecto que detecta y documenta sus propias inconsistencias antes de que las señale un tercero se defiende mejor que uno que finge no tenerlas.
+
+## 1. La transcripción de ENTR-16 dice algo distinto al resto
+
+**El problema:** la introducción oral de la entrevista de ENTR-16 dice "la información utilizada no será publicada, será anonimizada", mientras que el resto de transcripciones usa la fórmula "...públicamente será anonimizada/anónima".
+
+**La respuesta preparada:** se verificó el consentimiento firmado real de esa participante (no solo la transcripción) y contiene la misma cláusula de autorización de depósito en Zenodo bajo CC BY 4.0 que firmaron los otros 10 participantes de la misma ronda de campo. Es decir, hay autorización escrita válida. La transcripción se dejó tal como se grabó, sin editarla, porque alterar lo que la persona dijo para que "encaje" con el documento firmado sería falsificar la evidencia primaria — se prefirió documentar la discrepancia por escrito en `07_Publicacion/dataset_zenodo/ETHICS.md` en vez de tocar el registro original. Queda pendiente confirmar con quien hizo la entrevista si fue un desliz al leer el guion de consentimiento en voz alta.
+
+**Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`, sección "Verificación de consentimiento para el depósito en Zenodo".
+
+## 2. Seis participantes nunca autorizaron por escrito el depósito público
+
+**El problema:** ENTR-01 a ENTR-06 firmaron una plantilla de consentimiento más antigua (primera ronda de campo) que solo autoriza uso académico interno — no menciona depósito en Zenodo ni licencia CC BY 4.0.
+
+**La respuesta preparada:** el equipo lo detectó en la auditoría previa al cierre y está documentado en `ETHICS.md`. La decisión (excluir esas 6 entrevistas del paquete público de Zenodo, o recabar autorización adicional) se toma antes del depósito — responder con la decisión que el equipo efectivamente haya tomado al momento de la defensa, citando la fecha en que se resolvió.
+
+**Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`.
+
+## 3. El número de entrevistas no es consistente entre documentos
+
+**El problema:** el manuscrito y el ERS/SRS hablan de 17 entrevistas + 9 sesiones de validación con walkthrough, y el ERS/SRS asigna 7 de esos 17 códigos ENTR como sesiones de walkthrough (es decir, los walkthroughs son un subconjunto de las 17). Pero `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` hablan de 16 entrevistas + 9 walkthroughs = 25 sesiones, tratándolos como categorías separadas y no solapadas.
+
+**La respuesta preparada:** si el docente lo pregunta antes de que el equipo lo reconcilie, la respuesta honesta es que hay una inconsistencia de conteo entre el protocolo/justificación de muestra y el manuscrito/ERS que el equipo detectó en la auditoría final y está en proceso de reconciliar con quienes coordinaron el trabajo de campo. No convenir una respuesta improvisada que invente una cifra nueva en el momento — es preferible reconocer la inconsistencia detectada que dar dos números distintos según quién responda.
+
+**Artefactos:** `06_Experimento/protocolo.tex` (línea ~103), `06_Experimento/justificacion_muestra.md` (líneas 68–74), `07_Publicacion/manuscrito_final.tex`, `01_ERS/ERS_SRS_2B_v2.0.md` (correspondencia EV↔ENTR).
+
+## 4. Una cifra de efecto estadístico desactualizada en un documento metodológico
+
+**El problema:** `06_Experimento/justificacion_muestra.md` cita una diferencia de proporciones de 0.615 (IC95% [0.423, 0.769]) como resultado observado, pero el resultado final real, reproducido con `07_Datos/scripts/run_all.py` y registrado en `07_Datos/resultados/ic_bootstrap.csv`, es 0.692 (IC95% [0.50, 0.846]).
+
+**La respuesta preparada:** el resultado citado en el manuscrito y en los archivos de `07_Datos/resultados/` es el correcto y reproducible con un solo comando; `justificacion_muestra.md` quedó con una cifra de un análisis anterior a la codificación final y debe actualizarse antes del cierre.
+
+## 5. Jeanpierre sin commits propios desde el 2026-09-01
+
+**La respuesta preparada:** ver banco_preguntas.md, sección 6. Responder con la situación real, sin minimizarla: el resto del equipo redistribuyó explícitamente sus tareas pendientes, y su factor individual depende de contribución verificable propia y de su participación en la defensa oral (gatekeeper P8), no de la nota del equipo.
+
+## 6. Identificadores persistentes (DOI, SWHID, F-UJI) pendientes al momento de escribir esto
+
+**La respuesta preparada:** responder con el estado real y verificable en `07_Datos/registro_deposito.md` al momento de la defensa. Si para entonces ya están asignados, citar el DOI y el SWHID reales; si no, decir con claridad qué falta y por qué (por ejemplo, la decisión sobre ENTR-01 a ENTR-06 bloquea armar el paquete final).
+
+## 7. La etiqueta `v2.0-final` no apunta al último commit
+
+**El problema:** el tag `v2.0-final` se creó antes de varios commits posteriores (incluida la documentación de ética de ENTR-16/ENTR-01–06 y los arreglos de rutas). Si el docente revisa específicamente esa etiqueta, no verá el estado más reciente del repositorio.
+
+**La respuesta preparada:** mover el tag al commit final una vez que el equipo cierre todos los pendientes de esta lista, justo antes del corte — no antes, para no tener que recrearlo varias veces.
