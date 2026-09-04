@@ -59,8 +59,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 | ERS/SRS completo (PDF) | [01_ERS/ERS_SRS_2B_v2.0.pdf](./01_ERS/ERS_SRS_2B_v2.0.pdf) |
 | MVP (código fuente) | [05_MVP/](./05_MVP/) |
 | Registro previo del protocolo experimental (OSF) | [osf.io/7cvhy](https://osf.io/7cvhy) |
-| Conjunto de datos (Zenodo) | *Pendiente de depósito — se publicará con la Entrega 4 (2B), siguiendo los principios FAIR* |
-
+| Conjunto de datos (Zenodo) | [10.5281/zenodo.22307881](https://doi.org/10.5281/zenodo.22307881) |
 ---
 
 # Documentación del proyecto
