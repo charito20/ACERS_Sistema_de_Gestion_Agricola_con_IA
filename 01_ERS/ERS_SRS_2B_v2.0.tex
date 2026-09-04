@@ -91,7 +91,7 @@
 \addlinespace
 1.3 & 1 de septiembre de 2026 & Definicion del enfoque legal-first como enfoque oficial del proyecto. & Equipo AgroMoreira \\
 \addlinespace
-2.0 & 1 de septiembre de 2026 & Cierre de la Seccion 3 con los 39 requisitos funcionales y los 21 no funcionales obtenidos en las 16 entrevistas y las 9 sesiones de validacion, y de las historias de usuario con criterios de aceptacion para los 17 requisitos Must have. Cierre del modelado del sistema en la Seccion 4. Matriz de trazabilidad cerrada en 60 filas y Seccion 6 con el producto minimo viable funcional. & Equipo AgroMoreira \\
+2.0 & 1 de septiembre de 2026 & Cierre de la Seccion 3 con los 39 requisitos funcionales y los 21 no funcionales obtenidos en las 17 entrevistas y las 9 sesiones de validacion, y de las historias de usuario con criterios de aceptacion para los 17 requisitos Must have. Cierre del modelado del sistema en la Seccion 4. Matriz de trazabilidad cerrada en 60 filas y Seccion 6 con el producto minimo viable funcional. & Equipo AgroMoreira \\
 \bottomrule
 \end{longtable}
 
@@ -105,7 +105,7 @@ Este documento especifica los requisitos funcionales y no funcionales del Sistem
 
 \subsection{Alcance}
 
-El sistema cubre la centralizacion del registro de parcelas, cultivos y variedades, el registro de actividades agricolas y cosechas, la gestion del inventario de insumos, la asignacion y el seguimiento de tareas, la generacion de reportes de produccion y costos, y un modulo de alertas de plagas asistido por inteligencia artificial que siempre requiere confirmacion humana antes de aplicarse a un lote. Tambien cubre los requisitos de cumplimiento legal derivados del modelo de proteccion de datos y de la normativa agroindustrial ecuatoriana. El alcance definitivo se fijo tras las 16 entrevistas y las 9 sesiones de validacion descritas en la Seccion 3, y ya fue confirmado con el administrador Raul Moreira Alay.
+El sistema cubre la centralizacion del registro de parcelas, cultivos y variedades, el registro de actividades agricolas y cosechas, la gestion del inventario de insumos, la asignacion y el seguimiento de tareas, la generacion de reportes de produccion y costos, y un modulo de alertas de plagas asistido por inteligencia artificial que siempre requiere confirmacion humana antes de aplicarse a un lote. Tambien cubre los requisitos de cumplimiento legal derivados del modelo de proteccion de datos y de la normativa agroindustrial ecuatoriana. El alcance definitivo se fijo tras las 17 entrevistas y las 9 sesiones de validacion descritas en la Seccion 3, y ya fue confirmado con el administrador Raul Moreira Alay.
 
 \subsection{Glosario de terminos}
 
@@ -230,13 +230,13 @@ Art. 20 & Derecho a no ser objeto de una decision basada unica o parcialmente en
 
 \subsection{Supuestos y dependencias}
 
-Se confirmo que Agricola Moreira cuenta con dispositivos moviles y computadores disponibles para el personal tecnico y administrativo. La colaboracion del personal de campo, inicialmente asumida como voluntaria, quedo confirmada con la realizacion de las 16 entrevistas y las 9 sesiones de validacion descritas en la Seccion 3.
+Se confirmo que Agricola Moreira cuenta con dispositivos moviles y computadores disponibles para el personal tecnico y administrativo. La colaboracion del personal de campo, inicialmente asumida como voluntaria, quedo confirmada con la realizacion de las 17 entrevistas y las 9 sesiones de validacion descritas en la Seccion 3.
 
 \section{Requisitos especificos}
 
-Esta seccion reune los 39 requisitos funcionales y los 21 requisitos no funcionales del sistema, obtenidos de las 16 entrevistas semiestructuradas y de las 9 sesiones de validacion con walkthrough, 4 con perfiles tecnicos y 5 con perfiles no tecnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos.
+Esta seccion reune los 39 requisitos funcionales y los 21 requisitos no funcionales del sistema, obtenidos de las 17 entrevistas semiestructuradas y de las 9 sesiones de validacion con walkthrough, 4 con perfiles tecnicos y 5 con perfiles no tecnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos.
 
-Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-01, administrador. EV-02 a ENTR-02, jornalero. EV-03 a ENTR-03, jornalera. EV-04 a ENTR-04, trabajador. EV-05 y EV-06 a ENTR-05 y ENTR-06, tecnicos. EV-07 a ENTR-07, tecnico, en sesion de walkthrough. EV-08 a ENTR-08, jornalera, en sesion de walkthrough. EV-09 a ENTR-09, jornalero. EV-10 a ENTR-10, tecnico, en sesion de walkthrough. EV-11 y EV-12 a ENTR-11 y ENTR-12, jornaleros, en sesion de walkthrough. EV-13 y EV-14 a ENTR-13 y ENTR-14, jornaleros. EV-15 a ENTR-15, jornalero, en sesion de walkthrough. EV-16 a ENTR-16, tecnica, en sesion de walkthrough. EV-17 a ENTR-17, tecnico. Las 16 personas entrevistadas son distintas entre si, aunque algunas comparten nombre de pila.
+Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-01, administrador. EV-02 a ENTR-02, jornalero. EV-03 a ENTR-03, jornalera. EV-04 a ENTR-04, trabajador. EV-05 y EV-06 a ENTR-05 y ENTR-06, tecnicos. EV-07 a ENTR-07, tecnico, en sesion de walkthrough. EV-08 a ENTR-08, jornalera, en sesion de walkthrough. EV-09 a ENTR-09, jornalero. EV-10 a ENTR-10, tecnico, en sesion de walkthrough. EV-11 y EV-12 a ENTR-11 y ENTR-12, jornaleros, en sesion de walkthrough. EV-13 y EV-14 a ENTR-13 y ENTR-14, jornaleros. EV-15 a ENTR-15, jornalero, en sesion de walkthrough. EV-16 a ENTR-16, tecnica, en sesion de walkthrough. EV-17 a ENTR-17, tecnico. Las 17 personas entrevistadas son distintas entre si, aunque algunas comparten nombre de pila.
 
 \subsection{Requisitos funcionales con evidencia de entrevista}
 
@@ -958,7 +958,7 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 
 \subsection{Requisitos legales derivados}
 
-Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos. Ninguna de las 16 entrevistas menciono el proceso de certificacion BPA, el derecho de acceso o rectificacion de datos personales, el aviso fitosanitario formal ni el registro de capacitaciones, asi que siguen siendo vacios legales puros. El equipo de proteccion personal y el analisis de suelo si encontraron respaldo parcial en EV-17, ver RF-18 y RF-35, pero el certificado de salud del trabajador continua sin evidencia de entrevista.
+Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos. Ninguna de las 17 entrevistas menciono el proceso de certificacion BPA, el derecho de acceso o rectificacion de datos personales, el aviso fitosanitario formal ni el registro de capacitaciones, asi que siguen siendo vacios legales puros. El equipo de proteccion personal y el analisis de suelo si encontraron respaldo parcial en EV-17, ver RF-18 y RF-35, pero el certificado de salud del trabajador continua sin evidencia de entrevista.
 
 \rf{RF-22}{Registro de consentimiento del trabajador para el tratamiento de sus datos personales}
 \begin{itemize}
@@ -1417,7 +1417,7 @@ El diagrama de despliegue completo, con el dispositivo cliente, el servidor de a
 
 \section{Priorizacion y trazabilidad}
 
-Los 39 requisitos funcionales cuentan con su prioridad MoSCoW asignada dentro de cada ficha de la Seccion 3. Sobre esa base, el equipo completo realizo el 1 de septiembre de 2026 una sesion de priorizacion complementaria con el modelo de Kano y el metodo WSJF, del marco agil SAFe. La clasificacion Kano de cada requisito, en basico, de desempeno, atractivo o indiferente, se definio por consenso del equipo a partir de la evidencia cualitativa recogida en las 16 entrevistas y no de una encuesta Kano formal aplicada a los participantes, ya que esa encuesta especifica no formo parte del instrumento de campo. Para el WSJF, el equipo asigno a cada requisito cuatro valores del 1 al 10, valor de negocio, urgencia, reduccion de riesgo u oportunidad, y tamano del esfuerzo, y el puntaje final se calculo como la suma de los tres primeros valores dividida entre el tamano del esfuerzo.
+Los 39 requisitos funcionales cuentan con su prioridad MoSCoW asignada dentro de cada ficha de la Seccion 3. Sobre esa base, el equipo completo realizo el 1 de septiembre de 2026 una sesion de priorizacion complementaria con el modelo de Kano y el metodo WSJF, del marco agil SAFe. La clasificacion Kano de cada requisito, en basico, de desempeno, atractivo o indiferente, se definio por consenso del equipo a partir de la evidencia cualitativa recogida en las 17 entrevistas y no de una encuesta Kano formal aplicada a los participantes, ya que esa encuesta especifica no formo parte del instrumento de campo. Para el WSJF, el equipo asigno a cada requisito cuatro valores del 1 al 10, valor de negocio, urgencia, reduccion de riesgo u oportunidad, y tamano del esfuerzo, y el puntaje final se calculo como la suma de los tres primeros valores dividida entre el tamano del esfuerzo.
 
 El resultado completo, con los 39 requisitos y su ranking final, se documenta en \ruta{priorizacion\_moscow\_kano.csv}. Los diez requisitos de mayor prioridad segun este metodo son los siguientes.
 

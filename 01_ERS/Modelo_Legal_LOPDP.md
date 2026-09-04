@@ -75,7 +75,7 @@ a 36, 37 a 46, 48 a 51 y 55 a 60.
 
 Los 13 criterios se evaluaron contra el conjunto de 39 requisitos funcionales y 15
 no funcionales de la Sección 3 del ERS. Ninguno de los 13 tenía cobertura por la
-elicitación convencional, ya que ninguna de las 16 entrevistas trató el
+elicitación convencional, ya que ninguna de las 17 entrevistas trató el
 tratamiento de datos personales del sistema. Los vacíos se cerraron con los
 requisitos derivados RF-22, consentimiento del trabajador, RF-23, derechos
 ARCO+, RNF-08, consentimiento explícito en el primer inicio de sesión, y RNF-09,
@@ -187,5 +187,5 @@ Al evaluar los 6 criterios contra el conjunto de requisitos elicitados, dos ya
 tenían cobertura por evidencia de entrevista, el análisis de suelo, C21, cubierto
 por RF-35 con evidencia EV-17, y el equipo de protección personal, C22, cubierto
 por RF-18 con evidencia EV-17 y EV-11. Los otros cuatro, C23 a C26, eran vacíos
-legales sin ninguna mención en las 16 entrevistas y se cerraron con los
+legales sin ninguna mención en las 17 entrevistas y se cerraron con los
 requisitos derivados RF-36 a RF-39 de la Sección 3 del ERS.
