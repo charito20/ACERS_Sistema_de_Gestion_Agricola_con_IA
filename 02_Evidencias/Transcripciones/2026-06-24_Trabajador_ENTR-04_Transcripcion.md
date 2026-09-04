@@ -1,13 +1,13 @@
 TRANSCRIPCION DE ENTREVISTA
 
-Código del participante: ENTR-03
+Código del participante: ENTR-04
 Rol: Trabajador
 Fecha: 2026-06-24
 Técnica: Entrevista semiestructurada
 Proyecto: Sistema de Gestion Agricola con Inteligencia Artificial para Cultivos de Verde y Cacao (SGA)
 
 Introducción 
-Buenas noches, mi nombre es Robinson Espinoza y soy estudiante de Ingeniería de Software de la UTEQ. Junto con mi equipo estamos trabajando en un proyecto académico cuyo objetivo es entender cómo usted gestiona actualmente su finca para documentar sus necesidades y proponer un sistema que le ayude a mejorar sus procesos.
+Buenas noches, somos estudiantes de Ingeniería de Software de la UTEQ. Estamos trabajando en un proyecto académico cuyo objetivo es entender cómo usted gestiona actualmente su finca para documentar sus necesidades y proponer un sistema que le ayude a mejorar sus procesos.
 No hay respuestas correctas ni incorrectas. Lo más importante para nosotros es conocer cómo trabaja actualmente y qué dificultades enfrenta en el manejo de sus cultivos de verde y cacao. 
 Antes de comenzar, quisiera mencionarle que el sistema que estudiaremos incluirá el uso de Inteligencia Artificial (IA), una tecnología que permite a los sistemas aprender de los datos registrados, identificar patrones y realizar sugerencias de manera automática.
 
