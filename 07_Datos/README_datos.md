@@ -1,4 +1,4 @@
-# README_datos — Paquete de datos (07_Datos)
+# README_datos - Paquete de datos (07_Datos)
 
 Este paquete contiene los datos crudos, el código de análisis y los resultados
 del componente empírico del proyecto ACERS (Sistema de Gestión Agrícola con IA).

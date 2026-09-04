@@ -1,4 +1,4 @@
-# Codificación Temática — Sistema de Gestión Agrícola con IA (SGA)
+# Codificación Temática - Sistema de Gestión Agrícola con IA (SGA)
 
 Carpeta de codificación temática cerrada de las entrevistas del proyecto ACERS (SGA):
 trazabilidad de producción de verde y cacao.

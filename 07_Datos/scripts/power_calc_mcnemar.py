@@ -194,7 +194,7 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     with open(out_dir / "power_calc_mcnemar.txt", "w", encoding="utf-8") as f:
-        f.write("Cálculo de potencia — Test de McNemar (legal-first)\n")
+        f.write("Cálculo de potencia - Test de McNemar (legal-first)\n")
         f.write("=" * 55 + "\n\n")
         f.write(f"Criterios evaluados (n):        {n}\n")
         f.write(f"Discordancia (b: 0→1):          {b}\n")

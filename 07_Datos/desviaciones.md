@@ -4,7 +4,7 @@ Este archivo documenta las desviaciones del análisis efectivo respecto del
 protocolo pre-registrado en el OSF, requeridas por la práctica transparente y por
 la rúbrica de la Entrega 4 (2B).
 
-## Desviación 1 — Inicio del trabajo de campo antes del registro formal en OSF
+## Desviación 1: Inicio del trabajo de campo antes del registro formal en OSF
 
 **Descripción:** Parte del trabajo de campo de elicitación comenzó antes del
 registro formal en OSF, como trabajo exploratorio de entregas anteriores del curso
@@ -23,7 +23,7 @@ criterios, estadísticos descriptivos, prueba de McNemar, bootstrap) se registr�
 el OSF antes de la evaluación formal de la cobertura legal. Ninguna decisión de
 análisis se tomó a partir de resultados preliminares.
 
-## Desviación 2 — El enfoque metodológico pasó por dos formulaciones previas
+## Desviación 2: El enfoque metodológico pasó por dos formulaciones previas
 
 **Descripción:** El enfoque metodológico del componente empírico pasó por dos
 formulaciones previas antes de fijarse en el diseño *legal-first*.
@@ -38,7 +38,7 @@ legales.
 registrado previamente; las formulaciones previas se descartaron y no se combinaron
 con el análisis final.
 
-## Desviación 3 — Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video
+## Desviación 3: Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video
 
 **Descripción:** Las dos primeras entrevistas de la primera ronda de campo
 (`ENTR-01`, 2026-06-20, y `ENTR-02`, 2026-06-21) se registraron únicamente en
@@ -65,7 +65,7 @@ firmado y transcripción, por lo que la evidencia cualitativa de esas dos sesion
 no se pierde, solo el registro audiovisual en video. No se sustituyó la ausencia
 con ningún archivo generado artificialmente.
 
-## Desviación 4 — Revisión del enfoque del registro OSF y enmienda (2026-09-04)
+## Desviación 4: Revisión del enfoque del registro OSF y enmienda (2026-09-04)
 
 **Descripción:** El registro OSF original `7cvhy` (creado el 2026-08-02) se titulaba
 "Protocolo de validación de explicabilidad - AgroMoreira", correspondiente al
@@ -76,8 +76,8 @@ con el mismo diseño estadístico pre-registrado (comparación pareada de 26 cri
 C1-C26, prueba de McNemar, IC por bootstrap α=0.05).
 
 **Razón:** Ajuste metodológico derivado de la asignación explícita del Enfoque 2 por
-la guía oficial de la Entrega 4 (2B). En lugar de abandonar el registro `7cvhy` —que
-sí tiene una marca temporal (2026-08-02) anterior a la recolección final de datos— se
+la guía oficial de la Entrega 4 (2B). En lugar de abandonar el registro `7cvhy` (que
+sí tiene una marca temporal, 2026-08-02, anterior a la recolección final de datos), se
 optó por **enmendarlo**: se agregó una actualización a `7cvhy` donde consta la
 revisión al enfoque *legal-first* y se conserva el sello temporal original. El plan
 de análisis comprometido (McNemar pareado, 26 criterios, bootstrap 10k, α=0.05) no
@@ -94,7 +94,7 @@ proyecto asociado (`gc9au`) y la ejecución efectiva del estudio. La decisión d
 análisis (McNemar sobre los 26 criterios) se mantuvo idéntica a la comprometida en el
 registro.
 
-## Desviación 5 — Codificación de la cobertura legal: segunda codificación y kappa (2026-09-04)
+## Desviación 5: Codificación de la cobertura legal, segunda codificación y kappa (2026-09-04)
 
 **Descripción inicial:** La tabla de cobertura de los 26 criterios legales
 (`07_Datos/datos_crudos/cobertura_legal.csv`), que alimenta la prueba de McNemar

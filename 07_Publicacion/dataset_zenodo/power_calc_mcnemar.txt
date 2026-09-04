@@ -1,4 +1,4 @@
-Cálculo de potencia — Test de McNemar (legal-first)
+Cálculo de potencia - Test de McNemar (legal-first)
 =======================================================
 
 Criterios evaluados (n):        26
