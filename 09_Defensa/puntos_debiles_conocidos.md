@@ -70,9 +70,11 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **Artefacto:** `07_Datos/desviaciones.md`, Desviación 6; `02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv`.
 
-## 9. Criterios de piso P4 y P7 de la guía específica del equipo (2026-09-04)
+## 9. Criterios de piso P4 y P7 de la guía específica del equipo (P4 resuelto, 2026-09-04)
 
-**P4 (autoría del historial):** 27 de los commits de Danela Arteaga quedaron firmados con un correo Gmail personal en vez del institucional, porque su configuración local de Git no estaba actualizada. El `.mailmap` los agrupa bien en `git shortlog`, pero no cambia el autor real guardado en cada commit, que es lo que la guía exige. Corrección: se reescribió el historial con `git filter-repo --mailmap .mailmap`, usando el `.mailmap` ya existente, y se corrigió la configuración local para que no se repita.
+**P4 (autoría del historial):** 27 de los commits de Danela Arteaga quedaron firmados con un correo Gmail personal en vez del institucional, porque su configuración local de Git no estaba actualizada. El `.mailmap` los agrupa bien en `git shortlog`, pero no cambia el autor real guardado en cada commit, que es lo que la guía exige. **Corrección aplicada y verificada:** se reescribió el historial con `git filter-repo --mailmap .mailmap --force`, se corrigió la configuración local de Git para que no se repita, y se subió el historial reescrito con `git push origin main --force-with-lease`. Verificado contra un clon nuevo del repositorio: los 266 commits de la rama `main` tienen 0 correos Gmail — los 27 quedaron reescritos con el correo institucional de cada quien.
+
+**Nota:** el tag `v2.0-final` (ver punto 7) todavía no se ha movido — sigue apuntando a un commit anterior a esta reescritura, así que si alguien revisa el historial específicamente a través de ese tag todavía va a ver 2 de esos commits con el correo de Gmail antiguo. Esto se resuelve solo, sin ningún paso adicional, cuando se mueva el tag al commit final justo antes del corte (el nuevo tag apuntará a un commit de la rama `main` ya reescrita).
 
 **P7 (carpeta `10_Autoria`, elementos A1 a A12):** de los 12 elementos exigidos, 9 tienen contenido real (bitácora, capturas, diagramas fuente, doble codificación, correspondencia, declaración de uso de IA, aporte individual, inventario EXIF, `.mailmap`). Tres carpetas siguen vacías, solo con un `.gitkeep`: `grabaciones/` (piden al menos 2 grabaciones de sesión de equipo de 10 a 15 minutos), `notas_campo/` (notas manuscritas escaneadas) y `fotos_equipo/` (fotos del equipo con al menos 2 integrantes identificables). Esto no se puede resolver por escrito: hace falta que el equipo genere ese material real antes del corte.
 
