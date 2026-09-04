@@ -111,7 +111,7 @@ def figura_curva(df, path):
     ax.legend()
     ax.set_ylim(0, 1.05)
     fig.tight_layout()
-    fig.savefig(path, dpi=150)
+    fig.savefig(path, dpi=150, metadata={"Software": "matplotlib", "Creator": "ACERS"})
     plt.close(fig)
 
 
