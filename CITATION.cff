@@ -2,8 +2,8 @@
 message: "Si utilizas este software o conjunto de datos, por favor cítalo usando los metadatos de este archivo."
 type: software
 title: "AgroMoreira — Sistema de Gestión Agrícola con IA para cultivos de cacao y plátano verde"
-version: 1.0.0
-date-released: 2026-08-30
+version: 2.0.0
+date-released: 2026-09-04
 repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
 license: "MIT AND CC-BY-4.0"
 doi: "10.5281/zenodo.XXXXXXX"  # pendiente de asignacion tras deposito en Zenodo
@@ -20,7 +20,7 @@ authors:
     email: "jrobinsone@uteq.edu.ec"
     orcid: "https://orcid.org/0009-0005-3302-1822"
   - family-names: "Calle Delgado"
-    given-names: "Kamila Anabella"
+    given-names: "Kamila Annabella"
     affiliation: "Universidad Técnica Estatal de Quevedo"
     email: "kcalled@uteq.edu.ec"
     orcid: "https://orcid.org/0009-0002-8249-9601"
