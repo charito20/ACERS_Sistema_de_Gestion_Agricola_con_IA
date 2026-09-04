@@ -10,13 +10,15 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`, sección "Verificación de consentimiento para el depósito en Zenodo".
 
-## 2. Seis participantes nunca autorizaron por escrito el depósito público
+## 2. Seis participantes nunca autorizaron por escrito el depósito público (resuelto, 2026-09-04)
 
-**El problema:** ENTR-01 a ENTR-06 firmaron una plantilla de consentimiento más antigua (primera ronda de campo) que solo autoriza uso académico interno — no menciona depósito en Zenodo ni licencia CC BY 4.0.
+**El problema (señal incorrecta):** una revisión previa había asumido que ENTR-01 a ENTR-06 firmaron una plantilla de consentimiento más antigua (primera ronda de campo) que solo autorizaba uso académico interno, sin mencionar depósito en Zenodo ni licencia CC BY 4.0.
 
-**La respuesta preparada:** el equipo lo detectó en la auditoría previa al cierre y está documentado en `ETHICS.md`. La decisión (excluir esas 6 entrevistas del paquete público de Zenodo, o recabar autorización adicional) se toma antes del depósito — responder con la decisión que el equipo efectivamente haya tomado al momento de la defensa, citando la fecha en que se resolvió.
+**Lo que se corrigió:** se verificaron directamente los 6 consentimientos firmados originales (fotografías de los documentos, no la plantilla asumida) y los 6 sí contienen la cláusula estándar de autorización de depósito en Zenodo bajo CC BY 4.0, firmada y fechada por cada participante (ENTR-01 a ENTR-06, entre el 20 y el 29 de junio de 2026). La señal original era incorrecta; no hubo que excluir ninguna entrevista ni recabar autorización adicional.
 
-**Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`.
+**La respuesta preparada:** si el docente pregunta, la respuesta es que las 17 entrevistas cuentan con autorización escrita verificada para el depósito público en Zenodo — el equipo detectó una posible inconsistencia en la auditoría interna, verificó los documentos firmados originales uno por uno, y confirmó que la autorización sí existía para las 6.
+
+**Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`, sección "Verificación de consentimiento para el depósito en Zenodo".
 
 ## 3. El número de entrevistas no es consistente entre documentos (parcialmente resuelto, 2026-09-04)
 
@@ -40,9 +42,11 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **La respuesta preparada:** ver banco_preguntas.md, sección 6. Responder con la situación real, sin minimizarla: el resto del equipo redistribuyó explícitamente sus tareas pendientes, y su factor individual depende de contribución verificable propia y de su participación en la defensa oral (gatekeeper P8), no de la nota del equipo.
 
-## 6. Identificadores persistentes (DOI, SWHID, F-UJI) pendientes al momento de escribir esto
+## 6. Identificadores persistentes (DOI, SWHID, F-UJI) (resuelto, 2026-09-04)
 
-**La respuesta preparada:** responder con el estado real y verificable en `07_Datos/registro_deposito.md` al momento de la defensa. Si para entonces ya están asignados, citar el DOI y el SWHID reales; si no, decir con claridad qué falta y por qué (por ejemplo, la decisión sobre ENTR-01 a ENTR-06 bloquea armar el paquete final).
+**Estado actual:** DOI de Zenodo (`10.5281/zenodo.22307881`) y SWHID de Software Heritage (`swh:1:snp:465aaeba1b5d8a07e1c7bca122fc8277812e825a`) obtenidos y verificados. F-UJI ejecutado con un resultado reportado de 92.3 % agregado, pero por una sola persona del equipo — pendiente que alguien más lo reproduzca de forma independiente antes de la defensa para confirmar el puntaje.
+
+**La respuesta preparada:** responder con el estado real y verificable en `07_Datos/registro_deposito.md`. Si para la defensa ya se reprodujo el puntaje de F-UJI de forma independiente, decirlo con la fecha; si no, ser honestos en que el número está reportado pero no verificado por una segunda persona.
 
 ## 7. La etiqueta `v2.0-final` no apunta al último commit
 
