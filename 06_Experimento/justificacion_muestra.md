@@ -58,13 +58,18 @@ La evaluación de si cada criterio legal está cubierto por un requisito funcion
 
 ### 4.2 Evaluación de la evidencia de campo
 
-Las entrevistas y sesiones de validación fueron conducidas por los cuatro miembros activos del equipo:
-- María Escudero (3 entrevistas, 2 walkthroughs)
-- Danela Arteaga (5 entrevistas, 2 walkthroughs)
-- Kamila Calle (4 entrevistas, 3 walkthroughs)
-- Roselyn Sánchez (4 entrevistas, 2 walkthroughs)
+Las entrevistas y sesiones de validación fueron conducidas por los siguientes miembros del equipo:
 
-**Total: 16 entrevistas + 9 sesiones de validación = 25 sesiones de campo**
+**Entrevistas (16 totales):**
+- María Escudero: 6 entrevistas
+- Jeanpierre Robinson: 8 entrevistas
+- Roselyn Sánchez: 2 entrevistas
+
+**Walkthroughs / sesiones de validación (9 totales):**
+- María Escudero: 4 walkthroughs
+- Robinson Espinoza: 5 walkthroughs
+
+**Total: 16 entrevistas + 9 walkthroughs = 25 sesiones de campo**
 
 **Justificación del número de participantes de campo:** El criterio de saturación se alcanzó cuando dos sesiones consecutivas no aportaron requisitos nuevos. La curva de saturación (`02_Evidencias/Codificacion_Tematica/curva_saturacion.csv`) muestra estabilización a partir de la sesión 14, lo que confirma que 16 entrevistas fueron suficientes para el dominio estudiado.
 
