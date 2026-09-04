@@ -1,0 +1,23 @@
+Cálculo de potencia — Test de McNemar (legal-first)
+=======================================================
+
+Criterios evaluados (n):        26
+Discordancia (b: 0→1):          18
+Discordancia (c: 1→0):          0
+Concordancia baja (a: 0→0):     1
+Concordancia alta (d: 1→1):     7
+Pares discordantes (n_disc):    18
+
+Proporción antes (convencional): 0.269 (7/26)
+Proporción después (legal-first):0.962 (25/26)
+Diferencia de proporciones:      0.692
+
+Odds ratio de discordancia:      inf
+IC 95% prop. discordancia:       [1.000, 1.000]
+
+α:                               0.05
+Potencia con n=26:               1.0000
+n mínimo para potencia ≥ 0.80:   5
+
+CONCLUSIÓN: El estudio tiene potencia suficiente (≥ 0.80)
+con n=26 criterios para detectar el efecto observado.
