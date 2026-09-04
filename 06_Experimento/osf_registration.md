@@ -26,9 +26,9 @@ El registro fue verificado contra la API publica de OSF (`https://api.osf.io/v2/
 
 ## Relacion entre el pre-registro y el estudio legal-first
 
-El pre-registro 7cvhy documenta la metodologia general del proyecto ACERS: comparacion pareada de cobertura de requisitos legales (26 criterios C1-C26) mediante prueba de McNemar, con IC por bootstrap y alfa 0.05. El estudio legal-first (Enfoque 2) es la implementacion concreta de ese plan: evalua la cobertura de los 26 criterios antes y despues de aplicar el enfoque legal-first de Amaral et al. sobre el mismo conjunto de datos.
+El registro original 7cvhy (2 de agosto de 2026) se titulaba "Protocolo de validacion de explicabilidad - AgroMoreira" y documentaba el Enfoque 1 del proyecto ACERS. Tras la orientacion de la guia oficial hacia el Enfoque 2 (*legal-first*), se enmendo el registro el 3 de septiembre de 2026 para documentar el cambio de enfoque. La enmienda, aprobada por la colaboradora Roselyn Sanchez, actualiza el resumen y el motivo del registro para reflejar el estudio legal-first: comparacion pareada de cobertura de requisitos legales (26 criterios C1-C26) mediante prueba de McNemar, con IC por bootstrap y alfa 0.05. El sello temporal original (2 de agosto de 2026) se conserva.
 
-El enlace del proyecto asociado (https://osf.io/gc9au) contiene la pagina del proyecto con los archivos complementarios del estudio legal-first.
+Este documento y la Desviacion 4 de `07_Datos/desviaciones.md` describen de forma consistente este cambio de enfoque.
 
 ## Contenido del preregistro
 
