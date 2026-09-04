@@ -128,6 +128,34 @@ qué requisitos cubren qué criterios, haciendo que la codificación sea
 reproducible y no dependiente de juicio interpretativo. Los resultados
 completos están en `10_Autoria/doble_codificacion/resultado_kappa_legal.txt`.
 
+## Desviación 6: El cuestionario no alcanzó las 60 respuestas del perfil dominante (abierta, 2026-09-04)
+
+**Descripción:** El protocolo y la guía de la Entrega 4 (2B) fijan un mínimo de
+60 respuestas del perfil dominante del cuestionario, o en su defecto una
+justificación por cálculo de potencia estadística. El cuestionario
+(`02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv`) tiene 66
+respuestas en total, y el perfil dominante es "Agricultor" con 21 respuestas,
+por debajo del mínimo de 60. El manuscrito, antes de esta corrección, afirmaba
+por error que se había alcanzado el mínimo de 60; la afirmación no coincidía
+con los datos y ya se corrigió en la Sección 3 (Participantes y reclutamiento).
+
+**Razón:** El levantamiento del cuestionario se cerró junto con el resto del
+trabajo de campo terminal sin verificar antes el conteo por perfil contra el
+mínimo de la guía.
+
+**Momento en que se detectó:** Durante la auditoría de cierre de la Entrega 4
+(2B) (2026-09-04), al contrastar `respuestas_cuestionario.csv` con la tabla de
+mínimos empíricos de la guía oficial.
+
+**Mitigación aplicada:** Ninguna todavía; queda abierta. La guía ofrece dos
+rutas: (a) recolectar 39 respuestas adicionales del perfil "Agricultor", o (b)
+calcular y documentar la potencia estadística (Cohen \(d=0{,}5\), \(\alpha=0{,}05\),
+\(1-\beta=0{,}80\)) que justifique que \(n=21\) es suficiente para el propósito
+del cuestionario. El equipo no ha ejecutado ninguna de las dos a la fecha de
+esta nota; hacerlo antes del corte final es prioritario porque este mínimo es
+uno de los tres que activan el gatekeeper G5 de la rúbrica (nota máxima 4,00/10
+si no se cumple).
+
 ---
 
 *Estas desviaciones se reutilizan de la sección de metodología del manuscrito y

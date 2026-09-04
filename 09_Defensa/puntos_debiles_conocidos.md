@@ -57,3 +57,31 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 **El problema:** el tag `v2.0-final` se creó antes de varios commits posteriores (incluida la documentación de ética de ENTR-16/ENTR-01–06 y los arreglos de rutas). Si el docente revisa específicamente esa etiqueta, no verá el estado más reciente del repositorio.
 
 **La respuesta preparada:** mover el tag al commit final una vez que el equipo cierre todos los pendientes de esta lista, justo antes del corte — no antes, para no tener que recrearlo varias veces.
+
+## 8. Gatekeeper G5 — el cuestionario no llega a 60 respuestas del perfil dominante (abierto, 2026-09-04)
+
+**El problema:** la "Guía de desarrollo — ACERS" (documento específico del equipo, emitido el 2026-09-02) fija en su gatekeeper G5 tres mínimos empíricos: ≥16 entrevistas acumuladas, curva de saturación con inflexión o power calc, y ≥60 respuestas del perfil dominante del cuestionario o una justificación por cálculo de potencia. Las dos primeras se cumplen (17 entrevistas, curva de saturación real desde la sesión 14). La tercera no: el perfil dominante ("Agricultor") tiene 21 de 66 respuestas totales, y no existe ningún cálculo de potencia que justifique ese tamaño. El manuscrito afirmaba por error que sí se habían alcanzado las 60 — ya corregido para que diga la cifra real (21).
+
+**Por qué es grave:** la guía dice explícitamente que si G5 no se cumple, la nota del equipo no puede superar 4,00/10, sin importar el resto de criterios.
+
+**La respuesta preparada:** el equipo tiene dos caminos, documentados en `07_Datos/desviaciones.md` (Desviación 6): recolectar 39 respuestas más de agricultores, o calcular y documentar la potencia estadística (Cohen d=0,5, α=0,05, potencia 0,80) que justifique n=21. Ninguno de los dos está hecho todavía. Si el docente pregunta, la respuesta correcta es admitirlo directamente: se detectó en la auditoría de cierre, se documentó como desviación abierta, y no se inventó ni una respuesta de encuesta ni un cálculo de potencia sin base real para maquillarlo.
+
+**Artefacto:** `07_Datos/desviaciones.md`, Desviación 6; `02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv`.
+
+## 9. Criterios de piso P4 y P7 de la guía específica del equipo (2026-09-04)
+
+**P4 (autoría del historial):** 27 de los commits de Danela Arteaga quedaron firmados con un correo Gmail personal en vez del institucional, porque su configuración local de Git no estaba actualizada. El `.mailmap` los agrupa bien en `git shortlog`, pero no cambia el autor real guardado en cada commit, que es lo que la guía exige. Corrección: se reescribió el historial con `git filter-repo --mailmap .mailmap`, usando el `.mailmap` ya existente, y se corrigió la configuración local para que no se repita.
+
+**P7 (carpeta `10_Autoria`, elementos A1 a A12):** de los 12 elementos exigidos, 9 tienen contenido real (bitácora, capturas, diagramas fuente, doble codificación, correspondencia, declaración de uso de IA, aporte individual, inventario EXIF, `.mailmap`). Tres carpetas siguen vacías, solo con un `.gitkeep`: `grabaciones/` (piden al menos 2 grabaciones de sesión de equipo de 10 a 15 minutos), `notas_campo/` (notas manuscritas escaneadas) y `fotos_equipo/` (fotos del equipo con al menos 2 integrantes identificables). Esto no se puede resolver por escrito: hace falta que el equipo genere ese material real antes del corte.
+
+**Artefacto:** `10_Autoria/` (grabaciones/, notas_campo/, fotos_equipo/); guía específica ACERS, Sección 6 y Sección 10.
+
+## 10. Declaración de uso de IA con verificaciones pendientes (abierto, 2026-09-04)
+
+**El problema:** `10_Autoria/declaracion_uso_ia.md` existe y tiene contenido real (no está vacío), pero varias filas de sus dos tablas están marcadas con `(*)`, es decir, "requieren verificación del integrante responsable" — el integrante nombrado en cada fila todavía no confirmó que efectivamente revisó ese uso de LLM. Además, el documento trae una nota interna sin resolver: "confirmar/ajustar la herramienta exacta (modelo y versión usada por cada integrante) y la temperatura configurada antes del envío".
+
+**Por qué no se puede cerrar por escrito:** esto no es un dato que se pueda derivar de los archivos del repositorio ni de un script — depende de que cada integrante nombrado (María Escudero, Kamila Calle, Danela Arteaga, Jeanpierre Robinson, Roselyn Sánchez) confirme personalmente qué herramienta y versión usó y revise la fila que le corresponde. Rellenar esos campos sin esa confirmación sería inventar un dato de autoría, exactamente lo que este documento existe para evitar.
+
+**La respuesta preparada:** si el docente pregunta, la respuesta es que el documento declara honestamente su propio estado: qué secciones usaron LLM (solo para redacción, nunca para resultados/cifras) y qué filas siguen pendientes de verificación nominal por integrante. No se marcó nada como verificado sin que la persona responsable lo confirmara.
+
+**Artefacto:** `10_Autoria/declaracion_uso_ia.md`.
