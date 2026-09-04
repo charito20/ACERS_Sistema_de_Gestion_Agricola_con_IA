@@ -26,7 +26,7 @@ en `07_Datos/scripts/`.
 | Requisitos no funcionales (RNF) | — | Sin uso de IA | Equipo | Basados en calidad (ISO 25010) |
 | Modelo legal LOPDP | — | Sin uso de IA | Equipo | Derivado de la norma citada |
 | Trazabilidad | — | Sin uso de IA | Equipo | Matriz Ley→Mockup en `04_Trazabilidad/` |
-| Anexos | LLM (redacción) (*) | Pulido de anexos | Danela Arteaga (*) | Revisión editorial |
+| Anexos | Claude Sonnet 5 (redacción, interfaz de chat, sin control de temperatura) | Pulido de anexos | Danela Arteaga | Revisión editorial |
 
 ## Manuscrito (`07_Publicacion/manuscrito_final.tex`)
 
