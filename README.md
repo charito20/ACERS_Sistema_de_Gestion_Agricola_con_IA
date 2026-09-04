@@ -39,11 +39,13 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 
 # Equipo de desarrollo
 
+> Los roles se redistribuyeron el 2026-09-02 tras el alejamiento temporal de Jeanpierre Robinson del equipo. El detalle completo de la redistribución y de la contribución acreditada de cada integrante está en `10_Autoria/aporte_individual.md`.
+
 | Integrante | Rol | Correo institucional |
 |------------|-----|----------------------|
-| Robinson Espinoza Jeanpierre | Analista Líder / Ingeniería de Requerimientos | jrobinsone@uteq.edu.ec |
-| Calle Delgado Kamila Anabella | Analista de Requerimientos | kcalled@uteq.edu.ec |
-| Arteaga Álava Danela Dayana | Diseño y Modelado UML | darteagaa@uteq.edu.ec |
+| Robinson Espinoza Jeanpierre | Analista Líder / Ingeniería de Requerimientos (rol original; sin commits propios desde 2026-09-01) | jrobinsone@uteq.edu.ec |
+| Calle Delgado Kamila Anabella | Analista de Requerimientos; enfoque legal-first, evaluación independiente de cobertura legal y cierre técnico del manuscrito y del depósito FAIR (rol ampliado desde 2026-09-02) | kcalled@uteq.edu.ec |
+| Arteaga Álava Danela Dayana | Diseño y Modelado UML; asumió además la especificación completa de RF/RNF/CU y la elicitación y anexos éticos (rol ampliado desde 2026-09-02) | darteagaa@uteq.edu.ec |
 | Escudero Plaza María del Rosario | Investigación Experimental y Análisis Estadístico | mescuderop@uteq.edu.ec |
 | Sánchez Centeno Roselyn Andreina | Gestión del Repositorio, Infraestructura y DevOps | rsanchezc4@uteq.edu.ec |
 | Mgs. Gleiston Ciceron Guerrero Ulloa | Docente Supervisor | gguerrero@uteq.edu.ec |

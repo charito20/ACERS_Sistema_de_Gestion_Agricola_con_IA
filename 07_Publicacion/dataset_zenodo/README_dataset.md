@@ -29,7 +29,7 @@ El depósito reúne el paquete de análisis reproducible de `07_Datos/` del repo
 | transcripciones anonimizadas | `02_Evidencias/Transcripciones/` | 17 entrevistas en Markdown, con código de participante en lugar de nombres |
 | respuestas del cuestionario | `02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv` | Respuestas sin columnas de nombre, correo, teléfono ni IP |
 | corpus de requisitos | `01_ERS/ERS_SRS_2B_v2.0` y `01_ERS/priorizacion_moscow_kano.csv` | Los 39 requisitos funcionales y 21 no funcionales con su prioridad y su evidencia |
-| manuscrito | `11_Publicacion/manuscrito_final.pdf` | Versión compilada del manuscrito asociado |
+| manuscrito | `07_Publicacion/manuscrito_final.pdf` | Versión compilada del manuscrito asociado |
 | `ANONYMIZATION.md` | esta carpeta | Cómo se trató cada tipo de dato antes de publicarlo |
 | `ETHICS.md` | esta carpeta | Resumen del proceso de consentimiento y del marco legal del estudio |
 
