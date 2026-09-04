@@ -108,7 +108,7 @@ Esto reproduce exactamente las tablas (`07_Datos/resultados/tabla_mcnemar.csv`, 
 cd 07_Datos && sha256sum -c checksums_datos.sha256
 ```
 
-El protocolo completo (preguntas de investigación, proposiciones del estudio, plan de análisis) está en `06_Experimento/protocolo.pdf`, registrado previamente en OSF: https://osf.io/gc9au
+El protocolo completo (preguntas de investigación, proposiciones del estudio, plan de análisis) está en `06_Experimento/protocolo.pdf`, registrado previamente en OSF: https://osf.io/7cvhy
 
 ## Compilar los documentos LaTeX
 
