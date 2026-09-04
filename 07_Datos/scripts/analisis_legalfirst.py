@@ -47,6 +47,21 @@ def bootstrap_diff(df, n=10000):
     return np.percentile(diffs, [2.5, 97.5])
 
 
+def cobertura_long_csv(df, path):
+    """Transforma la tabla ancha (una columna por metodo) a formato largo
+    (una fila por criterio-metodo). Esta es la version 'procesada' que se
+    usa como insumo intermedio antes de los descriptivos y la figura."""
+    largo = df.melt(
+        id_vars=[c for c in df.columns if c not in ("cubierto_convencional", "cubierto_legalfirst")],
+        value_vars=["cubierto_convencional", "cubierto_legalfirst"],
+        var_name="metodo",
+        value_name="cubierto",
+    )
+    largo["metodo"] = largo["metodo"].str.replace("cubierto_", "", regex=False)
+    largo.to_csv(path, index=False, sep=";")
+    return largo
+
+
 def tabla_mcnemar_csv(r, path):
     pd.DataFrame([{
         "estadistico": "McNemar chi2",
@@ -91,11 +106,17 @@ def main():
     ap = argparse.ArgumentParser(description="Análisis legal-first (Enfoque 2) para 07_Datos")
     ap.add_argument("--data-dir", default=DATA, help="Ruta a datos_crudos/")
     ap.add_argument("--out-dir", default=RESUL, help="Ruta a resultados/")
+    ap.add_argument("--proc-dir", default=os.path.join(RAIZ, "datos_procesados"), help="Ruta a datos_procesados/")
     args = ap.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)
+    os.makedirs(args.proc_dir, exist_ok=True)
 
     df = cargar_cobertura(os.path.join(args.data_dir, "cobertura_legal.csv"))
+
+    # Paso de procesamiento: tabla ancha -> formato largo, insumo para los pasos siguientes
+    cobertura_long_csv(df, os.path.join(args.proc_dir, "cobertura_legal_long.csv"))
+
     r = mcnemar_test(df)
     ci = bootstrap_diff(df)
 

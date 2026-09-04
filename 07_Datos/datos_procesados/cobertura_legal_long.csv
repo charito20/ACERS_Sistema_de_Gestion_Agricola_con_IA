@@ -1,0 +1,53 @@
+criterio;bloque;articulo;requisitos_cubre;metodo;cubierto
+C1;LOPDP;Art.4,12(8);RF-22;convencional;0
+C2;LOPDP;Art.4,34-35;RF-22;convencional;0
+C3;LOPDP;Art.10(d);RF-22;convencional;0
+C4;LOPDP;Art.8;RF-23;convencional;0
+C5;LOPDP;Art.12(5);RF-22;convencional;0
+C6;LOPDP;Art.37,41;RNF-08/RNF-09;convencional;0
+C7;LOPDP;Art.10(i);RF-23;convencional;0
+C8;LOPDP;Art.33,36;RF-23;convencional;0
+C9;LOPDP;Art.43,46;RF-23;convencional;0
+C10;LOPDP;Art.13-19;RF-23;convencional;0
+C11;LOPDP;Art.48;-;convencional;0
+C12;LOPDP;Art.34-35;RF-22;convencional;0
+C13;LOPDP;Art.47;RNF-08;convencional;0
+C14;BPA;Art.3 Res183;RF-03;convencional;1
+C15;BPA;Art.36 Res183;RF-14;convencional;1
+C16;BPA;Art.38 Res183;RF-18;convencional;1
+C17;BPA;Art.31-34 Res183;RF-24;convencional;0
+C18;BPA;Art.27 Res183;RF-19;convencional;1
+C19;BPA;Art.29 Res183;RF-19;convencional;1
+C20;BPA;Art.39-43 Res183;RF-25;convencional;0
+C21;Bioseguridad;Art.8 Res183;RF-35;convencional;1
+C22;Bioseguridad;Art.18(g) Res183;RF-18;convencional;1
+C23;Bioseguridad;Art.18(e) Res183;RF-36;convencional;0
+C24;Bioseguridad;Art.3.6.1(a) Res0072;RF-37;convencional;0
+C25;Bioseguridad;Art.3.6.1(d) Res0072;RF-38;convencional;0
+C26;Bioseguridad;Art.3.6.1(f)(g) Res0072;RF-39;convencional;0
+C1;LOPDP;Art.4,12(8);RF-22;legalfirst;1
+C2;LOPDP;Art.4,34-35;RF-22;legalfirst;1
+C3;LOPDP;Art.10(d);RF-22;legalfirst;1
+C4;LOPDP;Art.8;RF-23;legalfirst;1
+C5;LOPDP;Art.12(5);RF-22;legalfirst;1
+C6;LOPDP;Art.37,41;RNF-08/RNF-09;legalfirst;1
+C7;LOPDP;Art.10(i);RF-23;legalfirst;1
+C8;LOPDP;Art.33,36;RF-23;legalfirst;1
+C9;LOPDP;Art.43,46;RF-23;legalfirst;1
+C10;LOPDP;Art.13-19;RF-23;legalfirst;1
+C11;LOPDP;Art.48;-;legalfirst;0
+C12;LOPDP;Art.34-35;RF-22;legalfirst;1
+C13;LOPDP;Art.47;RNF-08;legalfirst;1
+C14;BPA;Art.3 Res183;RF-03;legalfirst;1
+C15;BPA;Art.36 Res183;RF-14;legalfirst;1
+C16;BPA;Art.38 Res183;RF-18;legalfirst;1
+C17;BPA;Art.31-34 Res183;RF-24;legalfirst;1
+C18;BPA;Art.27 Res183;RF-19;legalfirst;1
+C19;BPA;Art.29 Res183;RF-19;legalfirst;1
+C20;BPA;Art.39-43 Res183;RF-25;legalfirst;1
+C21;Bioseguridad;Art.8 Res183;RF-35;legalfirst;1
+C22;Bioseguridad;Art.18(g) Res183;RF-18;legalfirst;1
+C23;Bioseguridad;Art.18(e) Res183;RF-36;legalfirst;1
+C24;Bioseguridad;Art.3.6.1(a) Res0072;RF-37;legalfirst;1
+C25;Bioseguridad;Art.3.6.1(d) Res0072;RF-38;legalfirst;1
+C26;Bioseguridad;Art.3.6.1(f)(g) Res0072;RF-39;legalfirst;1
