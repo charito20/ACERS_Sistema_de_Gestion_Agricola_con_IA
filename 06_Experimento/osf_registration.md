@@ -45,7 +45,7 @@ Que requisitos legales de la Ley Organica de Proteccion de Datos y de trazabilid
 - Control: mismo set 26 criterios, comparacion pareada
 
 ### Diseno
-Comparacion de proporciones pareadas sobre 26 criterios. Fuente: 01_ERS/Modelo_Legal_LOPDP.md (3 bloques: LOPDP C1-C13, BPA cacao C14-C20 Res.183, Bioseguridad C21-C26 Res.0072) vs 01_ERS/ERS_SRS_2B_v2.0 (39 RF +15 RNF) y 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx
+Comparacion de proporciones pareadas sobre 26 criterios. Fuente: 01_ERS/Modelo_Legal_LOPDP.md (3 bloques: LOPDP C1-C13, BPA cacao C14-C20 Res.183, Bioseguridad C21-C26 Res.0072) vs 01_ERS/ERS_SRS_2B_v2.0 (39 RF + 21 RNF) y 04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx
 
 ### Plan de analisis
 1. Tabla pareada C1-C26: cubierto_convencional (0/1) y cubierto_legalfirst (0/1)

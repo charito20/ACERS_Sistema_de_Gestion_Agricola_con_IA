@@ -6,7 +6,7 @@ Los **mockups** (`Mockups/`) sí están en **español**, junto con este README y
 
 ## Qué cambió respecto a los 16 diagramas originales
 
-Los 16 diagramas originales (AD01-03, CD01, COMP01, DEP01, SD01, SEQ01-09) se construyeron en una fase anterior del proyecto: solo 2 actores (Administrador, Jornalero), una numeración de RF más antigua (~RF-01 a RF-16), y un modelo de dominio sin entidades legales/de cumplimiento. Se conservan como **plantilla de formato** —su diagramación y estilo no cambiaron— pero cada referencia a RF/CU dentro de ellos se corrigió al catálogo **actual** (39 RF + 15 RNF, CU-01 a CU-14), y los diagramas de componentes/despliegue se ampliaron con un `ComplianceModule` y un nodo de sistema externo AGROCALIDAD.
+Los 16 diagramas originales (AD01-03, CD01, COMP01, DEP01, SD01, SEQ01-09) se construyeron en una fase anterior del proyecto: solo 2 actores (Administrador, Jornalero), una numeración de RF más antigua (~RF-01 a RF-16), y un modelo de dominio sin entidades legales/de cumplimiento. Se conservan como **plantilla de formato** —su diagramación y estilo no cambiaron— pero cada referencia a RF/CU dentro de ellos se corrigió al catálogo **actual** (39 RF + 21 RNF, CU-01 a CU-14), y los diagramas de componentes/despliegue se ampliaron con un `ComplianceModule` y un nodo de sistema externo AGROCALIDAD.
 
 Se agregaron 16 diagramas nuevos, en el mismo estilo, para cubrir lo que los originales no cubrían: los actores Técnico y AGROCALIDAD, el actor Sistema de IA, y el dominio de cumplimiento legal LOPDP/AGROCALIDAD (consentimiento, derechos ARCO+, visitas técnicas, riesgo laboral, aviso de plaga cuarentenaria, cumplimiento BPA).
 
