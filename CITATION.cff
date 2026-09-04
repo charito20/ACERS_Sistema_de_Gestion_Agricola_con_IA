@@ -7,6 +7,9 @@ date-released: 2026-09-04
 repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
 license: "MIT AND CC-BY-4.0"
 doi: "10.5281/zenodo.22307881"
+identifiers:
+  - type: swh
+    value: "swh:1:snp:465aaeba1b5d8a07e1c7bca122fc8277812e825a"
 keywords:
   - Ingeniería de Requerimientos
   - Estudio empírico
