@@ -956,7 +956,7 @@ La cobertura de los 26 criterios legales frente a los requisitos elicitados por 
 ---
 ## 4. Modelado del sistema
 
-El modelado completo está en `03_Modelado/`, con 32 diagramas en formato `.drawio` y su exportación a imagen, más la especificación textual de los casos de uso y las historias de usuario. Toma como base el diagrama de contexto de la Sección 2.2 y el modelado organizacional i estrella de la Sección 2.4, y desarrolla a partir de los 39 requisitos funcionales y 15 no funcionales de la Sección 3.
+El modelado completo está en `03_Modelado/`, con 32 diagramas en formato `.drawio` y su exportación a imagen, más la especificación textual de los casos de uso y las historias de usuario. Toma como base el diagrama de contexto de la Sección 2.2 y el modelado organizacional i estrella de la Sección 2.4, y desarrolla a partir de los 39 requisitos funcionales y 21 no funcionales de la Sección 3.
 
 ### 4.1 Actores y casos de uso
 
