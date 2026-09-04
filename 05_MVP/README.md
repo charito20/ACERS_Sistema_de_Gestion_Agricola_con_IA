@@ -1,7 +1,16 @@
 # MVP — AgriMoreira SGA
 
 ## Cómo ejecutarlo
-No requiere instalación. Descarga `index.html` y ábrelo directamente en cualquier navegador (Chrome, Firefox, Edge).
+
+### Opción A — Docker (recomendada, requerida por rúbrica C3)
+```bash
+cd 05_MVP
+docker-compose up --build
+```
+Abre `http://localhost:8080` en el navegador. Para detener: `docker-compose down`.
+
+### Opción B — Sin Docker
+Descarga `index.html` y ábrelo directamente en cualquier navegador (Chrome, Firefox, Edge).
 
 ## Cuentas de prueba
 - Administrador: r.moreira / admin123
