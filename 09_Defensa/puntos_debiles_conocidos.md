@@ -12,11 +12,13 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 ## 2. Seis participantes nunca autorizaron por escrito el depósito público (resuelto, 2026-09-04)
 
-**El problema (señal incorrecta):** una revisión previa había asumido que ENTR-01 a ENTR-06 firmaron una plantilla de consentimiento más antigua (primera ronda de campo) que solo autorizaba uso académico interno, sin mencionar depósito en Zenodo ni licencia CC BY 4.0.
+**El problema:** ENTR-01 a ENTR-06 firmaron en la primera ronda de campo una plantilla de consentimiento que solo autoriza uso académico interno, sin mencionar depósito en Zenodo ni licencia CC BY 4.0. Ese hallazgo era correcto y sigue siendo así en la plantilla original.
 
-**Lo que se corrigió:** se verificaron directamente los 6 consentimientos firmados originales (fotografías de los documentos, no la plantilla asumida) y los 6 sí contienen la cláusula estándar de autorización de depósito en Zenodo bajo CC BY 4.0, firmada y fechada por cada participante (ENTR-01 a ENTR-06, entre el 20 y el 29 de junio de 2026). La señal original era incorrecta; no hubo que excluir ninguna entrevista ni recabar autorización adicional.
+**Lo que se corrigió:** el equipo optó por la opción (b) del `ETHICS.md` original: recabar autorización adicional firmada, en lugar de excluir las 6 entrevistas del depósito público. Los 6 participantes firmaron un documento adicional con la cláusula estándar de Zenodo/CC BY 4.0 (entre el 20 y el 29 de junio de 2026), verificado documento por documento y subido a `02_Evidencias/Consentimientos/` como evidencia con el mismo redactado del resto del paquete.
 
-**La respuesta preparada:** si el docente pregunta, la respuesta es que las 17 entrevistas cuentan con autorización escrita verificada para el depósito público en Zenodo — el equipo detectó una posible inconsistencia en la auditoría interna, verificó los documentos firmados originales uno por uno, y confirmó que la autorización sí existía para las 6.
+**Nota de proceso, para transparencia:** hubo un paso en falso durante la corrección. Una primera verificación revisó fotos de estos documentos de autorización fuera del repositorio y dio el tema por cerrado sin comprobar que la evidencia estuviera realmente subida. Una auditoría posterior, directamente sobre los archivos versionados, encontró que `02_Evidencias/Consentimientos/` todavía solo tenía la plantilla antigua para estos 6 casos — la corrección se completó ese mismo día subiendo los 6 documentos de autorización.
+
+**La respuesta preparada:** si el docente pregunta, la respuesta es que las 17 entrevistas cuentan con autorización escrita verificable en el repositorio para el depósito público en Zenodo. Si pregunta por el proceso, ser honestos: el equipo detectó la brecha en la auditoría interna, decidió recabar autorización adicional en vez de excluir esas entrevistas, y verificó que la evidencia quedara efectivamente en el repositorio antes de darlo por cerrado.
 
 **Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`, sección "Verificación de consentimiento para el depósito en Zenodo".
 
