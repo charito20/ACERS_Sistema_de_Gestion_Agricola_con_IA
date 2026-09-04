@@ -60,6 +60,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 | MVP (código fuente) | [05_MVP/](./05_MVP/) |
 | Registro previo del protocolo experimental (OSF) | [osf.io/7cvhy](https://osf.io/7cvhy) |
 | Conjunto de datos (Zenodo) | [10.5281/zenodo.22307881](https://doi.org/10.5281/zenodo.22307881) |
+| Archivado (Software Heritage) | [swh:1:snp:465aaeba1b5d8a07e1c7bca122fc8277812e825a](https://archive.softwareheritage.org/swh:1:snp:465aaeba1b5d8a07e1c7bca122fc8277812e825a/) |
 ---
 
 # Documentación del proyecto
