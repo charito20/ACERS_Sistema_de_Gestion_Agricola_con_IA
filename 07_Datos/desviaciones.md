@@ -94,6 +94,33 @@ proyecto asociado (`gc9au`) y la ejecución efectiva del estudio. La decisión d
 análisis (McNemar sobre los 26 criterios) se mantuvo idéntica a la comprometida en el
 registro.
 
+## Desviación 5 — Codificación de la cobertura legal por un solo evaluador (2026-09-04)
+
+**Descripción:** La tabla de cobertura de los 26 criterios legales
+(`07_Datos/datos_crudos/cobertura_legal.csv`), que alimenta la prueba de McNemar
+del componente empírico, fue codificada por un solo integrante del equipo. No se
+calculó un coeficiente de acuerdo entre codificadores (kappa de Cohen) sobre esa
+evaluación binaria de cubierto o no cubierto.
+
+**Razón:** La evaluación de cobertura se deriva directamente del articulado de las
+tres normas (LOPDP, Resolución 183 de AGROCALIDAD y Resolución 0072), una
+asignación objetiva y verificable contra la fuente. Se priorizó una codificación
+única con verificación contra el texto normativo sobre una segunda codificación
+independiente, dada la restricción de tiempo de la ronda terminal de la entrega.
+
+**Momento en que se detectó:** Durante la preparación del depósito FAIR y la lista
+de verificación previa al cierre (2026-09-04).
+
+**Mitigación aplicada:** Cada uno de los 26 criterios se deriva de un artículo
+legal explícito y queda documentado en `01_ERS/Modelo_Legal_LOPDP.md` y en la
+matriz de trazabilidad `04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx`, de modo que
+la asignación de cobertura es trazable y verificable contra la fuente por
+cualquier tercero. La codificación temática de las entrevistas, que sí implica
+juicio interpretativo, cuenta con doble codificación independiente y coeficiente
+kappa en `10_Autoria/doble_codificacion/`. Para trabajo futuro se recomienda una
+segunda codificación independiente de los 26 criterios legales y el reporte del
+kappa correspondiente.
+
 ---
 
 *Estas desviaciones se reutilizan de la sección de metodología del manuscrito y
