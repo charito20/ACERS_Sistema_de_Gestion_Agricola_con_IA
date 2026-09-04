@@ -3,3 +3,7 @@
 # de línea Unix (LF) en el working tree en cualquier plataforma.
 07_Datos/checksums_datos.sha256 -text
 *.sha256 -text
+
+# Forzar LF para todo archivo de texto en cualquier checkout (Windows incluido),
+# para que sha256sum -c sea reproducible sin importar el sistema operativo.
+* text=auto eol=lf

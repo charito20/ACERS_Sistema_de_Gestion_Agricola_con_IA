@@ -54,7 +54,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 
 | Recurso | Enlace |
 |---|---|
-| ERS/SRS completo (PDF) | [01_ERS/ERS_SRS_2A_v1.0.pdf](./01_ERS/ERS_SRS_2A_v1.0.pdf) |
+| ERS/SRS completo (PDF) | [01_ERS/ERS_SRS_2B_v2.0.pdf](./01_ERS/ERS_SRS_2B_v2.0.pdf) |
 | MVP (código fuente) | [05_MVP/](./05_MVP/) |
 | Registro previo del protocolo experimental (OSF) | [osf.io/7cvhy](https://osf.io/7cvhy) |
 | Conjunto de datos (Zenodo) | *Pendiente de depósito — se publicará con la Entrega 4 (2B), siguiendo los principios FAIR* |
@@ -71,7 +71,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 | Matriz de Trazabilidad | `04_Trazabilidad/` |
 | MVP del sistema | `05_MVP/` |
 | Protocolo y resultados experimentales | `06_Experimento/` |
-| Manuscrito científico | `11_Publicacion/` |
+| Manuscrito científico | `07_Publicacion/` |
 
 ---
 
@@ -130,9 +130,9 @@ pdflatex protocolo.tex
 pdflatex protocolo.tex
 ```
 
-**Manuscrito final** (`11_Publicacion/manuscrito_final.tex`, plantilla Springer Nature `sn-jnl.cls`, estilo `sn-mathphys-num.bst`, requiere `referencias.bib` en la misma carpeta):
+**Manuscrito final** (`07_Publicacion/manuscrito_final.tex`, plantilla Springer Nature `sn-jnl.cls`, estilo `sn-mathphys-num.bst`, requiere `referencias.bib` en la misma carpeta):
 ```bash
-cd 11_Publicacion
+cd 07_Publicacion
 pdflatex manuscrito_final.tex
 bibtex manuscrito_final
 pdflatex manuscrito_final.tex
@@ -178,7 +178,7 @@ AgriMoreira/
 ├── 10_Autoria/
 │   └── Evidencia de autoría (bitácora, capturas, diagramas fuente, aporte individual)
 │
-└── 11_Publicacion/
+└── 07_Publicacion/
     └── Manuscrito científico y material para publicación
 ```
 
