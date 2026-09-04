@@ -8,8 +8,8 @@ negriribalta2024;si;article;Understanding the GDPR from a requirements engineeri
 arsyad2018;si;inproceedings;Two-factor blockchain for traceability cacao supply chain;10.1007/978-3-319-98557-2_30;si;2026-09-03;actas INCoS 2018 publicadas 2019
 marchese2022;si;article;A blockchain-based system for agri-food supply chain traceability management;10.1007/s42979-022-01148-3;si;2026-09-03;
 krishna2024;si;inproceedings;Using LLMs in Software Requirements Specifications: An Empirical Evaluation;10.1109/RE59067.2024.00056;si;2026-09-03;paginas 475-483 anadidas tras la comprobacion
-arora2024;si;incollection;Advancing Requirements Engineering Through Generative AI: Assessing the Role of LLMs;10.1007/978-3-031-55642-5_6;si;2026-09-03;corregida: era un supuesto articulo en Communications of the ACM que no se pudo verificar; la publicacion real es el capitulo de libro de Springer
-cheng2026;si;article;Generative AI for Requirements Engineering: A Systematic Literature Review;10.1002/spe.70029;si;2026-09-03;Software Practice and Experience vol 56(2) pp 141-170; se corrigio el apellido de un autor de Nishioka a Yoshioka
+arora2024;si;incollection;Advancing Requirements Engineering Through Generative AI: Assessing the Role of LLMs;10.1007/978-3-031-55642-5_6;si;2026-09-03;corregida: era un supuesto articulo en Communications of the ACM que no se pudo verificar, la publicacion real es el capitulo de libro de Springer
+cheng2026;si;article;Generative AI for Requirements Engineering: A Systematic Literature Review;10.1002/spe.70029;si;2026-09-03;Software Practice and Experience vol 56(2) pp 141-170, se corrigio el apellido de un autor de Nishioka a Yoshioka
 vogelsang2024;si;techreport;Using large language models for NLP tasks in requirements engineering: A systematic guideline;10.48550/arXiv.2402.13823;si;2026-09-03;preprint arXiv con DOI de DataCite
 vogelsang2019;si;inproceedings;Requirements Engineering for Machine Learning: Perspectives from Data Scientists;10.1109/REW.2019.00050;si;2026-09-03;
 chazette2020;si;article;Explainability as a non-functional requirement: challenges and recommendations;10.1007/s00766-020-00333-1;si;2026-09-03;
@@ -42,7 +42,7 @@ montgomery2022;no;article;Empirical research on requirements quality: a systemat
 fischbach2023;no;article;Automatic creation of acceptance tests by extracting conditionals from requirements: NLP approach and case study;10.1016/j.jss.2022.111549;si;2026-09-03;corregida: la entrada tenia mal la revista (Information and Software Technology vol 154), la publicacion real es Journal of Systems and Software vol 197 art 111549
 cohen1960;no;article;A coefficient of agreement for nominal scales;10.1177/001316446002000104;si;2026-09-03;Educational and Psychological Measurement vol 20(1) pp 37-46
 fleiss1971;no;article;Measuring nominal scale agreement among many raters;10.1037/h0031619;si;2026-09-03;Psychological Bulletin vol 76(5) pp 378-382
-wilkinson2016;no;article;The FAIR guiding principles for scientific data management and stewardship;10.1038/sdata.2016.18;si;2026-09-03;Scientific Data vol 3 art 160018; se corrigio el DOI que faltaba
+wilkinson2016;no;article;The FAIR guiding principles for scientific data management and stewardship;10.1038/sdata.2016.18;si;2026-09-03;Scientific Data vol 3 art 160018, se corrigio el DOI que faltaba
 smith2016;no;article;Software citation principles;10.7717/peerj-cs.86;si;2026-09-03;PeerJ Computer Science vol 2 art e86
 druskat2021;no;misc;Citation File Format (version 1.2.0);especificacion de formato, github.com/citation-file-format;no aplica;2026-09-03;especificacion tecnica de formato, sin DOI de articulo
 kano1984;no;article;Attractive quality and must-be quality;10.20684/quality.14.2_147;si;2026-09-03;citada en el ERS (priorizacion MoSCoW/Kano), no en el manuscrito
