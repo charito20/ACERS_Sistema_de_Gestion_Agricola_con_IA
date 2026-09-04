@@ -18,19 +18,23 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **Artefacto:** `07_Publicacion/dataset_zenodo/ETHICS.md`.
 
-## 3. El número de entrevistas no es consistente entre documentos
+## 3. El número de entrevistas no es consistente entre documentos (parcialmente resuelto, 2026-09-04)
 
-**El problema:** el manuscrito y el ERS/SRS hablan de 17 entrevistas + 9 sesiones de validación con walkthrough, y el ERS/SRS asigna 7 de esos 17 códigos ENTR como sesiones de walkthrough (es decir, los walkthroughs son un subconjunto de las 17). Pero `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` hablan de 16 entrevistas + 9 walkthroughs = 25 sesiones, tratándolos como categorías separadas y no solapadas.
+**El problema original:** el manuscrito y el ERS/SRS hablan de 17 entrevistas + 9 sesiones de validación con walkthrough, y el ERS/SRS asigna 7 de esos 17 códigos ENTR como sesiones de walkthrough (es decir, los walkthroughs son un subconjunto de las 17). Pero `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` hablaban de 16 entrevistas + 9 walkthroughs = 25 sesiones, tratándolos como categorías separadas y no solapadas.
 
-**La respuesta preparada:** si el docente lo pregunta antes de que el equipo lo reconcilie, la respuesta honesta es que hay una inconsistencia de conteo entre el protocolo/justificación de muestra y el manuscrito/ERS que el equipo detectó en la auditoría final y está en proceso de reconciliar con quienes coordinaron el trabajo de campo. No convenir una respuesta improvisada que invente una cifra nueva en el momento — es preferible reconocer la inconsistencia detectada que dar dos números distintos según quién responda.
+**Lo que se corrigió:** María Escudero confirmó que el conteo real es 17 entrevistas (17 audios y 17 consentimientos firmados: 16 del paquete que envió Robinson más 1 adicional de firma digital). `06_Experimento/protocolo.tex` y `06_Experimento/justificacion_muestra.md` se corrigieron de 16 a 17 entrevistas.
 
-**Artefactos:** `06_Experimento/protocolo.tex` (línea ~103), `06_Experimento/justificacion_muestra.md` (líneas 68–74), `07_Publicacion/manuscrito_final.tex`, `01_ERS/ERS_SRS_2B_v2.0.md` (correspondencia EV↔ENTR).
+**Lo que sigue pendiente:** si los 9 walkthroughs son un subconjunto de esas 17 entrevistas (como sugiere el manuscrito/ERS) o sesiones separadas además de ellas (como sigue tratándolo `justificacion_muestra.md`, dando 26 sesiones de campo en total tras la corrección). El desglose por integrante de la entrevista número 17 tampoco está confirmado todavía.
 
-## 4. Una cifra de efecto estadístico desactualizada en un documento metodológico
+**La respuesta preparada:** si el docente pregunta, la respuesta honesta es que el conteo de entrevistas (17) ya está verificado y corregido en todos los documentos, pero la relación exacta entre walkthroughs y entrevistas — si se solapan o no — sigue en proceso de confirmación con quienes coordinaron el trabajo de campo. No inventar una respuesta improvisada sobre ese solapamiento; es preferible reconocer que ese punto específico sigue en verificación.
 
-**El problema:** `06_Experimento/justificacion_muestra.md` cita una diferencia de proporciones de 0.615 (IC95% [0.423, 0.769]) como resultado observado, pero el resultado final real, reproducido con `07_Datos/scripts/run_all.py` y registrado en `07_Datos/resultados/ic_bootstrap.csv`, es 0.692 (IC95% [0.50, 0.846]).
+**Artefactos:** `06_Experimento/protocolo.tex` (línea ~103), `06_Experimento/justificacion_muestra.md` (sección "Evaluación de la evidencia de campo"), `07_Publicacion/manuscrito_final.tex`, `01_ERS/ERS_SRS_2B_v2.0.md` (correspondencia EV↔ENTR).
 
-**La respuesta preparada:** el resultado citado en el manuscrito y en los archivos de `07_Datos/resultados/` es el correcto y reproducible con un solo comando; `justificacion_muestra.md` quedó con una cifra de un análisis anterior a la codificación final y debe actualizarse antes del cierre.
+## 4. Una cifra de efecto estadístico desactualizada en un documento metodológico (resuelto, 2026-09-04)
+
+**El problema:** `06_Experimento/justificacion_muestra.md` citaba una diferencia de proporciones de 0.615 (IC95% [0.423, 0.769]) como resultado observado, mientras que el resultado final real, reproducido con `07_Datos/scripts/run_all.py` y registrado en `07_Datos/resultados/ic_bootstrap.csv`, es 0.692 (IC95% [0.50, 0.846]).
+
+**Lo que se corrigió:** `06_Experimento/justificacion_muestra.md` se actualizó a la cifra correcta (0.692, IC95% [0.500, 0.846]), consistente con el manuscrito y `07_Datos/resultados/`.
 
 ## 5. Jeanpierre sin commits propios desde el 2026-09-01
 

@@ -42,9 +42,9 @@ Con estos parámetros, el cálculo de potencia para McNemar indica que **26 unid
 El análisis ejecutó la prueba de McNemar sobre los 26 criterios y obtuvo:
 - **χ² = 16.056, p < 0.0001**
 - Discordancia: 18 criterios cubiertos solo después del legal-first, 0 cubiertos solo antes
-- Diferencia de proporciones: 0.615 (IC95% por bootstrap: [0.423, 0.769])
+- Diferencia de proporciones: 0.692 (IC95% por bootstrap: [0.500, 0.846])
 
-El efecto observado (diferencia de 61.5 puntos porcentuales) supera con creces el 30% asumido a priori, lo que confirma que el tamaño de muestra fue adecuado.
+El efecto observado (diferencia de 69.2 puntos porcentuales) supera con creces el 30% asumido a priori, lo que confirma que el tamaño de muestra fue adecuado.
 
 ## 4. Número de personas evaluadoras
 
@@ -60,18 +60,21 @@ La evaluación de si cada criterio legal está cubierto por un requisito funcion
 
 Las entrevistas y sesiones de validación fueron conducidas por los siguientes miembros del equipo:
 
-**Entrevistas (16 totales):**
+**Entrevistas (17 totales):**
 - María Escudero: 6 entrevistas
 - Jeanpierre Robinson: 8 entrevistas
 - Roselyn Sánchez: 2 entrevistas
+- Sin atribuir en este documento: 1 entrevista (el conteo de 17 se verificó contra 17 audios y 17 consentimientos firmados; el desglose por integrante de esta última entrevista queda pendiente de confirmar)
 
 **Walkthroughs / sesiones de validación (9 totales):**
 - María Escudero: 4 walkthroughs
 - Robinson Espinoza: 5 walkthroughs
 
-**Total: 16 entrevistas + 9 walkthroughs = 25 sesiones de campo**
+**Total: 17 entrevistas + 9 walkthroughs = 26 sesiones de campo**
 
-**Justificación del número de participantes de campo:** El criterio de saturación se alcanzó cuando dos sesiones consecutivas no aportaron requisitos nuevos. La curva de saturación (`02_Evidencias/Codificacion_Tematica/curva_saturacion.csv`) muestra estabilización a partir de la sesión 14, lo que confirma que 16 entrevistas fueron suficientes para el dominio estudiado.
+**Justificación del número de participantes de campo:** El criterio de saturación se alcanzó cuando dos sesiones consecutivas no aportaron requisitos nuevos. La curva de saturación (`02_Evidencias/Codificacion_Tematica/curva_saturacion.csv`) muestra estabilización a partir de la sesión 14, lo que confirma que 17 entrevistas fueron suficientes para el dominio estudiado.
+
+> **Nota de reconciliación (2026-09-04):** este documento y `06_Experimento/protocolo.tex` corrigieron el conteo de 16 a 17 entrevistas tras verificar que hay 17 audios y 17 consentimientos firmados. Sigue pendiente confirmar con el equipo si los 9 walkthroughs son sesiones separadas de las 17 entrevistas (como se trata en este documento) o si son un subconjunto de ellas, como sugiere el manuscrito final y el ERS/SRS (que asignan 7 de los 17 códigos ENTR también como walkthrough). Mientras no se confirme, ambas cifras (25 aquí, 17 en el manuscrito) deben tratarse como no reconciliadas.
 
 ## 5. Referencias
 
