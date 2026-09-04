@@ -8,14 +8,22 @@
 % legales del marco normativo (Reglamento LOPDP, Resoluciones AGROCALIDAD 183
 % y 0072), todas verificadas contra la fuente oficial.
 %
-% Verificacion de DOI (03-sep-2026): cada entrada citada en el manuscrito se
-% comprobo contra Crossref y la pagina del editor. El detalle esta en
-% referencias_verificacion.csv. La entrada arora2024 se corrigio de un supuesto
-% articulo en Communications of the ACM al capitulo de libro real
-% (Springer, doi 10.1007/978-3-031-55642-5_6). Las fuentes legales ecuatorianas
-% (lopdp2021, rlopdp2023, agrocalidad183, agrocalidad0072) no tienen DOI y se
-% citan con la referencia del Registro Oficial y la URL oficial, conforme lo
-% admite la seccion 5.10 de la guia de la Entrega 4 (2B).
+% Verificacion cruzada (03-sep-2026): las 47 entradas se comprobaron una a una
+% contra Crossref y la pagina del editor (autor, titulo, revista o actas, anio y
+% DOI). El detalle esta en referencias_verificacion.csv. 38 tienen DOI que
+% resuelve a la publicacion real; 9 no llevan DOI por ser normas (ISO, IEEE),
+% informes tecnicos, el formato CFF o las fuentes legales ecuatorianas, que se
+% citan por su referencia oficial conforme lo admite la seccion 5.10 de la guia.
+% Correcciones hechas en esta verificacion:
+%  - arora2024: era un supuesto articulo en Communications of the ACM que no se
+%    pudo verificar; la publicacion real es el capitulo de libro de Springer
+%    (doi 10.1007/978-3-031-55642-5_6).
+%  - cheng2026: el apellido de un autor estaba como Nishioka; es Yoshioka.
+%  - fischbach2023: la entrada tenia la revista equivocada (Information and
+%    Software Technology vol 154); la publicacion real es Journal of Systems and
+%    Software vol 197 art 111549 (doi 10.1016/j.jss.2022.111549).
+%  - Se completaron los DOI que faltaban en 18 entradas y la URL oficial del
+%    Reglamento LOPDP.
 
 % ===================== ESTÁNDARES =====================
 
@@ -48,7 +56,8 @@
   title = {Requirements Engineering: Fundamentals, Principles, and Techniques},
   publisher = {Springer},
   address = {Berlin, Heidelberg},
-  year = {2010}
+  year = {2010},
+  doi = {10.1007/978-3-642-12578-2}
 }
 
 % ===================== IA GENERATIVA EN RE =====================
@@ -110,10 +119,11 @@
 @inproceedings{chazette2021,
   author = {Chazette, L. and Brunotte, W. and Speith, T.},
   title = {Exploring explainability: A definition, a model, and a knowledge catalogue},
-  booktitle = {Proceedings of the 29th IEEE International Requirements Engineering Conference (RE'21)},
+  booktitle = {2021 IEEE 29th International Requirements Engineering Conference (RE)},
   pages = {197--208},
   organization = {IEEE},
-  year = {2021}
+  year = {2021},
+  doi = {10.1109/RE51729.2021.00025}
 }
 
 @article{chazette2022,
@@ -123,7 +133,8 @@
   volume = {27},
   number = {4},
   pages = {457--487},
-  year = {2022}
+  year = {2022},
+  doi = {10.1007/s00766-022-00393-5}
 }
 
 % ===================== EXPLICABILIDAD + AGRICULTURA (dominio específico) =====================
@@ -132,7 +143,8 @@
   author = {Girmay, M. B. and Droste, J. and Deters, H. and Doerr, J.},
   title = {Explainability Needs in Agriculture: Exploring Dairy Farmers' User Personas},
   journal = {arXiv preprint arXiv:2509.16249},
-  year = {2025}
+  year = {2025},
+  doi = {10.48550/arXiv.2509.16249}
 }
 
 @article{bhattarai2026,
@@ -185,7 +197,8 @@
   pages = {201--228},
   publisher = {Springer London},
   address = {London},
-  year = {2008}
+  year = {2008},
+  doi = {10.1007/978-1-84800-044-5_8}
 }
 
 @book{wohlin2012,
@@ -193,7 +206,8 @@
   title = {Experimentation in Software Engineering},
   publisher = {Springer},
   address = {Berlin, Heidelberg},
-  year = {2012}
+  year = {2012},
+  doi = {10.1007/978-3-642-29044-2}
 }
 
 @article{nosek2018,
@@ -213,7 +227,8 @@
   journal = {Information and Software Technology},
   volume = {119},
   pages = {106240},
-  year = {2020}
+  year = {2020},
+  doi = {10.1016/j.infsof.2019.106240}
 }
 
 @article{hennink2017,
@@ -223,7 +238,8 @@
   volume = {27},
   number = {4},
   pages = {591--608},
-  year = {2017}
+  year = {2017},
+  doi = {10.1177/1049732316665344}
 }
 
 @article{hagaman2017,
@@ -233,7 +249,8 @@
   volume = {29},
   number = {1},
   pages = {23--41},
-  year = {2017}
+  year = {2017},
+  doi = {10.1177/1525822X16640447}
 }
 
 @article{guest2006,
@@ -243,7 +260,8 @@
   volume = {18},
   number = {1},
   pages = {59--82},
-  year = {2006}
+  year = {2006},
+  doi = {10.1177/1525822X05279903}
 }
 
 @article{braun2006,
@@ -274,7 +292,8 @@
   volume = {22},
   number = {5},
   pages = {2298--2338},
-  year = {2017}
+  year = {2017},
+  doi = {10.1007/s10664-016-9451-7}
 }
 
 @article{montgomery2022,
@@ -284,7 +303,8 @@
   volume = {27},
   number = {2},
   pages = {183--209},
-  year = {2022}
+  year = {2022},
+  doi = {10.1007/s00766-021-00367-z}
 }
 
 @article{ferrari2016,
@@ -300,11 +320,12 @@
 
 @article{fischbach2023,
   author = {Fischbach, J. and Frattini, J. and Vogelsang, A. and Mendez, D. and Unterkalmsteiner, M. and Wehrle, A. and Henao, P. R. and Yousefi, P. and Juricic, T. and Radduenz, J. and Wiecher, C.},
-  title = {Automatic creation of acceptance tests by deriving conditionals from natural language requirements},
-  journal = {Information and Software Technology},
-  volume = {154},
-  pages = {107055},
-  year = {2023}
+  title = {Automatic creation of acceptance tests by extracting conditionals from requirements: {NLP} approach and case study},
+  journal = {Journal of Systems and Software},
+  volume = {197},
+  pages = {111549},
+  year = {2023},
+  doi = {10.1016/j.jss.2022.111549}
 }
 
 % ===================== ESTADÍSTICA / ACUERDO ENTRE EVALUADORES =====================
@@ -316,7 +337,8 @@
   volume = {20},
   number = {1},
   pages = {37--46},
-  year = {1960}
+  year = {1960},
+  doi = {10.1177/001316446002000104}
 }
 
 @article{fleiss1971,
@@ -326,7 +348,8 @@
   volume = {76},
   number = {5},
   pages = {378--382},
-  year = {1971}
+  year = {1971},
+  doi = {10.1037/h0031619}
 }
 
 % ===================== DATOS ABIERTOS / CITACIÓN =====================
@@ -337,7 +360,8 @@
   journal = {Scientific Data},
   volume = {3},
   pages = {160018},
-  year = {2016}
+  year = {2016},
+  doi = {10.1038/sdata.2016.18}
 }
 
 @article{smith2016,
@@ -346,7 +370,8 @@
   journal = {PeerJ Computer Science},
   volume = {2},
   pages = {e86},
-  year = {2016}
+  year = {2016},
+  doi = {10.7717/peerj-cs.86}
 }
 
 @misc{druskat2021,
