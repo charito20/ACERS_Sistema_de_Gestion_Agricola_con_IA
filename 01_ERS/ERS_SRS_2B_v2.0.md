@@ -17,7 +17,7 @@
 | 1.1 | 31 de agosto de 2026 | Corrección del equipo y del enfoque metodológico a partir del expediente ético real | Equipo AgroMoreira |
 | 1.2 | 1 de septiembre de 2026 | Corrección del liderazgo del equipo | Equipo AgroMoreira |
 | 1.3 | 1 de septiembre de 2026 | Definición del enfoque legal-first como enfoque oficial del proyecto | Equipo AgroMoreira |
-| 2.0 | 1 de septiembre de 2026 | Cierre de la Sección 3 con los 39 requisitos funcionales y los 15 requisitos no funcionales obtenidos en las 16 entrevistas y las 9 sesiones de validación, y de las historias de usuario con criterios de aceptación para los 17 requisitos Must have. Cierre del modelado del sistema en la Sección 4, con los 14 casos de uso, los dos diagramas de clases, los diagramas de comportamiento, la arquitectura de componentes y los 9 mockups de `03_Modelado/`. Matriz de trazabilidad cerrada en 60 filas y Sección 6 con el producto mínimo viable funcional | Equipo AgroMoreira |
+| 2.0 | 1 de septiembre de 2026 | Cierre de la Sección 3 con los 39 requisitos funcionales y los 21 requisitos no funcionales obtenidos en las 16 entrevistas y las 9 sesiones de validación, y de las historias de usuario con criterios de aceptación para los 17 requisitos Must have. Cierre del modelado del sistema en la Sección 4, con los 14 casos de uso, los dos diagramas de clases, los diagramas de comportamiento, la arquitectura de componentes y los 9 mockups de `03_Modelado/`. Matriz de trazabilidad cerrada en 60 filas y Sección 6 con el producto mínimo viable funcional | Equipo AgroMoreira |
 
 ---
 
@@ -50,7 +50,7 @@ Ver `referencias.bib`. La bibliografía se amplía a medida que avanza el manusc
 
 ### 1.5 Visión general del documento
 
-La Sección 2 describe el producto y sus interesados. La Sección 3 presenta los 39 requisitos funcionales, los 15 requisitos no funcionales y las historias de usuario con sus criterios de aceptación, todos obtenidos del trabajo de campo real. La Sección 4 recoge el modelado del sistema, con los casos de uso, los diagramas de clases, de comportamiento y de componentes, y los mockups. Las Secciones 5 y 6 describen la priorización, la trazabilidad cerrada y el producto mínimo viable.
+La Sección 2 describe el producto y sus interesados. La Sección 3 presenta los 39 requisitos funcionales, los 21 requisitos no funcionales y las historias de usuario con sus criterios de aceptación, todos obtenidos del trabajo de campo real. La Sección 4 recoge el modelado del sistema, con los casos de uso, los diagramas de clases, de comportamiento y de componentes, y los mockups. Las Secciones 5 y 6 describen la priorización, la trazabilidad cerrada y el producto mínimo viable.
 
 ---
 
@@ -133,7 +133,7 @@ Se confirmó que Agrícola Moreira cuenta con dispositivos móviles y computador
 ---
 ## 3. Requisitos específicos
 
-Esta sección reúne los 39 requisitos funcionales y los 15 requisitos no funcionales del sistema, obtenidos de las 16 entrevistas semiestructuradas y de las 9 sesiones de validación con walkthrough, 4 con perfiles técnicos y 5 con perfiles no técnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en `Modelo_Legal_LOPDP.md`, en sus tres bloques normativos, la Ley Orgánica de Protección de Datos Personales, la Resolución 183 de AGROCALIDAD sobre buenas prácticas y trazabilidad del cacao, y la Resolución 0072 sobre bioseguridad y manejo fitosanitario.
+Esta sección reúne los 39 requisitos funcionales y los 21 requisitos no funcionales del sistema, obtenidos de las 16 entrevistas semiestructuradas y de las 9 sesiones de validación con walkthrough, 4 con perfiles técnicos y 5 con perfiles no técnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en `Modelo_Legal_LOPDP.md`, en sus tres bloques normativos, la Ley Orgánica de Protección de Datos Personales, la Resolución 183 de AGROCALIDAD sobre buenas prácticas y trazabilidad del cacao, y la Resolución 0072 sobre bioseguridad y manejo fitosanitario.
 
 Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR-01, administrador. EV-02 a ENTR-02, jornalero. EV-03 a ENTR-03, jornalera. EV-04 a ENTR-04, trabajador. EV-05 y EV-06 a ENTR-05 y ENTR-06, técnicos. EV-07 a ENTR-07, técnico, en sesión de walkthrough. EV-08 a ENTR-08, jornalera, en sesión de walkthrough. EV-09 a ENTR-09, jornalero. EV-10 a ENTR-10, técnico, en sesión de walkthrough. EV-11 y EV-12 a ENTR-11 y ENTR-12, jornaleros, en sesión de walkthrough. EV-13 y EV-14 a ENTR-13 y ENTR-14, jornaleros. EV-15 a ENTR-15, jornalero, en sesión de walkthrough. EV-16 a ENTR-16, técnica, en sesión de walkthrough. EV-17 a ENTR-17, técnico. Las 16 personas entrevistadas son distintas entre sí, aunque algunas comparten nombre de pila.
 
