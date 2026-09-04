@@ -28,7 +28,7 @@ en `07_Datos/scripts/`.
 | Trazabilidad | — | Sin uso de IA | Equipo | Matriz Ley→Mockup en `04_Trazabilidad/` |
 | Anexos | LLM (redacción) (*) | Pulido de anexos | Danela Arteaga (*) | Revisión editorial |
 
-## Manuscrito (`07_Publicacion/manuscrito_final.tex`)
+## Manuscrito (`11_Publicacion/manuscrito_final.tex`)
 
 | Sección | Herramienta | Para qué | Quién verificó | Método de verificación |
 |---|---|---|---|---|

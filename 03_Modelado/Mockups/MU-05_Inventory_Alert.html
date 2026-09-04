@@ -1,5 +1,5 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>MU-05 Inventory</title>
+<html><head><meta charset="utf-8"><title>MU-05 Inventario</title>
 <style>
 * { box-sizing: border-box; }
 html, body { margin:0; height:100%; }
@@ -77,43 +77,43 @@ tr:last-child td { border-bottom:none; }
 <div class="app">
 <div class="sidebar">
   <div class="brand"><span class="logo">&#127806;</span> AgroMoreira</div>
-  <nav><a class="" href="MU-02_Plot_List.html"><span class="ic">&#127807;</span>Plots / Lots</a>
-<a class="" href="MU-03_Register_Activity.html"><span class="ic">&#128221;</span>Register Activity</a>
-<a class="" href="MU-04_Register_Harvest.html"><span class="ic">&#127811;</span>Register Harvest</a>
-<a class="active" href="MU-05_Inventory_Alert.html"><span class="ic">&#128230;</span>Inventory</a>
-<a class="" href="MU-06_AI_Alert.html"><span class="ic">&#129302;</span>AI Pest Alerts</a>
-<a class="" href="MU-07_Task_Board.html"><span class="ic">&#9989;</span>Task Board</a>
-<a class="" href="MU-08_Reports_Dashboard.html"><span class="ic">&#128202;</span>Reports</a>
-<a class="" href="MU-09_Compliance_Technical_Visits.html"><span class="ic">&#128220;</span>Compliance</a>
+  <nav><a class="" href="MU-02_Plot_List.html"><span class="ic">&#127807;</span>Parcelas / Lotes</a>
+<a class="" href="MU-03_Register_Activity.html"><span class="ic">&#128221;</span>Registrar Actividad</a>
+<a class="" href="MU-04_Register_Harvest.html"><span class="ic">&#127811;</span>Registrar Cosecha</a>
+<a class="active" href="MU-05_Inventory_Alert.html"><span class="ic">&#128230;</span>Inventario</a>
+<a class="" href="MU-06_AI_Alert.html"><span class="ic">&#129302;</span>Alertas de Plagas (IA)</a>
+<a class="" href="MU-07_Task_Board.html"><span class="ic">&#9989;</span>Tablero de Tareas</a>
+<a class="" href="MU-08_Reports_Dashboard.html"><span class="ic">&#128202;</span>Reportes</a>
+<a class="" href="MU-09_Compliance_Technical_Visits.html"><span class="ic">&#128220;</span>Cumplimiento</a>
 </nav>
-  <div class="foot"><a href="MU-01_Login_Consent.html">&larr; Log out</a></div>
+  <div class="foot"><a href="MU-01_Login_Consent.html">&larr; Cerrar sesión</a></div>
 </div>
   <div class="main">
     <div class="topbar">
-      <div><div class="title">Input Inventory</div><div class="crumbs">CU-05 &middot; Manage Input Inventory</div></div>
+      <div><div class="title">Inventario de Insumos</div><div class="crumbs">CU-05 &middot; Gestionar Inventario de Insumos</div></div>
       <div class="right">
-        <input class="search" placeholder="Search plots, tasks, reports..." disabled/>
-        <a class="logout" href="MU-01_Login_Consent.html">Log out</a>
+        <input class="search" placeholder="Buscar parcelas, tareas, reportes..." disabled/>
+        <a class="logout" href="MU-01_Login_Consent.html">Cerrar sesión</a>
         <div class="avatar">AD</div>
       </div>
     </div>
     <div class="content">
-    
+
 <div class="toolbar">
-  <div class="muted">Threshold-based alerting (RF-30)</div>
-  <a class="btn" href="#">+ Register / update input (RF-07)</a>
+  <div class="muted">Alertas basadas en umbral (RF-30)</div>
+  <a class="btn" href="#">+ Registrar / actualizar insumo (RF-07)</a>
 </div>
 <div class="grid cols-2">
   <div class="card">
-    <table><tr><th>Input</th><th>Available</th><th>Threshold</th><th>Status</th></tr><tr><td>Fungicide X</td><td>12 L</td><td>8 L min.</td>
-<td><span class="badge done">OK</span></td></tr><tr><td>Foliar fertilizer NPK</td><td>3 kg</td><td>10 kg min.</td>
-<td><span class="badge low">LOW STOCK</span></td></tr><tr><td>Pruning shears (2)</td><td>2 un.</td><td>1 un. min.</td>
+    <table><tr><th>Insumo</th><th>Disponible</th><th>Umbral</th><th>Estado</th></tr><tr><td>Fungicida X</td><td>12 L</td><td>8 L mín.</td>
+<td><span class="badge done">OK</span></td></tr><tr><td>Fertilizante foliar NPK</td><td>3 kg</td><td>10 kg mín.</td>
+<td><span class="badge low">STOCK BAJO</span></td></tr><tr><td>Tijeras de poda (2)</td><td>2 un.</td><td>1 un. mín.</td>
 <td><span class="badge done">OK</span></td></tr></table>
   </div>
   <div class="alert-box">
-    <strong>&#9888; Low-stock alert (RF-08)</strong>
-    <div class="just">Foliar fertilizer NPK is below its configured minimum threshold. Notification sent to the Administrator in under 5 minutes.</div>
-    <a class="btn sm secondary" href="#">Dismiss</a>
+    <strong>&#9888; Alerta de bajo stock (RF-08)</strong>
+    <div class="just">El fertilizante foliar NPK está por debajo del umbral mínimo configurado. Notificación enviada al Administrador en menos de 5 minutos.</div>
+    <a class="btn sm secondary" href="#">Descartar</a>
   </div>
 </div>
 

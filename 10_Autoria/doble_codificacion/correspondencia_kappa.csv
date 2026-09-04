@@ -1,0 +1,7 @@
+id,codificador_A,codificador_B,coincide
+1,PLA,PLA,1
+2,ALA,PLA,0
+3,ALA,TAR,0
+4,INV,INV,1
+5,RCO,SAT,0
+6,RCD,PLA,0

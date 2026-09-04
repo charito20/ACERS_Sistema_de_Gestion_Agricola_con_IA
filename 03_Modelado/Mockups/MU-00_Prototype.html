@@ -1,5 +1,5 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>AgroMoreira — Clickable Prototype (Web)</title>
+<html><head><meta charset="utf-8"><title>AgroMoreira — Prototipo Interactivo (Web)</title>
 <style>
 * { box-sizing: border-box; }
 html, body { margin:0; height:100%; }
@@ -85,23 +85,23 @@ tr:last-child td { border-bottom:none; }
   <div class="auth-logo">
     <div class="emoji">&#127806;</div>
     <div class="name">AgroMoreira</div>
-    <div class="tag">AI-assisted agricultural management</div>
+    <div class="tag">Gestión agrícola asistida por IA</div>
   </div>
   <div class="card">
-    <h3>Log in</h3>
-    <div class="field"><label>Username</label><input placeholder="e.g. jperez"/></div>
-    <div class="field"><label>Password</label><input type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/></div>
-    <div class="field"><label>Role</label><select><option>Administrator</option><option>Technician</option><option>Farmworker</option></select></div>
-    <a class="btn" id="loginBtn" href="#" onclick="enterApp();return false;">Log in (RF-20)</a>
+    <h3>Iniciar sesión</h3>
+    <div class="field"><label>Usuario</label><input placeholder="ej. jperez"/></div>
+    <div class="field"><label>Contraseña</label><input type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/></div>
+    <div class="field"><label>Rol</label><select><option>Administrador</option><option>Técnico</option><option>Jornalero</option></select></div>
+    <a class="btn" id="loginBtn" href="#" onclick="enterApp();return false;">Iniciar sesión (RF-20)</a>
   </div>
   <div class="card">
-    <h3>First login &mdash; LOPDP data notice (RF-22, Art. 8)</h3>
+    <h3>Primer inicio de sesión &mdash; Aviso de datos LOPDP (RF-22, Art. 8)</h3>
     <div class="consent-box">
-      We process your name, contact details and work records to operate AgroMoreira's plot, task, harvest and compliance modules. Processing is necessary to run the service and to meet AGROCALIDAD reporting duties. Consent is free, specific, informed and unambiguous, and can be withdrawn at any time from Settings &rarr; My Data, where you may also exercise your ARCO+ rights (access, rectification, cancellation, opposition &mdash; RF-23).
+      Procesamos tu nombre, datos de contacto y registros laborales para operar los módulos de parcelas, tareas, cosechas y cumplimiento de AgroMoreira. El tratamiento es necesario para prestar el servicio y cumplir con los deberes de reporte ante AGROCALIDAD. El consentimiento es libre, específico, informado e inequívoco, y puede retirarse en cualquier momento desde Ajustes &rarr; Mis Datos, donde también puedes ejercer tus derechos ARCO+ (acceso, rectificación, cancelación, oposición &mdash; RF-23).
     </div>
     <div style="display:flex;gap:10px;">
-      <a class="btn secondary" href="#">Reject</a>
-      <a class="btn" id="acceptBtn" href="#" onclick="enterApp();return false;">I accept (RF-22)</a>
+      <a class="btn secondary" href="#">Rechazar</a>
+      <a class="btn" id="acceptBtn" href="#" onclick="enterApp();return false;">Acepto (RF-22)</a>
     </div>
   </div>
 </div>
@@ -111,211 +111,211 @@ tr:last-child td { border-bottom:none; }
 <div class="app" id="appShell">
 <div class="sidebar">
   <div class="brand"><span class="logo">&#127806;</span> AgroMoreira</div>
-  <nav><a class="active" data-key="a2" onclick="showPanel('a2');return false;"><span class="ic">&#127807;</span>Plots / Lots</a>
-<a class="" data-key="a3" onclick="showPanel('a3');return false;"><span class="ic">&#128221;</span>Register Activity</a>
-<a class="" data-key="a4" onclick="showPanel('a4');return false;"><span class="ic">&#127811;</span>Register Harvest</a>
-<a class="" data-key="a5" onclick="showPanel('a5');return false;"><span class="ic">&#128230;</span>Inventory</a>
-<a class="" data-key="a6" onclick="showPanel('a6');return false;"><span class="ic">&#129302;</span>AI Pest Alerts</a>
-<a class="" data-key="a7" onclick="showPanel('a7');return false;"><span class="ic">&#9989;</span>Task Board</a>
-<a class="" data-key="a8" onclick="showPanel('a8');return false;"><span class="ic">&#128202;</span>Reports</a>
-<a class="" data-key="a9" onclick="showPanel('a9');return false;"><span class="ic">&#128220;</span>Compliance</a>
+  <nav><a class="active" data-key="a2" onclick="showPanel('a2');return false;"><span class="ic">&#127807;</span>Parcelas / Lotes</a>
+<a class="" data-key="a3" onclick="showPanel('a3');return false;"><span class="ic">&#128221;</span>Registrar Actividad</a>
+<a class="" data-key="a4" onclick="showPanel('a4');return false;"><span class="ic">&#127811;</span>Registrar Cosecha</a>
+<a class="" data-key="a5" onclick="showPanel('a5');return false;"><span class="ic">&#128230;</span>Inventario</a>
+<a class="" data-key="a6" onclick="showPanel('a6');return false;"><span class="ic">&#129302;</span>Alertas de Plagas (IA)</a>
+<a class="" data-key="a7" onclick="showPanel('a7');return false;"><span class="ic">&#9989;</span>Tablero de Tareas</a>
+<a class="" data-key="a8" onclick="showPanel('a8');return false;"><span class="ic">&#128202;</span>Reportes</a>
+<a class="" data-key="a9" onclick="showPanel('a9');return false;"><span class="ic">&#128220;</span>Cumplimiento</a>
 </nav>
-  <div class="foot"><a href="#" onclick="showAuth();return false;">&larr; Log out</a></div>
+  <div class="foot"><a href="#" onclick="showAuth();return false;">&larr; Cerrar sesión</a></div>
 </div>
   <div class="main">
     <div class="topbar">
-      <div><div class="title" id="pageTitle">Plots / Lots</div><div class="crumbs" id="pageCrumbs">CU-01 &middot; Manage Plots / Lots</div></div>
+      <div><div class="title" id="pageTitle">Parcelas / Lotes</div><div class="crumbs" id="pageCrumbs">CU-01 &middot; Gestionar Parcelas / Lotes</div></div>
       <div class="right">
-        <input class="search" placeholder="Search plots, tasks, reports..." disabled/>
-        <a class="logout" href="#" onclick="showAuth();return false;">Log out</a>
+        <input class="search" placeholder="Buscar parcelas, tareas, reportes..." disabled/>
+        <a class="logout" href="#" onclick="showAuth();return false;">Cerrar sesión</a>
         <div class="avatar">AD</div>
       </div>
     </div>
     <div class="content" id="contentArea">
 <div class="toolbar">
-  <div class="muted">4 plots registered &middot; field set adapts automatically to crop variety (RF-34)</div>
-  <a class="btn" href="#">+ New plot (RF-01)</a>
+  <div class="muted">4 parcelas registradas &middot; el conjunto de campos se adapta automáticamente según la variedad del cultivo (RF-34)</div>
+  <a class="btn" href="#">+ Nueva parcela (RF-01)</a>
 </div>
 <div class="card">
   <table>
-    <tr><th>Plot / Lot</th><th>Crop</th><th>Area</th><th>Status</th><th></th></tr>
-    <tr><td>Lot A-12</td><td>Cacao</td><td>2.4 ha</td>
-<td><span class="badge done">Active</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot B-04</td><td>Plantain</td><td>1.1 ha</td>
-<td><span class="badge done">Active</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot C-07 (export)</td><td>Cacao</td><td>3.0 ha</td>
-<td><span class="badge done">Active</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot D-02</td><td>Cacao</td><td>0.8 ha</td>
-<td><span class="badge pending">Fallow</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr>
+    <tr><th>Parcela / Lote</th><th>Cultivo</th><th>Área</th><th>Estado</th><th></th></tr>
+    <tr><td>Lote A-12</td><td>Cacao</td><td>2.4 ha</td>
+<td><span class="badge done">Activo</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr><tr><td>Lote B-04</td><td>Plátano</td><td>1.1 ha</td>
+<td><span class="badge done">Activo</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr><tr><td>Lote C-07 (exportación)</td><td>Cacao</td><td>3.0 ha</td>
+<td><span class="badge done">Activo</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr><tr><td>Lote D-02</td><td>Cacao</td><td>0.8 ha</td>
+<td><span class="badge pending">Barbecho</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr>
   </table>
 </div>
-<div class="muted" style="margin-top:14px;">Soil analysis and climate condition can be logged from the plot detail (RF-35, RF-16).</div>
+<div class="muted" style="margin-top:14px;">El análisis de suelo y las condiciones climáticas se pueden registrar desde el detalle de la parcela (RF-35, RF-16).</div>
 </div>
   </div>
 </div>
 
-<template id="tpl-a2" data-title="Plots / Lots" data-crumbs="CU-01 &middot; Manage Plots / Lots">
+<template id="tpl-a2" data-title="Parcelas / Lotes" data-crumbs="CU-01 &middot; Gestionar Parcelas / Lotes">
 <div class="toolbar">
-  <div class="muted">4 plots registered &middot; field set adapts automatically to crop variety (RF-34)</div>
-  <a class="btn" href="#">+ New plot (RF-01)</a>
+  <div class="muted">4 parcelas registradas &middot; el conjunto de campos se adapta automáticamente según la variedad del cultivo (RF-34)</div>
+  <a class="btn" href="#">+ Nueva parcela (RF-01)</a>
 </div>
 <div class="card">
   <table>
-    <tr><th>Plot / Lot</th><th>Crop</th><th>Area</th><th>Status</th><th></th></tr>
-    <tr><td>Lot A-12</td><td>Cacao</td><td>2.4 ha</td>
-<td><span class="badge done">Active</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot B-04</td><td>Plantain</td><td>1.1 ha</td>
-<td><span class="badge done">Active</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot C-07 (export)</td><td>Cacao</td><td>3.0 ha</td>
-<td><span class="badge done">Active</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr><tr><td>Lot D-02</td><td>Cacao</td><td>0.8 ha</td>
-<td><span class="badge pending">Fallow</span></td>
-<td><a class="btn secondary sm" href="#">Open</a></td></tr>
+    <tr><th>Parcela / Lote</th><th>Cultivo</th><th>Área</th><th>Estado</th><th></th></tr>
+    <tr><td>Lote A-12</td><td>Cacao</td><td>2.4 ha</td>
+<td><span class="badge done">Activo</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr><tr><td>Lote B-04</td><td>Plátano</td><td>1.1 ha</td>
+<td><span class="badge done">Activo</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr><tr><td>Lote C-07 (exportación)</td><td>Cacao</td><td>3.0 ha</td>
+<td><span class="badge done">Activo</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr><tr><td>Lote D-02</td><td>Cacao</td><td>0.8 ha</td>
+<td><span class="badge pending">Barbecho</span></td>
+<td><a class="btn secondary sm" href="#">Abrir</a></td></tr>
   </table>
 </div>
-<div class="muted" style="margin-top:14px;">Soil analysis and climate condition can be logged from the plot detail (RF-35, RF-16).</div>
+<div class="muted" style="margin-top:14px;">El análisis de suelo y las condiciones climáticas se pueden registrar desde el detalle de la parcela (RF-35, RF-16).</div>
 </template>
-<template id="tpl-a3" data-title="Register Activity" data-crumbs="CU-02 &middot; Register Agricultural Activities">
+<template id="tpl-a3" data-title="Registrar Actividad" data-crumbs="CU-02 &middot; Registrar Actividades Agrícolas">
 <div class="card" style="max-width:640px;">
-  <h3>Register Agricultural Activity (CU-02)</h3>
+  <h3>Registrar Actividad Agrícola (CU-02)</h3>
   <div class="grid cols-2">
-    <div class="field"><label>Plot</label><select><option>Lot A-12</option><option>Lot B-04</option></select></div>
-    <div class="field"><label>Date</label><input type="date"/></div>
+    <div class="field"><label>Parcela</label><select><option>Lote A-12</option><option>Lote B-04</option></select></div>
+    <div class="field"><label>Fecha</label><input type="date"/></div>
   </div>
   <div class="grid cols-2">
-    <div class="field"><label>Activity type</label><select><option>Spraying</option><option>Fertilizing</option><option>Pruning</option><option>Irrigation</option><option>Cleaning</option></select></div>
-    <div class="field"><label>Input used</label><select><option>Foliar fertilizer NPK</option><option>Fungicide X</option><option>None</option></select></div>
+    <div class="field"><label>Tipo de actividad</label><select><option>Fumigación</option><option>Fertilización</option><option>Poda</option><option>Riego</option><option>Limpieza</option></select></div>
+    <div class="field"><label>Insumo utilizado</label><select><option>Fertilizante foliar NPK</option><option>Fungicida X</option><option>Ninguno</option></select></div>
   </div>
-  <div class="field"><label>Responsible worker</label><select><option>J. Perez</option><option>M. Alava</option></select></div>
-  <a class="btn" href="#">Save activity (RF-03)</a>
-  <div class="muted" style="margin-top:14px;">Using a catalog input automatically decreases inventory stock (CU-05). This history feeds AI pest alerts (CU-06).</div>
+  <div class="field"><label>Trabajador responsable</label><select><option>J. Perez</option><option>M. Alava</option></select></div>
+  <a class="btn" href="#">Guardar actividad (RF-03)</a>
+  <div class="muted" style="margin-top:14px;">Usar un insumo del catálogo disminuye automáticamente el stock de inventario (CU-05). Este historial alimenta las alertas de plagas por IA (CU-06).</div>
 </div>
 </template>
-<template id="tpl-a4" data-title="Register Harvest" data-crumbs="CU-03 &middot; Register Harvest">
+<template id="tpl-a4" data-title="Registrar Cosecha" data-crumbs="CU-03 &middot; Registrar Cosecha">
 <div class="grid cols-2" style="max-width:900px;">
   <div class="card">
-    <h3>Register Harvest (CU-03)</h3>
-    <div class="field"><label>Plot / Crop</label><select><option>Lot A-12 &middot; Cacao</option></select></div>
+    <h3>Registrar Cosecha (CU-03)</h3>
+    <div class="field"><label>Parcela / Cultivo</label><select><option>Lote A-12 &middot; Cacao</option></select></div>
     <div class="grid cols-2">
-      <div class="field"><label>Quantity</label><input placeholder="0.0"/></div>
-      <div class="field"><label>Unit</label><input value="quintal" disabled/></div>
+      <div class="field"><label>Cantidad</label><input placeholder="0.0"/></div>
+      <div class="field"><label>Unidad</label><input value="quintal" disabled/></div>
     </div>
     <div class="grid cols-2">
-      <div class="field"><label>Rejected quantity (RF-13)</label><input placeholder="0.0"/></div>
-      <div class="field"><label>Rejection reason</label><select><option>&mdash;</option><option>Disease</option><option>Pest</option><option>Mechanical damage</option></select></div>
+      <div class="field"><label>Cantidad rechazada (RF-13)</label><input placeholder="0.0"/></div>
+      <div class="field"><label>Motivo de rechazo</label><select><option>&mdash;</option><option>Enfermedad</option><option>Plaga</option><option>Daño mecánico</option></select></div>
     </div>
-    <a class="btn" href="#">Save harvest (RF-04)</a>
+    <a class="btn" href="#">Guardar cosecha (RF-04)</a>
   </div>
   <div class="card">
-    <h3>Export traceability (RF-14)</h3>
-    <div class="muted" style="margin-bottom:12px;">Shown only when the plot is marked "for export".</div>
-    <div class="field"><label>Ribbon color</label><input placeholder="Blue"/></div>
-    <div class="field"><label>Bagging week</label><input placeholder="W34"/></div>
-    <div class="field"><label>Box quality</label><select><option>Grade A</option><option>Grade B</option></select></div>
+    <h3>Trazabilidad de exportación (RF-14)</h3>
+    <div class="muted" style="margin-bottom:12px;">Se muestra solo cuando la parcela está marcada "para exportación".</div>
+    <div class="field"><label>Color de cinta</label><input placeholder="Azul"/></div>
+    <div class="field"><label>Semana de embalaje</label><input placeholder="S34"/></div>
+    <div class="field"><label>Calidad de caja</label><select><option>Grado A</option><option>Grado B</option></select></div>
   </div>
 </div>
 </template>
-<template id="tpl-a5" data-title="Input Inventory" data-crumbs="CU-05 &middot; Manage Input Inventory">
+<template id="tpl-a5" data-title="Inventario de Insumos" data-crumbs="CU-05 &middot; Gestionar Inventario de Insumos">
 <div class="toolbar">
-  <div class="muted">Threshold-based alerting (RF-30)</div>
-  <a class="btn" href="#">+ Register / update input (RF-07)</a>
+  <div class="muted">Alertas basadas en umbral (RF-30)</div>
+  <a class="btn" href="#">+ Registrar / actualizar insumo (RF-07)</a>
 </div>
 <div class="grid cols-2">
   <div class="card">
-    <table><tr><th>Input</th><th>Available</th><th>Threshold</th><th>Status</th></tr><tr><td>Fungicide X</td><td>12 L</td><td>8 L min.</td>
-<td><span class="badge done">OK</span></td></tr><tr><td>Foliar fertilizer NPK</td><td>3 kg</td><td>10 kg min.</td>
-<td><span class="badge low">LOW STOCK</span></td></tr><tr><td>Pruning shears (2)</td><td>2 un.</td><td>1 un. min.</td>
+    <table><tr><th>Insumo</th><th>Disponible</th><th>Umbral</th><th>Estado</th></tr><tr><td>Fungicida X</td><td>12 L</td><td>8 L mín.</td>
+<td><span class="badge done">OK</span></td></tr><tr><td>Fertilizante foliar NPK</td><td>3 kg</td><td>10 kg mín.</td>
+<td><span class="badge low">STOCK BAJO</span></td></tr><tr><td>Tijeras de poda (2)</td><td>2 un.</td><td>1 un. mín.</td>
 <td><span class="badge done">OK</span></td></tr></table>
   </div>
   <div class="alert-box">
-    <strong>&#9888; Low-stock alert (RF-08)</strong>
-    <div class="just">Foliar fertilizer NPK is below its configured minimum threshold. Notification sent to the Administrator in under 5 minutes.</div>
-    <a class="btn sm secondary" href="#">Dismiss</a>
+    <strong>&#9888; Alerta de bajo stock (RF-08)</strong>
+    <div class="just">El fertilizante foliar NPK está por debajo del umbral mínimo configurado. Notificación enviada al Administrador en menos de 5 minutos.</div>
+    <a class="btn sm secondary" href="#">Descartar</a>
   </div>
 </div>
 </template>
-<template id="tpl-a6" data-title="AI Pest Alerts" data-crumbs="CU-06 &middot; AI-Assisted Pest Alerts">
+<template id="tpl-a6" data-title="Alertas de Plagas (IA)" data-crumbs="CU-06 &middot; Alertas de Plagas Asistidas por IA">
 <div class="grid cols-2" style="max-width:1000px;">
   <div class="alert-box">
-    <strong>&#129302; Possible Black Pod (Phytophthora) &mdash; Lot A-12</strong>
-    <div class="just">Justification (&le;60 words): recurring rainfall pattern + treatment gap &gt;15 days on Lot A-12, similar to 3 prior confirmed cases. Source: treatment history (RF-03) + uploaded photo.</div>
+    <strong>&#129302; Posible Mazorca Negra (Phytophthora) &mdash; Lote A-12</strong>
+    <div class="just">Justificación (&le;60 palabras): patrón de lluvias recurrente + brecha de tratamiento &gt;15 días en el Lote A-12, similar a 3 casos previos confirmados. Fuente: historial de tratamientos (RF-03) + foto cargada.</div>
     <div style="display:flex;gap:10px;">
-      <a class="btn" href="#">Confirm</a>
-      <a class="btn secondary" href="#">Discard</a>
-      <a class="btn secondary" href="#">Formally disagree (RF-33)</a>
+      <a class="btn" href="#">Confirmar</a>
+      <a class="btn secondary" href="#">Descartar</a>
+      <a class="btn secondary" href="#">Disentir formalmente (RF-33)</a>
     </div>
   </div>
   <div class="card">
-    <h3>Alert history</h3>
+    <h3>Historial de alertas</h3>
     <table>
-      <tr><th>Plot</th><th>Suggestion</th><th>Status</th></tr>
-      <tr><td>Lot B-04</td><td>Leaf spot risk</td><td><span class="badge done">Confirmed</span></td></tr>
-      <tr><td>Lot C-07</td><td>Nutrient deficiency</td><td><span class="badge pending">Discarded</span></td></tr>
+      <tr><th>Parcela</th><th>Sugerencia</th><th>Estado</th></tr>
+      <tr><td>Lote B-04</td><td>Riesgo de mancha foliar</td><td><span class="badge done">Confirmado</span></td></tr>
+      <tr><td>Lote C-07</td><td>Deficiencia de nutrientes</td><td><span class="badge pending">Descartado</span></td></tr>
     </table>
-    <div class="muted" style="margin-top:12px;">No suggestion is ever applied to a plot automatically (RF-09, RNF-05/RNF-06). Disagreements are queued for technical-team review.</div>
+    <div class="muted" style="margin-top:12px;">Ninguna sugerencia se aplica automáticamente a una parcela (RF-09, RNF-05/RNF-06). Las disputas quedan en cola para revisión del equipo técnico.</div>
   </div>
 </div>
 </template>
-<template id="tpl-a7" data-title="Task Board" data-crumbs="CU-07 &middot; Assign & Track Tasks">
+<template id="tpl-a7" data-title="Tablero de Tareas" data-crumbs="CU-07 &middot; Asignar y Dar Seguimiento a Tareas">
 <div class="toolbar">
-  <div class="muted">Filter by status &middot; plot &middot; worker</div>
-  <a class="btn" href="#">+ Assign task (RF-11)</a>
+  <div class="muted">Filtrar por estado &middot; parcela &middot; trabajador</div>
+  <a class="btn" href="#">+ Asignar tarea (RF-11)</a>
 </div>
 <div class="kanban">
-<div class="col"><h4><span class="badge pending">Pending</span></h4><div class="taskcard">Prune Lot B-04<div class="p">Lot A-12 &middot; due Fri</div></div></div>
-<div class="col"><h4><span class="badge progress">In progress</span></h4><div class="taskcard">Spray Lot A-12<div class="p">Lot A-12 &middot; due Fri</div></div></div>
-<div class="col"><h4><span class="badge blocked">Blocked</span></h4><div class="taskcard">Fertilize Lot C-07 &mdash; missing input<div class="p">Lot A-12 &middot; due Fri</div></div></div>
-<div class="col"><h4><span class="badge done">Completed</span></h4><div class="taskcard">Irrigate Lot D-02<div class="p">Lot A-12 &middot; due Fri</div></div></div>
+<div class="col"><h4><span class="badge pending">Pendiente</span></h4><div class="taskcard">Podar Lote B-04<div class="p">Lote A-12 &middot; vence el viernes</div></div></div>
+<div class="col"><h4><span class="badge progress">En proceso</span></h4><div class="taskcard">Fumigar Lote A-12<div class="p">Lote A-12 &middot; vence el viernes</div></div></div>
+<div class="col"><h4><span class="badge blocked">Bloqueado</span></h4><div class="taskcard">Fertilizar Lote C-07 &mdash; insumo faltante<div class="p">Lote A-12 &middot; vence el viernes</div></div></div>
+<div class="col"><h4><span class="badge done">Completado</span></h4><div class="taskcard">Regar Lote D-02<div class="p">Lote A-12 &middot; vence el viernes</div></div></div>
 </div>
-<div class="muted" style="margin-top:18px;">Selecting a plot with a registered occupational risk shows the PPE warning before confirming assignment (CU-11).</div>
+<div class="muted" style="margin-top:18px;">Seleccionar una parcela con un riesgo laboral registrado muestra la advertencia de EPP antes de confirmar la asignación (CU-11).</div>
 </template>
-<template id="tpl-a8" data-title="Production & Finance Reports" data-crumbs="CU-04, CU-08 &middot; Yield, Finance & Reports">
+<template id="tpl-a8" data-title="Reportes de Producción y Finanzas" data-crumbs="CU-04, CU-08 &middot; Rendimiento, Finanzas y Reportes">
 <div class="grid cols-4" style="margin-bottom:18px;">
-  <div class="kpi"><div class="label">Net profit (period)</div><div class="value good">$1,240.50</div></div>
-  <div class="kpi"><div class="label">Pest-related loss</div><div class="value bad">$85.00</div></div>
-  <div class="kpi"><div class="label">Total harvested</div><div class="value">312 qq</div></div>
-  <div class="kpi"><div class="label">Active plots</div><div class="value">4</div></div>
+  <div class="kpi"><div class="label">Utilidad neta (periodo)</div><div class="value good">$1,240.50</div></div>
+  <div class="kpi"><div class="label">Pérdida por plagas</div><div class="value bad">$85.00</div></div>
+  <div class="kpi"><div class="label">Total cosechado</div><div class="value">312 qq</div></div>
+  <div class="kpi"><div class="label">Parcelas activas</div><div class="value">4</div></div>
 </div>
 <div class="grid cols-2">
   <div class="card">
-    <h3>Yield per plot &mdash; last 7 periods</h3>
+    <h3>Rendimiento por parcela &mdash; últimos 7 periodos</h3>
     <div class="chart-bar"><div class="bar " style="height:40%"></div><div class="bar alt" style="height:70%"></div><div class="bar " style="height:55%"></div><div class="bar alt" style="height:90%"></div><div class="bar " style="height:65%"></div><div class="bar alt" style="height:30%"></div><div class="bar " style="height:80%"></div></div>
   </div>
   <div class="card">
-    <h3>Production by plot</h3>
+    <h3>Producción por parcela</h3>
     <table>
-      <tr><th>Plot</th><th>Crop</th><th>Yield</th></tr>
-      <tr><td>Lot A-12</td><td>Cacao</td><td>128 qq</td></tr>
-      <tr><td>Lot B-04</td><td>Plantain</td><td>96 boxes</td></tr>
-      <tr><td>Lot C-07</td><td>Cacao</td><td>88 qq</td></tr>
+      <tr><th>Parcela</th><th>Cultivo</th><th>Rendimiento</th></tr>
+      <tr><td>Lote A-12</td><td>Cacao</td><td>128 qq</td></tr>
+      <tr><td>Lote B-04</td><td>Plátano</td><td>96 cajas</td></tr>
+      <tr><td>Lote C-07</td><td>Cacao</td><td>88 qq</td></tr>
     </table>
   </div>
 </div>
-<a class="btn" style="margin-top:18px;" href="#">Export report (RF-19)</a>
+<a class="btn" style="margin-top:18px;" href="#">Exportar reporte (RF-19)</a>
 </template>
-<template id="tpl-a9" data-title="Compliance (Technician view)" data-crumbs="CU-10, CU-11, CU-13, CU-14">
+<template id="tpl-a9" data-title="Cumplimiento (Vista de Técnico)" data-crumbs="CU-10, CU-11, CU-13, CU-14">
 <div class="grid cols-2">
   <div class="card">
-    <h3>BPA Certification (RF-25)</h3>
-    <p class="muted">Expires in 22 days &mdash; renewal recommended.</p>
-    <a class="btn secondary sm" href="#">Request renewal</a>
+    <h3>Certificación BPA (RF-25)</h3>
+    <p class="muted">Vence en 22 días &mdash; se recomienda renovación.</p>
+    <a class="btn secondary sm" href="#">Solicitar renovación</a>
   </div>
   <div class="card">
-    <h3>Occupational risk &amp; PPE (RF-18)</h3>
-    <p class="muted">Lot A-12: chemical exposure risk &mdash; suggested PPE: gloves, mask, goggles.</p>
+    <h3>Riesgo laboral y EPP (RF-18)</h3>
+    <p class="muted">Lote A-12: riesgo de exposición química &mdash; EPP sugerido: guantes, mascarilla, gafas protectoras.</p>
   </div>
   <div class="card">
-    <h3>Technical visit &mdash; Lot A-12 (RF-21)</h3>
-    <div class="field"><label>Findings</label><textarea rows="3"></textarea></div>
-    <label style="font-size:12.5px;"><input type="checkbox"/> Follow-up required</label>
+    <h3>Visita técnica &mdash; Lote A-12 (RF-21)</h3>
+    <div class="field"><label>Hallazgos</label><textarea rows="3"></textarea></div>
+    <label style="font-size:12.5px;"><input type="checkbox"/> Requiere seguimiento</label>
   </div>
   <div class="alert-box" style="margin:0;">
-    <strong>&#9888; Quarantine pest notice (CU-14, RF-37)</strong>
-    <div class="just">Suspected Moko symptoms on Lot D-02. Confirm to enable formal AGROCALIDAD submission.</div>
+    <strong>&#9888; Aviso de plaga cuarentenaria (CU-14, RF-37)</strong>
+    <div class="just">Síntomas sospechosos de Moko en el Lote D-02. Confirme para habilitar el envío formal a AGROCALIDAD.</div>
     <div style="display:flex;gap:10px;">
-      <a class="btn sm" href="#">Confirm symptom</a>
-      <a class="btn sm secondary" href="#">Discard</a>
+      <a class="btn sm" href="#">Confirmar síntoma</a>
+      <a class="btn sm secondary" href="#">Descartar</a>
     </div>
   </div>
 </div>

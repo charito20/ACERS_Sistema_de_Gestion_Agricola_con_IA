@@ -71,7 +71,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 | Matriz de Trazabilidad | `04_Trazabilidad/` |
 | MVP del sistema | `05_MVP/` |
 | Protocolo y resultados experimentales | `06_Experimento/` |
-| Manuscrito científico | `07_Publicacion/` |
+| Manuscrito científico | `11_Publicacion/` |
 
 ---
 
@@ -130,9 +130,9 @@ pdflatex protocolo.tex
 pdflatex protocolo.tex
 ```
 
-**Manuscrito final** (`07_Publicacion/manuscrito_final.tex`, plantilla Springer Nature `sn-jnl.cls`, estilo `sn-mathphys-num.bst`, requiere `referencias.bib` en la misma carpeta):
+**Manuscrito final** (`11_Publicacion/manuscrito_final.tex`, plantilla Springer Nature `sn-jnl.cls`, estilo `sn-mathphys-num.bst`, requiere `referencias.bib` en la misma carpeta):
 ```bash
-cd 07_Publicacion
+cd 11_Publicacion
 pdflatex manuscrito_final.tex
 bibtex manuscrito_final
 pdflatex manuscrito_final.tex
@@ -169,7 +169,16 @@ AgriMoreira/
 ├── 06_Experimento/
 │   └── Protocolo experimental, scripts y resultados
 │
-└── 07_Publicacion/
+├── 07_Datos/
+│   └── Paquete de datos reproducible (datos crudos, scripts, resultados, checksums)
+│
+├── 08_Etica/
+│   └── Paquete ético (aplicabilidad, consentimientos, anónimización)
+│
+├── 10_Autoria/
+│   └── Evidencia de autoría (bitácora, capturas, diagramas fuente, aporte individual)
+│
+└── 11_Publicacion/
     └── Manuscrito científico y material para publicación
 ```
 

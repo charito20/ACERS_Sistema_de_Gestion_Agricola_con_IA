@@ -254,7 +254,7 @@ function shell(innerHTML, activeHref){
       </div>
       <ul class="side-nav">
         ${items.map(i=>`<li><a class="${i.href===activeHref?'active':''}" href="${i.href}">${i.label}</a></li>`).join('')}
-        ${hidden>0?`<li class="locked"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg><span>Otros módulos están restringidos para tu puesto (RF-01).</span></li>`:''}
+        ${hidden>0?`<li class="locked"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg><span>Otros módulos están restringidos para tu puesto (RF-20).</span></li>`:''}
       </ul>
       <a class="side-user" href="#" onclick="logout(); return false;">
         <div class="side-avatar">${initials}</div>
@@ -454,7 +454,7 @@ function renderActivities(){
         <tbody>${myActs.map(a=>`<tr><td><code class="mono">${a.time}</code></td><td>${a.type}</td><td>${a.plot}</td><td><span class="badge ${a.status==='Hecho'?'badge-ok':'badge-info'}">${a.status}</span></td><td>${a.status!=='Hecho'?`<button class="btn btn-outline btn-sm" onclick="completeActivity('${a.id}')">Marcar hecho</button>`:''}</td></tr>`).join('')}</tbody></table>
       </div>
     </div>
-    <p class="foot-note" style="padding:0 32px;">Trazado a <code>RF-04</code> · Caso de uso <code>UC-04</code> · Sesión: ${user.name}</p>
+    <p class="foot-note" style="padding:0 32px;">Trazado a <code>RF-03</code> · Caso de uso <code>CU-02</code> · Sesión: ${user.name}</p>
   `, '#/activities'));
 }
 function setActType(t){ activityType = t; renderActivities(); }
@@ -613,7 +613,7 @@ function renderUsers(){
         <button class="btn btn-primary btn-block" onclick="addUser()">Crear cuenta</button>
       </div>
     </div>
-    <p class="foot-note" style="padding:0 32px;">Trazado a <code>RF-14</code> · Caso de uso <code>UC-14</code> · La desactivación mantiene registros históricos.</p>
+    <p class="foot-note" style="padding:0 32px;">Trazado a <code>RF-20</code> · Caso de uso <code>CU-09</code> · La desactivación mantiene registros históricos.</p>
   `, '#/users'));
 }
 function toggleUser(id){ const u=DB.users.find(x=>x.id===id); if(u) u.status = u.status==='Activo'?'Inactivo':'Activo'; saveDB(DB); showToast('Estado actualizado'); renderUsers(); }

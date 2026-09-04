@@ -17,7 +17,7 @@
 | 1.1 | 31 de agosto de 2026 | Corrección del equipo y del enfoque metodológico a partir del expediente ético real | Equipo AgroMoreira |
 | 1.2 | 1 de septiembre de 2026 | Corrección del liderazgo del equipo | Equipo AgroMoreira |
 | 1.3 | 1 de septiembre de 2026 | Definición del enfoque legal-first como enfoque oficial del proyecto | Equipo AgroMoreira |
-| 2.0 | 1 de septiembre de 2026 | Cierre de la Sección 3 con los 39 requisitos funcionales y los 15 requisitos no funcionales obtenidos en las 16 entrevistas y las 9 sesiones de validación, y de las historias de usuario con criterios de aceptación para los 17 requisitos Must have. Cierre del modelado del sistema en la Sección 4, con los 14 casos de uso, los dos diagramas de clases, los diagramas de comportamiento, la arquitectura de componentes y los 9 mockups de `03_Modelado/`. Matriz de trazabilidad cerrada en 60 filas y Sección 6 con el producto mínimo viable funcional | Equipo AgroMoreira |
+| 2.0 | 1 de septiembre de 2026 | Cierre de la Sección 3 con los 39 requisitos funcionales y los 21 requisitos no funcionales obtenidos en las 16 entrevistas y las 9 sesiones de validación, y de las historias de usuario con criterios de aceptación para los 17 requisitos Must have. Cierre del modelado del sistema en la Sección 4, con los 14 casos de uso, los dos diagramas de clases, los diagramas de comportamiento, la arquitectura de componentes y los 9 mockups de `03_Modelado/`. Matriz de trazabilidad cerrada en 60 filas y Sección 6 con el producto mínimo viable funcional | Equipo AgroMoreira |
 
 ---
 
@@ -50,7 +50,7 @@ Ver `referencias.bib`. La bibliografía se amplía a medida que avanza el manusc
 
 ### 1.5 Visión general del documento
 
-La Sección 2 describe el producto y sus interesados. La Sección 3 presenta los 39 requisitos funcionales, los 15 requisitos no funcionales y las historias de usuario con sus criterios de aceptación, todos obtenidos del trabajo de campo real. La Sección 4 recoge el modelado del sistema, con los casos de uso, los diagramas de clases, de comportamiento y de componentes, y los mockups. Las Secciones 5 y 6 describen la priorización, la trazabilidad cerrada y el producto mínimo viable.
+La Sección 2 describe el producto y sus interesados. La Sección 3 presenta los 39 requisitos funcionales, los 21 requisitos no funcionales y las historias de usuario con sus criterios de aceptación, todos obtenidos del trabajo de campo real. La Sección 4 recoge el modelado del sistema, con los casos de uso, los diagramas de clases, de comportamiento y de componentes, y los mockups. Las Secciones 5 y 6 describen la priorización, la trazabilidad cerrada y el producto mínimo viable.
 
 ---
 
@@ -133,7 +133,7 @@ Se confirmó que Agrícola Moreira cuenta con dispositivos móviles y computador
 ---
 ## 3. Requisitos específicos
 
-Esta sección reúne los 39 requisitos funcionales y los 15 requisitos no funcionales del sistema, obtenidos de las 16 entrevistas semiestructuradas y de las 9 sesiones de validación con walkthrough, 4 con perfiles técnicos y 5 con perfiles no técnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en `Modelo_Legal_LOPDP.md`, en sus tres bloques normativos, la Ley Orgánica de Protección de Datos Personales, la Resolución 183 de AGROCALIDAD sobre buenas prácticas y trazabilidad del cacao, y la Resolución 0072 sobre bioseguridad y manejo fitosanitario.
+Esta sección reúne los 39 requisitos funcionales y los 21 requisitos no funcionales del sistema, obtenidos de las 16 entrevistas semiestructuradas y de las 9 sesiones de validación con walkthrough, 4 con perfiles técnicos y 5 con perfiles no técnicos. De los 39 requisitos funcionales, 31 cuentan con evidencia directa de entrevista y 8 se derivaron directamente de los 26 criterios de cumplimiento legal descritos en `Modelo_Legal_LOPDP.md`, en sus tres bloques normativos, la Ley Orgánica de Protección de Datos Personales, la Resolución 183 de AGROCALIDAD sobre buenas prácticas y trazabilidad del cacao, y la Resolución 0072 sobre bioseguridad y manejo fitosanitario.
 
 Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR-01, administrador. EV-02 a ENTR-02, jornalero. EV-03 a ENTR-03, jornalera. EV-04 a ENTR-04, trabajador. EV-05 y EV-06 a ENTR-05 y ENTR-06, técnicos. EV-07 a ENTR-07, técnico, en sesión de walkthrough. EV-08 a ENTR-08, jornalera, en sesión de walkthrough. EV-09 a ENTR-09, jornalero. EV-10 a ENTR-10, técnico, en sesión de walkthrough. EV-11 y EV-12 a ENTR-11 y ENTR-12, jornaleros, en sesión de walkthrough. EV-13 y EV-14 a ENTR-13 y ENTR-14, jornaleros. EV-15 a ENTR-15, jornalero, en sesión de walkthrough. EV-16 a ENTR-16, técnica, en sesión de walkthrough. EV-17 a ENTR-17, técnico. Las 16 personas entrevistadas son distintas entre sí, aunque algunas comparten nombre de pila.
 
@@ -148,6 +148,14 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** ficha de parcela registrada
 - **Precondición:** usuario autenticado con permiso de edición
 - **Postcondición:** parcela visible en el listado general
+- **Flujo principal:**
+  1. El usuario (Administrador, Técnico o Jornalero) autenticado con permiso de edición selecciona "Nueva parcela".
+  2. Ingresa nombre/número, sector, ubicación, área, cultivo, variedad y cantidad de plantas.
+  3. El sistema valida que los 7 campos obligatorios estén completos.
+  4. El sistema guarda la parcela y la muestra en el listado general en menos de 2 segundos.
+- **Flujos alternativos / excepciones:**
+  - Si falta alguno de los 7 campos obligatorios, el sistema rechaza el guardado y marca los campos vacíos (criterio de verificación de RF-01).
+  - Si la parcela se marca como "para exportación", el sistema habilita los campos de trazabilidad de exportación (ver RF-14, CU-03).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** al crear una parcela con los 7 campos obligatorios, el sistema la muestra en el listado en menos de 2 segundos, sin campos vacíos.
 - **Evidencia textual:** *"Saber exactamente el lote por su nombre y número, qué cultivo tiene y cuántas plantas han sido o están en tratamiento"* (EV-15). *"Los datos deberían ser el código, el tamaño, el cultivo y la ubicación"* (EV-16).
@@ -159,6 +167,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** cultivo/variedad asociado a la parcela
 - **Precondición:** catálogo previamente configurado
 - **Postcondición:** ningún registro de cultivo queda con valor "otros" sin especificar
+- **Flujo principal:**
+  1. El usuario, al registrar o editar una parcela (CU-01), abre el selector de cultivo/variedad.
+  2. El sistema muestra únicamente las opciones del catálogo previamente configurado por el Administrador.
+  3. El usuario selecciona el cultivo/variedad y el sistema lo asocia a la parcela.
+- **Flujos alternativos / excepciones:**
+  - Si el usuario intenta ingresar un cultivo fuera del catálogo (texto libre tipo "otros"), el sistema rechaza el valor (criterio de verificación de RF-02).
+  - El Administrador puede ampliar el catálogo dando de alta un nuevo cultivo/variedad, lo que lo deja disponible de inmediato para el resto de usuarios.
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** intentar guardar un cultivo fuera del catálogo es rechazado por el sistema.
 - **Evidencia textual:** *"no que esté plátano, cacao ahí... Simplemente que permite escribir... No debería estar así"* (EV-11). *"agrupadas por secciones, cacao, plátano, etcétera"* (EV-12).
@@ -171,6 +186,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** registro de actividad
 - **Precondición:** lote existente
 - **Postcondición:** actividad queda asociada al historial del lote
+- **Flujo principal:**
+  1. El Jornalero o Técnico selecciona el lote existente sobre el que va a registrar la actividad.
+  2. Ingresa fecha, tipo de actividad (fumigación, fertilización, poda, riego, limpieza), producto/insumo usado y trabajador responsable.
+  3. El sistema guarda el registro y lo asocia al historial del lote (CU-02).
+- **Flujos alternativos / excepciones:**
+  - Si falta la fecha, el lote o el trabajador responsable, el sistema rechaza el guardado (criterio de verificación de RF-03).
+  - Si la actividad usa un insumo del catálogo, el sistema descuenta automáticamente el inventario correspondiente (ver RF-07, CU-05).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** el sistema no permite guardar una actividad sin fecha, lote y trabajador.
 - **Evidencia textual:** *"que se registre lo que es la fecha, la parcela, la actividad, producto y el trabajador"* (EV-10). *"La información dispensable sería la actividad, la parcela, la fecha y también el responsable"* (EV-16).
@@ -182,6 +204,14 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** registro de cosecha
 - **Precondición:** lote y cultivo existentes
 - **Postcondición:** cosecha sumada al acumulado del lote/periodo
+- **Flujo principal:**
+  1. El Jornalero selecciona el lote y el cultivo sobre el que va a registrar la cosecha.
+  2. El sistema determina la unidad esperada según el cultivo (tacho/quintal para cacao, racimo/caja para plátano).
+  3. El usuario ingresa la cantidad cosechada en esa unidad.
+  4. El sistema valida la unidad, guarda la cosecha y actualiza el acumulado del lote/periodo.
+- **Flujos alternativos / excepciones:**
+  - Si la unidad ingresada no corresponde al cultivo del lote, el sistema rechaza el registro (criterio de verificación de RF-04).
+  - Si corresponde, el usuario puede consultar de inmediato el precio de mercado vigente y ver el ingreso proyectado (RF-15).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** al registrar cosecha de cacao el sistema exige unidad "tacho" o "quintal". De plátano, "racimo" o "caja".
 - **Evidencia textual:** *"cuando es la cosecha de plátano, es por racimo. Y cuando es el cacao, por tacho"* (EV-02). *"Me gustaría el total de la producción y también lo que es del peso"* (EV-08).
@@ -193,6 +223,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** promedio, comparación entre periodos
 - **Precondición:** existen 2 o más registros de cosecha del lote
 - **Postcondición:** valor mostrado en el reporte del lote
+- **Flujo principal:**
+  1. El sistema consulta el histórico de cosechas del lote seleccionado.
+  2. Calcula el promedio de producción del periodo (suma dividida entre N registros).
+  3. Muestra el promedio y permite comparar contra otros periodos en el reporte del lote.
+- **Flujos alternativos / excepciones:**
+  - Si el lote tiene menos de 2 registros de cosecha, el sistema muestra "datos insuficientes" en vez de un promedio (precondición de RF-05).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** el promedio calculado coincide con el cálculo manual (suma dividida entre N) sobre un set de prueba.
 - **Evidencia textual:** *"sacar un promedio de cuánto rinde cada lote"* (EV-15). *"Me gustaría que generara automáticamente lo que es el rendimiento y también los totales"* (EV-16). *"El total de la cosecha y la producción por parcela"* (EV-07).
@@ -204,6 +240,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** ganancia neta del periodo
 - **Precondición:** existen registros de ingreso y egreso en el periodo
 - **Postcondición:** valor visible en el módulo financiero
+- **Flujo principal:**
+  1. El sistema consulta los registros de ingreso (automáticos por cosecha/precio y manuales por RF-26) y egreso (insumos, mano de obra) del periodo.
+  2. Calcula la ganancia neta como la suma de ingresos menos la suma de egresos.
+  3. Muestra el valor en el módulo financiero.
+- **Flujos alternativos / excepciones:**
+  - Si no existen registros de ingreso o egreso en el periodo consultado, el sistema muestra el módulo financiero en cero, sin error.
+  - El usuario puede registrar manualmente un ingreso o egreso adicional (RF-26), que se refleja de inmediato en el siguiente cálculo.
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** ganancia es igual a la suma de ingresos menos la suma de egresos, verificado contra un caso de prueba manual.
 - **Evidencia textual:** *"de todo lo que se gastó se ingresa también todo lo que se vendió y menorando todo eso, lo que quedó de ganancia"* (EV-10).
@@ -216,6 +259,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** stock disponible actualizado
 - **Precondición:** ninguna
 - **Postcondición:** stock reducido tras cada uso registrado
+- **Flujo principal:**
+  1. El usuario da de alta un insumo con nombre, cantidad disponible y unidad, o registra el uso de una cantidad de un insumo existente.
+  2. El sistema actualiza el stock disponible restando la cantidad usada.
+  3. El sistema muestra el stock actualizado.
+- **Flujos alternativos / excepciones:**
+  - Si el uso registrado dejaría el stock en un valor negativo, el sistema advierte antes de permitir guardar (regla de negocio de CU-05).
+  - Tras actualizar el stock, el sistema verifica si quedó por debajo del umbral configurado y dispara la alerta de bajo stock (RF-08, RF-30).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** tras registrar el uso de 26 unidades de un stock de 30, el sistema muestra 4 disponibles.
 - **Evidencia textual:** *"dice 4 de 30, es decir, lo que tenía era 30 y ahora le queda 4"* (EV-10). *"Sobre cada insumo, lo que es la cantidad, el nombre y además del stock limit"* (EV-16).
@@ -227,6 +277,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** notificación al responsable
 - **Precondición:** umbral definido para el insumo
 - **Postcondición:** notificación enviada y registrada
+- **Flujo principal:**
+  1. Tras cada actualización de stock de un insumo (RF-07), el sistema compara el nuevo stock contra el umbral mínimo configurado (RF-30).
+  2. Si el stock quedó por debajo del umbral, el sistema genera una notificación al responsable del insumo.
+  3. El sistema registra el envío de la notificación.
+- **Flujos alternativos / excepciones:**
+  - Si el insumo no tiene un umbral configurado todavía, el sistema no dispara la alerta hasta que el Técnico lo defina (RF-30).
+  - Si la notificación no puede entregarse por falta de conectividad, el sistema reintenta hasta la reconexión del dispositivo (ver RNF-15).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** al bajar del umbral, la notificación se envía en menos de 5 minutos.
 - **Evidencia textual:** *"en siete días está estimado que debes abonar el cacao... Y se necesita comprar"* (EV-11). *"Me gustaría que me avisara por medio de una notificación en el celular"* (EV-08).
@@ -239,6 +296,15 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** alerta con opción "confirmar"/"descartar"
 - **Precondición:** modelo de IA entrenado disponible
 - **Postcondición:** alerta queda registrada con el resultado de la verificación humana
+- **Flujo principal:**
+  1. El sistema de IA analiza los datos del lote (histórico de tratamientos y, opcionalmente, una foto) y genera una sugerencia de posible plaga/enfermedad con su justificación.
+  2. El sistema notifica al usuario responsable, marcando explícitamente la sugerencia como "a confirmar en campo", nunca como diagnóstico automático.
+  3. El usuario revisa la justificación y elige "confirmar" o "descartar".
+  4. El sistema registra la decisión del usuario junto con la alerta.
+- **Flujos alternativos / excepciones:**
+  - El usuario descarta la sugerencia; el sistema la deja registrada como descartada, sin aplicar ninguna acción sobre el lote.
+  - El usuario, en desacuerdo con la recomendación, la registra formalmente en la bandeja de sugerencias en vez de solo confirmar/descartar (RF-33).
+  - En ningún caso la alerta se aplica automáticamente al lote sin la confirmación explícita del usuario responsable (regla de negocio central de RF-09).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** ninguna alerta se aplica automáticamente a un lote sin que el usuario responsable la confirme.
 - **Evidencia textual:** *"yo confirmaría yendo a visualizar el terreno"* (EV-10). *"Se debería poder revisar antes de tomar una decisión o aplicación"* (EV-07, EV-08). *"Primeramente que eso venga de una fuente confiable o de ya experiencias realizadas"* (EV-17).
@@ -250,6 +316,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** plaga probable más recomendación
 - **Precondición:** conexión a internet
 - **Postcondición:** resultado registrado en el historial del lote
+- **Flujo principal:**
+  1. El Jornalero sube una foto (JPG/PNG) de una hoja o fruto desde el módulo de alerta de plagas (CU-06).
+  2. El sistema procesa la imagen y genera una sugerencia de plaga/enfermedad probable junto con el tratamiento recomendado.
+  3. El sistema responde en menos de 10 segundos y registra el resultado en el historial del lote.
+- **Flujos alternativos / excepciones:**
+  - Si no hay conexión a internet, el sistema informa que el diagnóstico por imagen no está disponible en ese momento (precondición de RF-10).
+  - El resultado del diagnóstico por imagen sigue el mismo flujo de confirmación humana obligatoria que RF-09: se muestra como sugerencia, nunca como diagnóstico definitivo.
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** el sistema responde con una sugerencia en menos de 10 segundos tras subir la foto.
 - **Evidencia textual:** *"una foto de una hoja o de un fruto enfermo que el sistema le atiene rápido y qué plaga es, qué remedio exacto"* (EV-15).
@@ -261,6 +334,14 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** tarea visible con su estado
 - **Precondición:** trabajador registrado
 - **Postcondición:** tarea filtrable por los 4 estados
+- **Flujo principal:**
+  1. El usuario asigna una tarea a un trabajador, indicando lote, fecha y tipo de tarea.
+  2. El sistema crea la tarea en estado "pendiente" y la muestra con su estado.
+  3. El trabajador actualiza el estado de la tarea (pendiente → en proceso → bloqueado → completado) conforme avanza.
+  4. El sistema permite filtrar la lista de tareas por cualquiera de los 4 estados.
+- **Flujos alternativos / excepciones:**
+  - Si el lote tiene un riesgo laboral registrado (CU-11), el sistema muestra la advertencia de equipo de protección antes de confirmar la asignación.
+  - Al filtrar por un estado, el sistema muestra exclusivamente las tareas en ese estado, sin mezclar lotes ni trabajadores (criterio de verificación de RF-11).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** al filtrar por "pendiente" el sistema solo muestra tareas en ese estado.
 - **Evidencia textual:** *"que tengas esa opción de buscar en esas cuatro secciones"* (EV-12).
@@ -272,6 +353,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** notificación push/SMS
 - **Precondición:** trabajador con dispositivo registrado
 - **Postcondición:** notificación entregada
+- **Flujo principal:**
+  1. Al asignarse una tarea (RF-11), el sistema identifica el dispositivo registrado del trabajador.
+  2. El sistema envía una notificación push/SMS con el lote, la fecha y el tipo de tarea.
+  3. El trabajador recibe la notificación en su dispositivo.
+- **Flujos alternativos / excepciones:**
+  - Si el trabajador no tiene un dispositivo registrado, el sistema deja la tarea visible en su vista de pendientes (RF-27) aunque no pueda enviar la notificación push.
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** la notificación incluye lote, fecha y tipo de tarea en el mensaje.
 - **Evidencia textual:** *"que la notificación... Le avise por lote, en tal lote, fecha tal, hay un control"* (EV-10). *"A través de una notificación en el celular"* (EV-07, EV-08).
@@ -283,6 +370,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** registro de rechazo
 - **Precondición:** cosecha registrada ese día
 - **Postcondición:** rechazo restado del total aprovechable
+- **Flujo principal:**
+  1. El Jornalero, tras registrar la cosecha del día (RF-04), registra la cantidad de fruta rechazada y su motivo (enfermedad, plaga, daño mecánico).
+  2. El sistema resta automáticamente la cantidad rechazada del total aprovechable del lote.
+- **Flujos alternativos / excepciones:**
+  - Si no hay una cosecha registrada ese día, el sistema no permite registrar un rechazo asociado (precondición de RF-13).
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** el total de fruta aprovechable excluye automáticamente lo marcado como rechazado.
 - **Evidencia textual:** *"cuántos salieron rechazados, ya sea por una enfermedad, una plaga o los daños"* (EV-14).
@@ -294,6 +386,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** ficha de trazabilidad del lote de exportación
 - **Precondición:** lote marcado como "exportación"
 - **Postcondición:** historial completo desde enfunde hasta empaque consultable
+- **Flujo principal:**
+  1. Para un lote marcado como "exportación" (RF-01), el usuario registra color de cinta, semana de enfunde y calidad de caja al momento de la cosecha (RF-04).
+  2. El sistema guarda la ficha de trazabilidad asociada al lote de exportación.
+  3. Dado un número de caja, el sistema recupera el lote, la fecha de enfunde y el color de cinta correspondiente (criterio de verificación de RF-14).
+- **Flujos alternativos / excepciones:**
+  - Si el lote no está marcado como "exportación", el sistema no solicita estos campos adicionales.
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** dado un número de caja, el sistema recupera el lote, la fecha de enfunde y el color de cinta correspondiente.
 - **Evidencia textual:** *"con el dato que el enfundador da, con eso se lo maneja para el día de cosecha... Ya se sabe cuántas cajas van a salir"* (EV-13). *"que en las pantallas de la cosecha se debe ver clarito el color de la cinta"* (EV-14).
@@ -305,6 +403,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** ingreso estimado
 - **Precondición:** cantidad de cosecha registrada
 - **Postcondición:** estimación mostrada al usuario
+- **Flujo principal:**
+  1. Tras registrar una cosecha (RF-04), el usuario consulta el precio de mercado vigente del cultivo.
+  2. El sistema calcula el ingreso estimado como la cantidad cosechada multiplicada por el precio ingresado.
+  3. El sistema muestra la estimación al usuario.
+- **Flujos alternativos / excepciones:**
+  - Si no hay un precio de mercado disponible de fuente externa, el usuario puede ingresarlo manualmente para obtener la estimación.
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** ingreso estimado es igual a cantidad multiplicada por precio ingresado, validado con un caso de prueba.
 - **Evidencia textual:** *"que consultara el precio de la materia prima... Un cálculo de cuánto más o menos uno va a ganar"* (EV-11).
@@ -316,6 +420,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** campo adicional en el registro de actividad/parcela
 - **Precondición:** ninguna
 - **Postcondición:** dato consultable en el historial del lote
+- **Flujo principal:**
+  1. Al registrar una actividad o visitar un lote (CU-01), el usuario anota la condición climática (lluvia/sol) y una observación de accesibilidad del terreno.
+  2. El sistema guarda el dato como campo adicional del registro de actividad/parcela.
+- **Flujos alternativos / excepciones:**
+  - El usuario puede registrar la condición climática en cualquier momento posterior, no solo al crear el registro (flujo alternativo documentado en CU-01).
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** el campo de clima aparece disponible en el formulario de registro de parcela/actividad.
 - **Evidencia textual:** *"Puede faltar un espacio para anotar lo que es el estado del clima"* (EV-15).
@@ -327,6 +436,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** reporte enviado al responsable del lote
 - **Precondición:** usuario autenticado
 - **Postcondición:** reporte visible para el administrador/técnico
+- **Flujo principal:**
+  1. El Jornalero abre el canal de reporte rápido desde la pantalla principal.
+  2. Registra un mensaje corto (texto o nota de voz) describiendo una novedad de campo.
+  3. El sistema envía el reporte al responsable del lote en un máximo de 2 toques desde la pantalla principal (criterio de verificación de RF-17).
+- **Flujos alternativos / excepciones:**
+  - Si el reporte describe una posible plaga cuarentenaria, el sistema sugiere escalarlo como aviso fitosanitario formal (RF-37, CU-14).
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** el reporte se envía en máximo 2 toques desde la pantalla principal.
 - **Evidencia textual:** *"un chat o un botón rápido de voz para reportar novedades"* (EV-15).
@@ -338,6 +453,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** alerta visible al asignar tarea en ese lote
 - **Precondición:** ninguna
 - **Postcondición:** advertencia mostrada al asignar personal
+- **Flujo principal:**
+  1. El Técnico marca un lote con un riesgo laboral (fauna peligrosa, terreno inestable), indicando el equipo de protección personal sugerido.
+  2. Al asignar una tarea en ese lote (RF-11), el sistema muestra la advertencia de riesgo antes de confirmar la asignación.
+- **Flujos alternativos / excepciones:**
+  - Ninguna tarea sobre un lote con riesgo registrado puede confirmarse sin que la advertencia de equipo de protección se haya mostrado primero (regla de negocio de CU-11).
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** al asignar una tarea en un lote marcado con riesgo, el sistema muestra la advertencia antes de confirmar.
 - **Evidencia textual:** *"hay riesgo de que haya animales... Como serpientes"* (EV-11). *"se dice qué usar, qué trajes usar, incluso botas, hasta más arriba... Ya que al momento de presenciar estos peligros estén bien cuidados"* (EV-17).
@@ -349,6 +469,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** reporte visual exportable
 - **Precondición:** existen datos en el rango seleccionado
 - **Postcondición:** reporte generado y descargable
+- **Flujo principal:**
+  1. El Administrador o Técnico selecciona un rango de fechas y uno o más lotes.
+  2. El sistema consolida producción, costos, pérdidas por plaga y rendimiento del rango seleccionado.
+  3. El sistema genera gráficos de barra y circulares codificados por color, reflejando exactamente la suma de los registros del rango.
+- **Flujos alternativos / excepciones:**
+  - Si no existen datos en el rango seleccionado, el sistema muestra "no hay datos disponibles" en vez de un reporte vacío (criterio de verificación de RF-19).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** el reporte generado refleja exactamente la suma de los registros del rango de fechas seleccionado.
 - **Evidencia textual:** *"reporte por parcela, costos, pérdidas por plagas o rendimiento por periodo"* (EV-01). *"Los reportes más importantes, el inventario. Otro también podría ser lo que es la producción y las cosechas"* (EV-16).
@@ -360,6 +486,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** sesión autenticada con permisos según rol
 - **Precondición:** usuario previamente registrado
 - **Postcondición:** acceso concedido solo a las funciones de su rol
+- **Flujo principal:**
+  1. El usuario ingresa su usuario y contraseña.
+  2. El sistema valida las credenciales y determina el rol (Administrador, Técnico, Jornalero).
+  3. El sistema concede acceso únicamente a las funciones correspondientes a ese rol.
+- **Flujos alternativos / excepciones:**
+  - Si las credenciales son inválidas, el sistema niega el acceso.
+  - Si un usuario con rol "jornalero" intenta acceder al módulo financiero, el sistema le niega el acceso (criterio de verificación de RF-20).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** un usuario con rol "jornalero" no puede acceder al módulo financiero.
 - **Evidencia textual:** *"han creado como un tipo formulario, donde le pide lo que es un usuario y una contraseña"* (EV-10). *"El administrador debería tener el control total y los trabajadores sólo lo necesario"* (EV-07, EV-08).
@@ -371,6 +504,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** historial de visitas técnicas por lote/finca
 - **Precondición:** ninguna
 - **Postcondición:** recordatorio generado para la siguiente visita
+- **Flujo principal:**
+  1. El Técnico registra una visita técnica: fecha, hallazgos e informe adjunto.
+  2. El sistema guarda la visita y la asocia al historial de cumplimiento del lote.
+  3. 15 días después, el sistema genera automáticamente un recordatorio de la siguiente visita (criterio de verificación de RF-21).
+- **Flujos alternativos / excepciones:**
+  - Si la visita encuentra un incumplimiento, el sistema sugiere registrar la capacitación o el equipo de protección relacionado (CU-11, CU-13).
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** 15 días después de una visita registrada, el sistema genera un recordatorio automático.
 - **Evidencia textual:** *"un control de la visita técnica de 15 días y pone el otro control que fue a realizarla después de 15 días"* (EV-10).
@@ -382,6 +521,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** listado de movimientos
 - **Precondición:** usuario autenticado
 - **Postcondición:** movimiento reflejado en el cálculo de ganancia neta
+- **Flujo principal:**
+  1. El usuario autenticado abre el módulo de registro manual de ingresos/egresos.
+  2. Registra concepto, monto, fecha y tipo (ingreso/egreso), de forma independiente al cálculo automático de RF-06.
+  3. El sistema guarda el movimiento en el listado.
+- **Flujos alternativos / excepciones:**
+  - El movimiento registrado manualmente se refleja de inmediato en el reporte financiero del periodo correspondiente (criterio de verificación de RF-26).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** un ingreso o egreso registrado manualmente aparece reflejado en el reporte financiero del periodo correspondiente.
 - **Evidencia textual:** *"Que permitiera controlar los ingresos y egresos"* (EV-07). *"Me gustaría que tuviera un registro de gastos y de ganancias también"* (EV-08).
@@ -393,6 +538,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** listado de tareas pendientes propias
 - **Precondición:** existen tareas asignadas al usuario
 - **Postcondición:** ninguna
+- **Flujo principal:**
+  1. El trabajador autenticado abre su vista de tareas pendientes.
+  2. El sistema muestra únicamente las tareas asignadas a ese trabajador.
+- **Flujos alternativos / excepciones:**
+  - Un trabajador con 3 tareas pendientes ve exactamente esas 3 al abrir la vista, sin tareas de otros lotes o trabajadores (criterio de verificación de RF-27).
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** un trabajador con 3 tareas pendientes ve exactamente esas 3 al abrir la vista, sin tareas de otros lotes o trabajadores.
 - **Evidencia textual:** *"¿Existe alguna función que considere indispensable y que todavía no hayamos completado? Ver las tareas pendientes"* (EV-09).
@@ -404,6 +554,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** observación asociada a la tarea
 - **Precondición:** tarea existente
 - **Postcondición:** observación visible al consultar el historial de la tarea
+- **Flujo principal:**
+  1. El trabajador, al marcar una tarea como completada (RF-11), adjunta una nota u observación de texto libre.
+  2. El sistema asocia la observación a la tarea.
+- **Flujos alternativos / excepciones:**
+  - La observación ingresada permanece visible al consultar el detalle de la tarea en cualquier momento posterior (criterio de verificación de RF-28).
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** la observación ingresada aparece al consultar el detalle de la tarea.
 - **Evidencia textual:** *"Al observar esta propuesta, ¿hay alguna información que considere que falta? Sí, las observaciones de las tareas"* (EV-09).
@@ -415,6 +570,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** línea de tiempo de eventos de la parcela
 - **Precondición:** la parcela tiene al menos un evento registrado
 - **Postcondición:** ninguna
+- **Flujo principal:**
+  1. El usuario selecciona una parcela y abre su vista de historial.
+  2. El sistema agrega actividades, tratamientos y cosechas de esa parcela a lo largo del tiempo.
+  3. El sistema muestra los eventos ordenados cronológicamente.
+- **Flujos alternativos / excepciones:**
+  - Si la parcela no tiene ningún evento registrado, el sistema muestra el historial vacío en vez de un error (precondición de RF-29).
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** al consultar el historial de una parcela con 5 eventos registrados en distintas fechas, los 5 aparecen ordenados cronológicamente.
 - **Evidencia textual:** *"¿Existe alguna función que considere indispensable y que todavía no hayamos completado? El historial de cada parcela"* (EV-16).
@@ -426,6 +587,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** umbral guardado en la ficha del insumo
 - **Precondición:** insumo ya registrado
 - **Postcondición:** el umbral queda disponible para el mecanismo de alertas
+- **Flujo principal:**
+  1. El Técnico abre la ficha de un insumo ya registrado.
+  2. Define el valor numérico de stock mínimo (stock limit) para ese insumo.
+  3. El sistema guarda el umbral y lo deja disponible para el mecanismo de alertas (RF-08).
+- **Flujos alternativos / excepciones:**
+  - El Técnico puede editar el umbral en cualquier momento; el nuevo valor se aplica desde la siguiente actualización de stock.
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** al bajar el stock del insumo por debajo del valor configurado, se dispara la alerta de RF-08.
 - **Evidencia textual:** *"Sobre cada insumo, lo que es la cantidad, el nombre y además del stock limit"* (EV-16).
@@ -437,6 +604,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** advertencia de valor atípico
 - **Precondición:** existe histórico suficiente del lote (mínimo 3 registros previos)
 - **Postcondición:** el usuario confirma o corrige el dato antes de guardar
+- **Flujo principal:**
+  1. El usuario ingresa un dato numérico (por ejemplo, cantidad cosechada) para un lote con histórico suficiente (mínimo 3 registros previos).
+  2. El sistema compara el valor contra el promedio histórico del mismo lote.
+  3. Si el valor se desvía más de 2 desviaciones estándar del promedio, el sistema muestra una advertencia antes de guardar.
+- **Flujos alternativos / excepciones:**
+  - El usuario confirma el dato pese a la advertencia (si el valor atípico es real), o lo corrige antes de guardar (postcondición de RF-31).
+  - Si el lote no tiene histórico suficiente, el sistema guarda el dato sin comparar (precondición de RF-31).
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** un valor que se desvía más de 2 desviaciones estándar del promedio histórico dispara la advertencia antes de guardar.
 - **Evidencia textual:** *"que me generara automáticamente promedios estadísticos realizados mediante gráficos, gráficos automáticos que al momento de meter un dato, una variable, me indique... Que este valor de aquí estuvo mal"* (EV-17).
@@ -459,6 +633,12 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** registro de desacuerdo asociado a la recomendación
 - **Precondición:** existe una recomendación de IA previa
 - **Postcondición:** el desacuerdo queda visible para revisión posterior del equipo técnico
+- **Flujo principal:**
+  1. El usuario, en desacuerdo con una recomendación de IA previa (RF-09/RF-10), abre la bandeja de sugerencias.
+  2. Registra su comentario asociado a esa recomendación.
+  3. El sistema guarda el desacuerdo, visible para revisión posterior del equipo técnico.
+- **Flujos alternativos / excepciones:**
+  - El desacuerdo registrado aparece en un listado consultable con fecha y comentario del usuario (criterio de verificación de RF-33), sin alterar el estado de la alerta original.
 - **Prioridad MoSCoW:** Should have
 - **Criterio de verificación:** un desacuerdo registrado aparece en un listado consultable, con la fecha y el comentario del usuario.
 - **Evidencia textual:** *"Si en la aplicación realizada de ustedes, yo verifico que esa información está mal, yo obviamente que daría mi observación en una bandejita de sugerencias"* (EV-17).
@@ -470,6 +650,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** formulario con los campos correspondientes a esa variedad
 - **Precondición:** variedad dada de alta en el catálogo con su set de atributos
 - **Postcondición:** ninguna
+- **Flujo principal:**
+  1. El Técnico da de alta una variedad de cultivo en el catálogo (RF-02), definiendo el conjunto de campos y atributos propios de esa variedad.
+  2. Al seleccionar esa variedad en un formulario (por ejemplo, CU-01), el sistema muestra el conjunto de campos correspondiente.
+- **Flujos alternativos / excepciones:**
+  - Al seleccionar una variedad de cacao, el formulario muestra un conjunto de campos distinto al que se muestra al seleccionar plátano (criterio de verificación de RF-34).
 - **Prioridad MoSCoW:** Must have
 - **Criterio de verificación:** al seleccionar una variedad de cacao, el formulario muestra un conjunto de campos distinto al que se muestra al seleccionar plátano.
 - **Evidencia textual:** *"Existen muchas diferencias, en el plátano se registra lo que es... En el cacao se registra desde su mazorca... Hay muchos tipos de cacao, el nacional, el CN51, el cacao de montaña, el cacao Iñak, el cacao Pincai"* (EV-17).
@@ -481,6 +666,11 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Salidas:** ficha de análisis de suelo asociada a la parcela
 - **Precondición:** parcela registrada
 - **Postcondición:** dato consultable antes de aprobar la siembra
+- **Flujo principal:**
+  1. El Técnico registra, para una parcela ya existente, el resultado de un análisis de suelo (calicata) previo a la siembra: tipo de suelo, aptitud y fecha.
+  2. El sistema guarda la ficha de análisis de suelo asociada a la parcela.
+- **Flujos alternativos / excepciones:**
+  - Una parcela con análisis de suelo registrado muestra el resultado de aptitud al consultar su ficha, antes de aprobar la siembra (criterio de verificación de RF-35).
 - **Prioridad MoSCoW:** Could have
 - **Criterio de verificación:** una parcela con análisis de suelo registrado muestra el resultado de aptitud al consultar su ficha.
 - **Evidencia textual:** *"Se hace una verificación del terreno... Es decir una calicata, para ver o realizar un análisis de suelo... Donde ese análisis de suelo nos va a decir si es apto o no es apto sembrar en dicho terreno"* (EV-17).
@@ -491,37 +681,82 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-22. Registro de consentimiento del trabajador para el tratamiento de sus datos personales dentro del sistema
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C4, LOPDP Art. 8)
+- **Flujo principal:**
+  1. En el primer inicio de sesión de un trabajador (CU-09), el sistema muestra el aviso de tratamiento de datos personales (LOPDP Art. 8).
+  2. El usuario acepta el consentimiento de forma libre, específica, informada e inequívoca.
+  3. El sistema registra el consentimiento antes de continuar con cualquier otro módulo.
+- **Flujos alternativos / excepciones:**
+  - Si el usuario no acepta el aviso, el sistema no concede acceso a ningún módulo que trate datos personales (regla de negocio de CU-09).
 - **Prioridad MoSCoW:** Must have (regulatorio)
 - **Evidencia legal:** Art. 8 LOPDP. El consentimiento debe ser libre, específico, informado e inequívoco.
 
 ### RF-23. Módulo de derechos ARCO+ del trabajador
 - **Descripción:** acceso, rectificación y eliminación de sus propios datos.
 - **Actor/origen:** Jornalero/Trabajador. Sin evidencia de entrevista (criterio C10, LOPDP Art. 13-19)
+- **Flujo principal:**
+  1. El trabajador, autenticado en el sistema, solicita acceder, rectificar o eliminar sus propios datos personales desde Ajustes → Mis Datos.
+  2. El sistema atiende la solicitud sobre los datos del propio usuario.
+  3. El sistema deja un registro de la acción realizada (criterio de verificación derivado de C10, LOPDP Art. 13-19).
+- **Flujos alternativos / excepciones:**
+  - Si la solicitud es de eliminación y existen datos que deben conservarse por obligación legal (por ejemplo, trazabilidad BPA), el sistema informa al usuario cuáles datos no pueden eliminarse y por qué.
 - **Prioridad MoSCoW:** Must have (regulatorio)
 
 ### RF-24. Registro de certificado de salud del trabajador que aplica agroquímicos
 - **Actor/origen:** Administrador. Sin evidencia de entrevista para el certificado de salud (criterio C17, Resolución AGROCALIDAD 183, Art. 33-34). El requisito de equipo de protección personal ya cuenta con evidencia real y se documentó en RF-18.
+- **Flujo principal:**
+  1. Antes de asignar una tarea de aplicación de agroquímicos (CU-11), el Administrador registra el certificado de salud vigente del trabajador.
+  2. El sistema adjunta el certificado al perfil del trabajador.
+- **Flujos alternativos / excepciones:**
+  - Si el trabajador no tiene certificado de salud vigente registrado, el sistema advierte que el certificado no está registrado al intentar asignarle esa tarea (Res. AGROCALIDAD 183, Art. 33-34).
 - **Prioridad MoSCoW:** Must have (regulatorio)
 
 ### RF-25. Registro y seguimiento del proceso de certificación BPA ante AGROCALIDAD
 - **Descripción:** solicitud, inspección, vigencia.
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C20, Resolución AGROCALIDAD 183, Art. 39-43)
+- **Flujo principal:**
+  1. El Administrador revisa el panel de cumplimiento (vigencia del certificado BPA, capacitaciones pendientes, bitácora de bioseguridad) (CU-13).
+  2. Si el certificado está por vencer o falta evidencia de respaldo, solicita la renovación ante AGROCALIDAD.
+  3. El sistema adjunta como evidencia los registros de capacitación y la bitácora de bioseguridad.
+- **Flujos alternativos / excepciones:**
+  - Si falta una capacitación obligatoria, el sistema bloquea la solicitud de renovación hasta que se registre (RF-36, RF-39).
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### RF-36. Registro de capacitación en manejo de plaguicidas y primeros auxilios
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C23, Resolución AGROCALIDAD 183, Art. 18(e))
+- **Flujo principal:**
+  1. El Administrador registra una capacitación en manejo de plaguicidas o primeros auxilios recibida por un trabajador.
+  2. El sistema guarda el registro como evidencia de respaldo para la certificación BPA (RF-25, CU-13).
+- **Flujos alternativos / excepciones:**
+  - Si la capacitación registrada está vencida o incompleta, el sistema la marca como pendiente en el panel de cumplimiento (CU-13).
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### RF-37. Aviso/alerta ante síntomas sospechosos de plaga cuarentenaria (ej. Moko)
 - **Actor/origen:** Jornalero, Técnico, Administrador. Sin evidencia de entrevista (criterio C24, Resolución AGROCALIDAD 0072, Art. 3.6.1(a))
+- **Flujo principal:**
+  1. Un usuario de campo detecta síntomas sospechosos de plaga cuarentenaria (ej. Moko) en un lote.
+  2. Registra el síntoma y el lote afectado en el sistema.
+  3. El sistema genera el aviso fitosanitario y lo marca con prioridad alta, visible de inmediato para el Administrador.
+  4. Un Técnico confirma el síntoma tras la inspección.
+- **Flujos alternativos / excepciones:**
+  - El Técnico descarta el síntoma tras la inspección; el aviso no se envía a AGROCALIDAD, pero queda registrado como descartado para trazabilidad (CU-14).
 - **Prioridad MoSCoW:** Must have (regulatorio). Nota: EV-17 mencionó el problema del Moko y las medidas de desinfección, pero ningún entrevistado describió el mecanismo formal de aviso a AGROCALIDAD, por eso sigue siendo un vacío.
 
 ### RF-38. Bitácora de bioseguridad de ingreso/salida del predio
 - **Actor/origen:** Administrador. Sin evidencia de entrevista sobre el registro formal, aunque EV-17 sí describió la práctica de desinfección en sí misma (criterio C25, Resolución AGROCALIDAD 0072, Art. 3.6.1(d))
+- **Flujo principal:**
+  1. Al confirmarse una visita al predio (técnica o por síntoma sospechoso, CU-10/CU-14), el usuario registra el evento de ingreso/salida en la bitácora de bioseguridad.
+  2. El sistema guarda el registro con fecha y motivo de la visita.
+- **Flujos alternativos / excepciones:**
+  - La bitácora queda disponible como evidencia de respaldo para la certificación BPA y para la auditoría de AGROCALIDAD (RF-25, CU-13).
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### RF-39. Registro de capacitaciones del personal sobre control fitosanitario específico
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C26, Resolución AGROCALIDAD 0072, Art. 3.6.1(f)(g))
+- **Flujo principal:**
+  1. El Administrador registra una capacitación fitosanitaria específica recibida por un trabajador (control de plagas cuarentenarias, bioseguridad).
+  2. El sistema guarda el registro y lo deja disponible como evidencia de auditoría (RF-25, CU-13).
+- **Flujos alternativos / excepciones:**
+  - Si falta una capacitación fitosanitaria obligatoria, el sistema bloquea la solicitud de renovación BPA hasta que se registre (regla de negocio de CU-13).
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### 3.3 Requisitos no funcionales

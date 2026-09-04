@@ -1,4 +1,4 @@
-# Analisis de revistas objetivo (07_Publicacion/analisis_revistas.md)
+# Analisis de revistas objetivo (11_Publicacion/analisis_revistas.md)
 
 Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
 Enfoque empirico: Enfoque 1 (Calidad de RF humanos vs. LLM)

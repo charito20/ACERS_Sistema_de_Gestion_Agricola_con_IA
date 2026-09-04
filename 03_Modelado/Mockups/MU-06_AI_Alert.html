@@ -1,5 +1,5 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><title>MU-06 AI Alert</title>
+<html><head><meta charset="utf-8"><title>MU-06 Alerta IA</title>
 <style>
 * { box-sizing: border-box; }
 html, body { margin:0; height:100%; }
@@ -77,46 +77,46 @@ tr:last-child td { border-bottom:none; }
 <div class="app">
 <div class="sidebar">
   <div class="brand"><span class="logo">&#127806;</span> AgroMoreira</div>
-  <nav><a class="" href="MU-02_Plot_List.html"><span class="ic">&#127807;</span>Plots / Lots</a>
-<a class="" href="MU-03_Register_Activity.html"><span class="ic">&#128221;</span>Register Activity</a>
-<a class="" href="MU-04_Register_Harvest.html"><span class="ic">&#127811;</span>Register Harvest</a>
-<a class="" href="MU-05_Inventory_Alert.html"><span class="ic">&#128230;</span>Inventory</a>
-<a class="active" href="MU-06_AI_Alert.html"><span class="ic">&#129302;</span>AI Pest Alerts</a>
-<a class="" href="MU-07_Task_Board.html"><span class="ic">&#9989;</span>Task Board</a>
-<a class="" href="MU-08_Reports_Dashboard.html"><span class="ic">&#128202;</span>Reports</a>
-<a class="" href="MU-09_Compliance_Technical_Visits.html"><span class="ic">&#128220;</span>Compliance</a>
+  <nav><a class="" href="MU-02_Plot_List.html"><span class="ic">&#127807;</span>Parcelas / Lotes</a>
+<a class="" href="MU-03_Register_Activity.html"><span class="ic">&#128221;</span>Registrar Actividad</a>
+<a class="" href="MU-04_Register_Harvest.html"><span class="ic">&#127811;</span>Registrar Cosecha</a>
+<a class="" href="MU-05_Inventory_Alert.html"><span class="ic">&#128230;</span>Inventario</a>
+<a class="active" href="MU-06_AI_Alert.html"><span class="ic">&#129302;</span>Alertas de Plagas (IA)</a>
+<a class="" href="MU-07_Task_Board.html"><span class="ic">&#9989;</span>Tablero de Tareas</a>
+<a class="" href="MU-08_Reports_Dashboard.html"><span class="ic">&#128202;</span>Reportes</a>
+<a class="" href="MU-09_Compliance_Technical_Visits.html"><span class="ic">&#128220;</span>Cumplimiento</a>
 </nav>
-  <div class="foot"><a href="MU-01_Login_Consent.html">&larr; Log out</a></div>
+  <div class="foot"><a href="MU-01_Login_Consent.html">&larr; Cerrar sesión</a></div>
 </div>
   <div class="main">
     <div class="topbar">
-      <div><div class="title">AI Pest Alerts</div><div class="crumbs">CU-06 &middot; AI-Assisted Pest Alerts</div></div>
+      <div><div class="title">Alertas de Plagas (IA)</div><div class="crumbs">CU-06 &middot; Alertas de Plagas Asistidas por IA</div></div>
       <div class="right">
-        <input class="search" placeholder="Search plots, tasks, reports..." disabled/>
-        <a class="logout" href="MU-01_Login_Consent.html">Log out</a>
+        <input class="search" placeholder="Buscar parcelas, tareas, reportes..." disabled/>
+        <a class="logout" href="MU-01_Login_Consent.html">Cerrar sesión</a>
         <div class="avatar">AD</div>
       </div>
     </div>
     <div class="content">
-    
+
 <div class="grid cols-2" style="max-width:1000px;">
   <div class="alert-box">
-    <strong>&#129302; Possible Black Pod (Phytophthora) &mdash; Lot A-12</strong>
-    <div class="just">Justification (&le;60 words): recurring rainfall pattern + treatment gap &gt;15 days on Lot A-12, similar to 3 prior confirmed cases. Source: treatment history (RF-03) + uploaded photo.</div>
+    <strong>&#129302; Posible Mazorca Negra (Phytophthora) &mdash; Lote A-12</strong>
+    <div class="just">Justificación (&le;60 palabras): patrón de lluvias recurrente + brecha de tratamiento &gt;15 días en el Lote A-12, similar a 3 casos previos confirmados. Fuente: historial de tratamientos (RF-03) + foto cargada.</div>
     <div style="display:flex;gap:10px;">
-      <a class="btn" href="#">Confirm</a>
-      <a class="btn secondary" href="#">Discard</a>
-      <a class="btn secondary" href="#">Formally disagree (RF-33)</a>
+      <a class="btn" href="#">Confirmar</a>
+      <a class="btn secondary" href="#">Descartar</a>
+      <a class="btn secondary" href="#">Disentir formalmente (RF-33)</a>
     </div>
   </div>
   <div class="card">
-    <h3>Alert history</h3>
+    <h3>Historial de alertas</h3>
     <table>
-      <tr><th>Plot</th><th>Suggestion</th><th>Status</th></tr>
-      <tr><td>Lot B-04</td><td>Leaf spot risk</td><td><span class="badge done">Confirmed</span></td></tr>
-      <tr><td>Lot C-07</td><td>Nutrient deficiency</td><td><span class="badge pending">Discarded</span></td></tr>
+      <tr><th>Parcela</th><th>Sugerencia</th><th>Estado</th></tr>
+      <tr><td>Lote B-04</td><td>Riesgo de mancha foliar</td><td><span class="badge done">Confirmado</span></td></tr>
+      <tr><td>Lote C-07</td><td>Deficiencia de nutrientes</td><td><span class="badge pending">Descartado</span></td></tr>
     </table>
-    <div class="muted" style="margin-top:12px;">No suggestion is ever applied to a plot automatically (RF-09, RNF-05/RNF-06). Disagreements are queued for technical-team review.</div>
+    <div class="muted" style="margin-top:12px;">Ninguna sugerencia se aplica automáticamente a una parcela (RF-09, RNF-05/RNF-06). Las disputas quedan en cola para revisión del equipo técnico.</div>
   </div>
 </div>
 

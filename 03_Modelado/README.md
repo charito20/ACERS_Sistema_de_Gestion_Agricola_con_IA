@@ -1,46 +1,48 @@
-# Modeling Package — AgroMoreira (English, individual files)
+# Paquete de modelado — AgroMoreira (diagramas en inglés, mockups en español)
 
-This package replaces the earlier Spanish, multi-page draft. Every diagram is now an **individual `.drawio` file** (one `<diagram>` per file — no internal tabs), in **English**, in the **same visual style, color palette and shape conventions** as the 16 original reference diagrams the team had already produced (BCE-layered sequence diagrams with UML `alt` fragments and activation bars, swimlane activity diagrams, the `light-dark(...)` color palette). Every diagram also ships as a PNG image in `Images/`, generated directly from the `.drawio` source so the two never drift apart.
+Este paquete reemplaza el borrador anterior en español de varias páginas. Cada diagrama es ahora un **archivo `.drawio` individual** (un `<diagram>` por archivo, sin pestañas internas), **en inglés** —así lo solicitó el ingeniero para los diagramas técnicos—, con el **mismo estilo visual, paleta de colores y convenciones de forma** que los 16 diagramas de referencia originales del equipo (diagramas de secuencia por capas BCE con fragmentos `alt` de UML y barras de activación, diagramas de actividad tipo swimlane, la paleta `light-dark(...)`). Cada diagrama también se exporta como imagen PNG en `Images/`, generada directamente desde el archivo `.drawio` para que los dos nunca queden desincronizados.
 
-## What changed vs. the 16 original diagrams
+Los **mockups** (`Mockups/`) sí están en **español**, junto con este README y los documentos de especificación — son la parte del paquete que se presenta y se lee en la defensa.
 
-The 16 original diagrams (AD01-03, CD01, COMP01, DEP01, SD01, SEQ01-09) were built for an earlier phase of the project: 2 actors only (Administrator, Farmworker), an older RF numbering (~RF-01 to RF-16), and a domain model with no legal/compliance entities. They are kept as the **format template** — their layout and style are unchanged — but every RF/UC reference inside them was corrected to the **current** catalog (39 RF + 15 RNF, CU-01 to CU-14), and the component/deployment diagrams were extended with a `ComplianceModule` and an AGROCALIDAD external system node.
+## Qué cambió respecto a los 16 diagramas originales
 
-16 new diagrams were added, in the same style, to cover what the originals didn't: the Technician and AGROCALIDAD actors, the AI System actor, and the LOPDP/AGROCALIDAD legal-compliance domain (consent, ARCO+ rights, technical visits, occupational risk, quarantine-pest notice, BPA compliance).
+Los 16 diagramas originales (AD01-03, CD01, COMP01, DEP01, SD01, SEQ01-09) se construyeron en una fase anterior del proyecto: solo 2 actores (Administrador, Jornalero), una numeración de RF más antigua (~RF-01 a RF-16), y un modelo de dominio sin entidades legales/de cumplimiento. Se conservan como **plantilla de formato** —su diagramación y estilo no cambiaron— pero cada referencia a RF/CU dentro de ellos se corrigió al catálogo **actual** (39 RF + 15 RNF, CU-01 a CU-14), y los diagramas de componentes/despliegue se ampliaron con un `ComplianceModule` y un nodo de sistema externo AGROCALIDAD.
 
-## Diagram index (`Diagrams/`, 32 files)
+Se agregaron 16 diagramas nuevos, en el mismo estilo, para cubrir lo que los originales no cubrían: los actores Técnico y AGROCALIDAD, el actor Sistema de IA, y el dominio de cumplimiento legal LOPDP/AGROCALIDAD (consentimiento, derechos ARCO+, visitas técnicas, riesgo laboral, aviso de plaga cuarentenaria, cumplimiento BPA).
 
-| File | Type | Covers |
+## Índice de diagramas (`Diagrams/`, 32 archivos, en inglés)
+
+| Archivo | Tipo | Cubre |
 |---|---|---|
-| CTX01_Context_Diagram | Context | All actors ↔ system |
-| CTX02_Power_Interest_Matrix | Stakeholder matrix | All stakeholders |
-| ISTAR01_Strategic_Dependency_SD | i* SD | All actors |
-| ISTAR02_Strategic_Rationale_SR | i* SR | Administrator |
-| UC01_General_Use_Case_Diagram | Use case | CU-01 to CU-14, 5 actors |
-| CD01_Refined_Class_Diagram | Class (updated) | Core operational domain |
-| CD02_Legal_Compliance_Class_Diagram | Class (new) | LOPDP/AGROCALIDAD domain |
-| AD01-03 | Activity (updated) | CU-02/03/05/06/07/08 |
-| AD04-07 | Activity (new) | CU-09, CU-10/13, CU-11, CU-14 |
-| SEQ01-09 | Sequence (updated) | CU-01, CU-02, CU-03, CU-05, CU-04, CU-07, CU-09 |
-| SEQ10-14 | Sequence (new) | CU-09 (consent, ARCO+), CU-06 (confirm/discard/disagree), CU-10, CU-14 |
-| SD01 | State (updated) | CU-07 (task lifecycle) |
-| SD02 | State (new) | CU-06 (AI alert lifecycle) |
-| COMP01 | Component (updated) | Full architecture incl. ComplianceModule |
-| DEP01 | Deployment (updated) | Full deployment incl. AGROCALIDAD node |
+| CTX01_Context_Diagram | Contexto | Todos los actores ↔ sistema |
+| CTX02_Power_Interest_Matrix | Matriz de interesados | Todos los interesados |
+| ISTAR01_Strategic_Dependency_SD | i* SD | Todos los actores |
+| ISTAR02_Strategic_Rationale_SR | i* SR | Administrador |
+| UC01_General_Use_Case_Diagram | Casos de uso | CU-01 a CU-14, 5 actores |
+| CD01_Refined_Class_Diagram | Clases (actualizado) | Dominio operativo central |
+| CD02_Legal_Compliance_Class_Diagram | Clases (nuevo) | Dominio LOPDP/AGROCALIDAD |
+| AD01-03 | Actividad (actualizado) | CU-02/03/05/06/07/08 |
+| AD04-07 | Actividad (nuevo) | CU-09, CU-10/13, CU-11, CU-14 |
+| SEQ01-09 | Secuencia (actualizado) | CU-01, CU-02, CU-03, CU-05, CU-04, CU-07, CU-09 |
+| SEQ10-14 | Secuencia (nuevo) | CU-09 (consentimiento, ARCO+), CU-06 (confirmar/descartar/disentir), CU-10, CU-14 |
+| SD01 | Estados (actualizado) | CU-07 (ciclo de vida de la tarea) |
+| SD02 | Estados (nuevo) | CU-06 (ciclo de vida de la alerta de IA) |
+| COMP01 | Componentes (actualizado) | Arquitectura completa incl. ComplianceModule |
+| DEP01 | Despliegue (actualizado) | Despliegue completo incl. nodo AGROCALIDAD |
 
-## Mockups (`Mockups/`, 9 individual screens + 1 general prototype)
+## Mockups (`Mockups/`, 9 pantallas individuales + 1 prototipo general — en español)
 
-`MU-01` to `MU-09`, one HTML file per screen, each self-contained and each also exported to `Mockups/Images/*.png`. `MU-00_Prototype.html` is the general entry point: a clickable shell (sidebar + phone-frame stage) that links every individual screen together, so it can be opened and clicked through as *the* prototype without needing all 9 files pre-loaded in the reviewer's head.
+De `MU-01` a `MU-09`, un archivo HTML por pantalla, cada uno autocontenido y exportado también a `Mockups/Images/*.png`. `MU-00_Prototype.html` es el punto de entrada general: una carcasa clicable (barra lateral + escenario tipo teléfono) que enlaza todas las pantallas individuales entre sí, para poder abrirla y recorrerla como *el* prototipo, sin necesidad de tener los 9 archivos cargados de memoria.
 
-## Supporting text
+## Texto de apoyo
 
-- `00_Use_Case_Specifications.md` — full textual spec for CU-01 to CU-14 (English).
-- `00_User_Stories_Acceptance_Criteria.md` — Gherkin HU/CA for the Must-have RF that carry one (English).
+- `00_Use_Case_Specifications.md` — especificación textual completa de CU-01 a CU-14 (en inglés).
+- `00_User_Stories_Acceptance_Criteria.md` — HU/CA en formato Gherkin para los RF Must-have que tienen una asociada (en inglés).
 
-## Traceability
+## Trazabilidad
 
-See `../04_Trazabilidad/Matriz_Trazabilidad_v2.csv` and its README — 60 closed rows, all IDs in this package (CU, Component, Mockup) match the matrix exactly.
+Ver `../04_Trazabilidad/Matriz_Trazabilidad_v2.csv` y su README — 60 filas cerradas, todos los IDs de este paquete (CU, Componente, Mockup) coinciden exactamente con la matriz.
 
-## Regenerating
+## Regeneración
 
-Everything here is produced from Python scripts using `gen_lib.py` (diagram builder matching the reference style) and `render_drawio.py` / `render_mockups.py` (Playwright-based PNG export), so the whole package can be rebuilt deterministically if requirement text changes again.
+Todo lo de esta carpeta se produce con scripts de Python usando `gen_lib.py` (generador de diagramas que respeta el estilo de referencia) y `render_drawio.py` / `render_mockups.py` (exportación de PNG basada en Playwright), de modo que todo el paquete puede reconstruirse de forma determinista si el texto de los requisitos vuelve a cambiar.

@@ -7,13 +7,13 @@ y este proyecto sigue el versionado semántico donde es aplicable.
 Etiqueta de línea base: `v2.0-final` (commit `abc1234`)
 
 ### Añadido
-- Informe final del proyecto (`07_Publicacion/`), documento único generado desde LaTeX que integra la especificación auditada, el estudio empírico ejecutado y el análisis de resultados, con carátula obligatoria conforme a la sección 12 de la guía.
+- Informe final del proyecto (`11_Publicacion/`), documento único generado desde LaTeX que integra la especificación auditada, el estudio empírico ejecutado y el análisis de resultados, con carátula obligatoria conforme a la sección 12 de la guía.
 - Ejecución completa del componente empírico: recolección de datos primarios según el protocolo registrado, análisis reproducible mediante scripts versionados (`06_Experimento/scripts_analisis/`), magnitud del efecto con intervalo de confianza, acuerdo entre evaluadores y lista de verificación de reporte cumplimentada.
 - Cierre de la matriz de trazabilidad extremo a extremo (`04_Trazabilidad/matriz_trazabilidad.csv`), con tabla de huérfanos y cadenas rotas resuelta y porcentaje de sincronización con el tablero calculado.
 - Fichas de requisitos de los componentes de IA: requisitos funcionales, de rendimiento, de equidad y de explicabilidad con umbral, unidad y método de comprobación; clasificación de riesgo y base legal.
 - Adenda ética de la ronda de campo correspondiente a esta entrega (`08_Etica/`), protocolo de disociación de datos personales y política de conservación y supresión.
-- Declaraciones obligatorias completas (`07_Publicacion/declaraciones/`): contribución individual con roles, conflicto de interés, financiamiento, cumplimiento ético, consentimiento para difusión, disponibilidad de datos y de código, uso de inteligencia artificial y originalidad.
-- Informe de control de similitud y revisión cruzada entre equipos con carta de respuesta fila por fila (`07_Publicacion/revision_cruzada/`).
+- Declaraciones obligatorias completas (`11_Publicacion/declaraciones/`): contribución individual con roles, conflicto de interés, financiamiento, cumplimiento ético, consentimiento para difusión, disponibilidad de datos y de código, uso de inteligencia artificial y originalidad.
+- Informe de control de similitud y revisión cruzada entre equipos con carta de respuesta fila por fila (`11_Publicacion/revision_cruzada/`).
 - Presentación de defensa individual y banco de preguntas con respuestas ancladas a artefactos (`09_Defensa/`).
 - Etiqueta de línea base final anotada, alcanzable desde la rama por defecto y publicada en el repositorio remoto.
 

@@ -17,7 +17,8 @@ ciencia abierta exigidos por la guía de la Entrega 4 (2B).
 ## Registro OSF (protocolo y desviaciones)
 
 - **Plataforma:** https://osf.io
-- **URL:** https://osf.io/7cvhy
+- **URL del pre-registro:** https://osf.io/7cvhy (preregistration, 2 ago 2026)
+- **URL del proyecto:** https://osf.io/gc9au (projecto, 4 sep 2026)
 - **Registro previo:** ✅ COMPLETADO — comprobante en `06_Experimento/osf_registration.md`
 - **Fecha de registro:** 2 de agosto de 2026 (anterior a tercera ronda de campo)
 - **Desviaciones:** documentadas en `07_Datos/desviaciones.md`

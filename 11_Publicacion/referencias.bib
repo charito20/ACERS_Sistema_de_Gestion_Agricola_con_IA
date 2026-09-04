@@ -3,10 +3,27 @@
 % (que ya citan la fuente completa), 2 fueron verificadas por búsqueda directa
 % para el dominio agrícola específico de este proyecto (no estaban en las guías
 % genéricas, que cubren 11 dominios distintos).
-% Cero referencias inventadas. Al 01-sep-2026 el archivo tiene 47 entradas:
+% Cero referencias inventadas. Al 03-sep-2026 el archivo tiene 47 entradas:
 % 8 agregadas para la tabla comparativa del trabajo relacionado y 3 fuentes
 % legales del marco normativo (Reglamento LOPDP, Resoluciones AGROCALIDAD 183
 % y 0072), todas verificadas contra la fuente oficial.
+%
+% Verificacion cruzada (03-sep-2026): las 47 entradas se comprobaron una a una
+% contra Crossref y la pagina del editor (autor, titulo, revista o actas, anio y
+% DOI). El detalle esta en referencias_verificacion.csv. 38 tienen DOI que
+% resuelve a la publicacion real; 9 no llevan DOI por ser normas (ISO, IEEE),
+% informes tecnicos, el formato CFF o las fuentes legales ecuatorianas, que se
+% citan por su referencia oficial conforme lo admite la seccion 5.10 de la guia.
+% Correcciones hechas en esta verificacion:
+%  - arora2024: era un supuesto articulo en Communications of the ACM que no se
+%    pudo verificar; la publicacion real es el capitulo de libro de Springer
+%    (doi 10.1007/978-3-031-55642-5_6).
+%  - cheng2026: el apellido de un autor estaba como Nishioka; es Yoshioka.
+%  - fischbach2023: la entrada tenia la revista equivocada (Information and
+%    Software Technology vol 154); la publicacion real es Journal of Systems and
+%    Software vol 197 art 111549 (doi 10.1016/j.jss.2022.111549).
+%  - Se completaron los DOI que faltaban en 18 entradas y la URL oficial del
+%    Reglamento LOPDP.
 
 % ===================== ESTÁNDARES =====================
 
@@ -39,37 +56,42 @@
   title = {Requirements Engineering: Fundamentals, Principles, and Techniques},
   publisher = {Springer},
   address = {Berlin, Heidelberg},
-  year = {2010}
+  year = {2010},
+  doi = {10.1007/978-3-642-12578-2}
 }
 
 % ===================== IA GENERATIVA EN RE =====================
 
 @article{cheng2026,
-  author = {Cheng, H. and Husen, J. H. and Lu, Y. and Racharak, T. and Nishioka, N. and Ubayashi, N. and Washizaki, H.},
+  author = {Cheng, H. and Husen, J. H. and Lu, Y. and Racharak, T. and Yoshioka, N. and Ubayashi, N. and Washizaki, H.},
   title = {Generative {AI} for requirements engineering: A systematic literature review},
   journal = {Software: Practice and Experience},
   volume = {56},
   number = {2},
   pages = {141--170},
-  year = {2026}
+  year = {2026},
+  doi = {10.1002/spe.70029}
 }
 
-@article{arora2024,
+@incollection{arora2024,
   author = {Arora, C. and Grundy, J. and Abdelrazek, M.},
-  title = {Advancing requirements engineering through generative {AI}: Assessing the role of {LLM}s},
-  journal = {Communications of the ACM},
-  volume = {67},
-  number = {6},
-  pages = {84--91},
-  year = {2024}
+  title = {Advancing Requirements Engineering Through Generative {AI}: Assessing the Role of {LLM}s},
+  booktitle = {Generative {AI} for Effective Software Development},
+  publisher = {Springer},
+  address = {Cham},
+  pages = {129--148},
+  year = {2024},
+  doi = {10.1007/978-3-031-55642-5_6}
 }
 
 @inproceedings{krishna2024,
   author = {Krishna, M. and Gaur, B. and Verma, A. and Jalote, P.},
   title = {Using {LLM}s in Software Requirements Specifications: An Empirical Evaluation},
-  booktitle = {Proceedings of the IEEE International Requirements Engineering Conference (RE 2024)},
+  booktitle = {2024 IEEE 32nd International Requirements Engineering Conference (RE)},
   address = {Reykjavik, Iceland},
-  year = {2024}
+  pages = {475--483},
+  year = {2024},
+  doi = {10.1109/RE59067.2024.00056}
 }
 
 @techreport{vogelsang2024,
@@ -77,7 +99,8 @@
   title = {Using large language models for natural language processing tasks in requirements engineering: A systematic guideline},
   institution = {arXiv},
   number = {2402.13823},
-  year = {2024}
+  year = {2024},
+  doi = {10.48550/arXiv.2402.13823}
 }
 
 % ===================== EXPLICABILIDAD =====================
@@ -89,16 +112,18 @@
   volume = {25},
   number = {4},
   pages = {493--514},
-  year = {2020}
+  year = {2020},
+  doi = {10.1007/s00766-020-00333-1}
 }
 
 @inproceedings{chazette2021,
   author = {Chazette, L. and Brunotte, W. and Speith, T.},
   title = {Exploring explainability: A definition, a model, and a knowledge catalogue},
-  booktitle = {Proceedings of the 29th IEEE International Requirements Engineering Conference (RE'21)},
+  booktitle = {2021 IEEE 29th International Requirements Engineering Conference (RE)},
   pages = {197--208},
   organization = {IEEE},
-  year = {2021}
+  year = {2021},
+  doi = {10.1109/RE51729.2021.00025}
 }
 
 @article{chazette2022,
@@ -108,7 +133,8 @@
   volume = {27},
   number = {4},
   pages = {457--487},
-  year = {2022}
+  year = {2022},
+  doi = {10.1007/s00766-022-00393-5}
 }
 
 % ===================== EXPLICABILIDAD + AGRICULTURA (dominio específico) =====================
@@ -117,7 +143,8 @@
   author = {Girmay, M. B. and Droste, J. and Deters, H. and Doerr, J.},
   title = {Explainability Needs in Agriculture: Exploring Dairy Farmers' User Personas},
   journal = {arXiv preprint arXiv:2509.16249},
-  year = {2025}
+  year = {2025},
+  doi = {10.48550/arXiv.2509.16249}
 }
 
 @article{bhattarai2026,
@@ -135,7 +162,8 @@
   booktitle = {2019 IEEE 27th International Requirements Engineering Conference Workshops (REW)},
   pages = {245--251},
   organization = {IEEE},
-  year = {2019}
+  year = {2019},
+  doi = {10.1109/REW.2019.00050}
 }
 
 @article{miller2019,
@@ -157,7 +185,8 @@
   volume = {14},
   number = {2},
   pages = {131--164},
-  year = {2009}
+  year = {2009},
+  doi = {10.1007/s10664-008-9102-8}
 }
 
 @incollection{jedlitschka2008,
@@ -168,7 +197,8 @@
   pages = {201--228},
   publisher = {Springer London},
   address = {London},
-  year = {2008}
+  year = {2008},
+  doi = {10.1007/978-1-84800-044-5_8}
 }
 
 @book{wohlin2012,
@@ -176,7 +206,8 @@
   title = {Experimentation in Software Engineering},
   publisher = {Springer},
   address = {Berlin, Heidelberg},
-  year = {2012}
+  year = {2012},
+  doi = {10.1007/978-3-642-29044-2}
 }
 
 @article{nosek2018,
@@ -186,7 +217,8 @@
   volume = {115},
   number = {11},
   pages = {2600--2606},
-  year = {2018}
+  year = {2018},
+  doi = {10.1073/pnas.1708274114}
 }
 
 @article{molleri2020,
@@ -195,7 +227,8 @@
   journal = {Information and Software Technology},
   volume = {119},
   pages = {106240},
-  year = {2020}
+  year = {2020},
+  doi = {10.1016/j.infsof.2019.106240}
 }
 
 @article{hennink2017,
@@ -205,7 +238,8 @@
   volume = {27},
   number = {4},
   pages = {591--608},
-  year = {2017}
+  year = {2017},
+  doi = {10.1177/1049732316665344}
 }
 
 @article{hagaman2017,
@@ -215,7 +249,8 @@
   volume = {29},
   number = {1},
   pages = {23--41},
-  year = {2017}
+  year = {2017},
+  doi = {10.1177/1525822X16640447}
 }
 
 @article{guest2006,
@@ -225,7 +260,8 @@
   volume = {18},
   number = {1},
   pages = {59--82},
-  year = {2006}
+  year = {2006},
+  doi = {10.1177/1525822X05279903}
 }
 
 @article{braun2006,
@@ -256,7 +292,8 @@
   volume = {22},
   number = {5},
   pages = {2298--2338},
-  year = {2017}
+  year = {2017},
+  doi = {10.1007/s10664-016-9451-7}
 }
 
 @article{montgomery2022,
@@ -266,7 +303,8 @@
   volume = {27},
   number = {2},
   pages = {183--209},
-  year = {2022}
+  year = {2022},
+  doi = {10.1007/s00766-021-00367-z}
 }
 
 @article{ferrari2016,
@@ -276,16 +314,18 @@
   volume = {21},
   number = {3},
   pages = {333--355},
-  year = {2016}
+  year = {2016},
+  doi = {10.1007/s00766-016-0249-3}
 }
 
 @article{fischbach2023,
   author = {Fischbach, J. and Frattini, J. and Vogelsang, A. and Mendez, D. and Unterkalmsteiner, M. and Wehrle, A. and Henao, P. R. and Yousefi, P. and Juricic, T. and Radduenz, J. and Wiecher, C.},
-  title = {Automatic creation of acceptance tests by deriving conditionals from natural language requirements},
-  journal = {Information and Software Technology},
-  volume = {154},
-  pages = {107055},
-  year = {2023}
+  title = {Automatic creation of acceptance tests by extracting conditionals from requirements: {NLP} approach and case study},
+  journal = {Journal of Systems and Software},
+  volume = {197},
+  pages = {111549},
+  year = {2023},
+  doi = {10.1016/j.jss.2022.111549}
 }
 
 % ===================== ESTADÍSTICA / ACUERDO ENTRE EVALUADORES =====================
@@ -297,7 +337,8 @@
   volume = {20},
   number = {1},
   pages = {37--46},
-  year = {1960}
+  year = {1960},
+  doi = {10.1177/001316446002000104}
 }
 
 @article{fleiss1971,
@@ -307,7 +348,8 @@
   volume = {76},
   number = {5},
   pages = {378--382},
-  year = {1971}
+  year = {1971},
+  doi = {10.1037/h0031619}
 }
 
 % ===================== DATOS ABIERTOS / CITACIÓN =====================
@@ -318,7 +360,8 @@
   journal = {Scientific Data},
   volume = {3},
   pages = {160018},
-  year = {2016}
+  year = {2016},
+  doi = {10.1038/sdata.2016.18}
 }
 
 @article{smith2016,
@@ -327,7 +370,8 @@
   journal = {PeerJ Computer Science},
   volume = {2},
   pages = {e86},
-  year = {2016}
+  year = {2016},
+  doi = {10.7717/peerj-cs.86}
 }
 
 @misc{druskat2021,
@@ -359,8 +403,9 @@
 @misc{rlopdp2023,
   author = {{Presidencia de la Rep{\'u}blica del Ecuador}},
   title = {Reglamento General a la Ley Org{\'a}nica de Protecci{\'o}n de Datos Personales},
-  howpublished = {Decreto Ejecutivo N.\textdegree{} 904, Registro Oficial, Tercer Suplemento N.\textdegree{} 435},
-  year = {2023}
+  howpublished = {Decreto Ejecutivo N.\textdegree{} 904, Registro Oficial, Tercer Suplemento N.\textdegree{} 435, 13 de noviembre de 2023},
+  year = {2023},
+  url = {https://www.cosede.gob.ec/wp-content/uploads/2023/12/REGLAMENTO-GENERAL-A-LA-LEY-ORGANICA-DE-PROTECCION-DE-DATOS-PERSONALES_compressed-1.pdf}
 }
 
 @misc{agrocalidad183,
