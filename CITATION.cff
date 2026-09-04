@@ -1,7 +1,7 @@
-﻿cff-version: 1.2.0
+cff-version: 1.2.0
 message: "Si utilizas este software o conjunto de datos, por favor cítalo usando los metadatos de este archivo."
 type: software
-title: "AgroMoreira — Sistema de Gestión Agrícola con IA para cultivos de cacao y plátano verde"
+title: "AgroMoreira: Sistema de Gestión Agrícola con IA para cultivos de cacao y plátano verde"
 version: 2.0.0
 date-released: 2026-09-04
 repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
