@@ -1,0 +1,128 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+
+\definecolor{osfblue}{RGB}{0,82,136}
+\hypersetup{colorlinks=true,linkcolor=osfblue,urlcolor=osfblue}
+
+\title{\textbf{Comprobante de pre-registro en OSF}}
+\author{Escudero Plaza, Mar\'{i}a del Rosario\\
+\texttt{mescuderop@uteq.edu.ec}\\
+\vspace{0.3em}
+\small Proyecto ACERS --- Ingenier\'{i}a de Requisitos (ISR-401)\\
+\small Universidad T\'{e}cnica Estatal de Quevedo}
+\date{Septiembre 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section*{Datos del registro}
+
+\begin{tabular}{@{}p{5cm}p{9cm}@{}}
+\toprule
+\textbf{Campo} & \textbf{Valor} \\
+\midrule
+Plataforma & Open Science Framework (OSF) \\
+URL del pre-registro & \url{https://osf.io/7cvhy} \\
+URL del proyecto asociado & \url{https://osf.io/gc9au} \\
+T\'{i}tulo registrado & Protocolo de validaci\'{o}n de explicabilidad --- AgroMoreira \\
+Fecha de creaci\'{o}n & 2 de agosto de 2026 \\
+Visibilidad & P\'{u}blico \\
+Tipo de entrada & Preregistration (registro previo formal) \\
+\bottomrule
+\end{tabular}
+
+\section*{Verificaci\'{o}n}
+
+El registro fue verificado contra la API p\'{u}blica de OSF
+(\url{https://api.osf.io/v2/registrations/7cvhy/}) el 4 de septiembre de 2026.
+La respuesta confirm\'{o} t\'{i}tulo, fecha, estado p\'{u}blico y tipo
+\texttt{registration} (preregistro formal, no proyecto).
+
+\section*{Relaci\'{o}n entre el pre-registro y el estudio legal-first}
+
+El registro original \texttt{7cvhy} (2 de agosto de 2026) se titulaba
+``Protocolo de validaci\'{o}n de explicabilidad --- AgroMoreira'' y documentaba
+el Enfoque 1 del proyecto ACERS. Tras la orientaci\'{o}n de la gu\'{i}a oficial
+hacia el Enfoque 2 (\emph{legal-first}), se enmend\'{o} el registro el 3 de
+septiembre de 2026 para documentar el cambio de enfoque. La enmienda, aprobada
+por la colaboradora S\'{a}nchez Centeno Roselyn, actualiza el resumen y el
+motivo del registro para reflejar el estudio \emph{legal-first}: comparaci\'{o}n
+pareada de cobertura de requisitos legales (26 criterios C1--C26) mediante
+prueba de McNemar, con IC por bootstrap y $\alpha = 0{,}05$. El sello temporal
+original (2 de agosto de 2026) se conserva.
+
+Este documento y la Desviaci\'{o}n~4 de \texttt{07\_Datos/desviaciones.md}
+describen de forma consistente este cambio de enfoque.
+
+\section*{Contenido del preregistro}
+
+\subsection*{Pregunta de investigaci\'{o}n}
+\textit{¿Qu\'{e} requisitos legales de la Ley Org\'{a}nica de Protecci\'{o}n
+de Datos y de trazabilidad agroindustrial no quedan cubiertos por los RF
+elicitados con m\'{e}todos convencionales, y c\'{o}mo el enfoque legal-first de
+Amaral et al.\ extiende esa cobertura?}
+
+\subsection*{Hip\'{o}tesis}
+\begin{itemize}[nosep]
+  \item H$_0$: La proporci\'{o}n de criterios cubiertos (C1--C26) no difiere
+        antes vs.\ despu\'{e}s de aplicar legal-first.
+  \item H$_1$: La proporci\'{o}n difiere, mayor despu\'{e}s de legal-first.
+        $\alpha = 0{,}05$. Prueba de McNemar pareada.
+\end{itemize}
+
+\subsection*{Variables}
+\begin{itemize}[nosep]
+  \item \textbf{Independiente:} momento de evaluaci\'{o}n (antes convencional
+        vs.\ despu\'{e}s legal-first).
+  \item \textbf{Dependiente:} cobertura binaria por criterio (0\,=\,no cubierto,
+        1\,=\,cubierto) para C1--C26.
+  \item \textbf{Control:} mismo set de 26 criterios, comparaci\'{o}n pareada.
+\end{itemize}
+
+\subsection*{Dise\~{n}o}
+Comparaci\'{o}n de proporciones pareadas sobre 26 criterios. Fuente:
+\begin{itemize}[nosep]
+  \item \texttt{01\_ERS/Modelo\_Legal\_LOPDP.md} (26 criterios verificados):
+        3 bloques --- LOPDP (C1--C13), BPA cacao (C14--C20, Res.\ 183),
+        Bioseguridad (C21--C26, Res.\ 0072).
+  \item \texttt{01\_ERS/ERS\_SRS\_2B\_v2.0} (39\,RF + 21\,RNF).
+  \item \texttt{04\_Trazabilidad/Matriz\_Trazabilidad\_v2.xlsx}.
+\end{itemize}
+
+\subsection*{Plan de an\'{a}lisis}
+\begin{enumerate}[nosep]
+  \item Tabla pareada C1--C26: \texttt{cubierto\_convencional} (0/1) y
+        \texttt{cubierto\_legalfirst} (0/1).
+  \item Descriptivos: proporci\'{o}n global y por bloque (LOPDP, BPA,
+        Bioseguridad).
+  \item McNemar (\texttt{mcnemar.test} en R) sobre tabla $2 \times 2$.
+  \item IC 95\% de la diferencia de proporciones por bootstrap con 10\,000
+        r\'{e}plicas.
+  \item $\alpha = 0{,}05$.
+\end{enumerate}
+
+\subsection*{Materiales}
+\begin{itemize}[nosep]
+  \item \texttt{01\_ERS/Modelo\_Legal\_LOPDP.md} (26 criterios verificados).
+  \item \texttt{01\_ERS/ERS\_SRS\_2B\_v2.0.pdf}.
+  \item \texttt{04\_Trazabilidad/Matriz\_Trazabilidad\_v2.xlsx}.
+  \item \texttt{06\_Experimento/protocolo.tex} (legal-first v2B).
+  \item \texttt{07\_Datos/scripts/analisis\_legalfirst.py}.
+\end{itemize}
+
+\subsection*{Datos y licencia}
+Dataset anonimizado en Zenodo, licencia CC BY 4.0, principios FAIR.
+Zona restringida [R] cifrada con AES-256.
+
+\end{document}

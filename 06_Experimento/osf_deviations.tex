@@ -1,0 +1,169 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\definecolor{osfblue}{RGB}{0,82,136}
+\hypersetup{colorlinks=true,linkcolor=osfblue,urlcolor=osfblue}
+
+\title{\textbf{Desviaciones del protocolo respecto del registro OSF}}
+\author{Escudero Plaza, Mar\'{i}a del Rosario\\
+\texttt{mescuderop@uteq.edu.ec}\\
+\vspace{0.3em}
+\small Proyecto ACERS --- Ingenier\'{i}a de Requisitos (ISR-401)\\
+\small Universidad T\'{e}cnica Estatal de Quevedo}
+\date{Septiembre 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+Este documento documenta las desviaciones del an\'{a}lisis efectivo respecto del
+protocolo pre-registrado en el OSF, requeridas por la pr\'{a}ctica transparente
+y por la r\'{u}brica de la Entrega 4 (2B).
+
+\section*{Desviaci\'{o}n 1 --- Inicio del trabajo de campo antes del registro formal en OSF}
+
+\textbf{Descripci\'{o}n:}~Parte del trabajo de campo de elicitaci\'{o}n
+comenz\'{o} antes del registro formal en OSF, como trabajo exploratorio de
+entregas anteriores del curso (Entregas 1A a 3/2A).
+
+\textbf{Raz\'{o}n:}~El componente emp\'{i}rico se construy\'{o} de forma
+incremental a lo largo del ciclo del proyecto; la elicitaci\'{o}n inicial con
+informantes de la finca Agr\'{i}cola Moreira se realiz\'{o} en las primeras
+entregas, antes de formalizar el protocolo en el OSF.
+
+\textbf{Momento de detecci\'{o}n:}~Durante la preparaci\'{o}n del registro OSF
+en la Entrega 3 (2A).
+
+\textbf{Mitigaci\'{o}n aplicada:}~El plan de an\'{a}lisis completo (tabla pareada
+de los 26 criterios, estad\'{i}sticos descriptivos, prueba de McNemar, bootstrap)
+se registr\'{o} en el OSF antes de la evaluaci\'{o}n formal de la cobertura legal.
+Ninguna decisi\'{o}n de an\'{a}lisis se tom\'{o} a partir de resultados
+preliminares.
+
+\section*{Desviaci\'{o}n 2 --- Enfoque metodol\'{o}gico pas\'{o} por dos formulaciones previas}
+
+\textbf{Descripci\'{o}n:}~El enfoque metodol\'{o}gico del componente
+emp\'{i}rico pas\'{o} por dos formulaciones previas antes de fijarse en el
+dise\~{n}o \emph{legal-first}.
+
+\textbf{Raz\'{o}n:}~Asignaci\'{o}n expl\'{i}cita de la gu\'{i}a oficial de la
+entrega, que orient\'{o} al equipo ACERS (SGA) hacia el Enfoque 2
+(\emph{legal-first}) sobre cobertura de requisitos legales.
+
+\textbf{Momento de detecci\'{o}n:}~Antes del registro final en el OSF.
+
+\textbf{Mitigaci\'{o}n aplicada:}~El dise\~{n}o definitivo \emph{legal-first}
+qued\'{o} fijado y registrado previamente; las formulaciones previas se
+descartaron y no se combinaron con el an\'{a}lisis final.
+
+\section*{Desviaci\'{o}n 3 --- Dos entrevistas sin registro en video}
+
+\textbf{Descripci\'{o}n:}~Las dos primeras entrevistas de la primera ronda de
+campo (\texttt{ENTR-01}, 2026-06-20, y \texttt{ENTR-02}, 2026-06-21) se
+registraron \'{u}nicamente en audio, sin video. Como consecuencia, el total de
+video queda en 15 archivos con 231,4 minutos acumulados, por debajo del
+m\'{i}nimo terminal de 16 archivos con 240 minutos que establece la gu\'{i}
+(Secci\'{o}n~5, tabla de evidencia m\'{i}nima). El total de audio s\'{i} alcanza
+el m\'{i}nimo: 16 archivos.
+
+\textbf{Raz\'{o}n:}~En esas dos primeras sesiones de elicitaci\'{o}n, realizadas
+al inicio del proyecto (Entrega 1A), el equipo no contaba todav\'{i}a con el
+protocolo de captura en video definido; solo se grab\'{o} audio con el
+consentimiento correspondiente. El protocolo de registro en video simult\'{a}neo
+se formaliz\'{o} a partir de la tercera sesi\'{o}n de campo (\texttt{ENTR-03} en
+adelante), y desde entonces se mantuvo sin excepciones.
+
+\textbf{Momento de detecci\'{o}n:}~Durante la verificaci\'{o}n t\'{e}cnica de las
+fichas de evidencia (\texttt{fichas\_tecnicas.csv}) con \texttt{ffprobe}, en la
+preparaci\'{o}n de la Entrega 4 (2B).
+
+\textbf{Mitigaci\'{o}n aplicada:}~Se verific\'{o} primero que los videos de
+\texttt{ENTR-01} y \texttt{ENTR-02} no existieran en ninguna otra
+ubicaci\'{o}n del equipo antes de dar la ausencia por definitiva. Ambas
+entrevistas cuentan con audio completo, consentimiento firmado y
+transcripci\'{o}n, por lo que la evidencia cualitativa de esas dos sesiones no se
+pierde, solo el registro audiovisual en video. No se sustituy\'{o} la ausencia
+con ning\'{u}n archivo generado artificialmente.
+
+\section*{Desviaci\'{o}n 4 --- Revisi\'{o}n del enfoque del registro OSF y enmienda (2026-09-04)}
+
+\textbf{Descripci\'{o}n:}~El registro OSF original \texttt{7cvhy} (creado el
+2026-08-02) se titulaba ``Protocolo de validaci\'{o}n de explicabilidad ---
+AgroMoreira'', correspondiente al enfoque (Enfoque~1) de explicabilidad del
+m\'{o}dulo de diagn\'{o}stico por imagen. Tras la orientaci\'{o}n de la
+gu\'{i}a oficial hacia el Enfoque~2 (\emph{legal-first}) sobre cobertura de
+requisitos legales, el enfoque del componente emp\'{i}rico se revis\'{o} al
+\emph{legal-first}, con el mismo dise\~{n}o estad\'{i}stico pre-registrado
+(comparaci\'{o}n pareada de 26 criterios C1--C26, prueba de McNemar, IC por
+bootstrap $\alpha = 0{,}05$).
+
+\textbf{Raz\'{o}n:}~Ajuste metodol\'{o}gico derivado de la asignaci\'{o}n
+expl\'{i}cita del Enfoque~2 por la gu\'{i}a oficial de la Entrega~4 (2B). En
+lugar de abandonar el registro \texttt{7cvhy} ---que s\'{i} tiene una marca
+temporal (2026-08-02) anterior a la recolecci\'{o}n final de datos--- se
+opt\'{o} por \textbf{enmendarlo}: se agreg\'{o} una actualizaci\'{o}n a
+\texttt{7cvhy} donde consta la revisi\'{o}n al enfoque \emph{legal-first} y se
+conserva el sello temporal original. El plan de an\'{a}lisis comprometido (McNemar
+pareado, 26 criterios, bootstrap 10k, $\alpha = 0{,}05$) no camb\'{o} entre la
+versi\'{o}n original y la enmienda.
+
+\textbf{Momento de detecci\'{o}n:}~Durante la coordinaci\'{o}n del dep\'{o}sito
+FAIR (2026-09-04), al verificar frente a la API p\'{u}blica de OSF que
+\texttt{7cvhy} es un preregistro formal y que \texttt{gc9au} (proyecto
+asociado del legal-first) es un proyecto, no un preregistro.
+
+\textbf{Mitigaci\'{o}n aplicada:}~Se enmend\'{o} el registro \texttt{7cvhy} con
+la nota de actualizaci\'{o}n que documenta el cambio a \emph{legal-first} y la
+coherencia del plan de an\'{a}lisis. El manuscrito y este archivo documentan la
+relaci\'{o}n entre el preregistro (\texttt{7cvhy}), el proyecto asociado
+(\texttt{gc9au}) y la ejecuci\'{o}n efectiva del estudio. La decisi\'{o}n de
+an\'{a}lisis (McNemar sobre los 26 criterios) se mantuvo id\'{e}ntica a la
+comprometida en el registro.
+
+\section*{Desviaci\'{o}n 5 --- Codificaci\'{o}n de la cobertura legal por un solo evaluador (2026-09-04)}
+
+\textbf{Descripci\'{o}n:}~La tabla de cobertura de los 26 criterios legales
+(\texttt{07\_Datos/datos\_crudos/cobertura\_legal.csv}), que alimenta la prueba
+de McNemar del componente emp\'{i}rico, fue codificada por un solo integrante del
+equipo. No se calcul\'{o} un coeficiente de acuerdo entre codificadores (kappa de
+Cohen) sobre esa evaluaci\'{o}n binaria de cubierto o no cubierto.
+
+\textbf{Raz\'{o}n:}~La evaluaci\'{o}n de cobertura se deriva directamente del
+articulado de las tres normas (LOPDP, Resoluci\'{o}n~183 de AGROCALIDAD y
+Resoluci\'{o}n~0072), una asignaci\'{o}n objetiva y verificable contra la fuente.
+Se prioriz\'{o} una codificaci\'{o}n \'{u}nica con verificaci\'{o}n contra el
+texto normativo sobre una segunda codificaci\'{o}n independiente, dada la
+restricci\'{o}n de tiempo de la ronda terminal de la entrega.
+
+\textbf{Momento de detecci\'{o}n:}~Durante la preparaci\'{o}n del dep\'{o}sito
+FAIR y la lista de verificaci\'{o}n previa al cierre (2026-09-04).
+
+\textbf{Mitigaci\'{o}n aplicada:}~Cada uno de los 26 criterios se deriva de un
+art\'{i}culo legal expl\'{i}cito y queda documentado en
+\texttt{01\_ERS/Modelo\_Legal\_LOPDP.md} y en la matriz de trazabilidad
+\texttt{04\_Trazabilidad/Matriz\_Trazabilidad\_v2.xlsx}, de modo que la
+asignaci\'{o}n de cobertura es trazable y verificable contra la fuente por
+cualquier tercero. La codificaci\'{o}n tem\'{a}tica de las entrevistas, que s\'{i}
+implica juicio interpretativo, cuenta con doble codificaci\'{o}n independiente y
+coeficiente kappa en \texttt{10\_Autoria/doble\_codificacion/}. Para trabajo
+futuro se recomienda una segunda codificaci\'{o}n independiente de los 26
+criterios legales y el reporte del kappa correspondiente.
+
+\vfill
+
+\begin{center}
+\small\textit{Estas desviaciones se reutilizan de la secci\'{o}n de
+metodolog\'{i}a del manuscrito y quedan registradas en la secci\'{o}n
+``Deviations from pre-registration'' del OSF, con su raz\'{o}n, momento de
+detecci\'{o}n y mitigaci\'{o}n.}
+\end{center}
+
+\end{document}
