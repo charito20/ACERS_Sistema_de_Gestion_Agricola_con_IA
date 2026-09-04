@@ -2,9 +2,9 @@
 
 **Proyecto:** ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
 **Integrante responsable:** Escudero Plaza Maria del Rosario
-**URL persistente del registro:** https://osf.io/7cvhy
-**Fecha de registro:** 2 de agosto de 2026
-**Estado:** Registro publico verificado contra la API publica de OSF. Anterior a la tercera ronda de campo (orden correcto).
+**URL persistente del registro:** https://osf.io/gc9au
+**Fecha de registro:** 3 de septiembre de 2026
+**Estado:** Registro publico. Corresponde al estudio legal-first sobre los 26 criterios legales (C1-C26).
 
 ---
 
@@ -13,15 +13,16 @@
 | Campo | Valor |
 |---|---|
 | Plataforma | Open Science Framework (OSF) |
-| URL | https://osf.io/7cvhy |
-| Titulo registrado | Protocolo de validacion de explicabilidad |
-| Fecha de creacion | 2 de agosto de 2026 |
+| URL | https://osf.io/gc9au |
+| Proyecto asociado | https://osf.io/gc9au |
+| Titulo del estudio | Cobertura de requisitos legales de proteccion de datos y trazabilidad agroindustrial: enfoque legal-first sobre 26 criterios (C1-C26) |
+| Fecha de creacion | 3 de septiembre de 2026 |
 | Visibilidad | Publico |
-| Licencia | CC BY 4.0 |
+| Plan de analisis | McNemar pareado sobre los 26 criterios legales |
 
 ## Verificacion
 
-El registro fue verificado contra la API publica de OSF (`https://api.osf.io/v2/registrations/7cvhy/`) el 1 de septiembre de 2026. La respuesta confirmo titulo, fecha y estado publico.
+El registro corresponde al pre-registro del estudio legal-first (Enfoque 2) del proyecto ACERS. Sustituye al registro anterior (https://osf.io/7cvhy), que correspondia al protocolo de validacion de explicabilidad (Enfoque 1) y no es aplicable al estudio actual.
 
 ## Contenido del preregistro
 
