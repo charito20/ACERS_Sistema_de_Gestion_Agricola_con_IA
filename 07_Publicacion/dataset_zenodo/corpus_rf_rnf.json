@@ -1,0 +1,875 @@
+{
+  "proyecto": "AgroMoreira, Sistema de Gestion Agricola con Inteligencia Artificial",
+  "version_ers": "2.0 (39 RF, 21 RNF)",
+  "fecha": "2026-09-04",
+  "enfoque_metodologico": "legal-first (Amaral, Abualhaija, Sabetzadeh y Briand, 2021)",
+  "fuente": "01_ERS/ERS_SRS_2B_v2.0",
+  "diccionario_campos": {
+    "id": "Identificador del requisito",
+    "nombre": "Titulo corto del requisito",
+    "tipo": "RF, requisito funcional con evidencia de entrevista. RD, requisito derivado directamente del texto legal, sin evidencia de entrevista. RNF, requisito no funcional",
+    "prioridad_moscow": "Must have, Should have, Could have o Won't have",
+    "actores": "Actores u origen del requisito",
+    "evidencia": "Codigos de evidencia de entrevista, EV-01 a EV-17, o 'derivacion legal' para los RD",
+    "criterio_verificacion": "Criterio medible de aceptacion del requisito",
+    "caso_uso": "Caso de uso del modelado que agrupa el requisito",
+    "categoria_iso25010": "Caracteristica de calidad de ISO/IEC 25010:2023, solo para RNF",
+    "metrica": "Metrica objetivo del RNF",
+    "origen": "Origen del RNF cuando no proviene de entrevista (por ejemplo, componente de IA o derivacion legal)",
+    "responsable": "Responsable de la especificacion o verificacion del RNF, solo para los RNF del componente de IA",
+    "frecuencia": "Frecuencia de verificacion del RNF, solo para los RNF del componente de IA"
+  },
+  "requisitos_funcionales": [
+    {
+      "id": "RF-01",
+      "nombre": "Registro de parcelas y lotes",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Tecnico",
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-07",
+        "EV-09",
+        "EV-10",
+        "EV-11",
+        "EV-14",
+        "EV-15",
+        "EV-16"
+      ],
+      "criterio_verificacion": "Al crear una parcela con los 7 campos obligatorios, el sistema la muestra en el listado en menos de 2 segundos, sin campos vacios.",
+      "caso_uso": "CU-01"
+    },
+    {
+      "id": "RF-02",
+      "nombre": "Catalogo cerrado de cultivos y variedades",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Jornalero",
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-10",
+        "EV-11",
+        "EV-12"
+      ],
+      "criterio_verificacion": "Intentar guardar un cultivo fuera del catalogo es rechazado por el sistema.",
+      "caso_uso": "CU-01"
+    },
+    {
+      "id": "RF-03",
+      "nombre": "Registro de actividades agricolas",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Jornalero",
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-03",
+        "EV-07",
+        "EV-08",
+        "EV-10",
+        "EV-14",
+        "EV-15",
+        "EV-16"
+      ],
+      "criterio_verificacion": "El sistema no permite guardar una actividad sin fecha, lote y trabajador.",
+      "caso_uso": "CU-02"
+    },
+    {
+      "id": "RF-04",
+      "nombre": "Registro de cosecha por unidad especifica del cultivo",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-02",
+        "EV-08",
+        "EV-11",
+        "EV-12",
+        "EV-13",
+        "EV-14",
+        "EV-15"
+      ],
+      "criterio_verificacion": "Al registrar cosecha de cacao el sistema exige unidad tacho o quintal, y de platano racimo o caja.",
+      "caso_uso": "CU-03"
+    },
+    {
+      "id": "RF-05",
+      "nombre": "Calculo automatico de rendimiento por lote y periodo",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Jornalero",
+        "Tecnica"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-07",
+        "EV-11",
+        "EV-15",
+        "EV-16"
+      ],
+      "criterio_verificacion": "El promedio calculado coincide con el calculo manual, suma dividida entre N, sobre un conjunto de prueba.",
+      "caso_uso": "CU-04"
+    },
+    {
+      "id": "RF-06",
+      "nombre": "Calculo automatico de ganancia neta",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Tecnico",
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-10",
+        "EV-11"
+      ],
+      "criterio_verificacion": "La ganancia es igual a la suma de ingresos menos la suma de egresos, verificado contra un caso de prueba manual.",
+      "caso_uso": "CU-04"
+    },
+    {
+      "id": "RF-07",
+      "nombre": "Gestion de inventario de insumos",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Tecnico",
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-03",
+        "EV-05",
+        "EV-06",
+        "EV-09",
+        "EV-10",
+        "EV-11",
+        "EV-12",
+        "EV-16"
+      ],
+      "criterio_verificacion": "Tras registrar el uso de 26 unidades de un stock de 30, el sistema muestra 4 disponibles.",
+      "caso_uso": "CU-05"
+    },
+    {
+      "id": "RF-08",
+      "nombre": "Alertas automaticas de bajo stock",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Jornalero",
+        "Tecnica"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-03",
+        "EV-08",
+        "EV-09",
+        "EV-10",
+        "EV-11",
+        "EV-16"
+      ],
+      "criterio_verificacion": "Al bajar del umbral, la notificacion se envia en menos de 5 minutos.",
+      "caso_uso": "CU-05"
+    },
+    {
+      "id": "RF-09",
+      "nombre": "Alerta de plagas asistida por IA con verificacion humana obligatoria",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Tecnico",
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-06",
+        "EV-07",
+        "EV-08",
+        "EV-09",
+        "EV-10",
+        "EV-15",
+        "EV-16",
+        "EV-17"
+      ],
+      "criterio_verificacion": "Ninguna alerta se aplica automaticamente a un lote sin que el usuario responsable la confirme.",
+      "caso_uso": "CU-06"
+    },
+    {
+      "id": "RF-10",
+      "nombre": "Diagnostico de plagas por imagen",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-15"
+      ],
+      "criterio_verificacion": "El sistema responde con una sugerencia en menos de 10 segundos tras subir la foto.",
+      "caso_uso": "CU-06"
+    },
+    {
+      "id": "RF-11",
+      "nombre": "Asignacion y seguimiento de tareas",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Tecnico",
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-09",
+        "EV-10",
+        "EV-12",
+        "EV-16"
+      ],
+      "criterio_verificacion": "Al filtrar por el estado pendiente, el sistema solo muestra tareas en ese estado.",
+      "caso_uso": "CU-07"
+    },
+    {
+      "id": "RF-12",
+      "nombre": "Notificacion movil de tareas asignadas",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Tecnico",
+        "Jornalera"
+      ],
+      "evidencia": [
+        "EV-07",
+        "EV-08",
+        "EV-10"
+      ],
+      "criterio_verificacion": "La notificacion incluye lote, fecha y tipo de tarea en el mensaje.",
+      "caso_uso": "CU-07"
+    },
+    {
+      "id": "RF-13",
+      "nombre": "Registro de motivo de rechazo o perdida de fruta",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-14"
+      ],
+      "criterio_verificacion": "El total de fruta aprovechable excluye automaticamente lo marcado como rechazado.",
+      "caso_uso": "CU-03"
+    },
+    {
+      "id": "RF-14",
+      "nombre": "Trazabilidad de lote de exportacion",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-13",
+        "EV-14"
+      ],
+      "criterio_verificacion": "Dado un numero de caja, el sistema recupera el lote, la fecha de enfunde y el color de cinta correspondiente.",
+      "caso_uso": "CU-03"
+    },
+    {
+      "id": "RF-15",
+      "nombre": "Consulta de precio de mercado y estimacion de ingreso",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-11"
+      ],
+      "criterio_verificacion": "El ingreso estimado es igual a la cantidad multiplicada por el precio ingresado, validado con un caso de prueba.",
+      "caso_uso": "CU-03"
+    },
+    {
+      "id": "RF-16",
+      "nombre": "Registro de condicion climatica y estado del lote",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-12",
+        "EV-15"
+      ],
+      "criterio_verificacion": "El campo de clima aparece disponible en el formulario de registro de parcela o actividad.",
+      "caso_uso": "CU-01"
+    },
+    {
+      "id": "RF-17",
+      "nombre": "Canal de reporte rapido por chat o voz",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-15"
+      ],
+      "criterio_verificacion": "El reporte se envia en un maximo de 2 toques desde la pantalla principal.",
+      "caso_uso": "CU-12"
+    },
+    {
+      "id": "RF-18",
+      "nombre": "Registro de riesgo y seguridad laboral por lote",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Jornalero",
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-11",
+        "EV-17"
+      ],
+      "criterio_verificacion": "Al asignar una tarea en un lote marcado con riesgo, el sistema muestra la advertencia antes de confirmar.",
+      "caso_uso": "CU-11"
+    },
+    {
+      "id": "RF-19",
+      "nombre": "Reportes de produccion, costos y perdidas con graficos",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador",
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-01",
+        "EV-05",
+        "EV-06",
+        "EV-07",
+        "EV-10",
+        "EV-16"
+      ],
+      "criterio_verificacion": "El reporte generado refleja exactamente la suma de los registros del rango de fechas seleccionado.",
+      "caso_uso": "CU-08"
+    },
+    {
+      "id": "RF-20",
+      "nombre": "Gestion de usuarios y control de acceso",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-07",
+        "EV-08",
+        "EV-10"
+      ],
+      "criterio_verificacion": "Un usuario con rol jornalero no puede acceder al modulo financiero.",
+      "caso_uso": "CU-09"
+    },
+    {
+      "id": "RF-21",
+      "nombre": "Registro de visitas tecnicas periodicas",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-10"
+      ],
+      "criterio_verificacion": "15 dias despues de una visita registrada, el sistema genera un recordatorio automatico.",
+      "caso_uso": "CU-10"
+    },
+    {
+      "id": "RF-22",
+      "nombre": "Registro de consentimiento del trabajador para el tratamiento de sus datos personales",
+      "tipo": "RD",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Un trabajador nuevo no puede iniciar sesion sin registrar antes su consentimiento.",
+      "caso_uso": "CU-09",
+      "criterio_legal": "C4",
+      "articulo": "LOPDP Art. 8"
+    },
+    {
+      "id": "RF-23",
+      "nombre": "Modulo de derechos ARCO+ del trabajador",
+      "tipo": "RD",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Jornalero",
+        "Trabajador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Una solicitud de acceso, rectificacion o eliminacion queda registrada con estado y fecha, y se atiende dentro del plazo legal.",
+      "caso_uso": "CU-09",
+      "criterio_legal": "C10",
+      "articulo": "LOPDP Art. 13 a 19"
+    },
+    {
+      "id": "RF-24",
+      "nombre": "Registro de certificado de salud del trabajador que aplica agroquimicos",
+      "tipo": "RD",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Sin certificado de salud vigente registrado, el sistema advierte al asignar una tarea de aplicacion de agroquimicos.",
+      "caso_uso": "CU-11",
+      "criterio_legal": "C17",
+      "articulo": "Resolucion AGROCALIDAD 183, Art. 33 y 34"
+    },
+    {
+      "id": "RF-25",
+      "nombre": "Registro y seguimiento del proceso de certificacion BPA ante AGROCALIDAD",
+      "tipo": "RD",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "El sistema bloquea la solicitud de renovacion si falta una capacitacion obligatoria registrada.",
+      "caso_uso": "CU-13",
+      "criterio_legal": "C20",
+      "articulo": "Resolucion AGROCALIDAD 183, Art. 39 a 43"
+    },
+    {
+      "id": "RF-26",
+      "nombre": "Registro manual de ingresos y egresos",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Tecnico",
+        "Jornalera"
+      ],
+      "evidencia": [
+        "EV-07",
+        "EV-08"
+      ],
+      "criterio_verificacion": "Un ingreso o egreso registrado manualmente aparece reflejado en el reporte financiero del periodo correspondiente.",
+      "caso_uso": "CU-04"
+    },
+    {
+      "id": "RF-27",
+      "nombre": "Vista de tareas pendientes por trabajador",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-09"
+      ],
+      "criterio_verificacion": "Un trabajador con 3 tareas pendientes ve exactamente esas 3, sin tareas de otros lotes o trabajadores.",
+      "caso_uso": "CU-07"
+    },
+    {
+      "id": "RF-28",
+      "nombre": "Campo de observaciones en el registro de tareas",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Jornalero"
+      ],
+      "evidencia": [
+        "EV-09"
+      ],
+      "criterio_verificacion": "La observacion ingresada aparece al consultar el detalle de la tarea.",
+      "caso_uso": "CU-07"
+    },
+    {
+      "id": "RF-29",
+      "nombre": "Historial completo por parcela",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Tecnica"
+      ],
+      "evidencia": [
+        "EV-16"
+      ],
+      "criterio_verificacion": "Al consultar el historial de una parcela con 5 eventos en distintas fechas, los 5 aparecen ordenados cronologicamente.",
+      "caso_uso": "CU-01"
+    },
+    {
+      "id": "RF-30",
+      "nombre": "Umbral de stock minimo configurable por insumo",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Tecnica"
+      ],
+      "evidencia": [
+        "EV-16"
+      ],
+      "criterio_verificacion": "Al bajar el stock del insumo por debajo del valor configurado, se dispara la alerta del RF-08.",
+      "caso_uso": "CU-05"
+    },
+    {
+      "id": "RF-31",
+      "nombre": "Deteccion de valores atipicos al ingresar datos",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-17"
+      ],
+      "criterio_verificacion": "Un valor que se desvia mas de 2 desviaciones estandar del promedio historico dispara la advertencia antes de guardar.",
+      "caso_uso": "CU-06"
+    },
+    {
+      "id": "RF-32",
+      "nombre": "Via de integracion futura con sensores de campo",
+      "tipo": "RF",
+      "prioridad_moscow": "Won't have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-17"
+      ],
+      "criterio_verificacion": "No aplica en esta version, queda como extension documentada.",
+      "caso_uso": "CU-15"
+    },
+    {
+      "id": "RF-33",
+      "nombre": "Bandeja de sugerencias para disputar una recomendacion de IA",
+      "tipo": "RF",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-17"
+      ],
+      "criterio_verificacion": "Un desacuerdo registrado aparece en un listado consultable, con la fecha y el comentario del usuario.",
+      "caso_uso": "CU-06"
+    },
+    {
+      "id": "RF-34",
+      "nombre": "Esquema de atributos configurable por variedad de cultivo",
+      "tipo": "RF",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-17"
+      ],
+      "criterio_verificacion": "Al seleccionar una variedad de cacao, el formulario muestra un conjunto de campos distinto al que se muestra al seleccionar platano.",
+      "caso_uso": "CU-01"
+    },
+    {
+      "id": "RF-35",
+      "nombre": "Registro de analisis de suelo previo a la siembra",
+      "tipo": "RF",
+      "prioridad_moscow": "Could have",
+      "actores": [
+        "Tecnico"
+      ],
+      "evidencia": [
+        "EV-17"
+      ],
+      "criterio_verificacion": "Una parcela con analisis de suelo registrado muestra el resultado de aptitud al consultar su ficha.",
+      "caso_uso": "CU-01"
+    },
+    {
+      "id": "RF-36",
+      "nombre": "Registro de capacitacion en manejo de plaguicidas y primeros auxilios",
+      "tipo": "RD",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Existe un registro consultable de capacitaciones con tema, fecha y participantes.",
+      "caso_uso": "CU-13",
+      "criterio_legal": "C23",
+      "articulo": "Resolucion AGROCALIDAD 183, Art. 18(e)"
+    },
+    {
+      "id": "RF-37",
+      "nombre": "Aviso ante sintomas sospechosos de plaga cuarentenaria",
+      "tipo": "RD",
+      "prioridad_moscow": "Must have",
+      "actores": [
+        "Jornalero",
+        "Tecnico",
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Cuando un tecnico confirma el sintoma, el aviso queda disponible para el envio formal a AGROCALIDAD y nunca se envia solo sin esa confirmacion.",
+      "caso_uso": "CU-14",
+      "criterio_legal": "C24",
+      "articulo": "Resolucion AGROCALIDAD 0072, Art. 3.6.1(a)"
+    },
+    {
+      "id": "RF-38",
+      "nombre": "Bitacora de bioseguridad de ingreso y salida del predio",
+      "tipo": "RD",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Al registrar una visita tecnica o un aviso de plaga cuarentenaria, se crea de forma automatica el registro de bioseguridad de ingreso y salida.",
+      "caso_uso": "CU-13",
+      "criterio_legal": "C25",
+      "articulo": "Resolucion AGROCALIDAD 0072, Art. 3.6.1(d)"
+    },
+    {
+      "id": "RF-39",
+      "nombre": "Registro de capacitaciones del personal sobre control fitosanitario especifico",
+      "tipo": "RD",
+      "prioridad_moscow": "Should have",
+      "actores": [
+        "Administrador"
+      ],
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "criterio_verificacion": "Existe un registro consultable de capacitaciones fitosanitarias con tema, fecha y participantes.",
+      "caso_uso": "CU-13",
+      "criterio_legal": "C26",
+      "articulo": "Resolucion AGROCALIDAD 0072, Art. 3.6.1(f)(g)"
+    }
+  ],
+  "requisitos_no_funcionales": [
+    {
+      "id": "RNF-01",
+      "nombre": "Acceso movil prioritario",
+      "categoria_iso25010": "Interaccion con el usuario",
+      "metrica": "El 100 por ciento de las pantallas de RF-01, RF-03, RF-04, RF-11 y RF-19 renderizan en 360 por 800 pixeles sin desplazamiento horizontal.",
+      "evidencia": [
+        "EV-01",
+        "EV-07",
+        "EV-08"
+      ]
+    },
+    {
+      "id": "RNF-02",
+      "nombre": "Interfaz simple y sin tecnicismos",
+      "categoria_iso25010": "Interaccion con el usuario",
+      "metrica": "En una prueba con 5 jornaleros sin experiencia previa, al menos el 90 por ciento de los terminos de la interfaz se comprenden sin ayuda externa.",
+      "evidencia": [
+        "EV-15",
+        "EV-16"
+      ]
+    },
+    {
+      "id": "RNF-03",
+      "nombre": "Usabilidad para usuarios con baja alfabetizacion digital",
+      "categoria_iso25010": "Interaccion con el usuario",
+      "metrica": "Tiempo maximo de 5 minutos de capacitacion para que un jornalero sin experiencia previa registre una cosecha sin errores.",
+      "evidencia": [
+        "EV-02",
+        "EV-13"
+      ]
+    },
+    {
+      "id": "RNF-04",
+      "nombre": "Robustez de campo ante condiciones adversas",
+      "categoria_iso25010": "Fiabilidad",
+      "metrica": "El sistema guarda localmente hasta 7 dias de registros sin conexion, sin perdida de datos al reconectarse.",
+      "evidencia": [
+        "EV-14"
+      ]
+    },
+    {
+      "id": "RNF-05",
+      "nombre": "Explicabilidad verificable de las recomendaciones de IA",
+      "categoria_iso25010": "Adecuacion funcional",
+      "metrica": "El 100 por ciento de las alertas de IA incluye un texto de justificacion de un maximo de 60 palabras, visible antes del boton de confirmacion.",
+      "evidencia": [
+        "EV-09",
+        "EV-10"
+      ]
+    },
+    {
+      "id": "RNF-06",
+      "nombre": "Transparencia del origen de los datos de la recomendacion",
+      "categoria_iso25010": "Adecuacion funcional",
+      "metrica": "El 100 por ciento de las recomendaciones lista al menos 1 dato de origen del propio lote.",
+      "evidencia": [
+        "EV-16",
+        "EV-17"
+      ]
+    },
+    {
+      "id": "RNF-07",
+      "nombre": "Preservacion del historico de datos sin perdida",
+      "categoria_iso25010": "Fiabilidad",
+      "metrica": "El sistema mantiene un registro de auditoria de cambios y eliminaciones por al menos 24 meses.",
+      "evidencia": [
+        "EV-01"
+      ]
+    },
+    {
+      "id": "RNF-08",
+      "nombre": "Consentimiento explicito registrado en el primer inicio de sesion",
+      "categoria_iso25010": "Seguridad",
+      "metrica": "El 100 por ciento de las cuentas activas tiene un registro de aceptacion con fecha y hora.",
+      "evidencia": [
+        "EV-16"
+      ],
+      "articulo": "LOPDP Art. 8"
+    },
+    {
+      "id": "RNF-09",
+      "nombre": "Seguridad de los datos personales almacenados",
+      "categoria_iso25010": "Seguridad",
+      "metrica": "Cifrado AES-256 en base de datos y TLS 1.2 o superior en toda comunicacion cliente y servidor.",
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "articulo": "LOPDP Art. 37 y 41"
+    },
+    {
+      "id": "RNF-10",
+      "nombre": "Posibilidad de disentir de una recomendacion sin bloquear el flujo de trabajo",
+      "categoria_iso25010": "Interaccion con el usuario",
+      "metrica": "Cero casos en los que el sistema bloquee una accion del usuario por no aceptar una recomendacion de IA.",
+      "evidencia": [
+        "EV-16"
+      ]
+    },
+    {
+      "id": "RNF-11",
+      "nombre": "Reduccion del esfuerzo de captura manual de datos",
+      "categoria_iso25010": "Eficiencia de desempeno",
+      "metrica": "Registrar una cosecha completa toma un maximo de 30 segundos en condiciones normales de campo.",
+      "evidencia": [
+        "EV-17"
+      ]
+    },
+    {
+      "id": "RNF-12",
+      "nombre": "Conservacion minima de registros de trazabilidad",
+      "categoria_iso25010": "Fiabilidad",
+      "metrica": "Ningun registro de actividad, cosecha o aplicacion de insumos se elimina antes de cumplir 24 meses desde su creacion.",
+      "evidencia": [
+        "derivacion legal"
+      ],
+      "articulo": "Resolucion AGROCALIDAD 183, Art. 38"
+    },
+    {
+      "id": "RNF-13",
+      "nombre": "Compatibilidad con dispositivos de gama baja",
+      "categoria_iso25010": "Compatibilidad",
+      "metrica": "Funcionamiento fluido, sin caidas, en un dispositivo con 2 GB de RAM y Android 9 o superior.",
+      "evidencia": [
+        "EV-02",
+        "EV-13"
+      ]
+    },
+    {
+      "id": "RNF-14",
+      "nombre": "Extensibilidad del catalogo de cultivos y variedades",
+      "categoria_iso25010": "Mantenibilidad",
+      "metrica": "Un administrador agrega una variedad nueva con su conjunto de atributos en menos de 10 minutos, sin intervencion del equipo de desarrollo.",
+      "evidencia": [
+        "EV-10",
+        "EV-17"
+      ]
+    },
+    {
+      "id": "RNF-15",
+      "nombre": "Disponibilidad del servicio de notificaciones",
+      "categoria_iso25010": "Fiabilidad",
+      "metrica": "El 95 por ciento de las notificaciones se entrega dentro de los 5 minutos posteriores a la reconexion del dispositivo.",
+      "evidencia": [
+        "EV-10"
+      ]
+    },
+    {
+      "id": "RNF-16",
+      "nombre": "Desempeno de deteccion y prediccion del modelo de IA",
+      "categoria_iso25010": "Fiabilidad",
+      "metrica": "Exactitud mayor o igual a 80 por ciento y sensibilidad (recall) mayor o igual a 75 por ciento sobre el conjunto de validacion antes de habilitar el modelo en campo.",
+      "origen": "componente de IA (RF-09, RF-10)",
+      "responsable": "equipo tecnico",
+      "frecuencia": "antes de cada despliegue de una version nueva y revision trimestral"
+    },
+    {
+      "id": "RNF-17",
+      "nombre": "Explicabilidad de las recomendaciones de IA",
+      "categoria_iso25010": "Transparencia",
+      "metrica": "El 100 por ciento de las alertas muestra al menos un factor explicativo, no solo el resultado.",
+      "origen": "componente de IA (RF-09, RF-10, RF-33)",
+      "responsable": "Danela Arteaga",
+      "frecuencia": "en cada entrega que modifique el motor de alertas"
+    },
+    {
+      "id": "RNF-18",
+      "nombre": "Equidad de desempeno entre cultivos",
+      "categoria_iso25010": "Equidad",
+      "metrica": "Diferencia menor o igual a 10 puntos porcentuales en la tasa de falsos negativos entre cacao y platano.",
+      "origen": "componente de IA",
+      "responsable": "equipo tecnico, revision independiente de Maria Escudero",
+      "frecuencia": "en cada reentrenamiento del modelo"
+    },
+    {
+      "id": "RNF-19",
+      "nombre": "Supervision humana obligatoria antes de cualquier accion automatica",
+      "categoria_iso25010": "Seguridad",
+      "metrica": "Cero acciones aplicadas automaticamente sobre datos del sistema sin confirmacion humana explicita.",
+      "origen": "componente de IA (RF-09)",
+      "responsable": "equipo tecnico, verificacion independiente de Kamila Calle",
+      "frecuencia": "en cada entrega, dentro de las pruebas de aceptacion"
+    },
+    {
+      "id": "RNF-20",
+      "nombre": "Monitoreo continuo del desempeno del modelo en produccion",
+      "categoria_iso25010": "Monitoreo",
+      "metrica": "Al menos el 90 por ciento de las alertas emitidas tiene retroalimentacion registrada (confirmada, descartada o disputada) dentro de los 7 dias.",
+      "origen": "componente de IA (RF-09, RF-33)",
+      "responsable": "Roselyn Sanchez y Danela Arteaga",
+      "frecuencia": "reporte mensual mientras el sistema este en operacion"
+    },
+    {
+      "id": "RNF-21",
+      "nombre": "Clasificacion de riesgo de las recomendaciones de IA",
+      "categoria_iso25010": "Gestion de riesgo",
+      "metrica": "El 100 por ciento de los tipos de alerta tiene un nivel de riesgo (bajo, medio, alto) asignado y visible en la interfaz antes de habilitarse.",
+      "origen": "componente de IA (RF-09, RF-10)",
+      "responsable": "Danela Arteaga",
+      "frecuencia": "al definir cada nuevo tipo de alerta"
+    }
+  ]
+}
