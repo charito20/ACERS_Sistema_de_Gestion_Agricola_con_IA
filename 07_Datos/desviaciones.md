@@ -38,7 +38,7 @@ legales.
 registrado previamente; las formulaciones previas se descartaron y no se combinaron
 con el análisis final.
 
-## Desviación 3: Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video
+## Desviación 3: Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video (parcialmente resuelta, 2026-09-04)
 
 **Descripción:** Las dos primeras entrevistas de la primera ronda de campo
 (`ENTR-01`, 2026-06-20, y `ENTR-02`, 2026-06-21) se registraron únicamente en
@@ -64,6 +64,20 @@ ausencia por definitiva. Ambas entrevistas cuentan con audio completo, consentim
 firmado y transcripción, por lo que la evidencia cualitativa de esas dos sesiones
 no se pierde, solo el registro audiovisual en video. No se sustituyó la ausencia
 con ningún archivo generado artificialmente.
+
+Para `ENTR-01` se localizó y recuperó un archivo de video real (2026-09-04):
+702 segundos (11,7 minutos) de duración, con la pista de audio completa de la
+entrevista al administrador. El participante autorizó el uso de su voz pero no
+de su imagen, por lo que el equipo anonimizó la pista visual (queda en negro
+durante toda la grabación) antes de incorporarla, en vez de descartar el video
+o de usar uno sin el consentimiento correspondiente. Esto eleva el total a 16
+archivos de video con 243,1 minutos acumulados, cumpliendo el mínimo de la guía
+(≥16 archivos, ≥240 minutos). `ENTR-02` sigue sin registro en video; con el
+mínimo ya alcanzado por los otros 16, esto ya no bloquea el criterio, pero se
+mantiene como una brecha conocida y documentada, no oculta.
+
+**Artefacto:** `02_Evidencias/00_Restringido/` (video cifrado de ENTR-01),
+`02_Evidencias/fichas_tecnicas.csv`, `02_Evidencias/Consentimientos/2026-06-20_Administrador_ENTR-01_Consentimiento.jpeg`.
 
 ## Desviación 4: Revisión del enfoque del registro OSF y enmienda (2026-09-04)
 
