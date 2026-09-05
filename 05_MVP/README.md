@@ -31,12 +31,14 @@ Numeración corregida al catálogo vigente de 39 RF (`01_ERS/ERS_SRS_2B_v2.0.md`
 - RF-20 Gestión de usuarios y control de acceso
 
 **Vía mockups `03_Modelado/Mockups/` (6 Must adicionales):**
-- RF-02 Catálogo cerrado de cultivos (MU-02, Should-have, incluido como apoyo)
 - RF-22 Consentimiento del trabajador (MU-01)
+- RF-23 Derechos ARCO+ del trabajador (MU-01: el aviso de consentimiento enuncia el ejercicio de acceso, rectificación, cancelación y oposición desde Ajustes → Mis Datos)
 - RF-24 Certificado de salud del trabajador (MU-09)
 - RF-26 Registro manual de ingresos/egresos (MU-08)
 - RF-34 Trazabilidad por lote (MU-02/MU-08)
 - RF-37 Aviso ante plaga cuarentenaria (MU-06)
+
+_Nota: RF-02 (catálogo cerrado de cultivos, MU-02) también está cubierto, pero es **Should-have** y no cuenta dentro de los 17 Must-have._
 
 **Fuera del prototipo actual (3 Must, justificados):**
 - RF-05 Cálculo de rendimiento, RF-06 Ganancia neta y RF-09 Alerta IA con verificación humana — requieren cálculo/servicio externo y quedan como trabajo futuro (ver `04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx` fila RF-05/06/09).
