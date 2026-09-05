@@ -185,6 +185,18 @@ manuscrito se actualizó en la Sección 3 con la cifra final (114 personas, 68
 del perfil dominante). No se descartó ni se recodificó ninguna respuesta
 anterior; el cierre es aditivo sobre el mismo instrumento.
 
+**Anonimización aplicada (2026-09-05):** el export completo y el CSV derivado
+se sustituyeron por una versión anonimizada en la que la marca temporal se
+generalizó a nivel de fecha, sin hora, minuto ni segundo. La marca temporal
+exacta de envío es un cuasi-identificador: combinada con el perfil declarado y
+el rango de edad, permite reidentificar a una persona dentro de una unidad
+productiva pequeña. La generalización se aplicó únicamente a esa columna: se
+verificó celda por celda que las 114 respuestas y sus 9 columnas de contenido
+quedaron idénticas (0 diferencias fuera de la columna de marca temporal). El
+conteo por perfil no cambia: 114 respuestas totales, 68 del perfil dominante
+"Agricultor". Esta medida es coherente con el protocolo de anonimización del
+paquete ético (`08_Etica/C3_Protocolo_Anonimizacion_Agricola_Moreira.pdf`).
+
 ---
 
 *Estas desviaciones se reutilizan de la sección de metodología del manuscrito y
