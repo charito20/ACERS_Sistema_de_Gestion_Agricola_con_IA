@@ -3,8 +3,8 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto sigue el versionado semántico donde es aplicable.
 
-## [Entrega Final - 2B] - 2026-08-30
-Etiqueta de línea base: `v2.0-final` (commit `abc1234`)
+## [Entrega Final - 2B] - 2026-09-05
+Etiqueta de línea base: `v2.0-final` (commit `cc8cf4a`)
 
 ### Añadido
 - Informe final del proyecto (`07_Publicacion/`), documento único generado desde LaTeX que integra la especificación auditada, el estudio empírico ejecutado y el análisis de resultados, con carátula obligatoria conforme a la sección 12 de la guía.
@@ -48,4 +48,3 @@ Etiqueta de línea base: `v2.0-final` (commit `abc1234`)
 - Documentación UML inicial (10 casos de uso, diagrama de casos de uso).
 
 ---
-**Nota para el equipo:** completen la fecha de corte y la etiqueta/commit exactos en el encabezado de la Entrega Final. Documenten en "Cambiado" los ajustes hechos tras la auditoría del repositorio (ej. huérfanos en la matriz, referencias corregidas) y en "Pendiente" cualquier compromiso de la sección 7 que aún no esté cerrado — la guía exige que el 100 % de los mínimos evidenciales estén cumplidos antes del corte (piso G8), así que esta sección "Pendiente" debe quedar vacía antes de entregar.
