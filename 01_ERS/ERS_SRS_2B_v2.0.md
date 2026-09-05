@@ -894,6 +894,26 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Responsable:** Danela Arteaga (especificación); equipo técnico (implementación).
 - **Frecuencia:** al definir cada nuevo tipo de alerta.
 
+
+#### Clasificación de riesgo del componente de IA y base legal
+
+La clasificación de riesgo del componente de inteligencia artificial, la base legal que la
+fundamenta y el plan de monitoreo en producción se desarrollan en el documento
+`01_ERS/Clasificacion_Riesgo_IA.md`. Ese documento clasifica el sistema en dos niveles: como
+tratamiento de datos conserva la Categoría C, riesgo mínimo operativo, porque el componente opera
+sobre material vegetal y datos operativos de la finca y no sobre datos personales ni biométricos;
+y por tipo de recomendación asigna un nivel de riesgo a cada salida del componente, que es lo que
+exige RNF-21. Tres tipos quedan clasificados como riesgo alto —la sugerencia de aplicación
+fitosanitaria (RF-09), la sospecha de plaga cuarentenaria (RF-09, RF-37) y el diagnóstico por
+imagen (RF-10)— porque seguirlos sin verificación puede causar daño económico o fitosanitario
+difícilmente reversible o activar una obligación regulatoria ante AGROCALIDAD. La base legal
+directa de la explicabilidad exigida en RNF-17 es el Art. 20 de la LOPDP, que reconoce el derecho
+a no ser objeto de una decisión basada única o parcialmente en valoraciones automatizadas y a
+exigir una explicación motivada. El plan de monitoreo desarrolla siete indicadores con umbral,
+frecuencia, responsable y acción correctiva. El componente está especificado y no desplegado: no
+existe todavía un modelo entrenado, de modo que los umbrales de RNF-16 y RNF-18 operan como
+condiciones de habilitación previas al despliegue, no como resultados obtenidos.
+
 ### 3.4 Historias de usuario y criterios de aceptación
 
 Los 17 requisitos funcionales de prioridad Must have se tradujeron a historias de usuario en formato Connextra, seguidas de un escenario de aceptación en Gherkin construido a partir del criterio de verificación ya definido para cada requisito. Cada historia cumple los criterios INVEST al describir una necesidad independiente, negociable en su implementación, de valor claro para el usuario, estimable, acotada a un solo requisito y verificable mediante el escenario que la acompaña.
@@ -1042,6 +1062,17 @@ El resultado completo, con los 39 requisitos y su ranking final, se documenta en
 El requisito con menor prioridad resultante es el RF-32, la vía de integración futura con sensores de campo, coherente con su prioridad MoSCoW de Won't have para esta versión.
 
 La matriz de trazabilidad está cerrada en `04_Trazabilidad/Matriz_Trazabilidad_v2.xlsx`, con 60 filas. Son 54 filas base, una por cada requisito funcional, no funcional o derivado del catálogo actual, y 6 filas secundarias para los seis requisitos que dan servicio a un segundo caso de uso además del principal. Cada fila enlaza la ley o la fuente de elicitación, el artículo, el objetivo, el interesado, el código de evidencia, el requisito, el tipo, el caso de uso, la historia de usuario y su criterio de aceptación cuando corresponde, el componente y el mockup. Todos los identificadores de caso de uso, componente y mockup coinciden con los del paquete de modelado de la Sección 4.
+
+El tratamiento de huérfanos y cadenas rotas se documenta en
+`04_Trazabilidad/Analisis_Huerfanos_Cadenas_Rotas.md` y se verifica de forma automatizada con
+`04_Trazabilidad/verificar_trazabilidad.py`, que contrasta la matriz contra el ERS y contra la
+especificación de casos de uso. La ejecución del 2026-09-05 no encuentra cadenas rotas ni
+huérfanos en ninguna de las dos direcciones: los 60 requisitos y los 15 casos de uso están
+trazados y ninguna fila deja un eslabón vacío. Las 16 filas cuya evidencia de elicitación figura
+como "Sin evidencia" se clasifican allí por causa y acción: ocho son requisitos derivados de norma
+legal, dos son requisitos no funcionales derivados de norma, y seis son atributos de calidad del
+componente de IA cuyo fundamento normativo se documenta en `01_ERS/Clasificacion_Riesgo_IA.md`.
+
 
 ## 6. Producto mínimo viable
 
