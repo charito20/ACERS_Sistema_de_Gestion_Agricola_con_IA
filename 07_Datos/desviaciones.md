@@ -128,16 +128,16 @@ qué requisitos cubren qué criterios, haciendo que la codificación sea
 reproducible y no dependiente de juicio interpretativo. Los resultados
 completos están en `10_Autoria/doble_codificacion/resultado_kappa_legal.txt`.
 
-## Desviación 6: El cuestionario no alcanzó las 60 respuestas del perfil dominante (abierta, 2026-09-04)
+## Desviación 6: El cuestionario no alcanzaba las 60 respuestas del perfil dominante (resuelta, 2026-09-04)
 
 **Descripción:** El protocolo y la guía de la Entrega 4 (2B) fijan un mínimo de
 60 respuestas del perfil dominante del cuestionario, o en su defecto una
-justificación por cálculo de potencia estadística. El cuestionario
-(`02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv`) tiene 66
-respuestas en total, y el perfil dominante es "Agricultor" con 21 respuestas,
-por debajo del mínimo de 60. El manuscrito, antes de esta corrección, afirmaba
-por error que se había alcanzado el mínimo de 60; la afirmación no coincidía
-con los datos y ya se corrigió en la Sección 3 (Participantes y reclutamiento).
+justificación por cálculo de potencia estadística. Al cierre de la auditoría
+interna, el cuestionario tenía 66 respuestas en total, con el perfil dominante
+"Agricultor" en 21 respuestas, por debajo del mínimo de 60. El manuscrito,
+antes de esta corrección, afirmaba por error que se había alcanzado el mínimo
+de 60; la afirmación no coincidía con los datos y se corrigió en su momento en
+la Sección 3 (Participantes y reclutamiento).
 
 **Razón:** El levantamiento del cuestionario se cerró junto con el resto del
 trabajo de campo terminal sin verificar antes el conteo por perfil contra el
@@ -147,14 +147,18 @@ mínimo de la guía.
 (2B) (2026-09-04), al contrastar `respuestas_cuestionario.csv` con la tabla de
 mínimos empíricos de la guía oficial.
 
-**Mitigación aplicada:** Ninguna todavía; queda abierta. La guía ofrece dos
-rutas: (a) recolectar 39 respuestas adicionales del perfil "Agricultor", o (b)
-calcular y documentar la potencia estadística (Cohen \(d=0{,}5\), \(\alpha=0{,}05\),
-\(1-\beta=0{,}80\)) que justifique que \(n=21\) es suficiente para el propósito
-del cuestionario. El equipo no ha ejecutado ninguna de las dos a la fecha de
-esta nota; hacerlo antes del corte final es prioritario porque este mínimo es
-uno de los tres que activan el gatekeeper G5 de la rúbrica (nota máxima 4,00/10
-si no se cumple).
+**Mitigación aplicada:** Se optó por la ruta (a): recolectar respuestas
+adicionales del perfil "Agricultor" compartiendo de nuevo el mismo formulario
+de Google Forms (no uno nuevo, para no fragmentar el dataset). El levantamiento
+se cerró el mismo día (2026-09-04) con 114 respuestas totales, de las cuales 68
+son del perfil "Agricultor" — por encima del mínimo de 60. El archivo
+`02_Evidencias/Cuestionario/Respuestas/respuestas_cuestionario.csv` se
+actualizó con las 114 respuestas, y se conserva el export original de 66
+respuestas (`cuestionario_respuestas_2026-08-30.xlsx`) junto al nuevo export
+completo (`cuestionario_respuestas_2026-09-04.xlsx`) para trazabilidad. El
+manuscrito se actualizó en la Sección 3 con la cifra final (114 personas, 68
+del perfil dominante). No se descartó ni se recodificó ninguna respuesta
+anterior; el cierre es aditivo sobre el mismo instrumento.
 
 ---
 

@@ -65,3 +65,51 @@ Marca temporal,Rol dentro de la actividad agrícola ,  Rango de edad  ,  Años d
 2026-08-27 21:40:38.264,Técnico o ingeniero agrónomo,18-30,Más de 20 años,Cuaderno físico,dertilizantes,2,no perder las ceuntas,costos,Si
 2026-08-27 21:41:18.212,Agricultor,más de 60,Más de 20 años,No lleva registro,ffertilizamtes,3,no las tengo,costos,No
 2026-08-28 07:13:53.014,Productor,31-45,10 - 20 años,No lleva registro,"Fertilizante, herramientas",3,Ningúna ,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:00:47.095,Agricultor,31-45,3 - 5 años,No lleva registro,Fertilizantes ,3,Encontrar la información ,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:04:47.040,Agricultor,18-30,1 - 2 años,No lleva registro,Pues solo se escribe y se recuerda cuanto hay de cada insumo,2,Demasiados datos que llenar y manualmente ,fechas de cosecha,Si
+2026-09-04 18:05:22.164,Agricultor,31-45,3 - 5 años,Excel,En hojas de cálculo ,4,Al momento de buscar ,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:05:54.328,Agricultor,46-60,10 - 20 años,No lleva registro,Cuaderno,3,Encontrar la información ,costos,Si
+2026-09-04 18:07:43.497,Agricultor,31-45,10 - 20 años,No lleva registro,en cuaderno,2,Que se me pierde el cuaderno,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:09:12.893,Agricultor,18-30,1 - 2 años,No lleva registro,"Todo al instante, sin registro, solo recordando.",2,A veces no se recuerda lo que ya se ha hecho o comprado.,plagas o enfermedades,Si
+2026-09-04 18:09:22.668,Agricultor,18-30,1 - 2 años,Cuaderno físico,De forma semanal,5,Confusion de fecha,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:11:00.147,Agricultor,31-45,3 - 5 años,Cuaderno físico,"Se anotan en un cuaderno, hasta en hojas de las cuales se guardan.",2,A veces se sabe perder la hoja o el cuaderno y no sé encuentra o a veces se saben mojar y no se ve bien las anotaciones.,plagas o enfermedades,Si
+2026-09-04 18:14:55.294,Agricultor,31-45,Más de 20 años,App o sistema,Anotaciones por WhatsApp ,1,Encontrar los mensajes ,plagas o enfermedades,Si
+2026-09-04 18:15:59.703,Agricultor,31-45,3 - 5 años,Cuaderno físico,En una hoja impresa ,2,La perdida de información ,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:16:38.660,Agricultor,18-30,3 - 5 años,Cuaderno físico,Anotó fechas de todo en un cuaderno que llevo solo para eso,4,Buscar la información ,fechas de cosecha,Si
+2026-09-04 18:16:45.512,Agricultor,18-30,3 - 5 años,Cuaderno físico,Anotó en en un cuaderno ,3,Se pierden ,clima,Si
+2026-09-04 18:46:07.858,Agricultor,18-30,1 - 2 años,Excel,Herramientas,3,El orden ,fechas de siembra,Si
+2026-09-04 18:46:19.101,Agricultor,31-45,3 - 5 años,Cuaderno físico,Fertilizante,4,Que no den las cuentas ,fechas de siembra,Si
+2026-09-04 18:47:44.247,Agricultor,31-45,3 - 5 años,Cuaderno físico,Fertilizante ,4,No llevar la cuenta ,uso de fertilizantes / pesticidas,Si
+2026-09-04 18:49:07.518,Agricultor,31-45,1 - 2 años,Excel,Semillas ,5,Guardar informacion ,ventas,Si
+2026-09-04 18:50:16.947,Agricultor,46-60,1 - 2 años,Cuaderno físico,Muy organizado ,5,Olvidar la cuenta ,fechas de siembra,Si
+2026-09-04 18:51:14.386,Agricultor,más de 60,10 - 20 años,App o sistema,Insumos ,3,Olvidar las fechas ,ventas,Si
+2026-09-04 18:52:07.703,Agricultor,más de 60,1 - 2 años,No lleva registro,Semillas,5,Los registros,fechas de cosecha,Si
+2026-09-04 18:52:47.834,Agricultor,31-45,3 - 5 años,App o sistema,Herramientas ,4,La administración ,fechas de siembra,Si
+2026-09-04 18:53:34.989,Agricultor,31-45,3 - 5 años,Excel,Semillas ,5,Las cosas,plagas o enfermedades,Si
+2026-09-04 18:54:21.707,Técnico o ingeniero agrónomo,31-45,Más de 20 años,App o sistema,Fertilizantes ,4,Los cuadernos ,otro,Si
+2026-09-04 18:55:03.816,Agricultor,más de 60,10 - 20 años,No lleva registro,Herramientas ,3,Los cuadernos ,costos,Si
+2026-09-04 18:55:34.416,Agricultor,46-60,Más de 20 años,No lleva registro,Semilas,3,Ok mañana ,fechas de siembra,Si
+2026-09-04 18:56:01.562,Agricultor,18-30,1 - 2 años,Cuaderno físico,Fertilizantes ,4,Si,plagas o enfermedades,Si
+2026-09-04 19:04:13.545,Agricultor,46-60,10 - 20 años,No lleva registro,Por cuaderno,2,Revisar las fechas ,fechas de cosecha,Si
+2026-09-04 19:04:34.908,Agricultor,31-45,1 - 2 años,Cuaderno físico,Cuaderno ,3,Cuaderno ,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:04:36.905,Agricultor,31-45,3 - 5 años,Cuaderno físico,Por cuaderno,3,Revisar las fechas ,fechas de cosecha,Si
+2026-09-04 19:05:02.216,Agricultor,46-60,10 - 20 años,Cuaderno físico,Fertilizantes,3,Revisar las fechas ,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:05:30.880,Agricultor,46-60,10 - 20 años,No lleva registro,fertilizantes,2,No hay registro claro,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:05:31.060,Agricultor,31-45,10 - 20 años,Cuaderno físico,Por cuaderno,4,Revisar las fechas ,plagas o enfermedades,Si
+2026-09-04 19:05:37.563,Agricultor,31-45,3 - 5 años,Cuaderno físico,Fertilizantes,3,Sin registro claro ,plagas o enfermedades,Si
+2026-09-04 19:05:52.254,Agricultor,46-60,10 - 20 años,Cuaderno físico,Por cuaderno,3,Revisar las fechas ,fechas de cosecha,Si
+2026-09-04 19:06:08.604,Agricultor,31-45,10 - 20 años,Cuaderno físico,Por cuaderno,1,Revisar las fechas ,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:06:46.081,Agricultor,18-30,3 - 5 años,Excel,semillas ,3,no saber cómo ,fechas de cosecha,No
+2026-09-04 19:07:22.007,Agricultor,31-45,10 - 20 años,Cuaderno físico,Por cuaderno,2,Revisar las fechas ,fechas de cosecha,Si
+2026-09-04 19:07:26.702,Agricultor,31-45,3 - 5 años,Cuaderno físico,Fertilizantes y herramientas,3,El registro suele perderse,fechas de cosecha,Si
+2026-09-04 19:07:49.157,Agricultor,31-45,10 - 20 años,Cuaderno físico,Fertilizantes y semillas,3,Se pierde el registro ,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:07:53.633,Agricultor,18-30,3 - 5 años,Cuaderno físico,Cuaderno ,4,Muchas ,clima,Si
+2026-09-04 19:08:16.114,Agricultor,18-30,3 - 5 años,No lleva registro,Cuaderno ,3,Cuaderno ,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:08:42.243,Agricultor,46-60,10 - 20 años,Cuaderno físico,Semillas y fertilizantes,3,El registro se pierde y no se hace una consulta real,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:08:47.825,Agricultor,31-45,10 - 20 años,No lleva registro,Cuaderno ,2,Cuaderno ,ventas,Si
+2026-09-04 19:09:13.401,Agricultor,31-45,10 - 20 años,Cuaderno físico,Cuaderno ,4,Cuaderno ,ventas,Si
+2026-09-04 19:09:44.444,Agricultor,31-45,3 - 5 años,No lleva registro,Semillas ,4,Si ,costos,Si
+2026-09-04 19:09:47.065,Agricultor,31-45,3 - 5 años,Cuaderno físico,Semillas e herramientas,2,No se realizan buenas consultas,ventas,Si
+2026-09-04 19:10:24.695,Agricultor,46-60,10 - 20 años,Cuaderno físico,EN UNA LIBRETA ,5,Se pierde ,uso de fertilizantes / pesticidas,Si
+2026-09-04 19:10:50.861,Agricultor,31-45,3 - 5 años,App o sistema,Cuaderno ,4,Se pierden ,fechas de cosecha,Si
+2026-09-04 19:11:37.645,Agricultor,31-45,3 - 5 años,No lleva registro,Cuaderno ,4,Se pierde la información ,clima,Si
