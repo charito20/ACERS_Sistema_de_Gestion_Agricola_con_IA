@@ -17,7 +17,7 @@
 | 1.1 | 31 de agosto de 2026 | Corrección del equipo y del enfoque metodológico a partir del expediente ético real | Equipo AgroMoreira |
 | 1.2 | 1 de septiembre de 2026 | Corrección del liderazgo del equipo | Equipo AgroMoreira |
 | 1.3 | 1 de septiembre de 2026 | Definición del enfoque legal-first como enfoque oficial del proyecto | Equipo AgroMoreira |
-| 2.0 | 1 de septiembre de 2026 | Cierre de la Sección 3 con los 39 requisitos funcionales y los 21 requisitos no funcionales obtenidos en las 17 entrevistas y las 9 sesiones de validación, y de las historias de usuario con criterios de aceptación para los 17 requisitos Must have. Cierre del modelado del sistema en la Sección 4, con los 14 casos de uso, los dos diagramas de clases, los diagramas de comportamiento, la arquitectura de componentes y los 9 mockups de `03_Modelado/`. Matriz de trazabilidad cerrada en 60 filas y Sección 6 con el producto mínimo viable funcional | Equipo AgroMoreira |
+| 2.0 | 1 de septiembre de 2026 | Cierre de la Sección 3 con los 39 requisitos funcionales y los 21 requisitos no funcionales obtenidos en las 17 entrevistas y las 7 sesiones de validación, y de las historias de usuario con criterios de aceptación para los 17 requisitos Must have. Cierre del modelado del sistema en la Sección 4, con los 14 casos de uso, los dos diagramas de clases, los diagramas de comportamiento, la arquitectura de componentes y los 9 mockups de `03_Modelado/`. Matriz de trazabilidad cerrada en 60 filas y Sección 6 con el producto mínimo viable funcional | Equipo AgroMoreira |
 
 ---
 
