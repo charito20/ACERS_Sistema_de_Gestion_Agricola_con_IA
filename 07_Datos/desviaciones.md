@@ -194,8 +194,13 @@ productiva pequeña. La generalización se aplicó únicamente a esa columna: se
 verificó celda por celda que las 114 respuestas y sus 9 columnas de contenido
 quedaron idénticas (0 diferencias fuera de la columna de marca temporal). El
 conteo por perfil no cambia: 114 respuestas totales, 68 del perfil dominante
-"Agricultor". Esta medida es coherente con el protocolo de anonimización del
-paquete ético (`08_Etica/C3_Protocolo_Anonimizacion_Agricola_Moreira.pdf`).
+"Agricultor". El mismo tratamiento se aplicó al export histórico
+`cuestionario_respuestas_2026-08-30.xlsx` (66 respuestas), que se conserva por
+trazabilidad: sus 66 marcas temporales quedaron igualmente generalizadas a
+nivel de fecha, con 0 cambios de contenido verificados celda por celda. De este
+modo ningún archivo publicado del cuestionario conserva la hora exacta de
+envío. Esta medida es coherente con el protocolo de anonimización del paquete
+ético (`08_Etica/C3_Protocolo_Anonimizacion_Agricola_Moreira.pdf`).
 
 ---
 
