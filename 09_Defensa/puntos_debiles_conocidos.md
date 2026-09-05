@@ -82,12 +82,20 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **Artefacto:** `10_Autoria/` (grabaciones/, notas_campo/, fotos_equipo/); guía específica ACERS, Sección 6 y Sección 10.
 
-## 10. Declaración de uso de IA con verificaciones pendientes (abierto, 2026-09-04)
+## 10. Declaración de uso de IA con verificaciones pendientes (resuelto, 2026-09-04)
 
-**El problema:** `10_Autoria/declaracion_uso_ia.md` existe y tiene contenido real (no está vacío), pero varias filas de sus dos tablas están marcadas con `(*)`, es decir, "requieren verificación del integrante responsable" — el integrante nombrado en cada fila todavía no confirmó que efectivamente revisó ese uso de LLM. Además, el documento trae una nota interna sin resolver: "confirmar/ajustar la herramienta exacta (modelo y versión usada por cada integrante) y la temperatura configurada antes del envío".
+**El problema (histórico):** `10_Autoria/declaracion_uso_ia.md` existía con varias filas de sus dos tablas marcadas con `(*)` — "requieren verificación del integrante responsable" — porque el integrante nombrado en cada fila todavía no había confirmado personalmente qué herramienta y versión usó, ni revisado la fila que le correspondía. El documento también traía una nota interna sin resolver sobre confirmar la herramienta exacta y la temperatura configurada.
 
-**Por qué no se puede cerrar por escrito:** esto no es un dato que se pueda derivar de los archivos del repositorio ni de un script — depende de que cada integrante nombrado (María Escudero, Kamila Calle, Danela Arteaga, Jeanpierre Robinson, Roselyn Sánchez) confirme personalmente qué herramienta y versión usó y revise la fila que le corresponde. Rellenar esos campos sin esa confirmación sería inventar un dato de autoría, exactamente lo que este documento existe para evitar.
+**Por qué no se podía cerrar por escrito (histórico):** no era un dato derivable de los archivos del repositorio ni de un script — dependía de que cada integrante (María Escudero, Kamila Calle, Danela Arteaga, Jeanpierre Robinson, Roselyn Sánchez) confirmara personalmente su propia fila. Rellenar esos campos sin esa confirmación habría sido inventar un dato de autoría.
 
-**La respuesta preparada:** si el docente pregunta, la respuesta es que el documento declara honestamente su propio estado: qué secciones usaron LLM (solo para redacción, nunca para resultados/cifras) y qué filas siguen pendientes de verificación nominal por integrante. No se marcó nada como verificado sin que la persona responsable lo confirmara.
+**Corrección aplicada y verificada:** cada integrante confirmó y editó su propia fila mediante su propio commit (Danela: `Claude Sonnet 5`, confirmado por ella directamente; el resto vía el commit `8573605` "completa 5 filas pendientes declaracion IA"). Verificado contra el archivo actual del repositorio: 0 marcadores `(*)` restantes en las dos tablas, y la nota interna de "confirmar/ajustar herramienta y temperatura" ya no aparece en el documento.
 
 **Artefacto:** `10_Autoria/declaracion_uso_ia.md`.
+
+## 11. Videos reales de entrevistas por debajo del mínimo terminal (resuelto para el mínimo, 2026-09-05)
+
+**El problema:** la guía de la Entrega 4 (2B) exige un mínimo terminal de 16 archivos de video con 240 minutos acumulados de entrevistas reales. Al cierre de la auditoría interna, el inventario real (verificado con `ffprobe`, no por conteo de nombre de archivo) daba 15 archivos con 231,4 minutos, porque las dos primeras entrevistas de campo (`ENTR-01`, `ENTR-02`) solo se habían grabado en audio.
+
+**Corrección aplicada y verificada:** se localizó y recuperó un archivo de video real de `ENTR-01` (702 s / 11,7 min), con audio completo y la pista visual intencionalmente en negro durante toda la grabación — el participante autorizó el uso de su voz pero no de su imagen, así que el equipo anonimizó visualmente el video en vez de descartarlo o de usar uno sin el consentimiento correspondiente. Esto se verificó de forma directa (inspección de fotogramas con `ffmpeg`/`PIL`, no por confianza en el nombre del archivo) antes de aceptarlo como evidencia legítima. El archivo se insertó en el paquete cifrado del equipo (`02_Evidencias/00_Restringido/evidencias_restringidas.7z`, re-empaquetado en 28 volúmenes RAR), con hash SHA-256 registrado en `02_Evidencias/fichas_tecnicas.csv`. El total queda en 16 archivos de video con 243,1 minutos, cumpliendo el mínimo. `ENTR-02` sigue sin registro en video; con el mínimo ya alcanzado por los otros 16, esto ya no bloquea el criterio.
+
+**Artefacto:** `07_Datos/desviaciones.md` (Desviación 3), `02_Evidencias/00_Restringido/evidencias_restringidas.part01.rar` a `part28.rar`, `02_Evidencias/fichas_tecnicas.csv`.

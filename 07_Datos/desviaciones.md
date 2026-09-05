@@ -38,7 +38,7 @@ legales.
 registrado previamente; las formulaciones previas se descartaron y no se combinaron
 con el análisis final.
 
-## Desviación 3: Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video (parcialmente resuelta, 2026-09-04)
+## Desviación 3: Dos entrevistas (ENTR-01 y ENTR-02) sin registro en video (resuelta para ENTR-01, 2026-09-04)
 
 **Descripción:** Las dos primeras entrevistas de la primera ronda de campo
 (`ENTR-01`, 2026-06-20, y `ENTR-02`, 2026-06-21) se registraron únicamente en
@@ -72,12 +72,23 @@ de su imagen, por lo que el equipo anonimizó la pista visual (queda en negro
 durante toda la grabación) antes de incorporarla, en vez de descartar el video
 o de usar uno sin el consentimiento correspondiente. Esto eleva el total a 16
 archivos de video con 243,1 minutos acumulados, cumpliendo el mínimo de la guía
-(≥16 archivos, ≥240 minutos). `ENTR-02` sigue sin registro en video; con el
-mínimo ya alcanzado por los otros 16, esto ya no bloquea el criterio, pero se
-mantiene como una brecha conocida y documentada, no oculta.
+(≥16 archivos, ≥240 minutos). El archivo
+(`2026-06-20_Administrador_ENTR-01_Entrevista.mp4`, hash SHA-256
+`76cc008c5a18f5716b1733fecc8ad392bab2178b23fe480ca3cf5d49d1f2446d`) se insertó en
+`eVIDENCIAS/vIDEOS/` dentro del paquete cifrado
+`02_Evidencias/00_Restringido/evidencias_restringidas.7z` (protegido con
+contraseña, 7zAES), re-empaquetado en un nuevo conjunto de volúmenes RAR
+(`evidencias_restringidas.part01.rar` a `part28.rar`, reemplazando el conjunto
+anterior de 24 partes) y verificado con una prueba de integridad completa y una
+extracción de control cuyo hash coincide exactamente con el original. `ENTR-02`
+sigue sin registro en video; con el mínimo ya alcanzado por los otros 16, esto ya
+no bloquea el criterio, pero se mantiene como una brecha conocida y documentada,
+no oculta.
 
-**Artefacto:** `02_Evidencias/00_Restringido/` (video cifrado de ENTR-01),
-`02_Evidencias/fichas_tecnicas.csv`, `02_Evidencias/Consentimientos/2026-06-20_Administrador_ENTR-01_Consentimiento.jpeg`.
+**Artefacto:** `02_Evidencias/00_Restringido/evidencias_restringidas.part01.rar`
+a `part28.rar` (paquete cifrado con el video de ENTR-01 ya incorporado),
+`02_Evidencias/fichas_tecnicas.csv`,
+`02_Evidencias/Consentimientos/2026-06-20_Administrador_ENTR-01_Consentimiento.jpeg`.
 
 ## Desviación 4: Revisión del enfoque del registro OSF y enmienda (2026-09-04)
 
