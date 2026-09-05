@@ -181,6 +181,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-03. Registro de actividades agrícolas
 - **Descripción:** el sistema debe permitir registrar una actividad (fumigación, fertilización, poda, limpieza, riego) indicando fecha, lote, producto/insumo usado y trabajador responsable.
+- **Criterio legal cubierto:** C14 (Res. AGROCALIDAD 183, Art. 3).
 - **Actor/origen:** Jornalero, Técnico. EV-03, EV-07, EV-08, EV-10, EV-14, EV-15, EV-16
 - **Entradas:** fecha, lote, tipo de actividad, producto, trabajador
 - **Salidas:** registro de actividad
@@ -381,6 +382,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-14. Trazabilidad de lote de exportación
 - **Descripción:** el sistema debe permitir registrar, por lote de exportación, el estado de calidad (primera/segunda), variedad sembrada y ciclo de enfunde (fecha/color de cinta) para trazar el producto desde campo hasta empaque.
+- **Criterio legal cubierto:** C15 (Res. AGROCALIDAD 183, Art. 36).
 - **Actor/origen:** Jornalero. EV-13, EV-14
 - **Entradas:** color de cinta, semana de enfunde, calidad de caja
 - **Salidas:** ficha de trazabilidad del lote de exportación
@@ -448,6 +450,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-18. Registro de riesgo/seguridad laboral por lote
 - **Descripción:** el sistema debe permitir marcar un lote con una alerta de riesgo (fauna peligrosa, terreno inestable) visible antes de asignar tareas ahí, y sugerir el equipo de protección personal requerido.
+- **Criterio legal cubierto:** C16 (Res. AGROCALIDAD 183, Art. 38); C22 (Res. AGROCALIDAD 0072, Art. 18(g) Res.183).
 - **Actor/origen:** Jornalero, Técnico. EV-11, EV-17
 - **Entradas:** tipo de riesgo, lote, equipo de protección recomendado
 - **Salidas:** alerta visible al asignar tarea en ese lote
@@ -464,6 +467,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-19. Reportes de producción, costos y pérdidas con gráficos
 - **Descripción:** el sistema debe generar reportes de producción, costos, pérdidas por plaga y rendimiento por parcela/periodo, con gráficos de barra y circulares codificados por color.
+- **Criterio legal cubierto:** C18 (Res. AGROCALIDAD 183, Art. 27); C19 (Res. AGROCALIDAD 183, Art. 29).
 - **Actor/origen:** Administrador, Técnico. EV-01, EV-05, EV-06, EV-07, EV-10, EV-16
 - **Entradas:** rango de fechas, lote o lotes
 - **Salidas:** reporte visual exportable
@@ -661,6 +665,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-35. Registro de análisis de suelo previo a siembra
 - **Descripción:** el sistema debe permitir registrar, por parcela, el resultado de un análisis de suelo (calicata) previo al establecimiento de un cultivo, indicando tipo de suelo y aptitud.
+- **Criterio legal cubierto:** C21 (Res. AGROCALIDAD 0072, Art. 8 Res.183).
 - **Actor/origen:** Técnico. EV-17
 - **Entradas:** tipo de suelo, resultado de aptitud, fecha del análisis
 - **Salidas:** ficha de análisis de suelo asociada a la parcela
@@ -677,10 +682,19 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### 3.2 Requisitos legales derivados
 
+Cada requisito derivado de norma lleva en su ficha el campo **Criterio legal cubierto**, con el
+identificador propio del criterio (C1 a C26), la norma de la que procede y el artículo exacto. Los
+26 criterios son los definidos en `01_ERS/Modelo_Legal_LOPDP.md` y desarrollados en
+`01_ERS/Matriz_Obligacion_Legal.md`, y son los mismos que evalúa el componente empírico en
+`07_Datos/datos_crudos/cobertura_legal.csv`. De este modo el identificador legal no vive solo en la
+matriz de trazabilidad: viaja con el requisito dentro de este documento, y cualquier lector puede ir
+del requisito al artículo sin salir del ERS.
+
 > Estos RF se derivan directamente de los 26 criterios (C1 a C26) de `Modelo_Legal_LOPDP.md`, en sus 3 bloques normativos (LOPDP, BPA cacao/trazabilidad, bioseguridad y manejo fitosanitario). Ninguna de las 17 entrevistas mencionó el proceso de certificación BPA, el derecho de acceso/rectificación de datos personales, el aviso fitosanitario formal, ni el registro de capacitaciones, así que siguen siendo vacíos legales puros. La parte de equipo de protección personal de RF-24 y el análisis de suelo sí encontraron respaldo parcial en EV-17 (ver RF-18 y RF-35), pero el certificado de salud del trabajador continúa sin evidencia de entrevista.
 
 ### RF-22. Registro de consentimiento del trabajador para el tratamiento de sus datos personales dentro del sistema
-- **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C4, LOPDP Art. 8)
+- **Criterio legal cubierto:** C1 (LOPDP, Art. 4, 12(8)); C2 (LOPDP, Art. 4, 34-35); C3 (LOPDP, Art. 10(d)); C5 (LOPDP, Art. 12(5)); C12 (LOPDP, Art. 34-35).
+- **Actor/origen:** Administrador. Sin evidencia de entrevista; requisito derivado de norma (ver criterios legales cubiertos arriba)
 - **Flujo principal:**
   1. En el primer inicio de sesión de un trabajador (CU-09), el sistema muestra el aviso de tratamiento de datos personales (LOPDP Art. 8).
   2. El usuario acepta el consentimiento de forma libre, específica, informada e inequívoca.
@@ -692,6 +706,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-23. Módulo de derechos ARCO+ del trabajador
 - **Descripción:** acceso, rectificación y eliminación de sus propios datos.
+- **Criterio legal cubierto:** C4 (LOPDP, Art. 8); C7 (LOPDP, Art. 10(i)); C8 (LOPDP, Art. 33, 36); C9 (LOPDP, Art. 43, 46); C10 (LOPDP, Art. 13-19).
 - **Actor/origen:** Jornalero/Trabajador. Sin evidencia de entrevista (criterio C10, LOPDP Art. 13-19)
 - **Flujo principal:**
   1. El trabajador, autenticado en el sistema, solicita acceder, rectificar o eliminar sus propios datos personales desde Ajustes → Mis Datos.
@@ -702,6 +717,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Prioridad MoSCoW:** Must have (regulatorio)
 
 ### RF-24. Registro de certificado de salud del trabajador que aplica agroquímicos
+- **Criterio legal cubierto:** C17 (Res. AGROCALIDAD 183, Art. 31-34).
 - **Actor/origen:** Administrador. Sin evidencia de entrevista para el certificado de salud (criterio C17, Resolución AGROCALIDAD 183, Art. 33-34). El requisito de equipo de protección personal ya cuenta con evidencia real y se documentó en RF-18.
 - **Flujo principal:**
   1. Antes de asignar una tarea de aplicación de agroquímicos (CU-11), el Administrador registra el certificado de salud vigente del trabajador.
@@ -712,6 +728,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RF-25. Registro y seguimiento del proceso de certificación BPA ante AGROCALIDAD
 - **Descripción:** solicitud, inspección, vigencia.
+- **Criterio legal cubierto:** C20 (Res. AGROCALIDAD 183, Art. 39-43).
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C20, Resolución AGROCALIDAD 183, Art. 39-43)
 - **Flujo principal:**
   1. El Administrador revisa el panel de cumplimiento (vigencia del certificado BPA, capacitaciones pendientes, bitácora de bioseguridad) (CU-13).
@@ -722,6 +739,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### RF-36. Registro de capacitación en manejo de plaguicidas y primeros auxilios
+- **Criterio legal cubierto:** C23 (Res. AGROCALIDAD 0072, Art. 18(e) Res.183).
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C23, Resolución AGROCALIDAD 183, Art. 18(e))
 - **Flujo principal:**
   1. El Administrador registra una capacitación en manejo de plaguicidas o primeros auxilios recibida por un trabajador.
@@ -731,6 +749,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### RF-37. Aviso/alerta ante síntomas sospechosos de plaga cuarentenaria (ej. Moko)
+- **Criterio legal cubierto:** C24 (Res. AGROCALIDAD 0072, Art. 3.6.1(a) Res.0072).
 - **Actor/origen:** Jornalero, Técnico, Administrador. Sin evidencia de entrevista (criterio C24, Resolución AGROCALIDAD 0072, Art. 3.6.1(a))
 - **Flujo principal:**
   1. Un usuario de campo detecta síntomas sospechosos de plaga cuarentenaria (ej. Moko) en un lote.
@@ -742,6 +761,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Prioridad MoSCoW:** Must have (regulatorio). Nota: EV-17 mencionó el problema del Moko y las medidas de desinfección, pero ningún entrevistado describió el mecanismo formal de aviso a AGROCALIDAD, por eso sigue siendo un vacío.
 
 ### RF-38. Bitácora de bioseguridad de ingreso/salida del predio
+- **Criterio legal cubierto:** C25 (Res. AGROCALIDAD 0072, Art. 3.6.1(d) Res.0072).
 - **Actor/origen:** Administrador. Sin evidencia de entrevista sobre el registro formal, aunque EV-17 sí describió la práctica de desinfección en sí misma (criterio C25, Resolución AGROCALIDAD 0072, Art. 3.6.1(d))
 - **Flujo principal:**
   1. Al confirmarse una visita al predio (técnica o por síntoma sospechoso, CU-10/CU-14), el usuario registra el evento de ingreso/salida en la bitácora de bioseguridad.
@@ -751,6 +771,7 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 - **Prioridad MoSCoW:** Should have (regulatorio)
 
 ### RF-39. Registro de capacitaciones del personal sobre control fitosanitario específico
+- **Criterio legal cubierto:** C26 (Res. AGROCALIDAD 0072, Art. 3.6.1(f)(g) Res.0072).
 - **Actor/origen:** Administrador. Sin evidencia de entrevista (criterio C26, Resolución AGROCALIDAD 0072, Art. 3.6.1(f)(g))
 - **Flujo principal:**
   1. El Administrador registra una capacitación fitosanitaria específica recibida por un trabajador (control de plagas cuarentenarias, bioseguridad).
@@ -798,11 +819,13 @@ Cada entrevista tiene asignado un código de evidencia. EV-01 corresponde a ENTR
 
 ### RNF-08. Consentimiento explícito registrado en el primer inicio de sesión (Seguridad)
 - **Descripción:** todo trabajador debe aceptar un aviso de tratamiento de datos personales antes de poder usar el sistema por primera vez.
+- **Criterio legal cubierto:** C6 (LOPDP, Art. 37, 41); C13 (LOPDP, Art. 47(2)(3)(14)).
 - **Métrica:** el 100% de las cuentas activas deben tener un registro de aceptación con fecha y hora.
 - **Evidencia textual:** *"Para confirmar que el participante ha leído y firmado el consentimiento informado antes de comenzar"* (EV-16, aplicado al protocolo de entrevista, extendido aquí como requisito del propio sistema).
 
 ### RNF-09. Seguridad de los datos personales almacenados (Seguridad, derivado legal)
 - **Descripción:** los datos personales de los trabajadores deben cifrarse en reposo y en tránsito.
+- **Criterio legal cubierto:** C6 (LOPDP, Art. 37, 41).
 - **Métrica:** cifrado AES-256 en base de datos y TLS 1.2 o superior en toda comunicación cliente-servidor.
 - **Evidencia legal:** Art. 37 y 41 LOPDP (sin evidencia directa de entrevista, requisito regulatorio).
 

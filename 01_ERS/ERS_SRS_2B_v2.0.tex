@@ -293,6 +293,7 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 \rf{RF-03}{Registro de actividades agricolas}
 \begin{itemize}
 \item \textbf{Descripcion:} el sistema debe permitir registrar una actividad, fumigacion, fertilizacion, poda, limpieza o riego, indicando fecha, lote, producto o insumo usado y trabajador responsable.
+\item \textbf{Criterio legal cubierto:} C14 (Res. AGROCALIDAD 183, Art. 3).
 \item \textbf{Actor y origen:} Jornalero, Tecnico. EV-03, EV-07, EV-08, EV-10, EV-14, EV-15, EV-16.
 \item \textbf{Entradas:} fecha, lote, tipo de actividad, producto, trabajador.
 \item \textbf{Salidas:} registro de actividad.
@@ -559,6 +560,7 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 \rf{RF-14}{Trazabilidad de lote de exportacion}
 \begin{itemize}
 \item \textbf{Descripcion:} el sistema debe permitir registrar, por lote de exportacion, el estado de calidad, primera o segunda, la variedad sembrada y el ciclo de enfunde, fecha y color de cinta, para trazar el producto desde el campo hasta el empaque.
+\item \textbf{Criterio legal cubierto:} C15 (Res. AGROCALIDAD 183, Art. 36).
 \item \textbf{Actor y origen:} Jornalero. EV-13, EV-14.
 \item \textbf{Entradas:} color de cinta, semana de enfunde, calidad de caja.
 \item \textbf{Salidas:} ficha de trazabilidad del lote de exportacion.
@@ -650,6 +652,7 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 \rf{RF-18}{Registro de riesgo y seguridad laboral por lote}
 \begin{itemize}
 \item \textbf{Descripcion:} el sistema debe permitir marcar un lote con una alerta de riesgo, fauna peligrosa o terreno inestable, visible antes de asignar tareas ahi, y sugerir el equipo de proteccion personal requerido.
+\item \textbf{Criterio legal cubierto:} C16 (Res. AGROCALIDAD 183, Art. 38); C22 (Res. AGROCALIDAD 0072, Art. 18(g) Res.183).
 \item \textbf{Actor y origen:} Jornalero, Tecnico. EV-11, EV-17.
 \item \textbf{Entradas:} tipo de riesgo, lote, equipo de proteccion recomendado.
 \item \textbf{Salidas:} alerta visible al asignar tarea en ese lote.
@@ -672,6 +675,7 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 \rf{RF-19}{Reportes de produccion, costos y perdidas con graficos}
 \begin{itemize}
 \item \textbf{Descripcion:} el sistema debe generar reportes de produccion, costos, perdidas por plaga y rendimiento por parcela o periodo, con graficos de barra y circulares codificados por color.
+\item \textbf{Criterio legal cubierto:} C18 (Res. AGROCALIDAD 183, Art. 27); C19 (Res. AGROCALIDAD 183, Art. 29).
 \item \textbf{Actor y origen:} Administrador, Tecnico. EV-01, EV-05, EV-06, EV-07, EV-10, EV-16.
 \item \textbf{Entradas:} rango de fechas, lote o lotes.
 \item \textbf{Salidas:} reporte visual exportable.
@@ -937,6 +941,7 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 \rf{RF-35}{Registro de analisis de suelo previo a la siembra}
 \begin{itemize}
 \item \textbf{Descripcion:} el sistema debe permitir registrar, por parcela, el resultado de un analisis de suelo previo al establecimiento de un cultivo, indicando tipo de suelo y aptitud.
+\item \textbf{Criterio legal cubierto:} C21 (Res. AGROCALIDAD 0072, Art. 8 Res.183).
 \item \textbf{Actor y origen:} Tecnico. EV-17.
 \item \textbf{Entradas:} tipo de suelo, resultado de aptitud, fecha del analisis.
 \item \textbf{Salidas:} ficha de analisis de suelo asociada a la parcela.
@@ -958,11 +963,15 @@ Cada entrevista tiene asignado un codigo de evidencia. EV-01 corresponde a ENTR-
 
 \subsection{Requisitos legales derivados}
 
+Cada requisito derivado de norma lleva en su ficha el campo \textbf{Criterio legal cubierto}, con el identificador propio del criterio (C1 a C26), la norma de la que procede y el articulo exacto. Los 26 criterios son los definidos en \ruta{01\_ERS/Modelo\_Legal\_LOPDP.md} y desarrollados en \ruta{01\_ERS/Matriz\_Obligacion\_Legal.md}, y son los mismos que evalua el componente empirico en \ruta{07\_Datos/datos\_crudos/cobertura\_legal.csv}. De este modo el identificador legal no vive solo en la matriz de trazabilidad: viaja con el requisito dentro de este documento, y cualquier lector puede ir del requisito al articulo sin salir del ERS.
+
+
 Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta{Modelo\_Legal\_LOPDP.md}, en sus tres bloques normativos. Ninguna de las 17 entrevistas menciono el proceso de certificacion BPA, el derecho de acceso o rectificacion de datos personales, el aviso fitosanitario formal ni el registro de capacitaciones, asi que siguen siendo vacios legales puros. El equipo de proteccion personal y el analisis de suelo si encontraron respaldo parcial en EV-17, ver RF-18 y RF-35, pero el certificado de salud del trabajador continua sin evidencia de entrevista.
 
 \rf{RF-22}{Registro de consentimiento del trabajador para el tratamiento de sus datos personales}
 \begin{itemize}
-\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C4, LOPDP Art. 8.
+\item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista; requisito derivado de norma (ver criterio legal cubierto).
+\item \textbf{Criterio legal cubierto:} C1 (LOPDP, Art. 4, 12(8)); C2 (LOPDP, Art. 4, 34-35); C3 (LOPDP, Art. 10(d)); C5 (LOPDP, Art. 12(5)); C12 (LOPDP, Art. 34-35).
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
 \item En el primer inicio de sesion de un trabajador (CU-09), el sistema muestra el aviso de tratamiento de datos personales (LOPDP Art. 8).
@@ -980,6 +989,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-23}{Modulo de derechos ARCO+ del trabajador}
 \begin{itemize}
 \item \textbf{Descripcion:} acceso, rectificacion y eliminacion de sus propios datos.
+\item \textbf{Criterio legal cubierto:} C4 (LOPDP, Art. 8); C7 (LOPDP, Art. 10(i)); C8 (LOPDP, Art. 33, 36); C9 (LOPDP, Art. 43, 46); C10 (LOPDP, Art. 13-19).
 \item \textbf{Actor y origen:} Jornalero o trabajador. Sin evidencia de entrevista, criterio C10, LOPDP Art. 13 a 19.
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
@@ -997,6 +1007,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-24}{Registro de certificado de salud del trabajador que aplica agroquimicos}
 \begin{itemize}
 \item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista para el certificado de salud, criterio C17, Resolucion AGROCALIDAD 183, Art. 33 y 34. El requisito de equipo de proteccion personal ya cuenta con evidencia real en RF-18.
+\item \textbf{Criterio legal cubierto:} C17 (Res. AGROCALIDAD 183, Art. 31-34).
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
 \item Antes de asignar una tarea de aplicacion de agroquimicos (CU-11), el Administrador registra el certificado de salud vigente del trabajador.
@@ -1012,6 +1023,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-25}{Registro y seguimiento del proceso de certificacion BPA ante AGROCALIDAD}
 \begin{itemize}
 \item \textbf{Descripcion:} solicitud, inspeccion y vigencia.
+\item \textbf{Criterio legal cubierto:} C20 (Res. AGROCALIDAD 183, Art. 39-43).
 \item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C20, Resolucion AGROCALIDAD 183, Art. 39 a 43.
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
@@ -1029,6 +1041,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-36}{Registro de capacitacion en manejo de plaguicidas y primeros auxilios}
 \begin{itemize}
 \item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C23, Resolucion AGROCALIDAD 183, Art. 18(e).
+\item \textbf{Criterio legal cubierto:} C23 (Res. AGROCALIDAD 0072, Art. 18(e) Res.183).
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
 \item El Administrador registra una capacitacion en manejo de plaguicidas o primeros auxilios recibida por un trabajador.
@@ -1044,6 +1057,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-37}{Aviso ante sintomas sospechosos de plaga cuarentenaria}
 \begin{itemize}
 \item \textbf{Actor y origen:} Jornalero, Tecnico, Administrador. Sin evidencia de entrevista, criterio C24, Resolucion AGROCALIDAD 0072, Art. 3.6.1(a). EV-17 menciono el problema del Moko y las medidas de desinfeccion, pero ningun entrevistado describio el mecanismo formal de aviso a AGROCALIDAD.
+\item \textbf{Criterio legal cubierto:} C24 (Res. AGROCALIDAD 0072, Art. 3.6.1(a) Res.0072).
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
 \item Un usuario de campo detecta sintomas sospechosos de plaga cuarentenaria (ej. Moko) en un lote.
@@ -1061,6 +1075,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-38}{Bitacora de bioseguridad de ingreso y salida del predio}
 \begin{itemize}
 \item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista sobre el registro formal, aunque EV-17 describio la practica de desinfeccion. Criterio C25, Resolucion AGROCALIDAD 0072, Art. 3.6.1(d).
+\item \textbf{Criterio legal cubierto:} C25 (Res. AGROCALIDAD 0072, Art. 3.6.1(d) Res.0072).
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
 \item Al confirmarse una visita al predio (tecnica o por sintoma sospechoso, CU-10/CU-14), el usuario registra el evento de ingreso/salida en la bitacora de bioseguridad.
@@ -1076,6 +1091,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RF-39}{Registro de capacitaciones del personal sobre control fitosanitario especifico}
 \begin{itemize}
 \item \textbf{Actor y origen:} Administrador. Sin evidencia de entrevista, criterio C26, Resolucion AGROCALIDAD 0072, Art. 3.6.1(f)(g).
+\item \textbf{Criterio legal cubierto:} C26 (Res. AGROCALIDAD 0072, Art. 3.6.1(f)(g) Res.0072).
 \item \textbf{Flujo principal:}
 \begin{enumerate}[label=\arabic*.,leftmargin=1.6em]
 \item El Administrador registra una capacitacion fitosanitaria especifica recibida por un trabajador (control de plagas cuarentenarias, bioseguridad).
@@ -1149,6 +1165,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RNF-08}{Consentimiento explicito registrado en el primer inicio de sesion}
 \begin{itemize}
 \item \textbf{Categoria ISO/IEC 25010:} seguridad.
+\item \textbf{Criterio legal cubierto:} C6 (LOPDP, Art. 37, 41); C13 (LOPDP, Art. 47(2)(3)(14)).
 \item \textbf{Descripcion:} todo trabajador debe aceptar un aviso de tratamiento de datos personales antes de poder usar el sistema por primera vez.
 \item \textbf{Metrica:} el 100\% de las cuentas activas deben tener un registro de aceptacion con fecha y hora.
 \item \textbf{Evidencia legal:} Art. 8 LOPDP.
@@ -1157,6 +1174,7 @@ Estos requisitos se derivan directamente de los 26 criterios, C1 a C26, de \ruta
 \rf{RNF-09}{Seguridad de los datos personales almacenados}
 \begin{itemize}
 \item \textbf{Categoria ISO/IEC 25010:} seguridad, derivado legal.
+\item \textbf{Criterio legal cubierto:} C6 (LOPDP, Art. 37, 41).
 \item \textbf{Descripcion:} los datos personales de los trabajadores deben cifrarse en reposo y en transito.
 \item \textbf{Metrica:} cifrado AES-256 en base de datos y TLS 1.2 o superior en toda comunicacion cliente y servidor.
 \item \textbf{Evidencia legal:} Art. 37 y 41 LOPDP, sin evidencia directa de entrevista, requisito regulatorio.
