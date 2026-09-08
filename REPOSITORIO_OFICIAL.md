@@ -36,7 +36,7 @@ Cada integrante confirma esta declaración mediante un commit propio en el repos
 
 | Integrante | Usuario de Git | Confirma |
 |---|---|---|
-| Sánchez Centeno Roselyn Andreina | Roselyn15 | |
+| Sánchez Centeno Roselyn Andreina | Roselyn15 | Sí |
 | Arteaga Álava Danela Dayana | darteagaa-boop | |
 | Calle Delgado Kamila Annabella | kcalled | Sí |
 | Escudero Plaza María del Rosario | charito20 | |
