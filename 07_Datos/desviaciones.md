@@ -194,7 +194,7 @@ del proyecto conserve sus metadatos originales, con la fecha de captura tomada
 de los metadatos y el dispositivo. Al preparar el inventario
 `10_Autoria/exif_inventario.csv` se verificó archivo por archivo que ninguna de
 las fotografías del repositorio conserva metadatos EXIF: las 22 fotografías de
-`02_Evidencias/Fotos_Entorno/` y las 2 fotografías de aplicación del
+`02_Evidencias/Fotos_Entorno/` y las 5 fotografías de aplicación del
 cuestionario en `02_Evidencias/Cuestionario/Fotos_Aplicacion/` tienen
 únicamente una cabecera JFIF, sin fecha de captura ni información del
 dispositivo. Por eso las columnas de fecha y dispositivo de
