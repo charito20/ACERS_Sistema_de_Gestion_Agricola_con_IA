@@ -2,7 +2,7 @@
 
 Sistema de Gestión Agrícola con Inteligencia Artificial desarrollado para **Agrícola Moreira**, orientado a la administración y monitoreo de cultivos de **cacao** y **plátano verde**.
 
-Este proyecto fue desarrollado como parte del **Proyecto Integrador de la asignatura Ingeniería de Requerimientos [20303]** de la **Universidad Técnica Estatal de Quevedo (UTEQ)**.
+Este proyecto fue desarrollado como parte del **Proyecto Integrador de la asignatura Ingeniería de Requisitos (ISR-401)** de la **Universidad Técnica Estatal de Quevedo (UTEQ)**.
 
 ---
 
@@ -24,7 +24,7 @@ Este proyecto fue desarrollado como parte del **Proyecto Integrador de la asigna
 
 Agrícola Moreira administra lotes destinados a la producción de **cacao** y **plátano verde**, ubicados en el cantón **El Carmen, provincia de Manabí, Ecuador**. El equipo de desarrollo, con sede en la Universidad Técnica Estatal de Quevedo (Los Ríos), trabaja de forma remota con la finca.
 
-**AgriMoreira** centraliza la información de los cultivos mediante una plataforma que permite:
+**AgroMoreira** centraliza la información de los cultivos mediante una plataforma que permite:
 
 - Gestión de productores y fincas.
 - Administración de lotes agrícolas.
@@ -145,7 +145,7 @@ pdflatex manuscrito_final.tex
 # Estructura del repositorio
 
 ```text
-AgriMoreira/
+AgroMoreira/
 │
 ├── README.md
 ├── LICENSE
