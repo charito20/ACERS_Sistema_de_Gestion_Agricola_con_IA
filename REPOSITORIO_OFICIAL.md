@@ -40,4 +40,4 @@ Cada integrante confirma esta declaración mediante un commit propio en el repos
 | Arteaga Álava Danela Dayana | darteagaa-boop | Sí|
 | Calle Delgado Kamila Annabella | kcalled | Sí |
 | Escudero Plaza María del Rosario | charito20 | Sí |
-| Robinson Espinoza Jeanpierre | jean200525 | |
+| Robinson Espinoza Jeanpierre | jean200525 | Sí |
