@@ -134,19 +134,19 @@ function seedDB(){
       {id:'u5', name:'Luis Macías', username:'l.macias', password:'campo123', role:'Trabajador agrícola', status:'Inactivo'}
     ],
     plots: [
-      {id:'p1', code:'Trama A1', location:'Sector norte', area:2.4, status:'Activo', crop:'Cacao'},
-      {id:'p2', code:'Trama B1', location:'Sector este', area:3.1, status:'Activo', crop:'Plátano'},
-      {id:'p3', code:'Trama B2', location:'Sector este', area:2.8, status:'Activo', crop:'Plátano'},
-      {id:'p4', code:'Trama C1', location:'Sector sur', area:1.9, status:'Descanso', crop:'—'},
-      {id:'p5', code:'Trama C2', location:'Sector sur', area:2.2, status:'Activo', crop:'Cacao'},
-      {id:'p6', code:'Trama D1', location:'Sector oeste', area:3.6, status:'Activo', crop:'Palma'}
+      {id:'p1', code:'Trama A1', location:'Sector norte', area:2.4, status:'Activo', crop:'Cacao', plantCount:50, terrain:'Plano', ribbonColor:'Roja'},
+      {id:'p2', code:'Trama B1', location:'Sector este', area:3.1, status:'Activo', crop:'Plátano', plantCount:30, terrain:'Alto', ribbonColor:'Azul'},
+      {id:'p3', code:'Trama B2', location:'Sector este', area:2.8, status:'Activo', crop:'Plátano', plantCount:28, terrain:'Plano', ribbonColor:'Amarilla'},
+      {id:'p4', code:'Trama C1', location:'Sector sur', area:1.9, status:'Descanso', crop:'—', plantCount:0, terrain:'Plano', ribbonColor:'—'},
+      {id:'p5', code:'Trama C2', location:'Sector sur', area:2.2, status:'Activo', crop:'Cacao', plantCount:45, terrain:'Pendiente', ribbonColor:'Verde'},
+      {id:'p6', code:'Trama D1', location:'Sector oeste', area:3.6, status:'Activo', crop:'Palma', plantCount:60, terrain:'Plano', ribbonColor:'Blanca'}
     ],
     crops: [
-      {id:'c1', type:'Cacao', variety:'CCN-51', plot:'Trama A1', date:'2024-03-10', status:'Producción'},
-      {id:'c2', type:'Plátano', variety:'Dominico', plot:'Trama B1', date:'2023-11-02', status:'Producción'},
-      {id:'c3', type:'Plátano', variety:'Barraganete', plot:'Trama B2', date:'2024-01-15', status:'Crecimiento'},
-      {id:'c4', type:'Cacao', variety:'Nacional', plot:'Trama C2', date:'2022-06-20', status:'Producción'},
-      {id:'c5', type:'Palma', variety:'Palma africana', plot:'Trama D1', date:'2021-05-01', status:'Producción'}
+      {id:'c1', type:'Cacao', variety:'CCN-51', plot:'Trama A1', date:'2024-03-10', status:'Producción', plantCount:50},
+      {id:'c2', type:'Plátano', variety:'Dominico', plot:'Trama B1', date:'2023-11-02', status:'Producción', plantCount:30},
+      {id:'c3', type:'Plátano', variety:'Barraganete', plot:'Trama B2', date:'2024-01-15', status:'Crecimiento', plantCount:28},
+      {id:'c4', type:'Cacao', variety:'Nacional', plot:'Trama C2', date:'2022-06-20', status:'Producción', plantCount:45},
+      {id:'c5', type:'Palma', variety:'Palma africana', plot:'Trama D1', date:'2021-05-01', status:'Producción', plantCount:60}
     ],
     activities: [
       {id:'a1', type:'Deshierbe', plot:'Trama B1', date:'2026-07-28', time:'07:40', worker:'Andrés Cedeño', status:'Hecho', notes:''},
@@ -154,9 +154,9 @@ function seedDB(){
       {id:'a3', type:'Control de plagas (fungicida)', plot:'Trama C2', date:'2026-07-28', time:'11:00', worker:'Andrés Cedeño', status:'En progreso', notes:''}
     ],
     harvests: [
-      {id:'h1', crop:'Plátano', plot:'Trama B1', date:'2026-07-28', qty:38, unit:'Racimos', worker:'Andrés Cedeño', notes:''},
-      {id:'h2', crop:'Cacao', plot:'Trama C1', date:'2026-07-26', qty:12, unit:'Sacos', worker:'José Quinde', notes:''},
-      {id:'h3', crop:'Palma', plot:'Trama D1', date:'2026-07-24', qty:2.4, unit:'Toneladas', worker:'Mario Suárez', notes:''}
+      {id:'h1', crop:'Plátano', plot:'Trama B1', date:'2026-07-28', qty:38, unit:'Racimos', worker:'Andrés Cedeño', ribbonColor:'Azul', rejected:2, notes:'2 rechazados por mancha'},
+      {id:'h2', crop:'Cacao', plot:'Trama C1', date:'2026-07-26', qty:12, unit:'Sacos', worker:'José Quinde', ribbonColor:'Roja', rejected:1, notes:'1 saco con piojo'},
+      {id:'h3', crop:'Palma', plot:'Trama D1', date:'2026-07-24', qty:2.4, unit:'Toneladas', worker:'Mario Suárez', ribbonColor:'Verde', rejected:0, notes:''}
     ],
     inventory: [
       {id:'i1', name:'Fungicida sistémico', category:'Fungicida', qty:4, max:30, unit:'sacos', threshold:10},
@@ -367,18 +367,23 @@ function renderPlots(){
     <div class="content two-col">
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Todas las parcelas</h2><div class="muted">${DB.plots.length} parcelas · ${DB.plots.reduce((s,p)=>s+p.area,0).toFixed(1)} ha total</div></div></div>
-        <table><thead><tr><th>Parcela</th><th>Ubicación</th><th>Área</th><th>Estado</th><th>Cultivo</th><th></th></tr></thead>
-        <tbody>${DB.plots.map(p=>`<tr><td><b>${p.code}</b></td><td>${p.location}</td><td>${p.area} ha</td><td><span class="badge ${p.status==='Activo'?'badge-ok':'badge-warn'}">${p.status}</span></td><td>${p.crop}</td><td><button class="btn btn-outline btn-sm" onclick="deletePlot('${p.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>
+        <table><thead><tr><th>Parcela</th><th>Ubicación</th><th>Área</th><th>Plantas</th><th>Terreno</th><th>Cinta</th><th>Estado</th><th>Cultivo</th><th></th></tr></thead>
+        <tbody>${DB.plots.map(p=>`<tr><td><b>${p.code}</b></td><td>${p.location}</td><td>${p.area} ha</td><td>${p.plantCount||0}</td><td><span class="badge badge-neutral">${p.terrain||'—'}</span></td><td><span class="badge badge-info">${p.ribbonColor||'—'}</span></td><td><span class="badge ${p.status==='Activo'?'badge-ok':'badge-warn'}">${p.status}</span></td><td>${p.crop}</td><td><button class="btn btn-outline btn-sm" onclick="deletePlot('${p.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>
       </div>
       <div class="card" style="width:340px; flex:none;">
         <div class="card-head"><h2>Nueva parcela</h2></div>
         <form id="plotForm">
-          <div class="field"><label>Código</label><input id="pf_code" placeholder="ej. E1" required></div>
+          <div class="field"><label>Código (letra/sector)</label><input id="pf_code" placeholder="ej. E1" required></div>
           <div class="field"><label>Ubicación / sector</label><input id="pf_loc" placeholder="ej. Sector norte" required></div>
           <div class="field-row">
             <div class="field"><label>Área (ha)</label><input id="pf_area" type="number" step="0.1" value="2.0" required></div>
-            <div class="field"><label>Estado</label><select id="pf_status"><option>Activo</option><option>Descanso</option><option>Inactivo</option></select></div>
+            <div class="field"><label>Cantidad de plantas</label><input id="pf_plantCount" type="number" value="30" required></div>
           </div>
+          <div class="field-row">
+            <div class="field"><label>Tipo de terreno</label><select id="pf_terrain"><option>Plano</option><option>Alto</option><option>Pendiente</option></select></div>
+            <div class="field"><label>Color de cinta (semana)</label><select id="pf_ribbon"><option>Roja</option><option>Azul</option><option>Amarilla</option><option>Verde</option><option>Blanca</option><option>Negra</option></select></div>
+          </div>
+          <div class="field"><label>Estado</label><select id="pf_status"><option>Activo</option><option>Descanso</option><option>Inactivo</option></select></div>
           <button class="btn btn-primary btn-block" type="submit">Guardar parcela</button>
         </form>
       </div>
@@ -386,7 +391,7 @@ function renderPlots(){
   `, '#/plots'));
   document.getElementById('plotForm').addEventListener('submit', e=>{
     e.preventDefault();
-    DB.plots.push({id:uid('p'), code:document.getElementById('pf_code').value, location:document.getElementById('pf_loc').value, area:parseFloat(document.getElementById('pf_area').value), status:document.getElementById('pf_status').value, crop:'—'});
+    DB.plots.push({id:uid('p'), code:document.getElementById('pf_code').value, location:document.getElementById('pf_loc').value, area:parseFloat(document.getElementById('pf_area').value), plantCount:parseInt(document.getElementById('pf_plantCount').value)||0, terrain:document.getElementById('pf_terrain').value, ribbonColor:document.getElementById('pf_ribbon').value, status:document.getElementById('pf_status').value, crop:'—'});
     saveDB(DB); showToast('Parcela guardada'); renderPlots();
   });
 }
@@ -400,15 +405,18 @@ function renderCrops(){
     <div class="content two-col">
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Todos los cultivos</h2><div class="muted">${DB.crops.length} cultivos</div></div></div>
-        <table><thead><tr><th>Cultivo</th><th>Variedad</th><th>Parcela</th><th>Siembra</th><th>Estado</th><th></th></tr></thead>
-        <tbody>${DB.crops.map(c=>`<tr><td><b>${c.type}</b></td><td>${c.variety}</td><td>${c.plot}</td><td><code class="mono">${c.date}</code></td><td><span class="badge ${c.status==='Producción'?'badge-ok':'badge-info'}">${c.status}</span></td><td><button class="btn btn-outline btn-sm" onclick="deleteCrop('${c.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>
+        <table><thead><tr><th>Cultivo</th><th>Variedad</th><th>Parcela</th><th>Plantas</th><th>Siembra</th><th>Estado</th><th></th></tr></thead>
+        <tbody>${DB.crops.map(c=>`<tr><td><b>${c.type}</b></td><td>${c.variety}</td><td>${c.plot}</td><td>${c.plantCount||0}</td><td><code class="mono">${c.date}</code></td><td><span class="badge ${c.status==='Producción'?'badge-ok':'badge-info'}">${c.status}</span></td><td><button class="btn btn-outline btn-sm" onclick="deleteCrop('${c.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>
       </div>
       <div class="card" style="width:340px; flex:none;">
         <div class="card-head"><h2>Nuevo cultivo</h2></div>
         <form id="cropForm">
-          <div class="field"><label>Tipo de cultivo</label><select id="cf_type"><option>Plátano</option><option>Cacao</option><option>Palma</option><option>Otro</option></select></div>
+          <div class="field"><label>Tipo de cultivo</label><select id="cf_type"><option>Plátano</option><option>Cacao</option><option>Palma</option><option>Maíz</option><option>Otro</option></select></div>
           <div class="field"><label>Variedad</label><input id="cf_variety" placeholder="ej. Dominico" required></div>
-          <div class="field"><label>Parcela</label><select id="cf_plot">${plotOptions}</select></div>
+          <div class="field-row">
+            <div class="field"><label>Parcela</label><select id="cf_plot">${plotOptions}</select></div>
+            <div class="field"><label>Cantidad de plantas</label><input id="cf_plantCount" type="number" value="30"></div>
+          </div>
           <div class="field-row">
             <div class="field"><label>Fecha de siembra</label><input id="cf_date" type="date" value="2026-07-28"></div>
             <div class="field"><label>Estado</label><select id="cf_status"><option>Crecimiento</option><option>Producción</option><option>Descanso</option></select></div>
@@ -420,7 +428,7 @@ function renderCrops(){
   `, '#/crops'));
   document.getElementById('cropForm').addEventListener('submit', e=>{
     e.preventDefault();
-    DB.crops.push({id:uid('c'), type:document.getElementById('cf_type').value, variety:document.getElementById('cf_variety').value, plot:document.getElementById('cf_plot').value, date:document.getElementById('cf_date').value, status:document.getElementById('cf_status').value});
+    DB.crops.push({id:uid('c'), type:document.getElementById('cf_type').value, variety:document.getElementById('cf_variety').value, plot:document.getElementById('cf_plot').value, plantCount:parseInt(document.getElementById('cf_plantCount').value)||0, date:document.getElementById('cf_date').value, status:document.getElementById('cf_status').value});
     saveDB(DB); showToast('Cultivo guardado'); renderCrops();
   });
 }
@@ -480,23 +488,27 @@ function renderHarvest(){
         <div class="field"><label>Parcela</label><select id="hf_plot">${plotOptions}</select></div>
         <div class="field-row">
           <div class="field"><label>Cantidad</label><input id="hf_qty" type="number" step="0.1" value="10"></div>
-          <div class="field"><label>Unidad</label><select id="hf_unit"><option>Racimos</option><option>Sacos</option><option>Toneladas</option></select></div>
+          <div class="field"><label>Unidad</label><select id="hf_unit"><option>Racimos</option><option>Sacos</option><option>Toneladas</option><option>kg</option><option>Libras</option></select></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Color de cinta (semana)</label><select id="hf_ribbon"><option>Roja</option><option>Azul</option><option>Amarilla</option><option>Verde</option><option>Blanca</option><option>Negra</option></select></div>
+          <div class="field"><label>Rechazados</label><input id="hf_rejected" type="number" value="0" min="0"></div>
         </div>
         <div class="field"><label>Fecha</label><input id="hf_date" type="date" value="2026-07-28"></div>
-        <div class="field"><label>Observaciones</label><textarea id="hf_notes" rows="2" placeholder="Calidad, pérdidas..."></textarea></div>
+        <div class="field"><label>Observaciones</label><textarea id="hf_notes" rows="2" placeholder="Calidad, pérdidas, color cinta..."></textarea></div>
         <button class="btn btn-primary btn-block" onclick="saveHarvest()">Guardar cosecha</button>
       </div>
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Cosechas recientes</h2><div class="muted">${DB.harvests.length} registros</div></div></div>
-        <table><thead><tr><th>Fecha</th><th>Cultivo</th><th>Parcela</th><th>Cantidad</th><th>Registrado por</th></tr></thead>
-        <tbody>${DB.harvests.slice().reverse().map(h=>`<tr><td><code class="mono">${h.date}</code></td><td>${h.crop}</td><td>${h.plot}</td><td><b>${h.qty} ${h.unit}</b></td><td>${h.worker}</td></tr>`).join('')}</tbody></table>
+        <table><thead><tr><th>Fecha</th><th>Cultivo</th><th>Parcela</th><th>Cantidad</th><th>Cinta</th><th>Rechazados</th><th>Registrado por</th></tr></thead>
+        <tbody>${DB.harvests.slice().reverse().map(h=>`<tr><td><code class="mono">${h.date}</code></td><td>${h.crop}</td><td>${h.plot}</td><td><b>${h.qty} ${h.unit}</b></td><td><span class="badge badge-info">${h.ribbonColor||'—'}</span></td><td>${h.rejected||0}</td><td>${h.worker}</td></tr>`).join('')}</tbody></table>
       </div>
     </div>
   `, '#/harvest'));
 }
 function saveHarvest(){
   const user = currentUser();
-  DB.harvests.push({id:uid('h'), crop:document.getElementById('hf_crop').value, plot:document.getElementById('hf_plot').value, qty:parseFloat(document.getElementById('hf_qty').value), unit:document.getElementById('hf_unit').value, date:document.getElementById('hf_date').value, worker:user.name, notes:document.getElementById('hf_notes').value});
+  DB.harvests.push({id:uid('h'), crop:document.getElementById('hf_crop').value, plot:document.getElementById('hf_plot').value, qty:parseFloat(document.getElementById('hf_qty').value), unit:document.getElementById('hf_unit').value, ribbonColor:document.getElementById('hf_ribbon').value, rejected:parseInt(document.getElementById('hf_rejected').value)||0, date:document.getElementById('hf_date').value, worker:user.name, notes:document.getElementById('hf_notes').value});
   saveDB(DB); showToast('Cosecha guardada'); renderHarvest();
 }
 
