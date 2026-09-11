@@ -340,21 +340,40 @@ function renderDashboard(){
   const workers = DB.users.filter(u=>u.role==='Trabajador agrícola' && u.status==='Activo').length;
   const lowStock = DB.inventory.filter(i=>i.qty/i.max < 0.34);
   const pendingTasks = DB.tasks.filter(t=>t.status==='Pendiente').length;
+  const totalHarvest = DB.harvests.reduce((s,h)=>s+h.qty,0).toFixed(0);
+  const recentHarvests = DB.harvests.slice(-3).reverse();
   mount(shell(`
-    ${topbar('MU-00 · Panel general','Panel general','Vista rápida del estado de la finca AgriMoreira.')}
+    ${topbar('MU-00 · Panel general','Panel general','Vista rápida del estado de la finca AgriMoreira. — TRAMA A1 = código de la parcela (ej. Trama A1 = Parcela A1, Sector norte).')}
     <div class="content">
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:20px;">
-        <div class="card"><div class="muted" style="color:var(--ink-faint);font-size:12.5px;">Área cultivada</div><h2 style="font-size:26px;margin-top:6px;">${totalArea} ha</h2></div>
-        <div class="card"><div class="muted" style="color:var(--ink-faint);font-size:12.5px;">Cultivos en producción</div><h2 style="font-size:26px;margin-top:6px;">${activeCrops}</h2></div>
-        <div class="card"><div class="muted" style="color:var(--ink-faint);font-size:12.5px;">Trabajadores activos</div><h2 style="font-size:26px;margin-top:6px;">${workers}</h2></div>
-        <div class="card"><div class="muted" style="color:var(--ink-faint);font-size:12.5px;">Tareas pendientes</div><h2 style="font-size:26px;margin-top:6px;">${pendingTasks}</h2></div>
+        <div class="card" style="border-left:4px solid var(--green-700);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">🌿 Área cultivada</div><h2 style="font-size:26px;margin-top:6px;">${totalArea} ha</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">6 parcelas · TRAMA = parcela</div></div><div style="width:42px;height:42px;border-radius:10px;background:var(--ok-bg);display:flex;align-items:center;justify-content:center;font-size:20px;">🗺️</div></div></div>
+        <div class="card" style="border-left:4px solid #2c6349;"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">🌱 Cultivos en producción</div><h2 style="font-size:26px;margin-top:6px;">${activeCrops}</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">Cacao/Plátano/Palma</div></div><div style="width:42px;height:42px;border-radius:10px;background:#efe9da;display:flex;align-items:center;justify-content:center;font-size:20px;">🌾</div></div></div>
+        <div class="card" style="border-left:4px solid var(--bronze);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">👷 Trabajadores activos</div><h2 style="font-size:26px;margin-top:6px;">${workers}</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">En campo hoy</div></div><div style="width:42px;height:42px;border-radius:10px;background:#fbeede;display:flex;align-items:center;justify-content:center;font-size:20px;">👥</div></div></div>
+        <div class="card" style="border-left:4px solid var(--danger);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">📋 Tareas pendientes</div><h2 style="font-size:26px;margin-top:6px;">${pendingTasks}</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">Por asignar</div></div><div style="width:42px;height:42px;border-radius:10px;background:var(--danger-bg);display:flex;align-items:center;justify-content:center;font-size:20px;">⚠️</div></div></div>
       </div>
-      <div class="card">
-        <div class="card-head"><h2>Alertas de inventario</h2><div class="muted">Stock por debajo del 34%</div></div>
-        ${lowStock.length===0?'<p style="color:var(--ink-soft);font-size:13.5px;">Sin alertas por ahora.</p>':`
-        <table><thead><tr><th>Insumo</th><th>Disponible</th><th>Estado</th></tr></thead><tbody>
-        ${lowStock.map(i=>`<tr><td>${i.name}</td><td>${i.qty}/${i.max} ${i.unit}</td><td><span class="badge badge-danger">Crítico</span></td></tr>`).join('')}
-        </tbody></table>`}
+      <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:16px;">
+        <div class="card">
+          <div class="card-head"><h2>🚨 Alertas de inventario</h2><div class="muted">Stock &lt;34%</div></div>
+          ${lowStock.length===0?'<p style="color:var(--ink-soft);font-size:13.5px;">✅ Sin alertas — todo con stock suficiente.</p>':`
+          <table><thead><tr><th>Insumo</th><th>Disponible</th><th>Estado</th></tr></thead><tbody>
+          ${lowStock.map(i=>`<tr><td><b>${i.name}</b><div style="font-size:11px;color:var(--ink-faint);">${i.category}</div></td><td>${i.qty}/${i.max} ${i.unit}</td><td><span class="badge badge-danger">Crítico</span></td></tr>`).join('')}
+          </tbody></table>`}
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="card" style="background:linear-gradient(135deg,var(--green-800),var(--green-700)); color:#fff; border:none;">
+            <div style="font-size:12px;opacity:.8;">📦 Cosecha total registrada</div><h2 style="font-size:28px;color:#fff;margin-top:6px;">${totalHarvest} unidades</h2><div style="font-size:11px;opacity:.7;margin-top:4px;">Suma de racimos/sacos/toneladas</div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>🕒 Últimas cosechas</h2></div>
+            ${recentHarvests.map(h=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);"><div><b style="font-size:13px;">${h.crop} · ${h.plot}</b><div style="font-size:11px;color:var(--ink-faint);">${h.date} · ${h.ribbonColor||''} ${h.rejected?`· ${h.rejected} rechaz.` : ''}</div></div><span class="badge badge-ok">${h.qty} ${h.unit}</span></div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:16px;">
+        <a href="#/plots" style="text-decoration:none;"><div class="card" style="text-align:center;padding:16px;cursor:pointer;"><div style="font-size:22px;">🗺️</div><div style="font-size:13px;font-weight:600;margin-top:6px;">Parcelas</div><div style="font-size:11px;color:var(--ink-faint);">Trama = parcela</div></div></a>
+        <a href="#/crops" style="text-decoration:none;"><div class="card" style="text-align:center;padding:16px;cursor:pointer;"><div style="font-size:22px;">🌱</div><div style="font-size:13px;font-weight:600;margin-top:6px;">Cultivos</div><div style="font-size:11px;color:var(--ink-faint);">Plantas por parcela</div></div></a>
+        <a href="#/harvest" style="text-decoration:none;"><div class="card" style="text-align:center;padding:16px;cursor:pointer;"><div style="font-size:22px;">📦</div><div style="font-size:13px;font-weight:600;margin-top:6px;">Cosecha</div><div style="font-size:11px;color:var(--ink-faint);">Cinta + rechazados</div></div></a>
+        <a href="#/tasks" style="text-decoration:none;"><div class="card" style="text-align:center;padding:16px;cursor:pointer;"><div style="font-size:22px;">📋</div><div style="font-size:13px;font-weight:600;margin-top:6px;">Tareas</div><div style="font-size:11px;color:var(--ink-faint);">Kanban 4 estados</div></div></a>
       </div>
     </div>
   `, '#/dashboard'));
