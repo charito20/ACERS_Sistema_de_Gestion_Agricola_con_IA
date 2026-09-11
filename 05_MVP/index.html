@@ -95,6 +95,13 @@ tbody tr:hover{background:#faf9f4;}
 .kcard{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin-bottom:8px; font-size:13px;}
 .kcard b{display:block; margin-bottom:2px;}
 .kcard .meta{font-size:11.5px; color:var(--ink-faint); margin-top:4px; display:flex; justify-content:space-between; align-items:center;}
+.card{box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.card-head h2{display:flex; align-items:center; gap:8px;}
+.module-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none;}
+.field label{display:flex;align-items:center;gap:6px;}
+.topbar .eyebrow{display:flex;align-items:center;gap:6px;}
+.side-nav a{display:flex;align-items:center;gap:10px;}
+.side-nav a .nav-icon{width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:14px;flex:none;opacity:.85;}
 
 /* ---------- Login ---------- */
 .login-wrap{display:flex; width:100%; min-height:100vh;}
@@ -134,29 +141,29 @@ function seedDB(){
       {id:'u5', name:'Luis Macías', username:'l.macias', password:'campo123', role:'Trabajador agrícola', status:'Inactivo'}
     ],
     plots: [
-      {id:'p1', code:'Trama A1', location:'Sector norte', area:2.4, status:'Activo', crop:'Cacao', plantCount:50, terrain:'Plano', ribbonColor:'Roja'},
-      {id:'p2', code:'Trama B1', location:'Sector este', area:3.1, status:'Activo', crop:'Plátano', plantCount:30, terrain:'Alto', ribbonColor:'Azul'},
-      {id:'p3', code:'Trama B2', location:'Sector este', area:2.8, status:'Activo', crop:'Plátano', plantCount:28, terrain:'Plano', ribbonColor:'Amarilla'},
-      {id:'p4', code:'Trama C1', location:'Sector sur', area:1.9, status:'Descanso', crop:'—', plantCount:0, terrain:'Plano', ribbonColor:'—'},
-      {id:'p5', code:'Trama C2', location:'Sector sur', area:2.2, status:'Activo', crop:'Cacao', plantCount:45, terrain:'Pendiente', ribbonColor:'Verde'},
-      {id:'p6', code:'Trama D1', location:'Sector oeste', area:3.6, status:'Activo', crop:'Palma', plantCount:60, terrain:'Plano', ribbonColor:'Blanca'}
+      {id:'p1', code:'Parcela A1', location:'Sector norte', area:2.4, status:'Activo', crop:'Cacao', plantCount:50, terrain:'Plano', ribbonColor:'Roja'},
+      {id:'p2', code:'Parcela B1', location:'Sector este', area:3.1, status:'Activo', crop:'Plátano', plantCount:30, terrain:'Alto', ribbonColor:'Azul'},
+      {id:'p3', code:'Parcela B2', location:'Sector este', area:2.8, status:'Activo', crop:'Plátano', plantCount:28, terrain:'Plano', ribbonColor:'Amarilla'},
+      {id:'p4', code:'Parcela C1', location:'Sector sur', area:1.9, status:'Descanso', crop:'—', plantCount:0, terrain:'Plano', ribbonColor:'—'},
+      {id:'p5', code:'Parcela C2', location:'Sector sur', area:2.2, status:'Activo', crop:'Cacao', plantCount:45, terrain:'Pendiente', ribbonColor:'Verde'},
+      {id:'p6', code:'Parcela D1', location:'Sector oeste', area:3.6, status:'Activo', crop:'Palma', plantCount:60, terrain:'Plano', ribbonColor:'Blanca'}
     ],
     crops: [
-      {id:'c1', type:'Cacao', variety:'CCN-51', plot:'Trama A1', date:'2024-03-10', status:'Producción', plantCount:50},
-      {id:'c2', type:'Plátano', variety:'Dominico', plot:'Trama B1', date:'2023-11-02', status:'Producción', plantCount:30},
-      {id:'c3', type:'Plátano', variety:'Barraganete', plot:'Trama B2', date:'2024-01-15', status:'Crecimiento', plantCount:28},
-      {id:'c4', type:'Cacao', variety:'Nacional', plot:'Trama C2', date:'2022-06-20', status:'Producción', plantCount:45},
-      {id:'c5', type:'Palma', variety:'Palma africana', plot:'Trama D1', date:'2021-05-01', status:'Producción', plantCount:60}
+      {id:'c1', type:'Cacao', variety:'CCN-51', plot:'Parcela A1', date:'2024-03-10', status:'Producción', plantCount:50},
+      {id:'c2', type:'Plátano', variety:'Dominico', plot:'Parcela B1', date:'2023-11-02', status:'Producción', plantCount:30},
+      {id:'c3', type:'Plátano', variety:'Barraganete', plot:'Parcela B2', date:'2024-01-15', status:'Crecimiento', plantCount:28},
+      {id:'c4', type:'Cacao', variety:'Nacional', plot:'Parcela C2', date:'2022-06-20', status:'Producción', plantCount:45},
+      {id:'c5', type:'Palma', variety:'Palma africana', plot:'Parcela D1', date:'2021-05-01', status:'Producción', plantCount:60}
     ],
     activities: [
-      {id:'a1', type:'Deshierbe', plot:'Trama B1', date:'2026-07-28', time:'07:40', worker:'Andrés Cedeño', status:'Hecho', notes:''},
-      {id:'a2', type:'Fertilización', plot:'Trama A1', date:'2026-07-28', time:'09:15', worker:'Andrés Cedeño', status:'Hecho', notes:''},
-      {id:'a3', type:'Control de plagas (fungicida)', plot:'Trama C2', date:'2026-07-28', time:'11:00', worker:'Andrés Cedeño', status:'En progreso', notes:''}
+      {id:'a1', type:'Deshierbe', plot:'Parcela B1', date:'2026-07-28', time:'07:40', worker:'Andrés Cedeño', status:'Hecho', notes:''},
+      {id:'a2', type:'Fertilización', plot:'Parcela A1', date:'2026-07-28', time:'09:15', worker:'Andrés Cedeño', status:'Hecho', notes:''},
+      {id:'a3', type:'Control de plagas (fungicida)', plot:'Parcela C2', date:'2026-07-28', time:'11:00', worker:'Andrés Cedeño', status:'En progreso', notes:''}
     ],
     harvests: [
-      {id:'h1', crop:'Plátano', plot:'Trama B1', date:'2026-07-28', qty:38, unit:'Racimos', worker:'Andrés Cedeño', ribbonColor:'Azul', rejected:2, notes:'2 rechazados por mancha'},
-      {id:'h2', crop:'Cacao', plot:'Trama C1', date:'2026-07-26', qty:12, unit:'Sacos', worker:'José Quinde', ribbonColor:'Roja', rejected:1, notes:'1 saco con piojo'},
-      {id:'h3', crop:'Palma', plot:'Trama D1', date:'2026-07-24', qty:2.4, unit:'Toneladas', worker:'Mario Suárez', ribbonColor:'Verde', rejected:0, notes:''}
+      {id:'h1', crop:'Plátano', plot:'Parcela B1', date:'2026-07-28', qty:38, unit:'Racimos', worker:'Andrés Cedeño', ribbonColor:'Azul', rejected:2, notes:'2 rechazados por mancha'},
+      {id:'h2', crop:'Cacao', plot:'Parcela C1', date:'2026-07-26', qty:12, unit:'Sacos', worker:'José Quinde', ribbonColor:'Roja', rejected:1, notes:'1 saco con piojo'},
+      {id:'h3', crop:'Palma', plot:'Parcela D1', date:'2026-07-24', qty:2.4, unit:'Toneladas', worker:'Mario Suárez', ribbonColor:'Verde', rejected:0, notes:''}
     ],
     inventory: [
       {id:'i1', name:'Fungicida sistémico', category:'Fungicida', qty:4, max:30, unit:'sacos', threshold:10},
@@ -166,14 +173,14 @@ function seedDB(){
       {id:'i5', name:'Machetes', category:'Herramienta', qty:9, max:10, unit:'unidades', threshold:2}
     ],
     tasks: [
-      {id:'t1', title:'Aplicar fungicida — moniliasis', plot:'Trama C1', worker:'José Quinde', due:'Hoy', status:'Pendiente'},
-      {id:'t2', title:'Control de malas hierbas', plot:'Trama B1', worker:'Andrés Cedeño', due:'Hoy', status:'Pendiente'},
-      {id:'t3', title:'Cosecha de racimos maduros', plot:'Trama D1', worker:'Mario Suárez', due:'Mañana', status:'Pendiente'},
-      {id:'t4', title:'Fertilización programada', plot:'Trama A1', worker:'Carlos Zambrano', due:'', status:'En progreso'},
-      {id:'t5', title:'Inspección de Sigatoka', plot:'Trama B2', worker:'Luis Macías', due:'', status:'En progreso'},
-      {id:'t6', title:'Poda fitosanitaria', plot:'Trama B1', worker:'Pedro Luar', due:'', status:'Bloqueado'},
-      {id:'t7', title:'Cosecha en racimos', plot:'Trama A1', worker:'Andrés Cedeño', due:'Ayer', status:'Completado'},
-      {id:'t8', title:'Cosecha de sacos', plot:'Trama C1', worker:'José Quinde', due:'Ayer', status:'Completado'},
+      {id:'t1', title:'Aplicar fungicida — moniliasis', plot:'Parcela C1', worker:'José Quinde', due:'Hoy', status:'Pendiente'},
+      {id:'t2', title:'Control de malas hierbas', plot:'Parcela B1', worker:'Andrés Cedeño', due:'Hoy', status:'Pendiente'},
+      {id:'t3', title:'Cosecha de racimos maduros', plot:'Parcela D1', worker:'Mario Suárez', due:'Mañana', status:'Pendiente'},
+      {id:'t4', title:'Fertilización programada', plot:'Parcela A1', worker:'Carlos Zambrano', due:'', status:'En progreso'},
+      {id:'t5', title:'Inspección de Sigatoka', plot:'Parcela B2', worker:'Luis Macías', due:'', status:'En progreso'},
+      {id:'t6', title:'Poda fitosanitaria', plot:'Parcela B1', worker:'Pedro Luar', due:'', status:'Bloqueado'},
+      {id:'t7', title:'Cosecha en racimos', plot:'Parcela A1', worker:'Andrés Cedeño', due:'Ayer', status:'Completado'},
+      {id:'t8', title:'Cosecha de sacos', plot:'Parcela C1', worker:'José Quinde', due:'Ayer', status:'Completado'},
       {id:'t9', title:'Entrega semanal de insumos', plot:'General', worker:'Raúl Moreira', due:'Lun', status:'Completado'}
     ],
     currentUserId: null
@@ -229,15 +236,15 @@ window.addEventListener('hashchange', navigate);
 
 /* ===================== SHELL (sidebar + topbar) ===================== */
 const NAV_ITEMS = [
-  {href:'#/dashboard', label:'Panel general', roles:['Administrador']},
-  {href:'#/plots', label:'Parcelas', roles:['Administrador']},
-  {href:'#/crops', label:'Cultivos', roles:['Administrador']},
-  {href:'#/activities', label:'Actividades', roles:['Administrador','Trabajador agrícola']},
-  {href:'#/harvest', label:'Cosecha', roles:['Administrador']},
-  {href:'#/inventory', label:'Inventario', roles:['Administrador']},
-  {href:'#/tasks', label:'Tareas', roles:['Administrador']},
-  {href:'#/reports', label:'Informes', roles:['Administrador']},
-  {href:'#/users', label:'Usuarios', roles:['Administrador']}
+  {href:'#/dashboard', label:'Panel general', icon:'🏠', roles:['Administrador']},
+  {href:'#/plots', label:'Parcelas', icon:'🗺️', roles:['Administrador']},
+  {href:'#/crops', label:'Cultivos', icon:'🌱', roles:['Administrador']},
+  {href:'#/activities', label:'Actividades', icon:'🌿', roles:['Administrador','Trabajador agrícola']},
+  {href:'#/harvest', label:'Cosecha', icon:'📦', roles:['Administrador']},
+  {href:'#/inventory', label:'Inventario', icon:'📦', roles:['Administrador']},
+  {href:'#/tasks', label:'Tareas', icon:'📋', roles:['Administrador']},
+  {href:'#/reports', label:'Informes', icon:'📊', roles:['Administrador']},
+  {href:'#/users', label:'Usuarios', icon:'👥', roles:['Administrador']}
 ];
 
 function shell(innerHTML, activeHref){
@@ -253,7 +260,7 @@ function shell(innerHTML, activeHref){
         AgroMoreira · SGA
       </div>
       <ul class="side-nav">
-        ${items.map(i=>`<li><a class="${i.href===activeHref?'active':''}" href="${i.href}">${i.label}</a></li>`).join('')}
+        ${items.map(i=>`<li><a class="${i.href===activeHref?'active':''}" href="${i.href}"><span class="nav-icon">${i.icon}</span>${i.label}</a></li>`).join('')}
         ${hidden>0?`<li class="locked"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg><span>Otros módulos están restringidos para tu puesto (RF-20).</span></li>`:''}
       </ul>
       <a class="side-user" href="#" onclick="logout(); return false;">
@@ -343,10 +350,10 @@ function renderDashboard(){
   const totalHarvest = DB.harvests.reduce((s,h)=>s+h.qty,0).toFixed(0);
   const recentHarvests = DB.harvests.slice(-3).reverse();
   mount(shell(`
-    ${topbar('MU-00 · Panel general','Panel general','Vista rápida del estado de la finca AgriMoreira. — TRAMA A1 = código de la parcela (ej. Trama A1 = Parcela A1, Sector norte).')}
+    ${topbar('MU-00 · Panel general','Panel general','Vista rápida del estado de la finca AgriMoreira. — Parcela A1 (antes “Trama A1”) es el código de la parcela con su sector y datos.')}
     <div class="content">
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:20px;">
-        <div class="card" style="border-left:4px solid var(--green-700);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">🌿 Área cultivada</div><h2 style="font-size:26px;margin-top:6px;">${totalArea} ha</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">6 parcelas · TRAMA = parcela</div></div><div style="width:42px;height:42px;border-radius:10px;background:var(--ok-bg);display:flex;align-items:center;justify-content:center;font-size:20px;">🗺️</div></div></div>
+        <div class="card" style="border-left:4px solid var(--green-700);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">🌿 Área cultivada</div><h2 style="font-size:26px;margin-top:6px;">${totalArea} ha</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">6 parcelas · antes “Trama”</div></div><div style="width:42px;height:42px;border-radius:10px;background:var(--ok-bg);display:flex;align-items:center;justify-content:center;font-size:20px;">🗺️</div></div></div>
         <div class="card" style="border-left:4px solid #2c6349;"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">🌱 Cultivos en producción</div><h2 style="font-size:26px;margin-top:6px;">${activeCrops}</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">Cacao/Plátano/Palma</div></div><div style="width:42px;height:42px;border-radius:10px;background:#efe9da;display:flex;align-items:center;justify-content:center;font-size:20px;">🌾</div></div></div>
         <div class="card" style="border-left:4px solid var(--bronze);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">👷 Trabajadores activos</div><h2 style="font-size:26px;margin-top:6px;">${workers}</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">En campo hoy</div></div><div style="width:42px;height:42px;border-radius:10px;background:#fbeede;display:flex;align-items:center;justify-content:center;font-size:20px;">👥</div></div></div>
         <div class="card" style="border-left:4px solid var(--danger);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">📋 Tareas pendientes</div><h2 style="font-size:26px;margin-top:6px;">${pendingTasks}</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">Por asignar</div></div><div style="width:42px;height:42px;border-radius:10px;background:var(--danger-bg);display:flex;align-items:center;justify-content:center;font-size:20px;">⚠️</div></div></div>
@@ -382,7 +389,7 @@ function renderDashboard(){
 /* ===================== PARCELAS ===================== */
 function renderPlots(){
   mount(shell(`
-    ${topbar('MU-02 · Parcelas','Parcelas','Registra y gestiona las parcelas que conforman la finca.')}
+    ${topbar('🗺️ MU-02 · Parcelas','Parcelas','Registra y gestiona las parcelas que conforman la finca. Cada parcela antes llamada “Trama” ahora es “Parcela A1, B1…” con su sector, área, plantas, terreno y cinta.')}
     <div class="content two-col">
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Todas las parcelas</h2><div class="muted">${DB.plots.length} parcelas · ${DB.plots.reduce((s,p)=>s+p.area,0).toFixed(1)} ha total</div></div></div>
@@ -420,7 +427,7 @@ function deletePlot(id){ DB.plots = DB.plots.filter(p=>p.id!==id); saveDB(DB); s
 function renderCrops(){
   const plotOptions = DB.plots.map(p=>`<option>${p.code}</option>`).join('');
   mount(shell(`
-    ${topbar('MU-03 · Cultivos','Cultivos','Registra los cultivos de plátano, cacao y palma asignados a cada parcela.')}
+    ${topbar('🌱 MU-03 · Cultivos','Cultivos','Registra los cultivos por parcela — ahora con cantidad de plantas y separado por secciones (cacao/plátano/maíz).')}
     <div class="content two-col">
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Todos los cultivos</h2><div class="muted">${DB.crops.length} cultivos</div></div></div>
@@ -460,7 +467,7 @@ function renderActivities(){
   const plotOptions = DB.plots.map(p=>`<option>${p.code}</option>`).join('');
   const myActs = DB.activities.filter(a=> user.role==='Administrador' ? true : a.worker===user.name);
   mount(shell(`
-    ${topbar('MU-04 · Actividades','Actividad de campo — Registro','Registra el trabajo realizado hoy para que el administrador pueda darle seguimiento.')}
+    ${topbar('🌿 MU-04 · Actividades','Actividad de campo','Registra el trabajo realizado hoy — elige tipo, parcela y fecha con seguimiento visual.')}
     <div class="content two-col">
       <div class="card" style="width:380px; flex:none;">
         <div class="card-head"><h2>Registrar nueva actividad</h2></div>
@@ -499,7 +506,7 @@ function renderHarvest(){
   const plotOptions = DB.plots.map(p=>`<option>${p.code}</option>`).join('');
   const cropOptions = [...new Set(DB.crops.map(c=>c.type))].map(t=>`<option>${t}</option>`).join('');
   mount(shell(`
-    ${topbar('MU-05 · Cosecha','Cosecha y producción','Registra la cosecha de hoy y consulta la producción por periodo.')}
+    ${topbar('📦 MU-05 · Cosecha','Cosecha y producción','Registra cosecha con color de cinta, cantidad, unidad y rechazados — todo visible en la tabla.')}
     <div class="content two-col">
       <div class="card" style="width:380px; flex:none;">
         <div class="card-head"><h2>Registrar cosecha</h2></div>
@@ -535,7 +542,7 @@ function saveHarvest(){
 function renderInventory(){
   const critical = DB.inventory.filter(i=>i.qty/i.max < 0.34);
   mount(shell(`
-    ${topbar('MU-06 · Inventario','Inventario de insumos','Da seguimiento a fertilizantes, fungicidas, herbicidas y herramientas.')}
+    ${topbar('📦 MU-06 · Inventario','Inventario de insumos','Stock con barra de progreso y alertas — fertilizantes, fungicidas y herramientas.')}
     <div class="content two-col">
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Material actual</h2><div class="muted">${DB.inventory.length} artículos · ${critical.length} por debajo del umbral</div></div></div>
@@ -573,7 +580,7 @@ function renderTasks(){
   const plotOptions = DB.plots.map(p=>`<option>${p.code}</option>`).join('');
   const workerOptions = DB.users.filter(u=>u.role==='Trabajador agrícola').map(u=>`<option>${u.name}</option>`).join('');
   mount(shell(`
-    ${topbar('MU-07 · Tareas','Planificación y asignación de tareas','Planifica, asigna y da seguimiento al trabajo de campo.')}
+    ${topbar('📋 MU-07 · Tareas','Planificación y asignación de tareas','Kanban visual por 4 estados: Pendiente → En progreso → Bloqueado → Completado. Arrastra y filtra.')}
     <div class="content">
       <div class="card" style="margin-bottom:20px;">
         <div class="card-head"><h2>Asignar una tarea</h2></div>
@@ -610,7 +617,7 @@ function renderReports(){
   const rows = Object.entries(byPlot).sort((a,b)=>b[1]-a[1]);
   const totalQty = DB.harvests.reduce((s,h)=>s+h.qty,0);
   mount(shell(`
-    ${topbar('MU-08 · Informes','Informes de producción','Analiza las tendencias de producción por cultivo y parcela.')}
+    ${topbar('📊 MU-08 · Informes','Informes de producción','Tendencias por parcela con total cosechado y ranking visual.')}
     <div class="content">
       <div class="card">
         <div class="card-head"><div><h2>Producción total registrada</h2><div class="muted">Suma de todas las cosechas guardadas</div></div></div>
@@ -628,7 +635,7 @@ function renderReports(){
 /* ===================== USUARIOS ===================== */
 function renderUsers(){
   mount(shell(`
-    ${topbar('MU-09 · Usuarios','Gestión de usuarios','Crea y gestiona cuentas para administradores y trabajadores de campo.')}
+    ${topbar('👥 MU-09 · Usuarios','Gestión de usuarios','Cuentas por rol — Administrador y Trabajador con estado activo/inactivo.')}
     <div class="content two-col">
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Cuentas de usuario</h2><div class="muted">${DB.users.length} cuentas</div></div></div>
