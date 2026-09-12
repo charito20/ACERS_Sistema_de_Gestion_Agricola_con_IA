@@ -357,7 +357,7 @@ function renderDashboard(){
   const totalHarvest = DB.harvests.reduce((s,h)=>s+h.qty,0).toFixed(0);
   const recentHarvests = DB.harvests.slice(-3).reverse();
   mount(shell(`
-    ${topbar('MU-00 · Panel general','Panel general','Vista rápida del estado de la finca AgriMoreira. — Parcela A1 (antes “Trama A1”) es el código de la parcela con su sector y datos.')}
+    ${topbar('MU-00 · Panel general','Panel general','Vista rápida del estado de la finca AgroMoreira. — Parcela A1 (antes “Trama A1”) es el código de la parcela con su sector y datos.')}
     <div class="content">
       <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:20px;">
         <div class="card" style="border-left:4px solid var(--green-700);"><div style="display:flex;justify-content:space-between;align-items:center;"><div><div class="muted" style="color:var(--ink-faint);font-size:12px;">🌿 Área cultivada</div><h2 style="font-size:26px;margin-top:6px;">${totalArea} ha</h2><div style="font-size:11px;color:var(--ink-faint);margin-top:4px;">6 parcelas · antes “Trama”</div></div><div style="width:42px;height:42px;border-radius:10px;background:var(--ok-bg);display:flex;align-items:center;justify-content:center;font-size:20px;">🗺️</div></div></div>
