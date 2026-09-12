@@ -192,13 +192,15 @@ envío. Esta medida es coherente con el protocolo de anonimización del paquete
 **Descripción:** La guía de desarrollo (elemento A11) exige que cada fotografía
 del proyecto conserve sus metadatos originales, con la fecha de captura tomada
 de los metadatos y el dispositivo. Al preparar el inventario
-`10_Autoria/exif_inventario.csv` se verificó archivo por archivo que ninguna de
+10_Autoria/exif_inventario.csv se verificó archivo por archivo que ninguna de
 las fotografías del repositorio conserva metadatos EXIF: las 22 fotografías de
-`02_Evidencias/Fotos_Entorno/` y las 5 fotografías de aplicación del
-cuestionario en `02_Evidencias/Cuestionario/Fotos_Aplicacion/` tienen
-únicamente una cabecera JFIF, sin fecha de captura ni información del
-dispositivo. Por eso las columnas de fecha y dispositivo de
-`exif_inventario.csv` figuran vacías.
+02_Evidencias/Fotos_Entorno/, las 5 fotografías de aplicación del
+cuestionario en 02_Evidencias/Cuestionario/Fotos_Aplicacion/, y las 2
+fotografías del equipo en 10_Autoria/fotos_equipo/ (agregadas el
+2026-09-12) tienen únicamente información de archivo PNG o cabecera JFIF, sin
+fecha de captura ni información del dispositivo. Por eso las columnas de
+fecha y dispositivo de exif_inventario.csv figuran vacías para las 29
+fotografías del repositorio.
 
 **Razón:** Las fotografías se compartieron entre los integrantes del equipo a
 través de aplicaciones de mensajería, que eliminan los metadatos EXIF al
