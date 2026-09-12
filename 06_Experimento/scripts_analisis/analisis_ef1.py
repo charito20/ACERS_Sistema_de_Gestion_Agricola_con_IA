@@ -2,7 +2,7 @@
 """
 analisis_ef1.py - Analisis estadistico del Enfoque 1 (Calidad de RF humanos vs. LLM)
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Integrante responsable: Escudero Plaza Maria del Rosario
 Reproduce exactamente las tablas y figuras del manuscrito a partir de los
 datos crudos en 06_Experimento/resultados/.
