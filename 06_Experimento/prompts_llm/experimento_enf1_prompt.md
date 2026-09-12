@@ -1,4 +1,5 @@
 # Prompt del experimento - Enfoque 1 (Calidad de RF humanos vs. LLM)
+> **Enfoque 1 no ejecutado (2026-09-02). ** El equipo fue asignado al enfoque 2 legal-first en la guía de la Entrega 4 (página 10, tabla de asignación). El enfoque 1 (RF humanos vs. LLM) no se corrió y no forma parte del análisis final. El archivo se conserva por trazabilidad. Ver NOTA_LEGALFIRST.md y la desviación 2 en 07_Datos/desviaciones.md.
 
 Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
 Integrante responsable: Escudero Plaza Maria del Rosario
@@ -47,7 +48,7 @@ Los ocho atributos de la plantilla del silabo son:
 
 | Fecha (ISO 8601) | Hora | Modelo | Temp. | top-p | Semilla | Conjunto producido | Archivo de salida |
 |---|---|---|---|---|---|---|---|
-| (pendiente) | (pendiente) | gpt-4o-2024-08-06 | 0.0 | 1.0 | 42 | A | `06_Experimento/resultados/conjunto_a_llm.csv` |
+| No ejecutado | No ejecutado | No ejecutado | - | - | - | - | `06_Experimento/resultados/conjunto_a_llm.csv` |
 
 ## Salida esperada
 
