@@ -6,22 +6,43 @@ la guía de desarrollo del proyecto.
 
 ## Desviación 1: Inicio del trabajo de campo antes del registro formal en OSF
 
-**Descripción:** Parte del trabajo de campo de elicitación comenzó antes del
-registro formal en OSF, como trabajo exploratorio de entregas anteriores del curso
-(Entregas 1A a 3/2A).
+**Descripción:** De las 17 entrevistas de elicitación que alimentan el proyecto,
+6 (ENTR-01 a ENTR-06, realizadas entre el 20 y el 26 de junio de 2026) se
+levantaron antes del registro formal en OSF (2 de agosto de 2026), como trabajo
+exploratorio de entregas anteriores del curso (Entregas 1A a 3/2A). Las 11
+entrevistas restantes (ENTR-07 a ENTR-17, realizadas entre el 23 y el 29 de
+agosto de 2026) se levantaron después del registro, ya bajo el protocolo
+formalizado.
 
-**Razón:** El componente empírico se construyó de forma incremental a lo largo del
-ciclo del proyecto; la elicitación inicial con informantes de la finca Agrícola
-Moreira se realizó en las primeras entregas, antes de formalizar el protocolo en el
-OSF.
+**Razón:** El componente empírico se construyó de forma incremental a lo largo
+del ciclo del proyecto. Las 6 primeras entrevistas se realizaron como
+elicitación exploratoria con informantes de la finca Agrícola Moreira, en una
+fase del curso anterior a la asignación oficial del enfoque *legal-first*
+(Entrega 4 / 2B) y, por lo tanto, anterior también a la formalización de su
+plan de análisis en el OSF. El diseño estadístico que sí quedó pre-registrado
+(comparación pareada de los 26 criterios C1-C26, prueba de McNemar, bootstrap,
+alfa 0.05) se definió y registró antes de que el equipo evaluara la cobertura
+legal de ningún requisito, y antes de que se realizara la mayoría (11 de 17,
+65%) de las sesiones de campo.
 
 **Momento en que se detectó:** Durante la preparación del registro OSF en la
 Entrega 3 (2A).
 
+**Limitación reconocida:** Esto no elimina la observación de que el registro
+OSF, tomado en sentido estricto, no antecede a la primera sesión de campo
+(ENTR-01, 20 de junio de 2026) sino a la mayoría de ellas y a la totalidad del
+plan de análisis. El equipo optó por no fabricar ni reetiquetar un sello
+temporal anterior para las 6 primeras entrevistas, ya que hacerlo constituiría
+una falsificación de evidencia. Se documenta esta brecha de forma explícita en
+lugar de ocultarla.
+
 **Mitigación aplicada:** El plan de análisis completo (tabla pareada de los 26
-criterios, estadísticos descriptivos, prueba de McNemar, bootstrap) se registró en
-el OSF antes de la evaluación formal de la cobertura legal. Ninguna decisión de
-análisis se tomó a partir de resultados preliminares.
+criterios, estadísticos descriptivos, prueba de McNemar, bootstrap) se registró
+en el OSF antes de la evaluación formal de la cobertura legal y antes de la
+mayoría de las sesiones de campo. Ninguna decisión de análisis se tomó a partir
+de resultados preliminares de las 6 entrevistas exploratorias; su contenido se
+incorporó al corpus final en igualdad de condiciones con las demás, sin
+tratamiento diferenciado que sesgara los resultados.
 
 ## Desviación 2: El enfoque metodológico pasó por dos formulaciones previas
 
