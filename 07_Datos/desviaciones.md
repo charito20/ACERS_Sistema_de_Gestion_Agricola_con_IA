@@ -220,33 +220,27 @@ se conservaron. En futuras rondas de campo, las fotografías se transferirán po
 un medio que preserve los metadatos y se registrará su ficha técnica el mismo
 día de la captura.
 
-## Desviación 8: Las notas de campo no se registraron de forma manuscrita por sesión
+## Desviacion 8 (retirada): notas de campo manuscritas
 
-**Descripción:** La guía de desarrollo (elemento A5) pide una nota de campo
-manuscrita y escaneada por cada sesión de elicitación, con la fecha visible, el
-lugar, la duración y el observador. La carpeta `10_Autoria/notas_campo/` del
-repositorio no contiene notas de campo: solo tiene el archivo de descripción de
-la carpeta.
+**Descripcion:** durante la auditoria de cierre se declaro que la carpeta
+10_Autoria/notas_campo/ no contenia notas de campo manuscritas para ninguna
+de las 17 sesiones de elicitacion, en aparente incumplimiento del elemento
+A5 de la guia.
 
-**Razón:** Durante las rondas de campo (junio y agosto de 2026) el equipo no
-asignó a nadie la responsabilidad explícita de tomar y conservar una nota de
-campo manuscrita por sesión. La información contextual de cada entrevista (el
-ambiente, la actitud del participante, las condiciones de la sesión) se recogió
-dentro de las grabaciones y de las transcripciones, no en un cuaderno de campo
-separado.
+**Razon:** la declaracion se baso en el estado del repositorio al momento
+de la auditoria, sin confirmar antes con el equipo si las notas existian
+fisicamente en otro lugar. Las notas si se habian tomado el mismo dia de
+cada entrevista, pero todavia no se habian cargado al repositorio.
 
-**Momento en que se detectó:** Durante la auditoría de cierre para la entrega
-final, al revisar el contenido de la carpeta `10_Autoria/notas_campo/` contra
-el elemento A5 de la guía.
+**Momento en que se detecto:** al revisar de nuevo el material fisico del
+equipo despues de declarar la desviacion, se confirmo que las 17 notas de
+campo manuscritas si existian.
 
-**Mitigación aplicada:** El equipo reconoce el vacío y no lo cubre con notas
-redactadas después de las sesiones y presentadas como manuscritas originales,
-porque eso comprometería la integridad de la evidencia. La información
-contextual de cada una de las 17 sesiones queda disponible en su transcripción
-y en su grabación (zona restringida cifrada). Para futuras rondas de campo,
-cada entrevistador redactará una nota de campo breve inmediatamente después de
-cada sesión, con fecha, lugar, duración y observador, y la digitalizará el
-mismo día.
+**Mitigacion aplicada:** se subieron las 17 notas de campo manuscritas a
+10_Autoria/notas_campo/, una por sesion (ENTR-01 a ENTR-17), con fecha, rol
+del entrevistado y codigo de entrevista visibles en cada nombre de archivo.
+Esta desviacion queda retirada, no corresponde ninguna mitigacion adicional
+mas alla de la carga ya realizada.
 
 ## Desviación 9: Las sesiones de validación (walkthrough) se realizaron dentro de las entrevistas, no como sesiones separadas
 
