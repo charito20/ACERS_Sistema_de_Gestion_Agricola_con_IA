@@ -1,4 +1,4 @@
-﻿# AgroMoreira — Sistema de Gestión Agrícola con Inteligencia Artificial
+<img width="1917" height="1120" alt="image" src="https://github.com/user-attachments/assets/c15c2bb3-340f-4ef4-90b0-7f66d2831574" />﻿# AgroMoreira — Sistema de Gestión Agrícola con Inteligencia Artificial
 
 Sistema de Gestión Agrícola con Inteligencia Artificial desarrollado para **Agrícola Moreira**, orientado a la administración y monitoreo de cultivos de **cacao** y **plátano verde**.
 
@@ -43,7 +43,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 
 | Integrante | Rol | Correo institucional |
 |------------|-----|----------------------|
-| Robinson Espinoza Jeanpierre | Analista Líder / Ingeniería de Requerimientos (rol original; sin commits propios desde 2026-09-01) | jrobinsone@uteq.edu.ec |
+| Robinson Espinoza Jeanpierre | Analista Líder / Ingeniería de Requerimientos (rol original; sin commits propios desde 2026-09-08) | jrobinsone@uteq.edu.ec |
 | Calle Delgado Kamila Anabella | Analista de Requerimientos; enfoque legal-first, evaluación independiente de cobertura legal y cierre técnico del manuscrito y del depósito FAIR (rol ampliado desde 2026-09-02) | kcalled@uteq.edu.ec |
 | Arteaga Álava Danela Dayana | Diseño y Modelado UML; asumió además la especificación completa de RF/RNF/CU y la elicitación y anexos éticos (rol ampliado desde 2026-09-02) | darteagaa@uteq.edu.ec |
 | Escudero Plaza María del Rosario | Investigación Experimental y Análisis Estadístico | mescuderop@uteq.edu.ec |
