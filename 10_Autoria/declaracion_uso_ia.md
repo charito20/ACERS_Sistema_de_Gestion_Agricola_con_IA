@@ -52,6 +52,21 @@ en `07_Datos/scripts/`.
 | retrospectiva_equipo.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en ordenar hallazgos del equipo en tabla | Kamila Calle | Contraste con informe del docente |
 | conjunto_convencional_rf.csv y conjunto_legalfirst_rf.csv | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en separar los 39 RF ya escritos en el ERS | Kamila Calle | Conteo contra el ERS |
 
+## Modelado, evidencias, ética, defensa y trazabilidad (03_Modelado/, 02_Evidencias/, 04_Trazabilidad/, 05_MVP/, 08_Etica/, 09_Defensa/)
+
+| Carpeta | Herramienta | Para que | Quien verifico | Metodo de verificacion |
+|---|---|---|---|---|
+| 02_Evidencias/ (transcripciones, codificacion tematica, fichas tecnicas) | — | Sin uso de IA | Equipo | Redaccion y codificacion manual sobre las grabaciones originales |
+| 03_Modelado/ (casos de uso, historias de usuario, mockups, diagramas) | — | Sin uso de IA | Equipo | Elaboracion manual a partir de la especificacion y las entrevistas |
+| 04_Trazabilidad/ (matriz, casos de prueba, analisis de huerfanos) | — | Sin uso de IA | Equipo | Elaboracion manual, verificada con el script `verificar_trazabilidad.py` |
+| 05_MVP/ (prototipo, videos de demostracion) | — | Sin uso de IA | Equipo | Desarrollo y grabacion propios |
+| 08_Etica/ (anexos A1 a A13, protocolos, consentimientos) | — | Sin uso de IA | Equipo | Redaccion manual conforme a los formatos institucionales |
+| 09_Defensa/presentacion.pdf, guion.pdf, folleto_una_hoja.pdf | — | Sin uso de IA | Equipo | Elaboracion manual por el equipo |
+| 09_Defensa/banco_preguntas.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Pulido de redaccion sobre las respuestas ya preparadas por el equipo | Kamila Calle | Contraste con los datos y documentos citados en cada respuesta |
+| 09_Defensa/puntos_debiles_conocidos.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Pulido de redaccion sobre los hallazgos y correcciones ya verificados por el equipo | Kamila Calle | Contraste con el estado real del repositorio |
+| Esta seccion del documento y los archivos 06_Experimento/README.md y 07_Publicacion/README.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Redaccion de la tabla de cobertura restante y de las instrucciones de compilacion, a partir de la informacion confirmada por Kamila Calle sobre que carpetas usaron o no IA | Kamila Calle | Contraste con la informacion confirmada por la integrante |
+
+
 **Resumen:** El LLM se empleó exclusivamente para la redacción (redacción editorial).
 Toda cifra, tabla y figura procede de la ejecución reproducible de los scripts.
 Declaración sujeta a revisión por el tribunal según la política de integridad de la
