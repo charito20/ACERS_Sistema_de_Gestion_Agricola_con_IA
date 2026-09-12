@@ -165,6 +165,11 @@ function seedDB(){
       {id:'h2', crop:'Cacao', plot:'Parcela C1', date:'2026-07-26', qty:12, unit:'Sacos', worker:'José Quinde', ribbonColor:'Roja', rejected:1, notes:'1 saco con piojo'},
       {id:'h3', crop:'Palma', plot:'Parcela D1', date:'2026-07-24', qty:2.4, unit:'Toneladas', worker:'Mario Suárez', ribbonColor:'Verde', rejected:0, notes:''}
     ],
+    aiAlerts: [
+      {id:'ai1', type:'Moniliasis', plot:'Parcela C2', date:'2026-09-05', severity:'Alta', status:'Pendiente', recommendation:'Podar y aplicar fungicida sistémico', confidence:87},
+      {id:'ai2', type:'Moko (Ralstonia)', plot:'Parcela B1', date:'2026-09-04', severity:'Crítica', status:'Pendiente', recommendation:'Aislar lote y reportar a AGROCALIDAD (RF-37)', confidence:92},
+      {id:'ai3', type:'Déficit hídrico', plot:'Parcela A1', date:'2026-09-03', severity:'Media', status:'Confirmada', recommendation:'Regar en 48h — alerta lluvias prevista', confidence:78}
+    ],
     inventory: [
       {id:'i1', name:'Fungicida sistémico', category:'Fungicida', qty:4, max:30, unit:'sacos', threshold:10},
       {id:'i2', name:'Fertilizante NPK', category:'Fertilizante', qty:7, max:25, unit:'sacos', threshold:10},
@@ -216,6 +221,7 @@ const routes = {
   '#/inventory': renderInventory,
   '#/tasks': renderTasks,
   '#/reports': renderReports,
+  '#/ai': renderAI,
   '#/users': renderUsers
 };
 
@@ -244,6 +250,7 @@ const NAV_ITEMS = [
   {href:'#/inventory', label:'Inventario', icon:'📦', roles:['Administrador']},
   {href:'#/tasks', label:'Tareas', icon:'📋', roles:['Administrador']},
   {href:'#/reports', label:'Informes', icon:'📊', roles:['Administrador']},
+  {href:'#/ai', label:'Alertas IA', icon:'🤖', roles:['Administrador']},
   {href:'#/users', label:'Usuarios', icon:'👥', roles:['Administrador']}
 ];
 
@@ -394,7 +401,7 @@ function renderPlots(){
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Todas las parcelas</h2><div class="muted">${DB.plots.length} parcelas · ${DB.plots.reduce((s,p)=>s+p.area,0).toFixed(1)} ha total</div></div></div>
         <table><thead><tr><th>Parcela</th><th>Ubicación</th><th>Área</th><th>Plantas</th><th>Peso (kg)</th><th>Fecha</th><th>Terreno</th><th>Cinta</th><th>Estado</th><th></th></tr></thead>
-        <tbody>${DB.plots.map(p=>`<tr><td><b>${p.code}</b></td><td>${p.location}</td><td>${p.area} ha</td><td>${p.plantCount||0}</td><td>${p.peso||0} kg</td><td><code class="mono">${p.fecha||'—'}</code></td><td><span class="badge badge-neutral">${p.terrain||'—'}</span></td><td><span class="badge badge-info">${p.ribbonColor||'—'}</span></td><td><span class="badge ${p.status==='Activo'?'badge-ok':'badge-warn'}">${p.status}</span></td><td>${p.crop}</td><td><button class="btn btn-outline btn-sm" onclick="deletePlot('${p.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>
+        <tbody>${DB.plots.map(p=>`<tr><td><b>${p.code}</b></td><td>${p.location}</td><td>${p.area} ha</td><td>${p.plantCount||0}</td><td>${p.peso||0} kg</td><td><code class="mono">${p.fecha||'—'}</code></td><td><span class="badge badge-neutral">${p.terrain||'—'}</span></td><td><span class="badge badge-info">${p.ribbonColor||'—'}</span></td><td><span class="badge ${p.status==='Activo'?'badge-ok':'badge-warn'}">${p.status}</span></td><td>${p.crop}</td><td><div style="display:flex;gap:6px;"><button class="btn btn-outline btn-sm" onclick="editPlot('${p.id}')">✏️ Editar</button><button class="btn btn-danger-outline btn-sm" onclick="deletePlot('${p.id}')">🗑️</button></div></td></tr>`).join('')}</tbody></table>
       </div>
       <div class="card" style="width:340px; flex:none;">
         <div class="card-head"><h2>Nueva parcela</h2></div>
@@ -425,6 +432,7 @@ function renderPlots(){
     saveDB(DB); showToast('Parcela guardada'); renderPlots();
   });
 }
+function editPlot(id){ const p=DB.plots.find(x=>x.id===id); if(!p) return; const code=prompt('Código (Parcela):',p.code); if(code===null) return; const area=prompt('Área (ha):',p.area); const plantCount=prompt('Plantas:',p.plantCount); const peso=prompt('Peso (kg):',p.peso); if(code) p.code=code; if(area) p.area=parseFloat(area); if(plantCount) p.plantCount=parseInt(plantCount); if(peso) p.peso=parseFloat(peso); saveDB(DB); showToast('Parcela actualizada'); renderPlots(); }
 function deletePlot(id){ DB.plots = DB.plots.filter(p=>p.id!==id); saveDB(DB); showToast('Parcela eliminada'); renderPlots(); }
 
 /* ===================== CULTIVOS ===================== */
@@ -436,7 +444,7 @@ function renderCrops(){
       <div class="card" style="flex:1;">
         <div class="card-head"><div><h2>Todos los cultivos</h2><div class="muted">${DB.crops.length} cultivos</div></div></div>
         <table><thead><tr><th>Cultivo</th><th>Variedad</th><th>Parcela</th><th>Plantas</th><th>Siembra</th><th>Estado</th><th></th></tr></thead>
-        <tbody>${DB.crops.map(c=>`<tr><td><b>${c.type}</b></td><td>${c.variety}</td><td>${c.plot}</td><td>${c.plantCount||0}</td><td><code class="mono">${c.date}</code></td><td><span class="badge ${c.status==='Producción'?'badge-ok':'badge-info'}">${c.status}</span></td><td><button class="btn btn-outline btn-sm" onclick="deleteCrop('${c.id}')">Eliminar</button></td></tr>`).join('')}</tbody></table>
+        <tbody>${DB.crops.map(c=>`<tr><td><b>${c.type}</b></td><td>${c.variety}</td><td>${c.plot}</td><td>${c.plantCount||0}</td><td><code class="mono">${c.date}</code></td><td><span class="badge ${c.status==='Producción'?'badge-ok':'badge-info'}">${c.status}</span></td><td><div style="display:flex;gap:6px;"><button class="btn btn-outline btn-sm" onclick="editCrop('${c.id}')">✏️ Editar</button><button class="btn btn-danger-outline btn-sm" onclick="deleteCrop('${c.id}')">🗑️</button></div></td></tr>`).join('')}</tbody></table>
       </div>
       <div class="card" style="width:340px; flex:none;">
         <div class="card-head"><h2>Nuevo cultivo</h2></div>
@@ -462,6 +470,7 @@ function renderCrops(){
     saveDB(DB); showToast('Cultivo guardado'); renderCrops();
   });
 }
+function editCrop(id){ const c=DB.crops.find(x=>x.id===id); if(!c) return; const variety=prompt('Variedad:',c.variety); const plantCount=prompt('Plantas:',c.plantCount); if(variety!==null) c.variety=variety; if(plantCount!==null) c.plantCount=parseInt(plantCount)||c.plantCount; saveDB(DB); showToast('Cultivo actualizado'); renderCrops(); }
 function deleteCrop(id){ DB.crops = DB.crops.filter(c=>c.id!==id); saveDB(DB); showToast('Cultivo eliminado'); renderCrops(); }
 
 /* ===================== ACTIVIDADES ===================== */
@@ -663,6 +672,28 @@ function addUser(){
   DB.users.push({id:uid('u'), name:document.getElementById('uf_name').value, username:document.getElementById('uf_username').value, password:document.getElementById('uf_pass').value, role:document.getElementById('uf_role').value, status:'Activo'});
   saveDB(DB); showToast('Cuenta creada'); renderUsers();
 }
+
+/* ===================== ALERTAS IA (MU-10) ===================== */
+function renderAI(){
+  mount(shell(`
+    ${topbar('🤖 MU-10 · Alertas IA','Alertas con inteligencia artificial','Detección de moniliasis, moko y déficit hídrico con recomendación y supervisión humana.')}
+    <div class="content">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px;">
+        <div class="card" style="border-left:4px solid var(--danger);"><div style="font-size:12px;color:var(--ink-faint);">🔴 Críticas</div><h2 style="font-size:26px;margin-top:6px;">${DB.aiAlerts.filter(a=>a.severity==='Crítica').length}</h2></div>
+        <div class="card" style="border-left:4px solid var(--warn);"><div style="font-size:12px;color:var(--ink-faint);">🟡 Altas</div><h2 style="font-size:26px;margin-top:6px;">${DB.aiAlerts.filter(a=>a.severity==='Alta').length}</h2></div>
+        <div class="card" style="border-left:4px solid var(--ok);"><div style="font-size:12px;color:var(--ink-faint);">✅ Confirmadas</div><h2 style="font-size:26px;margin-top:6px;">${DB.aiAlerts.filter(a=>a.status==='Confirmada').length}</h2></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>🤖 Alertas generadas</h2><div class="muted">Requiere confirmación humana (RF-09)</div></div>
+        <table><thead><tr><th>Fecha</th><th>Tipo</th><th>Parcela</th><th>Confianza</th><th>Recomendación</th><th>Estado</th><th>Acción</th></tr></thead>
+        <tbody>${DB.aiAlerts.map(a=>`<tr><td><code class="mono">${a.date}</code></td><td><b>${a.type}</b><div style="font-size:11px;color:var(--ink-faint);">${a.severity}</div></td><td>${a.plot}</td><td><span class="badge ${a.confidence>85?'badge-danger':a.confidence>75?'badge-warn':'badge-info'}">${a.confidence}%</span></td><td style="max-width:260px;font-size:12.5px;">${a.recommendation}</td><td><span class="badge ${a.status==='Pendiente'?'badge-warn':a.status==='Confirmada'?'badge-ok':'badge-neutral'}">${a.status}</span></td><td><div style="display:flex;gap:6px;">${a.status==='Pendiente'?`<button class="btn btn-primary btn-sm" onclick="confirmAI('${a.id}')">✓ Confirmar</button><button class="btn btn-outline btn-sm" onclick="dismissAI('${a.id}')">✕ Descartar</button>`:`<span style="font-size:11px;color:var(--ink-faint);">Resuelto</span>`}</div></td></tr>`).join('')}</tbody></table>
+      </div>
+      <p class="foot-note">Trazado a <code>RF-09</code> · <code>RF-37</code> · Caso de uso <code>CU-06</code> · Supervisión humana obligatoria antes de reportar a AGROCALIDAD.</p>
+    </div>
+  `, '#/ai'));
+}
+function confirmAI(id){ const a=DB.aiAlerts.find(x=>x.id===id); if(a) a.status='Confirmada'; saveDB(DB); showToast('Alerta confirmada — se generó tarea'); DB.tasks.push({id:uid('t'), title:a.type+' — '+a.plot, plot:a.plot, worker:'Andrés Cedeño', due:'Hoy', status:'Pendiente'}); saveDB(DB); renderAI(); }
+function dismissAI(id){ const a=DB.aiAlerts.find(x=>x.id===id); if(a) a.status='Descartada'; saveDB(DB); showToast('Alerta descartada'); renderAI(); }
 
 /* ===================== INIT ===================== */
 navigate();
