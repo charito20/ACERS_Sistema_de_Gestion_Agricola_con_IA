@@ -1,6 +1,6 @@
 # Rubrica de evaluacion experta a ciegas
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Enfoque empirico: Enfoque 1 (Calidad de RF humanos vs. LLM)
 Integrante responsable: Escudero Plaza Maria del Rosario
 Version: 2.0
