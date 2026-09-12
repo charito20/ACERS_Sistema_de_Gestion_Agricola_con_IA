@@ -1,7 +1,8 @@
 # Prompt del experimento - Enfoque 1 (Calidad de RF humanos vs. LLM)
-> **Enfoque 1 no ejecutado (2026-09-02). ** El equipo fue asignado al enfoque 2 legal-first en la guía de la Entrega 4 (página 10, tabla de asignación). El enfoque 1 (RF humanos vs. LLM) no se corrió y no forma parte del análisis final. El archivo se conserva por trazabilidad. Ver NOTA_LEGALFIRST.md y la desviación 2 en 07_Datos/desviaciones.md.
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+> **Enfoque 1 no ejecutado (2026-09-02).** El equipo fue asignado al Enfoque 2 legal-first en la guia de la Entrega 4 (pagina 10, tabla de asignacion). El Enfoque 1 (RF humanos vs. LLM) no se corrio y no forma parte del analisis final. El archivo se conserva por trazabilidad. Ver NOTA_LEGALFIRST.md y la Desviacion 2 en 07_Datos/desviaciones.md.
+
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Integrante responsable: Escudero Plaza Maria del Rosario
 Carpeta: `06_Experimento/prompts_llm/`
 Estado: plantilla de registro; la ejecucion queda registrada con su fecha y
