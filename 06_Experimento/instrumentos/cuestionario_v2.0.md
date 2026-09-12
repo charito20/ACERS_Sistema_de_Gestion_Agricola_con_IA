@@ -1,6 +1,6 @@
 # Cuestionario v2.0
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Enfoque empirico: Enfoque 1 (Calidad de RF humanos vs. LLM)
 Instrumento desplegado: Google Forms, 2026-07-25
 Archivo de respuestas: `02_Evidencias/Cuestionario/Respuestas/2026_07_25_respuestas_2A.csv`
