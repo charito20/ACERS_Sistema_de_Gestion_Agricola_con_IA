@@ -1,6 +1,6 @@
 # Instrumentos - Enfoque 1 (Calidad de RF humanos vs. LLM)
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Integrante responsable: Escudero Plaza Maria del Rosario
 Version: 2.0 (Segunda ronda)
 
