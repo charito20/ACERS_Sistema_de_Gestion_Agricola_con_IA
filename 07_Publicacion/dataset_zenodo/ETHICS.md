@@ -36,5 +36,13 @@ El estudio se enmarca en la Ley Orgánica de Protección de Datos Personales del
 ## Riesgos identificados y mitigación
 El detalle completo de los riesgos éticos del dominio agroindustrial, divulgación de rendimientos y precios, localización de la finca y datos de personal con vínculo laboral informal, y su mitigación, está en `08_Etica/A11_Analisis_Riesgos_AgricolaMoreira.pdf` y en `08_Etica/C3_Protocolo_Anonimizacion_Agricola_Moreira.pdf`.
 
+## Base legal del tratamiento de datos personales (LOPDP), declaración expresa
+
+- **Base de licitud:** consentimiento informado del titular (Art. 8 LOPDP), otorgado por escrito antes de cada sesión de elicitación (ver `02_Evidencias/Consentimientos/`).
+- **Finalidad:** elicitación y validación de requisitos de software para el sistema AgroMoreira, en el marco del Proyecto Fin de Curso de Ingeniería de Requisitos (ISR-401), Universidad Técnica Estatal de Quevedo.
+- **Plazo de conservación:** 24 meses desde el cierre del PFC para los datos identificables; indefinido para el conjunto anonimizado depositado en Zenodo (ver sección "Protección de datos" arriba).
+- **Responsable del tratamiento:** el equipo de desarrollo ACERS, junto con el docente responsable, Ing. Gleiston Cicerón Guerrero Ulloa, PhD (gguerrero@uteq.edu.ec).
+  
 ## Contacto
 Docente responsable: Ing. Gleiston Cicerón Guerrero Ulloa, PhD. Correo gguerrero@uteq.edu.ec
+
