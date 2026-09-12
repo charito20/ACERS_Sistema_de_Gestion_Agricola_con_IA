@@ -40,6 +40,18 @@ en `07_Datos/scripts/`.
 
 ---
 
+## Documentos de datos y cierre (07_Datos/, raiz del repositorio, 10_Autoria/)
+
+| Documento | Herramienta | Para que | Quien verifico | Metodo de verificacion |
+|---|---|---|---|---|
+| 07_Datos/desviaciones.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en redaccion y orden de las 9 desviaciones | Kamila Calle | Contraste con el repositorio real |
+| REPOSITORIO_OFICIAL.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en redaccion de la declaracion | Kamila Calle | Contraste con las URLs reales |
+| README.md (nomenclatura y codigo de asignatura) | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en correccion puntual de texto existente | Kamila Calle | Comparacion con el texto original |
+| ETHICS.md (base legal LOPDP) | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en consolidar declaracion ya existente | Kamila Calle | Contraste con documentos de origen |
+| Validacion_Walkthrough/*.md (7 actas) | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en redaccion desde transcripciones del equipo | Kamila Calle | Contraste con transcripcion original |
+| retrospectiva_equipo.md | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en ordenar hallazgos del equipo en tabla | Kamila Calle | Contraste con informe del docente |
+| conjunto_convencional_rf.csv y conjunto_legalfirst_rf.csv | Claude Sonnet 5 (redaccion, interfaz de chat, sin control de temperatura) | Apoyo en separar los 39 RF ya escritos en el ERS | Kamila Calle | Conteo contra el ERS |
+
 **Resumen:** El LLM se empleó exclusivamente para la redacción (redacción editorial).
 Toda cifra, tabla y figura procede de la ejecución reproducible de los scripts.
 Declaración sujeta a revisión por el tribunal según la política de integridad de la
