@@ -1,6 +1,6 @@
 # Analisis de revistas objetivo (07_Publicacion/analisis_revistas.md)
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Enfoque empirico: Enfoque 1 (Calidad de RF humanos vs. LLM)
 Integrante responsable: Escudero Plaza Maria del Rosario
 Fecha de verificacion de metricas: 2026-08-01 (JCR publicado en junio de 2026, datos 2025/2024 segun la fuente de cada metrica)
@@ -17,7 +17,7 @@ un mismo material fuente es todavia limitada. En este trabajo se realiza un
 cuasi-experimento apareado en el dominio agroindustrial ecuatoriano: un equipo
 humano y un LLM (gpt-4o-2024-08-06) producen sendos conjuntos de requisitos
 funcionales (minimo 25 cada uno) a partir de la misma transcripcion
-anonimizada de una entrevista de campo del sistema AgriMoreira. Tres o mas
+anonimizada de una entrevista de campo del sistema AgroMoreira. Tres o mas
 evaluadores expertos independientes puntuan a ciegas ambos conjuntos en cinco
 dimensiones de calidad (completitud, ausencia de ambiguedad, verificabilidad,
 correccion respecto de la fuente y consistencia interna). El acuerdo
