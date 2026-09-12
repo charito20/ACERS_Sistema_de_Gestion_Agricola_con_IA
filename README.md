@@ -1,4 +1,4 @@
-<img width="1917" height="1120" alt="image" src="https://github.com/user-attachments/assets/c15c2bb3-340f-4ef4-90b0-7f66d2831574" />﻿# AgroMoreira — Sistema de Gestión Agrícola con Inteligencia Artificial
+# AgroMoreira — Sistema de Gestión Agrícola con Inteligencia Artificial
 
 Sistema de Gestión Agrícola con Inteligencia Artificial desarrollado para **Agrícola Moreira**, orientado a la administración y monitoreo de cultivos de **cacao** y **plátano verde**.
 
