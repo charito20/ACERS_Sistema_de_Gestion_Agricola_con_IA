@@ -1,0 +1,9 @@
+identificador;nombre_requisito;origen
+RF-22;Registro de consentimiento del trabajador para el tratamiento de sus datos personales dentro del sistema;legal-first (derivado del texto legal)
+RF-23;Modulo de derechos ARCO+ del trabajador;legal-first (derivado del texto legal)
+RF-24;Registro de certificado de salud del trabajador que aplica agroquimicos;legal-first (derivado del texto legal)
+RF-25;Registro y seguimiento del proceso de certificacion BPA ante AGROCALIDAD;legal-first (derivado del texto legal)
+RF-36;Registro de capacitacion en manejo de plaguicidas y primeros auxilios;legal-first (derivado del texto legal)
+RF-37;Aviso/alerta ante sintomas sospechosos de plaga cuarentenaria (ej. Moko);legal-first (derivado del texto legal)
+RF-38;Bitacora de bioseguridad de ingreso/salida del predio;legal-first (derivado del texto legal)
+RF-39;Registro de capacitaciones del personal sobre control fitosanitario especifico;legal-first (derivado del texto legal)
