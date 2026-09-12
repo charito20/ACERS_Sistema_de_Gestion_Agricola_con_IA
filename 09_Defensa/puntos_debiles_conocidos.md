@@ -42,9 +42,21 @@ Estos son los puntos que el propio equipo detectó durante la auditoría interna
 
 **Lo que se corrigió:** `06_Experimento/justificacion_muestra.md` se actualizó a la cifra correcta (0.692, IC95% [0.500, 0.846]), consistente con el manuscrito y `07_Datos/resultados/`.
 
-## 5. Jeanpierre sin commits propios desde el 2026-09-01
+## 5. Jeanpierre sin commits ni evidencia de autoria desde el 8 de septiembre
 
-**La respuesta preparada:** ver banco_preguntas.md, sección 6. Responder con la situación real, sin minimizarla: el resto del equipo redistribuyó explícitamente sus tareas pendientes, y su factor individual depende de contribución verificable propia y de su participación en la defensa oral (gatekeeper P8), no de la nota del equipo.
+El historial real muestra commits verificables de Jeanpierre el 1, 3, 5 y 8 de
+septiembre de 2026; no aparecen commits suyos despues de esa fecha. Tampoco hay
+capturas de pantalla suyas en 10_Autoria/capturas/ (elemento A2), porque no
+conservo evidencia de esas sesiones y dejo de estar disponible para el equipo
+tras no aprobar la materia.
+
+**La respuesta preparada:** ver banco_preguntas.md, seccion 6. Responder con la
+situacion real, sin minimizarla: el resto del equipo redistribuyo explicitamente
+sus tareas pendientes, y su factor individual depende de contribucion
+verificable propia y de su participacion en la defensa oral (gatekeeper P8), no
+de la nota del equipo. El hueco de capturas en 10_Autoria no se cubrio con
+material fabricado, porque eso comprometeria la integridad de la evidencia de
+autoria del equipo completo.
 
 ## 6. Identificadores persistentes (DOI, SWHID, F-UJI) (resuelto, 2026-09-04)
 
