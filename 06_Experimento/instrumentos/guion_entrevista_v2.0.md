@@ -1,6 +1,6 @@
 # Guion de entrevista semiestructurada v2.0
 
-Proyecto: AgriMoreira - Sistema de Gestion Agricola con IA
+Proyecto: AgroMoreira - Sistema de Gestion Agricola con IA
 Enfoque empirico: Enfoque 1 (Calidad de RF humanos vs. LLM)
 Ronda: Segunda ronda de campo (semana 11+)
 Integrante responsable: Escudero Plaza Maria del Rosario
