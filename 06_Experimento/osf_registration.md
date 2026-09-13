@@ -1,4 +1,4 @@
-﻿# Comprobante de pre-registro en OSF
+# Comprobante de pre-registro en OSF
 
 **Proyecto:** ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
 **Integrante responsable:** Escudero Plaza Maria del Rosario
