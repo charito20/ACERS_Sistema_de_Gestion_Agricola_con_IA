@@ -22,6 +22,7 @@ en `07_Datos/scripts/`.
 | Requisitos no funcionales (RNF) | — | Sin uso de IA | Equipo | Basados en calidad (ISO 25010) |
 | Modelo legal LOPDP | — | Sin uso de IA | Equipo | Derivado de la norma citada |
 | Trazabilidad | — | Sin uso de IA | Equipo | Matriz Ley→Mockup en `04_Trazabilidad/` |
+| Actores y casos de uso (4.1) | Claude Sonnet 5 (redacción, interfaz de chat, sin control de temperatura) | Apoyo en traducir al español y ordenar dentro del ERS el desarrollo de los 14 CU (actor, precondición, postcondición, flujo básico, flujos alternativos, reglas de negocio) ya redactado por el equipo en 03_Modelado/00_Use_Case_Specifications.md | Kamila Calle | Contraste línea por línea contra el archivo fuente |
 | Anexos | Claude Sonnet 5 (redacción, interfaz de chat, sin control de temperatura) | Pulido de anexos | Danela Arteaga | Revisión editorial |
 
 ## Manuscrito (`07_Publicacion/manuscrito_final.tex`)
