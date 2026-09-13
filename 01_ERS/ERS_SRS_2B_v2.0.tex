@@ -1376,7 +1376,7 @@ El modelado completo esta en \ruta{03\_Modelado/}, con 32 diagramas en formato \
 
 \subsection{Actores y casos de uso}
 
-El sistema tiene tres actores humanos, administrador, tecnico y trabajador agricola, y dos actores externos, el motor de recomendaciones de inteligencia artificial y AGROCALIDAD como entidad reguladora. El diagrama general de casos de uso reune 14 casos de uso en alcance, CU-01 a CU-14, con el detalle textual de precondiciones, poscondiciones, flujo basico, flujos alternativos y reglas de negocio en \ruta{03\_Modelado/00\_Use\_Case\_Specifications.md}. CU-15, la via de integracion con sensores del RF-32, queda documentado como Won't have y no se desarrolla.
+El sistema tiene tres actores humanos, administrador, tecnico y trabajador agricola, y dos actores externos, el motor de recomendaciones de inteligencia artificial y AGROCALIDAD como entidad reguladora. El diagrama general de casos de uso reune 14 casos de uso en alcance, CU-01 a CU-14, desarrollados de forma completa a continuacion con precondiciones, poscondiciones, flujo basico, flujos alternativos y reglas de negocio; la fuente editable de los diagramas esta en \ruta{03\_Modelado/00\_Use\_Case\_Specifications.md} y en los 32 diagramas \texttt{.drawio} de \ruta{03\_Modelado/}. CU-15, la via de integracion con sensores del RF-32, queda documentado como Won't have y no se desarrolla.
 
 \begin{longtable}{L{6cm} L{9cm}}
 \toprule
@@ -1399,6 +1399,269 @@ CU-13 Cumplimiento BPA & RF-25, RF-36, RF-38, RF-39 \\
 CU-14 Aviso de plaga cuarentenaria & RF-37, RF-38 \\
 \bottomrule
 \end{longtable}
+
+\subsubsection{CU-01. Gestionar parcelas y lotes}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador, Tecnico, Jornalero.
+\item \textbf{Requisitos relacionados:} RF-01, RF-02, RF-16, RF-29, RF-34, RF-35.
+\item \textbf{Precondicion:} usuario autenticado con permiso de edicion (RF-01); catalogo de cultivos ya configurado (RF-02).
+\item \textbf{Postcondicion:} parcela visible en el listado general (RF-01); ningun registro de cultivo queda con valor "otros" sin especificar (RF-02).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario selecciona "Nueva parcela".
+  \item Ingresa nombre, sector, ubicacion, area, cultivo, variedad y cantidad de plantas.
+  \item El sistema muestra el conjunto de campos correspondiente a la variedad seleccionada (RF-34).
+  \item El usuario guarda la parcela.
+  \item El sistema muestra la parcela en el listado general en menos de 2 segundos.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:}
+  \begin{itemize}
+  \item Si falta alguno de los 7 campos obligatorios, el sistema rechaza el guardado y marca los campos vacios (RF-01).
+  \item Si el usuario intenta ingresar un cultivo fuera del catalogo cerrado, el sistema lo rechaza (RF-02).
+  \item El usuario puede registrar la condicion climatica/de suelo en cualquier momento posterior (RF-16).
+  \item El usuario puede registrar un analisis de suelo previo a la siembra (RF-35).
+  \end{itemize}
+\item \textbf{Reglas de negocio:} CU-01 no permite valor "otros" para cultivo (RF-02); el catalogo de cultivo/variedad solo lo edita el Administrador; una parcela marcada "para exportacion" habilita los campos de ExportBatch (RF-14, ver CU-03).
+\end{itemize}
+
+\subsubsection{CU-02. Registrar actividades agricolas}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Jornalero, Tecnico.
+\item \textbf{Requisitos relacionados:} RF-03.
+\item \textbf{Precondicion:} la parcela ya existe (RF-01 ya ejecutado).
+\item \textbf{Postcondicion:} la actividad queda vinculada al historial de la parcela.
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario selecciona la parcela.
+  \item Ingresa fecha, tipo de actividad (fumigacion, fertilizacion, poda, riego, limpieza), insumo/producto usado y trabajador responsable.
+  \item El sistema guarda el registro y lo vincula al historial de la parcela.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} si falta fecha, parcela o trabajador, el sistema rechaza el guardado (RF-03).
+\item \textbf{Reglas de negocio:} toda actividad que use un insumo del catalogo decrementa automaticamente el inventario (ver CU-05); el historial de actividades es la fuente del "historial de tratamientos" que consume CU-06 (Alertas IA).
+\end{itemize}
+
+\subsubsection{CU-03. Registrar cosecha}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Jornalero.
+\item \textbf{Requisitos relacionados:} RF-04, RF-13, RF-14, RF-15.
+\item \textbf{Precondicion:} parcela y cultivo existen (RF-04); cosecha ya registrada ese dia (para RF-13).
+\item \textbf{Postcondicion:} cosecha sumada al total de la parcela/periodo; historial completo de empaque a exportacion consultable si la parcela es de exportacion (RF-14).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario selecciona parcela y cultivo.
+  \item El sistema determina la unidad esperada para el cultivo (baba/quintal para cacao, racimo/caja para platano).
+  \item El usuario ingresa cantidad y unidad.
+  \item El sistema valida la unidad, guarda la cosecha y actualiza el total de parcela/periodo.
+  \item Si aplica, el usuario consulta el precio de mercado actual y el sistema estima el ingreso proyectado (RF-15).
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:}
+  \begin{itemize}
+  \item Unidad de cosecha invalida para el cultivo: el sistema rechaza el registro (RF-04).
+  \item El usuario registra una cantidad rechazada y su motivo (enfermedad, plaga, dano mecanico); el sistema excluye automaticamente esa cantidad del total utilizable (RF-13).
+  \item Si la parcela es de exportacion, el usuario registra color de cinta, semana de enfunde y calidad de caja (RF-14).
+  \end{itemize}
+\item \textbf{Reglas de negocio:} la unidad de cosecha depende exclusivamente del cultivo, nunca de texto libre; el total utilizable siempre excluye el rechazo registrado.
+\end{itemize}
+
+\subsubsection{CU-04. Calcular rendimiento y finanzas}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador, Tecnico, Jornalero.
+\item \textbf{Requisitos relacionados:} RF-05, RF-06, RF-26.
+\item \textbf{Precondicion:} existen 2 o mas registros de cosecha para la parcela (RF-05); existen registros de ingresos y egresos del periodo (RF-06).
+\item \textbf{Postcondicion:} valor mostrado en el reporte de parcela (RF-05); valor visible en el modulo financiero (RF-06); movimiento reflejado en el calculo de ganancia neta (RF-26).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El sistema consulta el historial de cosecha de la parcela y calcula el rendimiento promedio por periodo, permitiendo comparar periodos.
+  \item El sistema consulta los registros de ingresos y egresos (automaticos por insumos + manuales por RF-26) del periodo.
+  \item El sistema calcula la ganancia neta (ingresos menos egresos) y la muestra en el modulo financiero.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:}
+  \begin{itemize}
+  \item Si existen menos de 2 registros de cosecha, el sistema muestra "datos insuficientes" en vez de un promedio.
+  \item El usuario puede registrar manualmente un ingreso o egreso adicional (concepto, monto, fecha, tipo), independiente del calculo automatico (RF-26).
+  \end{itemize}
+\item \textbf{Reglas de negocio:} ganancia neta = suma de ingresos menos suma de egresos del periodo, sin excepcion; el rendimiento promedio se calcula como la suma dividida entre N registros.
+\end{itemize}
+
+\subsubsection{CU-05. Gestionar inventario de insumos}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador, Tecnico, Jornalero.
+\item \textbf{Requisitos relacionados:} RF-07, RF-08, RF-30.
+\item \textbf{Precondicion:} ninguna para registrar un insumo nuevo; un umbral definido para el insumo (RF-08).
+\item \textbf{Postcondicion:} stock reducido tras cada uso registrado (RF-07); notificacion enviada y registrada si se cruza el umbral (RF-08).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario registra el uso de una cantidad de un insumo.
+  \item El sistema actualiza el stock disponible.
+  \item El sistema verifica si el nuevo stock esta por debajo del umbral minimo configurado (RF-30).
+  \item Si es asi, el sistema notifica al responsable en menos de 5 minutos.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} el Tecnico puede configurar/editar el umbral minimo de stock de cada insumo en cualquier momento (RF-30).
+\item \textbf{Reglas de negocio:} CU-05 dispara una alerta al cruzar el stock minimo (RF-08, RF-30); el stock nunca puede quedar negativo, el sistema debe advertir antes de permitirlo.
+\end{itemize}
+
+\subsubsection{CU-06. Alertas de plagas asistidas por IA}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador, Tecnico, Jornalero.
+\item \textbf{Actor(es) secundario(s):} Sistema de IA.
+\item \textbf{Requisitos relacionados:} RF-09, RF-10, RF-31, RF-33.
+\item \textbf{Precondicion:} modelo de IA entrenado disponible (RF-09); conexion a internet (RF-10, si se usa diagnostico por imagen).
+\item \textbf{Postcondicion:} la alerta queda registrada con el resultado de la verificacion humana (RF-09).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El Sistema de IA analiza los datos de la parcela (historial de tratamientos y, opcionalmente, una foto subida por el usuario) y genera una sugerencia con justificacion y fuente de datos.
+  \item El sistema notifica al usuario responsable, marcada explicitamente como sugerencia por confirmar en campo.
+  \item El usuario revisa la justificacion y confirma o descarta la sugerencia.
+  \item El sistema registra la decision.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:}
+  \begin{itemize}
+  \item El usuario descarta la sugerencia de IA (RF-09).
+  \item El usuario puede registrar formalmente su desacuerdo con una recomendacion, distinto de un simple confirmar/descartar, disponible para revision del equipo tecnico (RF-33).
+  \item El sistema compara un valor recien ingresado contra el promedio historico de la parcela y advierte si es un valor atipico antes de guardar (RF-31).
+  \end{itemize}
+\item \textbf{Reglas de negocio:} ninguna alerta se aplica automaticamente sobre una parcela sin confirmacion del usuario responsable (regla central de RF-09, ligada a RNF-17/RNF-19); toda alerta debe mostrar su justificacion (maximo 60 palabras) y al menos una fuente de datos antes del boton de confirmacion.
+\end{itemize}
+
+\subsubsection{CU-07. Asignar y dar seguimiento a tareas}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador, Tecnico, Jornalero.
+\item \textbf{Requisitos relacionados:} RF-11, RF-12, RF-27, RF-28.
+\item \textbf{Precondicion:} trabajador registrado (RF-11); trabajador con dispositivo registrado (RF-12).
+\item \textbf{Postcondicion:} tarea filtrable por sus 4 estados (RF-11); notificacion entregada (RF-12).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario asigna una tarea a un trabajador, indicando parcela, fecha y tipo.
+  \item El sistema crea la tarea con estado "pendiente" y la muestra con su estado.
+  \item El sistema notifica al trabajador (push/SMS) incluyendo parcela, fecha y tipo de tarea.
+  \item El trabajador actualiza el estado de la tarea (pendiente $\rightarrow$ en progreso $\rightarrow$ bloqueada $\rightarrow$ completada) y puede adjuntar una observacion en texto libre (RF-28).
+  \item El trabajador puede consultar en cualquier momento la vista de sus propias tareas pendientes (RF-27).
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} si la parcela tiene marcado un riesgo laboral (CU-11), el sistema muestra la advertencia de EPP antes de confirmar la asignacion.
+\item \textbf{Reglas de negocio:} el filtro de estado debe mostrar exclusivamente las tareas en ese estado, sin mezclar parcelas o trabajadores; la observacion de una tarea completada permanece visible al ver el detalle de la tarea (RF-28).
+\end{itemize}
+
+\subsubsection{CU-08. Generar reportes}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador, Tecnico.
+\item \textbf{Requisitos relacionados:} RF-19.
+\item \textbf{Precondicion:} existen datos en el rango de fechas seleccionado.
+\item \textbf{Postcondicion:} reporte generado y descargable.
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario selecciona un rango de fechas y una o mas parcelas.
+  \item El sistema consolida produccion, costos y perdidas por plagas, y rendimiento por parcela/periodo.
+  \item El sistema genera graficos de barras y de pastel a color.
+  \item El usuario exporta el reporte.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} si no existen datos en el rango seleccionado, el sistema informa "sin datos disponibles" en vez de un reporte vacio.
+\item \textbf{Reglas de negocio:} el reporte generado debe reflejar exactamente la suma de los registros del rango de fechas seleccionado, sin redondeo no declarado.
+\end{itemize}
+
+\subsubsection{CU-09. Autenticacion y control de acceso}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Todos (Administrador, Tecnico, Jornalero).
+\item \textbf{Requisitos relacionados:} RF-20, RF-22, RF-23.
+\item \textbf{Precondicion:} usuario previamente registrado (RF-20).
+\item \textbf{Postcondicion:} acceso otorgado solo a las funciones del rol del usuario (RF-20); consentimiento registrado antes de cualquier tratamiento de datos personales (RF-22).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El usuario ingresa usuario y contrasena.
+  \item El sistema valida las credenciales y determina el rol.
+  \item Si es el primer inicio de sesion, el sistema muestra el aviso de tratamiento de datos personales (LOPDP Art. 8) y solicita la aceptacion explicita del usuario antes de continuar.
+  \item El sistema registra el consentimiento (libre, especifico, informado e inequivoco) y otorga acceso segun el rol.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:}
+  \begin{itemize}
+  \item Credenciales invalidas: el sistema niega el acceso.
+  \item Un usuario con rol "jornalero" que intenta acceder al modulo financiero: el sistema niega el acceso (RF-20).
+  \item El trabajador puede solicitar acceso, rectificacion o eliminacion de sus propios datos personales en cualquier momento (derechos ARCO+, RF-23).
+  \end{itemize}
+\item \textbf{Reglas de negocio:} CU-09 es un Must-have regulatorio: ningun modulo del sistema es accesible sin autenticacion y sin consentimiento LOPDP registrado; el rol determina de forma exhaustiva el conjunto de funciones visibles (principio de minimo privilegio).
+\end{itemize}
+
+\subsubsection{CU-10. Visitas tecnicas}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Tecnico.
+\item \textbf{Requisitos relacionados:} RF-21.
+\item \textbf{Precondicion:} la parcela existe.
+\item \textbf{Postcondicion:} visita registrada con hallazgos y, si aplica, marca de seguimiento.
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El Tecnico selecciona la parcela a visitar.
+  \item Registra fecha, hallazgos y si requiere seguimiento.
+  \item El sistema guarda la visita y la vincula al historial de cumplimiento de la parcela.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} si se encuentra incumplimiento, el sistema sugiere registrar la capacitacion o el EPP relacionado (ver CU-11, CU-13).
+\item \textbf{Reglas de negocio:} las visitas tecnicas periodicas son la fuente principal de evidencia para la renovacion de la certificacion BPA (CU-13).
+\end{itemize}
+
+\subsubsection{CU-11. Riesgo laboral y equipo de proteccion}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Jornalero, Tecnico.
+\item \textbf{Requisitos relacionados:} RF-18, RF-24.
+\item \textbf{Precondicion:} la parcela existe; hay una tarea por asignar o en curso.
+\item \textbf{Postcondicion:} riesgo registrado con EPP sugerido (RF-18); certificado de salud adjunto cuando aplica (RF-24).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item Al asignar o recibir una tarea, el sistema verifica si la parcela tiene un riesgo laboral registrado.
+  \item Si no esta registrado, el Tecnico registra tipo de riesgo, severidad y EPP sugerido.
+  \item El sistema muestra la advertencia de EPP al trabajador antes de confirmar la asignacion.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} el Administrador adjunta el certificado de salud del trabajador al registro (RF-24, Res. AGROCALIDAD 183 Art. 33-34).
+\item \textbf{Reglas de negocio:} ninguna tarea sobre una parcela con riesgo registrado puede confirmarse sin que se muestre primero la advertencia de EPP.
+\end{itemize}
+
+\subsubsection{CU-12. Canal rapido de reporte}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Jornalero.
+\item \textbf{Requisitos relacionados:} RF-17.
+\item \textbf{Precondicion:} usuario autenticado.
+\item \textbf{Postcondicion:} reporte rapido (chat/voz) registrado y enrutado al modulo correspondiente (actividad, enfermedad, riesgo).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El trabajador abre el canal de reporte rapido.
+  \item Graba un mensaje breve (texto o voz) describiendo una situacion de campo.
+  \item El sistema almacena el reporte y lo marca para revision/triage del Tecnico.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} si el reporte describe una posible plaga cuarentenaria, el sistema sugiere escalarlo como aviso fitosanitario formal (CU-14).
+\item \textbf{Reglas de negocio:} el canal rapido de reporte favorece la baja alfabetizacion digital (RNF-03) y no requiere campos estructurados para iniciar.
+\end{itemize}
+
+\subsubsection{CU-13. Cumplimiento BPA}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Administrador.
+\item \textbf{Requisitos relacionados:} RF-25, RF-36, RF-38, RF-39.
+\item \textbf{Precondicion:} visitas tecnicas y registros de capacitacion disponibles como evidencia de soporte.
+\item \textbf{Postcondicion:} solicitud/renovacion de certificacion BPA presentada ante AGROCALIDAD (RF-25); registros de capacitacion y bioseguridad disponibles para auditoria (RF-36, RF-38, RF-39).
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item El Administrador revisa el tablero de cumplimiento (vigencia del certificado, capacitaciones pendientes, completitud de la bitacora de bioseguridad).
+  \item Si el certificado esta por vencer o falta evidencia de soporte, el Administrador solicita la renovacion ante AGROCALIDAD.
+  \item El sistema adjunta los registros de capacitacion (manejo de plaguicidas, primeros auxilios) y la bitacora de ingreso/salida de bioseguridad como evidencia de soporte.
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} si falta una capacitacion obligatoria, el sistema bloquea la solicitud de renovacion hasta que se registre (RF-36, RF-39).
+\item \textbf{Reglas de negocio:} este CU es un Must-have regulatorio (Res. AGROCALIDAD 183): su ausencia era un vacio legal identificado por el metodo legal-first del equipo.
+\end{itemize}
+
+\subsubsection{CU-14. Aviso de plaga cuarentenaria (p. ej. Moko)}
+\begin{itemize}
+\item \textbf{Actor(es) principal(es):} Jornalero, Tecnico, Administrador.
+\item \textbf{Actor(es) secundario(s):} AGROCALIDAD.
+\item \textbf{Requisitos relacionados:} RF-37, RF-38.
+\item \textbf{Precondicion:} sintomas sospechosos de plaga cuarentenaria detectados en una parcela (Res. AGROCALIDAD 0072, Art. 3.6.1.a).
+\item \textbf{Postcondicion:} aviso registrado y disponible para presentacion formal ante AGROCALIDAD.
+\item \textbf{Flujo basico:}
+  \begin{enumerate}
+  \item Un usuario de campo detecta sintomas sospechosos (p. ej. Moko) en una parcela.
+  \item Registra el sintoma y la parcela afectada en el sistema.
+  \item El sistema genera un aviso fitosanitario.
+  \item Un Tecnico confirma el sintoma.
+  \item El sistema deja el aviso disponible para presentacion formal ante AGROCALIDAD y registra el evento de bioseguridad de ingreso/salida de la visita (RF-38).
+  \end{enumerate}
+\item \textbf{Flujos alternativos / excepciones:} el Tecnico descarta el sintoma tras la inspeccion; el aviso no se envia, pero queda registrado como descartado, para trazabilidad.
+\item \textbf{Reglas de negocio:} este CU es un Must-have regulatorio (Res. AGROCALIDAD 0072, Art. 3.6.1.a): su ausencia era un vacio legal identificado por el metodo legal-first del equipo; ningun aviso se envia a AGROCALIDAD sin la confirmacion de un Tecnico.
+\end{itemize}
 
 Las historias de usuario con criterios de aceptacion en Gherkin estan en \ruta{03\_Modelado/00\_User\_Stories\_Acceptance\_Criteria.md}, una por cada requisito funcional Must have que la lleva, segun la regla de la guia de modelado.
 
