@@ -909,7 +909,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Frecuencia:** reporte mensual mientras el sistema esté en operación.
 
 #### RNF-21. Clasificación de riesgo de las recomendaciones de IA (Gestión de riesgo)
-- **Descripción:** cada tipo de alerta o recomendación del componente de IA debe clasificarse por nivel de riesgo (bajo, medio, alto) según el impacto potencial de seguirla sin verificación —por ejemplo, aplicar un agroquímico implica mayor riesgo que una sugerencia de riego— y ese nivel debe ser visible al usuario junto a la alerta.
+- **Descripción:** cada tipo de alerta o recomendación del componente de IA debe clasificarse por nivel de riesgo (bajo, medio, alto) según el impacto potencial de seguirla sin verificación (por ejemplo, aplicar un agroquímico implica mayor riesgo que una sugerencia de riego), y ese nivel debe ser visible al usuario junto a la alerta.
 - **Métrica:** proporción de tipos de alerta definidos en RF-09/RF-10 con nivel de riesgo asignado y visible en la interfaz.
 - **Unidad:** porcentaje (%) de tipos de alerta clasificados.
 - **Umbral:** 100% de los tipos de alerta deben tener un nivel de riesgo asignado antes de habilitarse.
@@ -926,9 +926,9 @@ fundamenta y el plan de monitoreo en producción se desarrollan en el documento
 tratamiento de datos conserva la Categoría C, riesgo mínimo operativo, porque el componente opera
 sobre material vegetal y datos operativos de la finca y no sobre datos personales ni biométricos;
 y por tipo de recomendación asigna un nivel de riesgo a cada salida del componente, que es lo que
-exige RNF-21. Tres tipos quedan clasificados como riesgo alto —la sugerencia de aplicación
+exige RNF-21. Tres tipos quedan clasificados como riesgo alto: la sugerencia de aplicación
 fitosanitaria (RF-09), la sospecha de plaga cuarentenaria (RF-09, RF-37) y el diagnóstico por
-imagen (RF-10)— porque seguirlos sin verificación puede causar daño económico o fitosanitario
+imagen (RF-10), porque seguirlos sin verificación puede causar daño económico o fitosanitario
 difícilmente reversible o activar una obligación regulatoria ante AGROCALIDAD. La base legal
 directa de la explicabilidad exigida en RNF-17 es el Art. 20 de la LOPDP, que reconoce el derecho
 a no ser objeto de una decisión basada única o parcialmente en valoraciones automatizadas y a
