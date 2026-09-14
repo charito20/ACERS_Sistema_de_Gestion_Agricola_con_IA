@@ -3,6 +3,17 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto sigue el versionado semántico donde es aplicable.
 
+## [v2.3-final] - 2026-09-13
+Etiqueta de línea base final: `v2.3-final` (commit `5521550`)
+
+### Añadido
+- Flujos alternativos incrustados en los 14 casos de uso del ERS (A1).
+- Declaración de uso de IA ampliada a las 11 carpetas del proyecto (P9).
+
+### Corregido
+- `REPOSITORIO_OFICIAL.md` actualizado con la versión entregada correcta.
+- `checksums.sha256` regenerado y verificado (444 archivos, 100% válido).
+
 ## [Entrega Final - 2B] - 2026-09-05
 Etiqueta de línea base: `v2.0-final` (commit `cc8cf4a`)
 
