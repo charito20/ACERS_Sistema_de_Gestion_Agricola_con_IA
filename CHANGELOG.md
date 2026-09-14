@@ -4,7 +4,7 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/
 y este proyecto sigue el versionado semántico donde es aplicable.
 
 ## [v2.3-final] - 2026-09-13
-Etiqueta de línea base final: `v2.3-final` (commit `5521550`)
+Etiqueta de línea base final: `v2.3-final`
 
 ### Añadido
 - Flujos alternativos incrustados en los 14 casos de uso del ERS (A1).
