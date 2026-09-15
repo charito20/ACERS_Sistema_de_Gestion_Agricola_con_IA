@@ -4,7 +4,7 @@ type: software
 title: "AgroMoreira: Sistema de Gestión Agrícola con IA para cultivos de cacao y plátano verde"
 version: 2.3.0
 date-released: 2026-09-13
-repository-code: "https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA"
+repository-code: "https://github.com/gleiston-guerrero/ACERS_Sistema_de_Gestion_Agricola_con_IA"
 license: "MIT AND CC-BY-4.0"
 doi: "10.5281/zenodo.22307881"
 identifiers:

@@ -9,7 +9,7 @@ Este documento responde a la observación de la evaluación de la Entrega 4, que
 
 El repositorio oficial y único del proyecto, sobre el que debe evaluarse la entrega final, es:
 
-**https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA**
+**https://github.com/gleiston-guerrero/ACERS_Sistema_de_Gestion_Agricola_con_IA**
 
 Todo el trabajo del proyecto reside en este repositorio: la especificación de requisitos, el modelado, la matriz de trazabilidad, el producto mínimo viable, el componente empírico, el paquete de datos, la documentación ética, los materiales de defensa y las evidencias de autoría. El primer commit de este repositorio es del 29 de agosto de 2026.
 

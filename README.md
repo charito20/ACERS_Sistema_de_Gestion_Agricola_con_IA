@@ -82,7 +82,7 @@ Agrícola Moreira administra lotes destinados a la producción de **cacao** y **
 ## Clonar el repositorio
 
 ```bash
-git clone https://github.com/charito20/ACERS_Sistema_de_Gestion_Agricola_con_IA.git
+git clone https://github.com/gleiston-guerrero/ACERS_Sistema_de_Gestion_Agricola_con_IA.git
 ```
 
 ## Ingresar al proyecto
