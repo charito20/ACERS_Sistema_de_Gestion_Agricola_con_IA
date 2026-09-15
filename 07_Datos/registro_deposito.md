@@ -17,8 +17,8 @@ ciencia abierta exigidos por la guía de la Entrega 4 (2B).
 - **Plataforma:** https://osf.io
 - **URL del pre-registro:** https://osf.io/7cvhy (preregistration, 2 ago 2026)
 - **URL del proyecto:** https://osf.io/gc9au (proyecto, 4 sep 2026)
-- **Registro previo:** completado (comprobante en `06_Experimento/osf_registration.md`)
-- **Fecha de registro:** 2 de agosto de 2026 (anterior a la tercera ronda de campo)
+- **Registro del protocolo en OSF:** completado, posterior al inicio de la recoleccion (comprobante en `06_Experimento/osf_registration.md`; ver amenazas a la validez del manuscrito)
+- **Fecha de registro:** 2 de agosto de 2026 (posterior al inicio de la recoleccion el 20 de junio de 2026; ver amenazas a la validez del manuscrito)
 - **Desviaciones:** documentadas en `07_Datos/desviaciones.md`
 
 ## Archivado en Software Heritage (SWHID)
