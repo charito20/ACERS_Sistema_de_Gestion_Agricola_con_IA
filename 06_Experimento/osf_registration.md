@@ -1,4 +1,4 @@
-# Comprobante de pre-registro en OSF
+<img width="940" height="1037" alt="image" src="https://github.com/user-attachments/assets/76eb0308-f099-41cf-9fa2-1e87f9e9625b" /># Comprobante de pre-registro en OSF
 
 **Proyecto:** ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
 **Integrante responsable:** Escudero Plaza Maria del Rosario
@@ -18,11 +18,11 @@
 | Titulo registrado | Protocolo de validacion de explicabilidad - AgroMoreira |
 | Fecha de creacion | 2 de agosto de 2026 |
 | Visibilidad | Publico |
-| Tipo de entrada | Preregistration (registro previo formal) |
+| Tipo de entrada | Preregistration (categoria declarada por OSF; registrado el 2 de agosto de 2026, posterior al inicio de la recoleccion) |
 
 ## Verificacion
 
-El registro fue verificado contra la API publica de OSF (`https://api.osf.io/v2/registrations/7cvhy/`) el 4 de septiembre de 2026. La respuesta confirmo titulo, fecha, estado publico y tipo `registration` (preregistro formal, no proyecto).
+El registro fue verificado contra la API publica de OSF (`https://api.osf.io/v2/registrations/7cvhy/`) el 4 de septiembre de 2026. La respuesta confirmo titulo, fecha, estado publico y tipo `registration` (categoria de OSF que distingue un registro formal de un proyecto; no implica que haya sido anterior a la recoleccion).
 
 ## Relacion entre el pre-registro y el estudio legal-first
 
