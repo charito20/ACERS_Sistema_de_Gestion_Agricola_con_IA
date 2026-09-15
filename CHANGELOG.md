@@ -3,6 +3,23 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/),
 y este proyecto sigue el versionado semántico donde es aplicable.
 
+## [Examen suspenso] - 2026-09-18
+Correcciones exigidas por la guía de cierre del examen suspenso (15/09/2026).
+
+### Añadido
+- Flujos alternativos y excepciones a los 14 casos de uso del ERS: 45 flujos, 52 menciones, 51 precondiciones, 46 poscondiciones (Kamila Calle).
+- Columna ID-Flujo en la matriz de trazabilidad para trazar cada flujo alternativo (Kamila Calle).
+- 6 RNF del componente inteligente (RNF-12 a RNF-17) con referencia a caso de uso y flujo (Kamila Calle).
+- Declaración de registro retrospectivo en amenazas a la validez del manuscrito (María Escudero).
+- Retrospectiva del equipo (`10_Autoria/retrospectiva_equipo.md`) con qué hicimos, quién hizo qué y qué aprendimos.
+- Diccionario de datos convertido a CSV real con separador coma y 22 filas (María Escudero).
+- Manuscrito recompilado con la declaración de registro retrospectivo (13 páginas, 408745 bytes).
+
+### Corregido
+- Todas las menciones de "registro previo" eliminadas del ERS, protocolo, OSF y CHANGELOG (Kamila Calle).
+- `osf_registration.md`: afirmación "orden correcto" corregida (María Escudero).
+- `checksums.sha256` regenerado tras cambios del ERS (María Escudero, Roselyn Sánchez).
+
 ## [v2.3-final] - 2026-09-13
 Etiqueta de línea base final: `v2.3-final`
 
