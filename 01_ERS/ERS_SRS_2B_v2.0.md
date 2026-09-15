@@ -1026,198 +1026,240 @@ El sistema tiene tres actores humanos, administrador, técnico y trabajador agr�
 - **Actor(es) principal(es):** Administrador, Técnico, Jornalero.
 - **Requisitos relacionados:** RF-01, RF-02, RF-16, RF-29, RF-34, RF-35.
 - **Precondición:** usuario autenticado con permiso de edición (RF-01); catálogo de cultivos ya configurado (RF-02).
-- **Postcondición:** parcela visible en el listado general (RF-01); ningún registro de cultivo queda con valor "otros" sin especificar (RF-02).
-- **Flujo básico:**
+- **Flujo principal:**
   1. El usuario selecciona "Nueva parcela".
   2. Ingresa nombre, sector, ubicación, área, cultivo, variedad y cantidad de plantas.
   3. El sistema muestra el conjunto de campos correspondiente a la variedad seleccionada (RF-34).
   4. El usuario guarda la parcela.
   5. El sistema muestra la parcela en el listado general en menos de 2 segundos.
-- **Flujos alternativos / excepciones:**
-  - Si falta alguno de los 7 campos obligatorios, el sistema rechaza el guardado y marca los campos vacíos (RF-01).
-  - Si el usuario intenta ingresar un cultivo fuera del catálogo cerrado, el sistema lo rechaza (RF-02).
-  - El usuario puede registrar la condición climática/de suelo en cualquier momento posterior (RF-16).
-  - El usuario puede registrar un análisis de suelo previo a la siembra (RF-35).
+- **Flujos alternativos:**
+  - 2a. El usuario deja pendiente la condición climática o de suelo: puede registrarla en un momento posterior, sin que eso bloquee el guardado de la parcela (RF-16).
+  - 4a. El usuario registra un análisis de suelo previo a la siembra desde la misma parcela, en cualquier momento (RF-35).
+- **Excepciones:**
+  - 2e. El usuario intenta ingresar un cultivo fuera del catálogo cerrado: el sistema lo rechaza e indica que debe elegir uno de los cultivos configurados (RF-02).
+  - 4e. Falta alguno de los 7 campos obligatorios: el sistema rechaza el guardado y marca los campos vacíos (RF-01).
+  - 5e. La parcela no tiene ningún evento registrado al consultar su historial: el sistema muestra el historial vacío, no un error (RF-29).
+- **Postcondición:** parcela visible en el listado general (RF-01); ningún registro de cultivo queda con valor "otros" sin especificar (RF-02); historial de la parcela consultable desde su creación (RF-29).
 - **Reglas de negocio:** CU-01 no permite valor "otros" para cultivo (RF-02); el catálogo de cultivo/variedad solo lo edita el Administrador; una parcela marcada "para exportación" habilita los campos de ExportBatch (RF-14, ver CU-03).
 
 #### CU-02. Registrar actividades agrícolas
 - **Actor(es) principal(es):** Jornalero, Técnico.
-- **Requisitos relacionados:** RF-03.
+- **Requisitos relacionados:** RF-03, RNF-04.
 - **Precondición:** la parcela ya existe (RF-01 ya ejecutado).
-- **Postcondición:** la actividad queda vinculada al historial de la parcela.
-- **Flujo básico:**
+- **Flujo principal:**
   1. El usuario selecciona la parcela.
   2. Ingresa fecha, tipo de actividad (fumigación, fertilización, poda, riego, limpieza), insumo/producto usado y trabajador responsable.
   3. El sistema guarda el registro y lo vincula al historial de la parcela.
-- **Flujos alternativos / excepciones:** si falta fecha, parcela o trabajador, el sistema rechaza el guardado (RF-03).
+- **Flujos alternativos:**
+  - 3a. Sin conexión al momento de guardar: el sistema almacena el registro en el dispositivo y sincroniza al reconectar, sin pérdida de datos dentro del límite de 7 días sin conexión (RNF-04).
+- **Excepciones:**
+  - 2e. Falta fecha, parcela o trabajador responsable: el sistema rechaza el guardado (RF-03).
+- **Postcondición:** la actividad queda vinculada al historial de la parcela.
 - **Reglas de negocio:** toda actividad que use un insumo del catálogo decrementa automáticamente el inventario (ver CU-05); el historial de actividades es la fuente del "historial de tratamientos" que consume CU-06 (Alertas IA).
 
 #### CU-03. Registrar cosecha
 - **Actor(es) principal(es):** Jornalero.
-- **Requisitos relacionados:** RF-04, RF-13, RF-14, RF-15.
+- **Requisitos relacionados:** RF-04, RF-13, RF-14, RF-15, RNF-04.
 - **Precondición:** parcela y cultivo existen (RF-04); cosecha ya registrada ese día (para RF-13).
-- **Postcondición:** cosecha sumada al total de la parcela/periodo; historial completo de empaque a exportación consultable si la parcela es de exportación (RF-14).
-- **Flujo básico:**
+- **Flujo principal:**
   1. El usuario selecciona parcela y cultivo.
   2. El sistema determina la unidad esperada para el cultivo (baba/quintal para cacao, racimo/caja para plátano).
   3. El usuario ingresa cantidad y unidad.
   4. El sistema valida la unidad, guarda la cosecha y actualiza el total de parcela/periodo.
   5. Si aplica, el usuario consulta el precio de mercado actual y el sistema estima el ingreso proyectado (RF-15).
-- **Flujos alternativos / excepciones:**
-  - Unidad de cosecha inválida para el cultivo: el sistema rechaza el registro (RF-04).
-  - El usuario registra una cantidad rechazada y su motivo (enfermedad, plaga, daño mecánico); el sistema excluye automáticamente esa cantidad del total utilizable (RF-13).
-  - Si la parcela es de exportación, el usuario registra color de cinta, semana de enfunde y calidad de caja (RF-14).
+- **Flujos alternativos:**
+  - 3a. El usuario registra una cantidad rechazada y su motivo (enfermedad, plaga, daño mecánico): el sistema excluye automáticamente esa cantidad del total utilizable (RF-13).
+  - 3b. La parcela es de exportación: el usuario registra color de cinta, semana de enfunde y calidad de caja (RF-14).
+  - 4a. Sin conexión al guardar: el sistema almacena la cosecha localmente y sincroniza al reconectar, dentro del límite de 7 días sin pérdida de datos (RNF-04).
+  - 5a. No hay un precio de mercado disponible de fuente externa: el usuario lo ingresa manualmente para obtener la estimación (RF-15).
+- **Excepciones:**
+  - 3e. No hay una cosecha registrada ese día: el sistema no permite registrar un rechazo asociado (RF-13).
+  - 4e. Unidad de cosecha inválida para el cultivo seleccionado: el sistema rechaza el registro (RF-04).
+- **Postcondición:** cosecha sumada al total de la parcela/periodo; historial completo de empaque a exportación consultable si la parcela es de exportación (RF-14).
 - **Reglas de negocio:** la unidad de cosecha depende exclusivamente del cultivo, nunca de texto libre; el total utilizable siempre excluye el rechazo registrado.
 
 #### CU-04. Calcular rendimiento y finanzas
 - **Actor(es) principal(es):** Administrador, Técnico, Jornalero.
 - **Requisitos relacionados:** RF-05, RF-06, RF-26.
-- **Precondición:** existen 2 o más registros de cosecha para la parcela (RF-05); existen registros de ingresos y egresos del periodo (RF-06).
-- **Postcondición:** valor mostrado en el reporte de parcela (RF-05); valor visible en el módulo financiero (RF-06); movimiento reflejado en el cálculo de ganancia neta (RF-26).
-- **Flujo básico:**
+- **Precondición:** existen registros de ingresos y egresos del periodo (RF-06).
+- **Flujo principal:**
   1. El sistema consulta el historial de cosecha de la parcela y calcula el rendimiento promedio por periodo, permitiendo comparar periodos.
-  2. El sistema consulta los registros de ingresos y egresos (automáticos por insumos + manuales por RF-26) del periodo.
+  2. El sistema consulta los registros de ingresos y egresos (automáticos por insumos y manuales por RF-26) del periodo.
   3. El sistema calcula la ganancia neta (ingresos menos egresos) y la muestra en el módulo financiero.
-- **Flujos alternativos / excepciones:**
-  - Si existen menos de 2 registros de cosecha, el sistema muestra "datos insuficientes" en vez de un promedio.
-  - El usuario puede registrar manualmente un ingreso o egreso adicional (concepto, monto, fecha, tipo), independiente del cálculo automático (RF-26).
+- **Flujos alternativos:**
+  - 2a. El usuario registra manualmente un ingreso o egreso adicional (concepto, monto, fecha, tipo), independiente del cálculo automático (RF-26).
+- **Excepciones:**
+  - 1e. Existen menos de 2 registros de cosecha para la parcela: el sistema muestra "datos insuficientes" en vez de un promedio (RF-05).
+  - 2e. No existen registros de ingreso o egreso en el periodo consultado: el sistema muestra el módulo financiero en cero, sin marcar error (RF-06).
+- **Postcondición:** valor mostrado en el reporte de parcela (RF-05); valor visible en el módulo financiero (RF-06); movimiento reflejado en el cálculo de ganancia neta (RF-26).
 - **Reglas de negocio:** ganancia neta = suma de ingresos menos suma de egresos del periodo, sin excepción; el rendimiento promedio se calcula como la suma dividida entre N registros.
 
 #### CU-05. Gestionar inventario de insumos
 - **Actor(es) principal(es):** Administrador, Técnico, Jornalero.
-- **Requisitos relacionados:** RF-07, RF-08, RF-30.
-- **Precondición:** ninguna para registrar un insumo nuevo; un umbral definido para el insumo (RF-08).
-- **Postcondición:** stock reducido tras cada uso registrado (RF-07); notificación enviada y registrada si se cruza el umbral (RF-08).
-- **Flujo básico:**
+- **Requisitos relacionados:** RF-07, RF-08, RF-30, RNF-15.
+- **Precondición:** un umbral definido para el insumo (RF-08).
+- **Flujo principal:**
   1. El usuario registra el uso de una cantidad de un insumo.
   2. El sistema actualiza el stock disponible.
   3. El sistema verifica si el nuevo stock está por debajo del umbral mínimo configurado (RF-30).
   4. Si es así, el sistema notifica al responsable en menos de 5 minutos.
-- **Flujos alternativos / excepciones:** el Técnico puede configurar/editar el umbral mínimo de stock de cada insumo en cualquier momento (RF-30).
-- **Reglas de negocio:** CU-05 dispara una alerta al cruzar el stock mínimo (RF-08, RF-30); el stock nunca puede quedar negativo, el sistema debe advertir antes de permitirlo.
+- **Flujos alternativos:**
+  - 3a. El Técnico configura o edita el umbral mínimo de stock de un insumo en cualquier momento; el nuevo valor se aplica desde la siguiente actualización de stock (RF-30).
+  - 4a. Conectividad intermitente al momento de notificar: el sistema reintenta la entrega y la confirma dentro de los 5 minutos posteriores a la reconexión del dispositivo (RNF-15).
+- **Excepciones:**
+  - 2e. El uso registrado dejaría el stock en un valor negativo: el sistema advierte antes de permitir guardar.
+  - 3e. El insumo todavía no tiene un umbral configurado: el sistema no dispara ninguna alerta hasta que el Técnico lo defina (RF-08).
+- **Postcondición:** stock reducido tras cada uso registrado (RF-07); notificación enviada y registrada si se cruza el umbral (RF-08).
+- **Reglas de negocio:** CU-05 dispara una alerta al cruzar el stock mínimo (RF-08, RF-30); el stock nunca puede quedar negativo.
 
 #### CU-06. Alertas de plagas asistidas por IA
 - **Actor(es) principal(es):** Administrador, Técnico, Jornalero.
 - **Actor(es) secundario(s):** Sistema de IA.
-- **Requisitos relacionados:** RF-09, RF-10, RF-31, RF-33.
+- **Requisitos relacionados:** RF-09, RF-10, RF-31, RF-33, RNF-16, RNF-17, RNF-18, RNF-19, RNF-20, RNF-21.
 - **Precondición:** modelo de IA entrenado disponible (RF-09); conexión a internet (RF-10, si se usa diagnóstico por imagen).
-- **Postcondición:** la alerta queda registrada con el resultado de la verificación humana (RF-09).
-- **Flujo básico:**
-  1. El Sistema de IA analiza los datos de la parcela (historial de tratamientos y, opcionalmente, una foto subida por el usuario) y genera una sugerencia con justificación y fuente de datos.
+- **Flujo principal:**
+  1. El Sistema de IA analiza los datos de la parcela (historial de tratamientos y, opcionalmente, una foto subida por el usuario) y genera una sugerencia con justificación y fuente de datos (RNF-17).
   2. El sistema notifica al usuario responsable, marcada explícitamente como sugerencia por confirmar en campo.
   3. El usuario revisa la justificación y confirma o descarta la sugerencia.
   4. El sistema registra la decisión.
-- **Flujos alternativos / excepciones:**
-  - El usuario descarta la sugerencia de IA (RF-09).
-  - El usuario puede registrar formalmente su desacuerdo con una recomendación, distinto de un simple confirmar/descartar, disponible para revisión del equipo técnico (RF-33).
-  - El sistema compara un valor recién ingresado contra el promedio histórico de la parcela y advierte si es un valor atípico antes de guardar (RF-31).
-- **Reglas de negocio:** ninguna alerta se aplica automáticamente sobre una parcela sin confirmación del usuario responsable (regla central de RF-09, ligada a RNF-17/RNF-19); toda alerta debe mostrar su justificación (máximo 60 palabras) y al menos una fuente de datos antes del botón de confirmación.
+- **Flujos alternativos:**
+  - 1a. El sistema compara un valor recién ingresado contra el promedio histórico de la parcela (mínimo 3 registros previos) y advierte si se desvía más de 2 desviaciones estándar, antes de guardar (RF-31).
+  - 3a. El usuario descarta la sugerencia de IA (RF-09).
+- **Excepciones:**
+  - 1e. No hay conexión a internet al intentar el diagnóstico por imagen: el sistema informa que esa función no está disponible en ese momento (RF-10).
+  - 1f. La parcela no tiene histórico suficiente (menos de 3 registros): el sistema guarda el dato sin comparar contra un promedio (RF-31).
+  - 3e. El usuario está en desacuerdo con la recomendación más allá de un simple descarte: registra formalmente su desacuerdo, disponible para revisión del equipo técnico, y la alerta queda fuera del conjunto aplicado hasta esa revisión (RF-33).
+- **Postcondición:** la alerta queda registrada con el resultado de la verificación humana (RF-09).
+- **Reglas de negocio:** ninguna alerta se aplica automáticamente sobre una parcela sin confirmación del usuario responsable (RF-09, RNF-19); toda alerta muestra su justificación (máximo 60 palabras) y al menos una fuente de datos antes del botón de confirmación (RNF-17).
 
 #### CU-07. Asignar y dar seguimiento a tareas
 - **Actor(es) principal(es):** Administrador, Técnico, Jornalero.
-- **Requisitos relacionados:** RF-11, RF-12, RF-27, RF-28.
+- **Requisitos relacionados:** RF-11, RF-12, RF-27, RF-28, RNF-15.
 - **Precondición:** trabajador registrado (RF-11); trabajador con dispositivo registrado (RF-12).
-- **Postcondición:** tarea filtrable por sus 4 estados (RF-11); notificación entregada (RF-12).
-- **Flujo básico:**
+- **Flujo principal:**
   1. El usuario asigna una tarea a un trabajador, indicando parcela, fecha y tipo.
   2. El sistema crea la tarea con estado "pendiente" y la muestra con su estado.
   3. El sistema notifica al trabajador (push/SMS) incluyendo parcela, fecha y tipo de tarea.
-  4. El trabajador actualiza el estado de la tarea (pendiente → en progreso → bloqueada → completada) y puede adjuntar una observación en texto libre (RF-28).
+  4. El trabajador actualiza el estado de la tarea (pendiente, en progreso, bloqueada, completada) y puede adjuntar una observación en texto libre (RF-28).
   5. El trabajador puede consultar en cualquier momento la vista de sus propias tareas pendientes (RF-27).
-- **Flujos alternativos / excepciones:** si la parcela tiene marcado un riesgo laboral (CU-11), el sistema muestra la advertencia de EPP antes de confirmar la asignación.
-- **Reglas de negocio:** el filtro de estado debe mostrar exclusivamente las tareas en ese estado, sin mezclar parcelas o trabajadores; la observación de una tarea completada permanece visible al ver el detalle de la tarea (RF-28).
+- **Flujos alternativos:**
+  - 1a. La parcela tiene un riesgo laboral registrado (ver CU-11): el sistema muestra la advertencia de EPP antes de confirmar la asignación.
+  - 3a. Conectividad intermitente al notificar: el sistema reintenta la entrega y confirma dentro de los 5 minutos posteriores a la reconexión (RNF-15).
+- **Excepciones:**
+  - 3e. El trabajador no tiene un dispositivo registrado: el sistema deja la tarea visible en su vista de pendientes (RF-27) aunque no pueda enviar la notificación push (RF-12).
+- **Postcondición:** tarea filtrable por sus 4 estados (RF-11); notificación entregada (RF-12).
+- **Reglas de negocio:** el filtro de estado muestra exclusivamente las tareas en ese estado, sin mezclar parcelas o trabajadores; la observación de una tarea completada permanece visible al ver el detalle de la tarea (RF-28).
 
 #### CU-08. Generar reportes
 - **Actor(es) principal(es):** Administrador, Técnico.
 - **Requisitos relacionados:** RF-19.
-- **Precondición:** existen datos en el rango de fechas seleccionado.
+- **Precondición:** existen datos en el rango seleccionado.
+- **Flujo principal:**
+  1. El usuario selecciona un rango de fechas y uno o más lotes.
+  2. El sistema consolida producción, costos, pérdidas por plaga y rendimiento del rango seleccionado.
+  3. El sistema genera gráficos de barra y circulares codificados por color, reflejando exactamente la suma de los registros del rango.
+- **Flujos alternativos:** ninguno adicional a los cubiertos por RF-19.
+- **Excepciones:**
+  - 2e. No existen datos en el rango de fechas seleccionado: el sistema muestra "no hay datos disponibles" en vez de un reporte vacío (RF-19).
 - **Postcondición:** reporte generado y descargable.
-- **Flujo básico:**
-  1. El usuario selecciona un rango de fechas y una o más parcelas.
-  2. El sistema consolida producción, costos y pérdidas por plagas, y rendimiento por parcela/periodo.
-  3. El sistema genera gráficos de barras y de pastel a color.
-  4. El usuario exporta el reporte.
-- **Flujos alternativos / excepciones:** si no existen datos en el rango seleccionado, el sistema informa "sin datos disponibles" en vez de un reporte vacío.
-- **Reglas de negocio:** el reporte generado debe reflejar exactamente la suma de los registros del rango de fechas seleccionado, sin redondeo no declarado.
+- **Reglas de negocio:** el reporte generado refleja exactamente la suma de los registros del rango seleccionado, sin redondeo no declarado.
 
 #### CU-09. Autenticación y control de acceso
-- **Actor(es) principal(es):** Todos (Administrador, Técnico, Jornalero).
+- **Actor(es) principal(es):** Administrador, Técnico, Jornalero.
 - **Requisitos relacionados:** RF-20, RF-22, RF-23.
 - **Precondición:** usuario previamente registrado (RF-20).
-- **Postcondición:** acceso otorgado solo a las funciones del rol del usuario (RF-20); consentimiento registrado antes de cualquier tratamiento de datos personales (RF-22).
-- **Flujo básico:**
+- **Flujo principal:**
   1. El usuario ingresa usuario y contraseña.
   2. El sistema valida las credenciales y determina el rol.
   3. Si es el primer inicio de sesión, el sistema muestra el aviso de tratamiento de datos personales (LOPDP Art. 8) y solicita la aceptación explícita del usuario antes de continuar.
   4. El sistema registra el consentimiento (libre, específico, informado e inequívoco) y otorga acceso según el rol.
-- **Flujos alternativos / excepciones:**
-  - Credenciales inválidas: el sistema niega el acceso.
-  - Un usuario con rol "jornalero" que intenta acceder al módulo financiero: el sistema niega el acceso (RF-20).
-  - El trabajador puede solicitar acceso, rectificación o eliminación de sus propios datos personales en cualquier momento (derechos ARCO+, RF-23).
-- **Reglas de negocio:** CU-09 es un Must-have regulatorio: ningún módulo del sistema es accesible sin autenticación y sin consentimiento LOPDP registrado; el rol determina de forma exhaustiva el conjunto de funciones visibles (principio de mínimo privilegio).
+- **Flujos alternativos:**
+  - 4a. El trabajador solicita acceder, rectificar o eliminar sus propios datos personales en cualquier momento posterior, desde Ajustes → Mis Datos (derechos ARCO+, RF-23).
+- **Excepciones:**
+  - 2e. Credenciales inválidas: el sistema niega el acceso.
+  - 3e. El usuario no acepta el aviso de tratamiento de datos: el sistema no concede acceso a ningún módulo que trate datos personales (RF-22).
+  - 4e. Un usuario con rol "jornalero" intenta acceder al módulo financiero: el sistema niega el acceso (RF-20).
+  - 4f. La solicitud ARCO+ es de eliminación y existen datos que deben conservarse por obligación legal (por ejemplo, trazabilidad BPA): el sistema informa cuáles datos no pueden eliminarse y por qué (RF-23).
+- **Postcondición:** acceso otorgado solo a las funciones del rol del usuario (RF-20); consentimiento registrado antes de cualquier tratamiento de datos personales (RF-22).
+- **Reglas de negocio:** CU-09 es un Must-have regulatorio: ningún módulo es accesible sin autenticación y sin consentimiento LOPDP registrado; el rol determina de forma exhaustiva el conjunto de funciones visibles.
 
 #### CU-10. Visitas técnicas
-- **Actor(es) principal(es):** Técnico.
+- **Actor principal:** Técnico.
 - **Requisitos relacionados:** RF-21.
-- **Precondición:** la parcela existe.
-- **Postcondición:** visita registrada con hallazgos y, si aplica, marca de seguimiento.
-- **Flujo básico:**
-  1. El Técnico selecciona la parcela a visitar.
-  2. Registra fecha, hallazgos y si requiere seguimiento.
-  3. El sistema guarda la visita y la vincula al historial de cumplimiento de la parcela.
-- **Flujos alternativos / excepciones:** si se encuentra incumplimiento, el sistema sugiere registrar la capacitación o el EPP relacionado (ver CU-11, CU-13).
+- **Precondición:** ninguna previa al registro de la visita.
+- **Flujo principal:**
+  1. El Técnico registra una visita técnica: fecha, hallazgos e informe adjunto.
+  2. El sistema guarda la visita y la asocia al historial de cumplimiento del lote.
+  3. Transcurridos 15 días desde la visita, el sistema genera automáticamente un recordatorio de la siguiente visita.
+- **Flujos alternativos:**
+  - 2a. Se encuentra un incumplimiento: el sistema sugiere registrar la capacitación o el EPP relacionado (ver CU-11, CU-13).
+  - 3a. El recordatorio se genera sin intervención del Técnico, exactamente a los 15 días de la visita registrada (RF-21).
+- **Excepciones:** ninguna adicional a las cubiertas por RF-21.
+- **Postcondición:** recordatorio generado para la siguiente visita (RF-21).
 - **Reglas de negocio:** las visitas técnicas periódicas son la fuente principal de evidencia para la renovación de la certificación BPA (CU-13).
 
 #### CU-11. Riesgo laboral y equipo de protección
 - **Actor(es) principal(es):** Jornalero, Técnico.
 - **Requisitos relacionados:** RF-18, RF-24.
 - **Precondición:** la parcela existe; hay una tarea por asignar o en curso.
-- **Postcondición:** riesgo registrado con EPP sugerido (RF-18); certificado de salud adjunto cuando aplica (RF-24).
-- **Flujo básico:**
+- **Flujo principal:**
   1. Al asignar o recibir una tarea, el sistema verifica si la parcela tiene un riesgo laboral registrado.
   2. Si no está registrado, el Técnico registra tipo de riesgo, severidad y EPP sugerido.
   3. El sistema muestra la advertencia de EPP al trabajador antes de confirmar la asignación.
-- **Flujos alternativos / excepciones:** el Administrador adjunta el certificado de salud del trabajador al registro (RF-24, Res. AGROCALIDAD 183 Art. 33-34).
+- **Flujos alternativos:**
+  - 2a. El Administrador adjunta el certificado de salud del trabajador al registro (RF-24, Res. AGROCALIDAD 183 Art. 33-34).
+- **Excepciones:**
+  - 2e. La tarea es de aplicación de agroquímicos y el trabajador no tiene certificado de salud vigente registrado: el sistema advierte que el certificado no está registrado al intentar asignarle esa tarea (RF-24).
+  - 3e. La tarea se intenta confirmar sin que se haya mostrado la advertencia de EPP: el sistema bloquea la confirmación.
+- **Postcondición:** riesgo registrado con EPP sugerido (RF-18); certificado de salud adjunto cuando aplica (RF-24).
 - **Reglas de negocio:** ninguna tarea sobre una parcela con riesgo registrado puede confirmarse sin que se muestre primero la advertencia de EPP.
 
 #### CU-12. Canal rápido de reporte
-- **Actor(es) principal(es):** Jornalero.
-- **Requisitos relacionados:** RF-17.
+- **Actor principal:** Jornalero.
+- **Requisitos relacionados:** RF-17, RNF-03.
 - **Precondición:** usuario autenticado.
-- **Postcondición:** reporte rápido (chat/voz) registrado y enrutado al módulo correspondiente (actividad, enfermedad, riesgo).
-- **Flujo básico:**
+- **Flujo principal:**
   1. El trabajador abre el canal de reporte rápido.
   2. Graba un mensaje breve (texto o voz) describiendo una situación de campo.
-  3. El sistema almacena el reporte y lo marca para revisión/triage del Técnico.
-- **Flujos alternativos / excepciones:** si el reporte describe una posible plaga cuarentenaria, el sistema sugiere escalarlo como aviso fitosanitario formal (CU-14).
+  3. El sistema almacena el reporte y lo marca para revisión/triage del Técnico, en un máximo de 2 toques desde la pantalla principal.
+- **Flujos alternativos:**
+  - 2a. El reporte describe una posible plaga cuarentenaria: el sistema sugiere escalarlo como aviso fitosanitario formal (ver CU-14, RF-37).
+- **Excepciones:** ninguna adicional a las cubiertas por RF-17.
+- **Postcondición:** reporte rápido (chat/voz) registrado y enrutado al módulo correspondiente (actividad, enfermedad, riesgo).
 - **Reglas de negocio:** el canal rápido de reporte favorece la baja alfabetización digital (RNF-03) y no requiere campos estructurados para iniciar.
 
 #### CU-13. Cumplimiento BPA
-- **Actor(es) principal(es):** Administrador.
+- **Actor principal:** Administrador.
 - **Requisitos relacionados:** RF-25, RF-36, RF-38, RF-39.
 - **Precondición:** visitas técnicas y registros de capacitación disponibles como evidencia de soporte.
-- **Postcondición:** solicitud/renovación de certificación BPA presentada ante AGROCALIDAD (RF-25); registros de capacitación y bioseguridad disponibles para auditoría (RF-36, RF-38, RF-39).
-- **Flujo básico:**
+- **Flujo principal:**
   1. El Administrador revisa el tablero de cumplimiento (vigencia del certificado, capacitaciones pendientes, completitud de la bitácora de bioseguridad).
   2. Si el certificado está por vencer o falta evidencia de soporte, el Administrador solicita la renovación ante AGROCALIDAD.
   3. El sistema adjunta los registros de capacitación (manejo de plaguicidas, primeros auxilios) y la bitácora de ingreso/salida de bioseguridad como evidencia de soporte.
-- **Flujos alternativos / excepciones:** si falta una capacitación obligatoria, el sistema bloquea la solicitud de renovación hasta que se registre (RF-36, RF-39).
-- **Reglas de negocio:** este CU es un Must-have regulatorio (Res. AGROCALIDAD 183): su ausencia era un vacío legal identificado por el método legal-first del equipo.
+- **Flujos alternativos:**
+  - 1a. Cada visita confirmada en CU-10 o CU-14 genera automáticamente un registro en la bitácora de bioseguridad de ingreso/salida, sin que el Administrador deba capturarlo por separado (RF-38).
+- **Excepciones:**
+  - 2e. Falta una capacitación obligatoria: el sistema bloquea la solicitud de renovación hasta que se registre (RF-36, RF-39).
+- **Postcondición:** solicitud/renovación de certificación BPA presentada ante AGROCALIDAD (RF-25); registros de capacitación y bioseguridad disponibles para auditoría (RF-36, RF-38, RF-39).
+- **Reglas de negocio:** este CU es un Must-have regulatorio (Res. AGROCALIDAD 183); su ausencia era un vacío legal identificado por el método legal-first del equipo.
 
 #### CU-14. Aviso de plaga cuarentenaria (p. ej. Moko)
 - **Actor(es) principal(es):** Jornalero, Técnico, Administrador.
 - **Actor(es) secundario(s):** AGROCALIDAD.
 - **Requisitos relacionados:** RF-37, RF-38.
 - **Precondición:** síntomas sospechosos de plaga cuarentenaria detectados en una parcela (Res. AGROCALIDAD 0072, Art. 3.6.1.a).
-- **Postcondición:** aviso registrado y disponible para presentación formal ante AGROCALIDAD.
-- **Flujo básico:**
+- **Flujo principal:**
   1. Un usuario de campo detecta síntomas sospechosos (p. ej. Moko) en una parcela.
   2. Registra el síntoma y la parcela afectada en el sistema.
-  3. El sistema genera un aviso fitosanitario.
-  4. Un Técnico confirma el síntoma.
-  5. El sistema deja el aviso disponible para presentación formal ante AGROCALIDAD y registra el evento de bioseguridad de ingreso/salida de la visita (RF-38).
-- **Flujos alternativos / excepciones:** el Técnico descarta el síntoma tras la inspección; el aviso no se envía, pero queda registrado como descartado, para trazabilidad.
-- **Reglas de negocio:** este CU es un Must-have regulatorio (Res. AGROCALIDAD 0072, Art. 3.6.1.a): su ausencia era un vacío legal identificado por el método legal-first del equipo; ningún aviso se envía a AGROCALIDAD sin la confirmación de un Técnico.
+  3. El sistema genera un aviso fitosanitario con prioridad alta, visible de inmediato para el Administrador.
+  4. Un Técnico confirma el síntoma tras la inspección.
+  5. El sistema deja el aviso disponible para presentación formal ante AGROCALIDAD.
+- **Flujos alternativos:**
+  - 4a. Al confirmarse el síntoma, el sistema registra automáticamente el evento en la bitácora de bioseguridad de ingreso/salida de la visita, sin que el usuario deba capturarlo por separado (RF-38).
+- **Excepciones:**
+  - 4e. El Técnico descarta el síntoma tras la inspección: el aviso no se envía a AGROCALIDAD, pero queda registrado como descartado, para trazabilidad.
+- **Postcondición:** aviso registrado y disponible para presentación formal ante AGROCALIDAD.
+- **Reglas de negocio:** este CU es un Must-have regulatorio (Res. AGROCALIDAD 0072, Art. 3.6.1.a); su ausencia era un vacío legal identificado por el método legal-first del equipo; ningún aviso se envía a AGROCALIDAD sin la confirmación de un Técnico.
 
 Las historias de usuario con criterios de aceptación en Gherkin están en `03_Modelado/00_User_Stories_Acceptance_Criteria.md`, una por cada requisito funcional Must have que la lleva, según la regla de la guía de modelado.
 
