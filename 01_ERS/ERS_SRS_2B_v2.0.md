@@ -871,6 +871,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Método de verificación:** evaluación del modelo sobre un conjunto de prueba etiquetado, ejecutada por script versionado, con matriz de confusión documentada en el repositorio.
 - **Responsable:** equipo técnico (especificación: Danela Arteaga; análisis estadístico: María Escudero).
 - **Frecuencia:** antes de cada despliegue de una versión nueva del modelo, y revisión trimestral en producción.
+- **Dónde interviene:** CU-06, paso 1 del flujo principal (donde el modelo genera la sugerencia); también en la excepción CU-06.1e cuando se usa diagnóstico por imagen (RF-10).
 
 #### RNF-17. Explicabilidad de las recomendaciones de IA (Transparencia)
 - **Descripción:** toda alerta o recomendación generada por el componente de IA (RF-09, RF-10) debe mostrar al usuario al menos un factor que motivó la sugerencia, no solo el resultado, para que el usuario decida con criterio si confirmarla (RF-09) o disputarla (RF-33).
@@ -880,6 +881,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Método de verificación:** revisión de una muestra de alertas generadas en pruebas de aceptación, confirmando la presencia del campo de explicación.
 - **Responsable:** Danela Arteaga (especificación); equipo técnico (implementación).
 - **Frecuencia:** en cada entrega que modifique el motor de alertas.
+- **Dónde interviene:** CU-06, pasos 1 y 2 del flujo principal (donde se genera la justificación y se notifica al usuario marcada como sugerencia).
 
 #### RNF-18. Equidad de desempeño entre cultivos (Equidad)
 - **Descripción:** el componente de IA no debe generar sistemáticamente peor desempeño (más falsos negativos) para un cultivo respecto del otro, dado que cacao y plátano están igualmente en alcance del estudio de caso.
@@ -889,6 +891,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Método de verificación:** evaluación separada del modelo por subconjunto (cacao, plátano) sobre el conjunto de validación, con reporte comparativo versionado.
 - **Responsable:** equipo técnico; revisión independiente por María Escudero (análisis estadístico).
 - **Frecuencia:** en cada reentrenamiento del modelo.
+- **Dónde interviene:** CU-06, paso 1 del flujo principal (la detección del modelo, medida por separado para cacao y plátano).
 
 #### RNF-19. Supervisión humana obligatoria antes de cualquier acción automática (Supervisión humana)
 - **Descripción:** formaliza como requisito transversal lo que RF-09 ya exige en su flujo: ninguna alerta o recomendación de IA puede ejecutar una acción sobre los datos del sistema sin confirmación explícita de una persona.
@@ -898,6 +901,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Método de verificación:** revisión de logs de auditoría y prueba funcional dirigida a intentar forzar una aplicación automática.
 - **Responsable:** equipo técnico; verificación independiente por Kamila Calle (gatekeeper P11).
 - **Frecuencia:** en cada entrega, como parte de las pruebas de aceptación.
+- **Dónde interviene:** CU-06, pasos 3 y 4 del flujo principal (revisión y confirmación humana); también en la excepción CU-06.3e, donde la alerta queda fuera del conjunto aplicado hasta revisión del equipo técnico (RF-33).
 
 #### RNF-20. Monitoreo continuo del desempeño del modelo en producción (Monitoreo)
 - **Descripción:** el sistema debe registrar, para cada alerta de IA, si el usuario la confirmó, la descartó (RF-09) o la disputó (RF-33), para poder calcular el desempeño real del modelo en campo y no solo en el conjunto de prueba.
@@ -907,6 +911,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Método de verificación:** consulta sobre el registro de alertas y su estado, generada por script versionado.
 - **Responsable:** Roselyn Sánchez (infraestructura de datos); Danela Arteaga (especificación).
 - **Frecuencia:** reporte mensual mientras el sistema esté en operación.
+- **Dónde interviene:** CU-06, paso 4 del flujo principal (registro de la decisión); también en el flujo alternativo CU-06.3a (descarte) y en la excepción CU-06.3e (desacuerdo formal, RF-33).
 
 #### RNF-21. Clasificación de riesgo de las recomendaciones de IA (Gestión de riesgo)
 - **Descripción:** cada tipo de alerta o recomendación del componente de IA debe clasificarse por nivel de riesgo (bajo, medio, alto) según el impacto potencial de seguirla sin verificación (por ejemplo, aplicar un agroquímico implica mayor riesgo que una sugerencia de riego), y ese nivel debe ser visible al usuario junto a la alerta.
@@ -916,6 +921,7 @@ Los RF-09, RF-10, RF-31 y RF-33 introducen un componente de IA (alerta de plagas
 - **Método de verificación:** revisión de la tabla de configuración de tipos de alerta, confirmando el campo de nivel de riesgo.
 - **Responsable:** Danela Arteaga (especificación); equipo técnico (implementación).
 - **Frecuencia:** al definir cada nuevo tipo de alerta.
+- **Dónde interviene:** CU-06, paso 2 del flujo principal (donde se notifica la alerta al usuario, junto con su nivel de riesgo visible).
 
 
 #### Clasificación de riesgo del componente de IA y base legal
