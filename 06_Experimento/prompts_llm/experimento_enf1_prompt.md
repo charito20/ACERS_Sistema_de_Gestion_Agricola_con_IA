@@ -60,4 +60,4 @@ ciegas con la rubrica de cinco dimensiones.
 
 ## Cita de referencia
 
-Open Science Framework: https://osf.io (registro previo del protocolo).
+Open Science Framework: https://osf.io (registro del protocolo, posterior al inicio de la recoleccion; ver amenazas a la validez).
