@@ -1003,7 +1003,7 @@ El modelado completo está en `03_Modelado/`, con 32 diagramas en formato `.draw
 
 ### 4.1 Actores y casos de uso
 
-El sistema tiene tres actores humanos, administrador, técnico y trabajador agrícola, y dos actores externos, el motor de recomendaciones de inteligencia artificial y AGROCALIDAD como entidad reguladora. El diagrama general de casos de uso reúne 14 casos de uso en alcance, CU-01 a CU-14, desarrollados de forma completa a continuación con precondiciones, poscondiciones, flujo básico, flujos alternativos y reglas de negocio; la fuente editable de los diagramas está en `03_Modelado/00_Use_Case_Specifications.md` y en los 32 diagramas `.drawio` de `03_Modelado/`. CU-15, la vía de integración con sensores del RF-32, queda documentado como Won't have y no se desarrolla.
+El sistema tiene tres actores humanos, administrador, técnico y trabajador agrícola, y dos actores externos, el motor de recomendaciones de inteligencia artificial y AGROCALIDAD como entidad reguladora. El diagrama general de casos de uso reúne 14 casos de uso en alcance, CU-01 a CU-14, desarrollados de forma completa a continuación con precondiciones, poscondiciones, flujo principal, flujos alternativos y reglas de negocio; la fuente editable de los diagramas está en `03_Modelado/00_Use_Case_Specifications.md` y en los 32 diagramas `.drawio` de `03_Modelado/`. CU-15, la vía de integración con sensores del RF-32, queda documentado como Won't have y no se desarrolla.
 
 | Caso de uso | Requisitos que agrupa |
 |---|---|
