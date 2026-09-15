@@ -1,10 +1,8 @@
-<img width="940" height="1037" alt="image" src="https://github.com/user-attachments/assets/76eb0308-f099-41cf-9fa2-1e87f9e9625b" /># Comprobante de pre-registro en OSF
-
 **Proyecto:** ACERS - Sistema de Gestion Agricola con IA para verde y cacao (Finca Agricola Moreira)
 **Integrante responsable:** Escudero Plaza Maria del Rosario
 **URL persistente del pre-registro:** https://osf.io/7cvhy
 **Fecha de registro:** 2 de agosto de 2026
-**Estado:** Registro publico verificado. Anterior a la tercera ronda de campo (orden correcto).
+**Estado:** Registro publico verificado. Posterior al inicio de la recoleccion el 20 de junio de 2026; ver amenazas a la validez del manuscrito.
 
 ---
 
