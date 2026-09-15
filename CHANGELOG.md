@@ -27,7 +27,7 @@ Etiqueta de línea base: `v2.0-final` (commit `cc8cf4a`)
 - Informe de control de similitud y revisión cruzada entre equipos con carta de respuesta fila por fila (`07_Publicacion/revision_cruzada/`).
 - Presentación de defensa individual y banco de preguntas con respuestas ancladas a artefactos (`09_Defensa/`).
 - Etiqueta de línea base final anotada, alcanzable desde la rama por defecto y publicada en el repositorio remoto.
-- Depósito del paquete de replicación en Zenodo con DOI persistente `10.5281/zenodo.22307881`, registro previo del protocolo en OSF (`https://osf.io/7cvhy`), citado en `CITATION.cff` y en el README, conforme a la compuerta I5 de la guía.
+- Depósito del paquete de replicación en Zenodo con DOI persistente `10.5281/zenodo.22307881`, registro del protocolo en OSF (`https://osf.io/7cvhy`), citado en `CITATION.cff` y en el README, conforme a la compuerta I5 de la guía.
 
 ### Cambiado
 - <!-- ej. "Requisitos no funcionales ajustados tras la auditoría de calidad de la especificación" -->
@@ -43,7 +43,7 @@ Etiqueta de línea base: `v2.0-final` (commit `cc8cf4a`)
 - Modelado UML completo: diagrama de casos de uso general, especificación textual de casos de uso, diagrama de clases refinado, diagramas de secuencia, actividad, estados, componentes y despliegue.
 - Matriz de trazabilidad extendida (Ley → Objetivo → Interesado → EV → RF/RNF/RD → CU → HU → CA → Componente → Mockup).
 - Priorización combinada MoSCoW + Kano + WSJF.
-- Protocolo experimental y registro previo en OSF.
+- Protocolo experimental y registro en OSF.
 - Segunda ronda de trabajo de campo: nuevos consentimientos, entrevistas en video/audio, cuestionario ampliado.
 - LICENSE, CITATION.cff, checksums.sha256, .gitignore.
 ### Cambiado
